@@ -1,0 +1,16 @@
+---
+title: "R is Your Friend Course Assessments"
+---
+
+### Data
+
+- [teacher_evals.csv](data/teacher_evals.csv) (documentation)
+
+### Practice Activities
+
+- [PA X: Something Fun](practice-activities/student-version/paX-fun.qmd)
+
+### Labs
+
+- [Lab X: Even More Fun](labs/student-version/labX-funfunfun.qmd)
+

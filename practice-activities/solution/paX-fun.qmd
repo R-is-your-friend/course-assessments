@@ -1,0 +1,25 @@
+---
+title: "PA X: Super Fun Friend"
+subtitle: "Working with R Objects"
+author: "YOUR NAME "
+format: 
+  html:
+   code-tools: true
+execute:
+  echo: true
+  error: true
+---
+
+Today you will...
+
+**CM WILL ADD MORE OF A STRUCTURE SOON**
+
+
+:::callout-tip
+# Puzzle Answer
+
+The solution to this activity is a secret message! What is it?
+:::
+
+
+

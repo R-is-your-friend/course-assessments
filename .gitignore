@@ -1,0 +1,18 @@
+
+# R project stuff
+*.Rproj
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# big files
+
+*.DS_Store
+
+
+
+
+/.quarto/
+
+

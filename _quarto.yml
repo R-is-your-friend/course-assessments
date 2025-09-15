@@ -1,0 +1,45 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!/solution/"
+
+website:
+  page-navigation: true
+  title: "R is Your Friend"
+  description: "Index of Course Materials"
+  site-url: "https://R-is-your-friend.github.io/course-assessments"
+  repo-url: https://github.com/R-is-your-friend/course-assessments
+  repo-actions: [issue]
+
+  page-footer:
+    right: "This page is built with ❤️️ and [Quarto](https://quarto.org/)."
+    left: "Built by Kelly Bodwin, Charlotte Mann,  Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold."
+    background: "#bfd3e6"
+
+  # sidebar:
+  #   background: "#8c96c6"
+  #   pinned: true
+  #   align: center
+  #   tools:
+  #     - icon: github
+  #       href: https://github.com/manncz/stat-331-s25
+  #       text: "GitHub organization"
+  # 
+  #   style: "docked"
+  #   search: true
+
+format:
+  html:
+    theme:
+      light: [cosmo, style/risfriend.scss]
+      dark: [cosmo, style/risfriend.scss, style/dark.scss]
+    mainfont: "Atkinson Hyperlegible"
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    linkcolor: "#8856a7"
+#    highlight-style: a11y-dark
+
+editor: source
