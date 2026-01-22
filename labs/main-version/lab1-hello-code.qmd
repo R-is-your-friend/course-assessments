@@ -1,0 +1,115 @@
+---
+title: "Lab 1: Hello Code"
+subtitle: "Fun Stuff"
+author: "YOUR NAME "
+toc: true
+format: 
+  html:
+   code-tools: true
+execute:
+  echo: true
+  message: false
+  warning: false
+  error: true
+---
+
+::: callout-caution
+## Seeking Help
+
+Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else's code and *using their code to learn*. Therefore, if you use external resources, I want to know about it. You can "inform" me of any resources you used by **pasting the link to the resource in a code comment next to where you used that resource**.
+
+Additionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but **you are expected to do your own work**. Copying from each other is cheating, and letting people copy from you is also cheating. Please don't do either of those things.
+:::
+
+## Accessing the Lab
+
+You can download the R script for Lab 1 here: [lab-1.R](../student-version/lab-1.R)
+
+## Creating Objects
+
+**Question 1: Create three objects: `x`, `y`, `z`. Each object should have a different numerical value.**
+
+```{r}
+#| label: question-1
+
+
+```
+
+**Question 2: Create an object `a`, that contains the word `"hello"`.**
+
+```{r}
+#| label: question-2
+
+
+```
+
+## Using Simple Functions
+
+In the coursework, we didn't explore how we can use functions to calculate 
+values from our data. Let's give this a go!
+
+One of the best things about R is the **amazing** documentation. You can look 
+up the documentation page (i.e., help page) for any function by typing a `?` in
+front of the function name in your console. For example, if I wanted to know how
+to use the `sqrt()` function (square root), I would type `?sqrt` into my
+console. This would open up a page in the "Help" tab (in the lower right) that 
+looks like this:
+
+![](images/lab-1-documentation.png){fig-alt="A screenshot of the documentation 
+page for the sqrt() function. The documentation page appears in the 'Help' tab in the lower right corner of RStudio. The top of the documentation page says 'Miscellaneous Mathematical Functions'. Below the title there is a Description line that says: abs(x) computes the absolute value of x, sqrt(x) computes the (principal) square root of x. The description states that the names of the square root (sqrt) and absolute value (abs) functions follows the standard for computer languages such as C or Fortran. The Usage line shows abs(x) and sqrt(x), indicating that x is the value input into the function. The Arguments line states that x (the input into the function) needs to be a numeric or complex vector or array."}
+
+The "Description" line *describes* what the function does. The "Usage" line
+shows how the function can be used, including any arguments the function
+accepts. The "Arguments" line states what arguments (inputs) the function 
+requires and if any arguments have default values.
+
+**Question 3: Use the `mean()` function to find the average of `x`, `y`, and `z`.**
+
+```{r}
+#| label: question-3
+
+
+```
+
+::: {.callout-hint}
+You should look up the help file for the `mean()` function by typing `?mean` 
+into your console!
+:::
+
+**Question 4: Use the `seq()` function to make a sequence of numbers from 1 to 10**
+
+```{r}
+#| label: question-4
+
+
+```
+
+::: {.callout-hint}
+You should look up the help file for the `seq()` function by typing `?seq` 
+into your console!
+:::
+
+## Combining Values
+
+Thus far, we've only been working with objects that have a single value 
+(e.g., `x <- 5`). As we progress in our coding, we will almost always be working
+with **vectors** of values instead of single values. So, let's explore how we 
+can make vectors!
+
+**Question 5: Use the `c()` function to combine `x`, `y`, and `z` into a single vector. Save the vector into a new object that has an intuitive name!**
+
+```{r}
+#| label: question-5
+
+
+```
+
+**Question 6: Use the `c()` function again to add `a` into the vector and display the result. You do not need to create an object here!**
+
+```{r}
+#| label: question-6
+
+
+```
+
+**Question 7: What happened when you combined `a` with the vecotr of values? Why do you think that happened?**

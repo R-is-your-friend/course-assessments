@@ -1,0 +1,123 @@
+---
+title: "Lab 1 Solutions: Hello Code"
+subtitle: "Fun Stuff"
+author: "YOUR NAME "
+toc: true
+format: 
+  html:
+   code-tools: true
+execute:
+  echo: true
+  message: false
+  warning: false
+  error: true
+---
+
+::: callout-caution
+## Seeking Help
+
+Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else's code and *using their code to learn*. Therefore, if you use external resources, I want to know about it. You can "inform" me of any resources you used by **pasting the link to the resource in a code comment next to where you used that resource**.
+
+Additionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but **you are expected to do your own work**. Copying from each other is cheating, and letting people copy from you is also cheating. Please don't do either of those things.
+:::
+
+## Creating Objects
+
+**Question 1: Create three objects: `x`, `y`, `z`. Each object should have a different numerical value.**
+
+```{r}
+#| label: question-1
+
+x <- 67
+y <- 13
+z <- 1989
+```
+
+**Question 2: Create an object `a`, that contains the word `"hello"`.**
+
+```{r}
+#| label: question-2
+
+a <- "hello"
+```
+
+## Using Simple Functions
+
+In the coursework, we didn't explore how we can use functions to calculate 
+values from our data. Let's give this a go!
+
+One of the best things about R is the **amazing** documentation. You can look 
+up the documentation page (i.e., help page) for any function by typing a `?` in
+front of the function name in your console. For example, if I wanted to know how
+to use the `sqrt()` function (square root), I would type `?sqrt` into my
+console. This would open up a page in the "Help" tab (in the lower right) that 
+looks like this:
+
+![](../main-version/images/lab-1-documentation.png){fig-alt="A screenshot of the documentation 
+page for the sqrt() function. The documentation page appears in the 'Help' tab in the lower right corner of RStudio. The top of the documentation page says 'Miscellaneous Mathematical Functions'. Below the title there is a Description line that says: abs(x) computes the absolute value of x, sqrt(x) computes the (principal) square root of x. The description states that the names of the square root (sqrt) and absolute value (abs) functions follows the standard for computer languages such as C or Fortran. The Usage line shows abs(x) and sqrt(x), indicating that x is the value input into the function. The Arguments line states that x (the input into the function) needs to be a numeric or complex vector or array."}
+
+The "Description" line *describes* what the function does. The "Usage" line
+shows how the function can be used, including any arguments the function
+accepts. The "Arguments" line states what arguments (inputs) the function 
+requires and if any arguments have default values.
+
+**Question 3: Use the `mean()` function to find the average of `x`, `y`, and `z`.**
+
+```{r}
+#| label: question-3
+
+mean(x, y, z)
+```
+
+**Question 4: Use the `seq()` function to make a sequence of numbers from 1 to 10**
+
+```{r}
+#| label: question-4
+
+## Option 1
+seq(1, 10)
+
+## Option 2
+seq(from = 1, to = 10)
+```
+
+::: {.callout-tip}
+The difference between option 1 and option 2 are the words `from` and `to`. 
+These words are the **names** of the arguments for the `seq()` function. You'll
+notice that these names are not required for the code to run---option 1 obtains
+the same result as option 2 and doesn't have the names. However, including the
+names of the arguments makes your code easier to read and understand. So, it 
+is a good programming practice!
+:::
+
+## Combining Values
+
+Thus far, we've only been working with objects that have a single value 
+(e.g., `x <- 5`). As we progress in our coding, we will almost always be working
+with **vectors** of values instead of single values. So, let's explore how we 
+can make vectors!
+
+**Question 5: Use the `c()` function to combine `x`, `y`, and `z` into a single vector. Save the vector into a new object that has an intuitive name!**
+
+```{r}
+#| label: question-5
+
+num_vec <- c(x, y, z)
+```
+
+**Question 6: Use the `c()` function again to add `a` into the vector and display the result. You do not need to create an object here!**
+
+```{r}
+#| label: question-5
+#| error: true
+
+c(num_vec, a)
+```
+
+**Question 7: What happened when you combined `a` with the vecotr of values? Why do you think that happened?**
+
+When combining `a` with the vector `num_vec` the result was a vector of words. 
+You can tell the values are words because each one has quotation marks around 
+it (e.g., `"67"`). This happened because a vector can only have **one** type of
+data (e.g., numbers). The `c()` function coerced (changed) all the numbers to 
+words because it doesn't know how to change a word (`"hello"`) into a number.  
