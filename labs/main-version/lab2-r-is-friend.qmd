@@ -1,0 +1,7 @@
+---
+title: "Untitled"
+editor: visual
+---
+
+<!-- Give them data / coding scenarios and they pick which structure would be
+most appropriate and then code a small example. -->
