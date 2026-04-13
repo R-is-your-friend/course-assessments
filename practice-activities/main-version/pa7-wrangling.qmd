@@ -1,0 +1,205 @@
+---
+title: "PA 7: Data Wrangling"
+subtitle: "Data Wrangling"
+author: "YOUR NAME "
+format: 
+  html:
+   code-tools: true
+execute:
+  echo: true
+  error: true
+---
+
+
+::: {.callout-tip collapse="true"}
+
+## Dealing with Errors
+
+As you work through this PA, you will encounter some code that does not work as you want it to. Don't despair! **Errors** (when R is unable to run your code) and **bugs** (when the code doesn't do what you hoped) are a natural part of coding. Even the best of the best deal with these problems regularly - learning to track down the issue is a skill that you can learn and practice.
+
+**Errors can be sneaky - check results *often*!**
+
+If a chunk of code runs smoothly without giving you an error or warning this **does not** necessarily mean it accomplished the desired task.
+
+It is a good habit to check the results of your code **every time** you finish a task. In general, I would recommend completing the following tasks **every time** you write a code chunk.
+
+-   Include a comment at the beginning of the code chunk that briefly states the purpose of the chunk. Comments in the code chunks come after `#` signs. These comments will remind later readers---which might be your future self!---what the desired output of the code chunk is.
+
+-   If you created a new object, take a look at it! You can inspect the object by either clicking its name in your *Environment* tab or by typing its name into the console. Make sure it looks about how you expect. **Do not** type code to inspect the object in your Quarto file, as that **is not** code that needs to be saved!
+
+-   If you created or updated a data frame, make sure your edits did what you hoped. Use the *Environment* or the `head()` function to investigate your changes.
+
+**Two heads are better than one!**
+
+It can be hard to spot bugs in code that you wrote.
+
+Work with those around you - if something goes wrong, ask a friend or neighbor to take a peek at your code and see if any glaring errors pop out.
+
+**Explain your code out loud!**
+
+The best way to troubleshoot a sneaky bug is to explain, out loud, each step of your code, and what you hoped to accomplish.
+
+Meet up with classmates to have everyone talk through their code.
+
+If you are alone, try [Rubber Duck Debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging)!
+
+**Google is your friend!**
+
+The whole of the internet is at your disposal! Use it early, use it often.
+
+Some tricks:
+
+-   Copy-paste the exact error message into Google. Chances are, somebody else had a similar problem and got a similar message.
+
+-   Include package names in your search terms. For example, "bar plot in ggplot" is a better search than "bar plot in R".
+
+:::
+
+First, we declare our package dependencies.
+
+```{r setup}
+#| warning: false
+#| message: false
+
+library(tidyverse)
+```
+
+
+Next, we load in the data.
+
+```{r, data}
+colleges <- read_csv("https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=1")
+```
+What information does `read_csv()` output? Did an error occur?
+
+
+Take a look at the variables in your downloaded data by running the following code. This code with the `str` (structure) function reports the data type for each column in the dataset.
+
+```{r}
+str(colleges, give.attr = FALSE)
+```
+
+You should also take a peak at the dataset by double-clicking on it in the environment. 
+
+1. What does one row in the data represent? What are some of the available variables?
+
+## Clean Data
+
+Now we will clean the data. Alas, each of the R chunks in this section will cause an error and / or do the desired task incorrectly. Even the chunks that run without error **are not** correct! You will need to find the mistake and correct it to complete the intended action.
+
+**Step 1:** There are too many variables in this data set. We don't need all of them. 
+
+We only need the following variables:
+
+-   `INSTNM` name of the institution
+-   `CITY` city, `STABBR` state, and `ZIP` ZIP code of the institution
+-   `ADM_RATE` admissions rate
+-   `SAT_AVG` average SAT score
+-   `UGDS` number of undergraduate students
+-    `TUITIONFEE_IN` in- and `TUITIONFEE_OUT` out-of-state tuition
+-   `CONTROL` Whether the school is public or private
+-   `REGION` region of the school.
+
+```{r select-vars}
+colleges_clean <- colleges | >  
+  select(INSTNM, CITY, STABBR, ZIP,
+         ADM_RATE, SAT_AVG, UGDS,
+         TUITIONFEE_IN, TUITIONFEE_OUT
+         CONTROL, REGION) 
+```
+
+**Step 2:** Remove the schools that are for-profit (category 3), keeping public (category 1) and private schools (category 2).
+
+```{r filter-private-profit}
+colleges_clean <- colleges_clean |> 
+  filter(CONTROL == 1, CONTROL == 2)
+```
+
+
+**Step 3:** Adjust the appropriate variables to be numeric, using `as.numeric()`. 
+
+```{r mutate-numeric}
+colleges_clean <- colleges_clean |> 
+  mutate(as.numeric(TUITIONFEE_IN)  = TUITIONFEE_IN,
+         as.numeric(TUITIONFEE_OUT) = TUITIONFEE_OUT,
+         as.numeric(SAT_AVG)        = SAT_AVG,
+         as.numeric(UGDS)           = UGDS,
+         as.numeric(ADM_RATE)       = ADM_RATE) 
+```
+
+**Step 4:** Create a new variable called `TUITION_DIFF` which contains the difference between out-of-state and in-state costs.
+
+```{r mutate-differences}
+colleges_clean |> 
+    TUITION_DIFF = TUITIONFEE_OUT - TUITIONFEE_IN
+```
+
+**Step 5:** Create a new variable called `TOTAL_IN` which contains the total amount of money made from tuition per year. (Note, this is just an approximation by mutliplying the number of undergrads by the in-state tuition)
+
+```{r mutate-total}
+colleges_clean <- colleges_clean |> 
+    select(TOTAL_IN = UGDS x TUITIONFEE_IN)
+```
+
+**Step 6:** Reaname `CONTROL` to `TYPE` and reorder the first variables so that they are in the following order:
+`INSTNM`, `CITY`, `STABBR`, `ZIP`, `REGION`, `TYPE`, `UGDS`, then everything else, I don't care what order they are in.
+
+```{r mutate-total}
+colleges_clean <- colleges_clean |> 
+    select(INSTNM:ZIP, REGION, TYPE, UGDS)
+```
+
+Notice that each of these steps started with
+
+```{r all-together}
+#| eval: false
+colleges_clean <- colleges_clean |> ...
+```
+
+That is pretty redundant! Instead, we could perform all these tasks as one long "pipeline."
+
+**Step 7:** Combine your (fixed) code chunks into a **single** code chunk that carries out all of the steps necessary to clean the data and save it as `colleges_clean`.
+
+::: callout-tip
+Think about coding efficiency -- you **should not** have multiple calls to the **same** function!
+:::
+
+```{r combine}
+# Code combining ALL of your previous steps into ONE pipeline
+```
+
+
+# Part Two: Identify the Mystery College
+
+Wow! Your best friend Margaret has been accepted to her top choice college! Unfortunately, Margaret is a very mysterious person, and she won't tell you directly which college this is. You'll have to use her clues to figure out which school is her dream school.
+
+You should use the **cleaned version** of the data (`colleges_clean`) and these clues in order to find her dream school!
+
+**Clues:**
+
+1.  This college is located in Region 4.
+
+2.  This college's admission rate is above the median rate for the region.
+
+3.  This college charges *more* for out-of-state tuition than in-state tuition.
+
+4.  More than 10,000 undergraduates attend this college.
+
+5.  The total amount of money made from tuition per year for this college is at least $200 million. (Use the `TOTAL_IN` variable you created)
+
+6.  The average SAT score of this college is an odd number.
+
+7.  Out of the two remaining colleges, this college has the **least expensive** tuition. While you could just glance at the result to find this, practice using a dplyr verb to get down to one college.
+
+```{r identify-college}
+# Code to solve for the mystery college using the 7 clues above.
+```
+
+:::callout-tip
+# Puzzle Answer
+
+The solution to this activity is a secret message! What is it?
+:::
+
+
+
