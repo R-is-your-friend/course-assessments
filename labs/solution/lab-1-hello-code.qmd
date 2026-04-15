@@ -108,7 +108,7 @@ num_vec <- c(x, y, z)
 **Question 6: Use the `c()` function again to add `a` into the vector and display the result. You do not need to create an object here!**
 
 ```{r}
-#| label: question-5
+#| label: question-6
 #| error: true
 
 c(num_vec, a)

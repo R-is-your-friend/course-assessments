@@ -8,6 +8,7 @@ format:
 execute:
   echo: true
   error: true
+  eval: false
 ---
 
 ```{r packages}
@@ -21,7 +22,11 @@ uncover a top secret message.
 
 ## Part Zero: Accessing the Practice Activity
 
-<!-- Blurb on downloading the PA?  -->
+Download the template Practice Activity Quarto file here: <a href="student-version/pa-2-indexing.qmd" download>`pa-2-indexing.qmd`</a>
+
+::: callout-important
+Be sure to save the file inside your Week 2 folder of your STAT 1810 folder!
+:::
 
 ## Part One: Debugging
 
@@ -36,6 +41,8 @@ make sure you have accomplished what you wanted to accomplish.
 1.  Create vectors containing the upper case letters, lower case letters, and some punctuation marks.
 
 ```{r}
+#| label: question-1
+
 lower_case <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
                 "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
 
@@ -51,6 +58,8 @@ punctuation <- c(".", ",", "!", "?", "'", """, "(", ")", " ", "-", ";", ":")
 2.  Make **one** long **vector** containing all the symbols.
 
 ```{r}
+#| label: question-2
+
 ## this should be c()
 my_symbols <- cbind(lower_case, upper_case, punctuation)
 
@@ -59,6 +68,8 @@ my_symbols <- cbind(lower_case, upper_case, punctuation)
 3.  Turn the `my_symbols` vector into a data frame, with one column named "Symbol".
 
 ```{r}
+#| label: question-3
+
 ## this should be data.frame
 my_symbols <- dataframe(Symbol = my_symbols)
 ```
@@ -66,6 +77,8 @@ my_symbols <- dataframe(Symbol = my_symbols)
 4.  Find the total number of symbols we have in our data frame.
 
 ```{r}
+#| label: question-4
+
 ## this should be dim() or nrow() since it is a dataframe (2-D)
 len <- length(my_symbols)
 ```
@@ -73,6 +86,8 @@ len <- length(my_symbols)
 5.  Create a new variable in your dataframe that assigns a number to each symbol.
 
 ```{r}
+#| label: question-5
+
 ## this should be : 
 my_symbols$Num <- 1%len
 ```
@@ -82,6 +97,8 @@ my_symbols$Num <- 1%len
 This chunk will load up the encoded secret message as a vector:
 
 ```{r}
+#| label: load-secret-data
+
 ## we should put this dataset somewhere accessible for everyone (shared ownership)
 top_secret <- read_csv("https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1", 
                        col_names = FALSE)$X1
@@ -103,7 +120,8 @@ counterpart (e.g., `x <- x + 12`).
 9.  Square every number.
 
 ```{r}
-## Code to carry out steps 6-9 
+#| label: questions-6-through-9
+
 
 ```
 
@@ -117,6 +135,7 @@ whether the comparison is / is not met. You can then use these `TRUE`s and
 `FALSE`s as numbers, since `TRUE` = `1` and `FALSE` = `0`. 
 
 ```{r}
+#| label: checkpoint-1
 # Write code to verify that there are 352 numbers with values **below** 17
 
 ```
@@ -139,7 +158,7 @@ matrix. *Remember to save the updated column values in place of the old values!*
 15. Turn your matrix back into a vector.
 
 ```{r}
-## Code to carry out steps 10-15
+#| label: questions-10-through-15
 
 
 ```
@@ -152,6 +171,7 @@ that this is true for your `top_secret` object!
 checkpoint, but here you will need to subset values from your vector!
 
 ```{r}
+#| label: checkpoint-2
 # Write code to verify that indices 500 and beyond have values **below** 100
 
 
@@ -164,7 +184,8 @@ checkpoint, but here you will need to subset values from your vector!
 18. Replace all instances of the number 39 with 20. *This requires another relational comparison, but this time it is equality!*
 
 ```{r}
-# Code for steps 16-18
+#| label: questions-16-through-18
+
 
 ```
 
@@ -172,6 +193,7 @@ checkpoint, but here you will need to subset values from your vector!
 have 344 even numbers. *Checking for divisibility uses the modulus operator (`%%`). Remember numbers that are divisible will have a remainder of 0!*
 
 ```{r}
+#| label: checkpoint-3
 # Code to verify how many even numbers are in your top_secret vector
 
 ```
@@ -182,9 +204,11 @@ Use your final vector of numbers as indices for `my_symbols` to discover the
 final message, by running the following code:
 
 ```{r}
+#| label: find-hidden-message
 #| error: true
 
-stringr::str_c(my_symbols$Symbol[top_secret], collapse = "")
+stringr::str_c(my_symbols$Symbol[top_secret], 
+               collapse = "")
 ```
 
 :::callout-tip

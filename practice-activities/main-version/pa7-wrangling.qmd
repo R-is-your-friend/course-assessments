@@ -10,7 +10,6 @@ execute:
   error: true
 ---
 
-
 ::: {.callout-tip collapse="true"}
 
 ## Dealing with Errors
@@ -57,17 +56,19 @@ Some tricks:
 
 First, we declare our package dependencies.
 
-```{r setup}
+```{r}
 #| warning: false
 #| message: false
+#| label: setup
 
 library(tidyverse)
 ```
 
-
 Next, we load in the data.
 
-```{r, data}
+```{r}
+#| label: load-data
+
 colleges <- read_csv("https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=1")
 ```
 What information does `read_csv()` output? Did an error occur?
@@ -76,6 +77,8 @@ What information does `read_csv()` output? Did an error occur?
 Take a look at the variables in your downloaded data by running the following code. This code with the `str` (structure) function reports the data type for each column in the dataset.
 
 ```{r}
+#| label: preview-data
+
 str(colleges, give.attr = FALSE)
 ```
 
@@ -100,7 +103,9 @@ We only need the following variables:
 -   `CONTROL` Whether the school is public or private
 -   `REGION` region of the school.
 
-```{r select-vars}
+```{r}
+#| label: select-vars
+
 colleges_clean <- colleges | >  
   select(INSTNM, CITY, STABBR, ZIP,
          ADM_RATE, SAT_AVG, UGDS,
@@ -110,15 +115,18 @@ colleges_clean <- colleges | >
 
 **Step 2:** Remove the schools that are for-profit (category 3), keeping public (category 1) and private schools (category 2).
 
-```{r filter-private-profit}
+```{r}
+#| label: filter-private-profit
+
 colleges_clean <- colleges_clean |> 
   filter(CONTROL == 1, CONTROL == 2)
 ```
 
-
 **Step 3:** Adjust the appropriate variables to be numeric, using `as.numeric()`. 
 
-```{r mutate-numeric}
+```{r}
+#| label: mutate-numeric
+
 colleges_clean <- colleges_clean |> 
   mutate(as.numeric(TUITIONFEE_IN)  = TUITIONFEE_IN,
          as.numeric(TUITIONFEE_OUT) = TUITIONFEE_OUT,
@@ -129,14 +137,18 @@ colleges_clean <- colleges_clean |>
 
 **Step 4:** Create a new variable called `TUITION_DIFF` which contains the difference between out-of-state and in-state costs.
 
-```{r mutate-differences}
+```{r}
+#| label: mutate-differences
+
 colleges_clean |> 
     TUITION_DIFF = TUITIONFEE_OUT - TUITIONFEE_IN
 ```
 
 **Step 5:** Create a new variable called `TOTAL_IN` which contains the total amount of money made from tuition per year. (Note, this is just an approximation by mutliplying the number of undergrads by the in-state tuition)
 
-```{r mutate-total}
+```{r}
+#| label:  mutate-total
+
 colleges_clean <- colleges_clean |> 
     select(TOTAL_IN = UGDS x TUITIONFEE_IN)
 ```
@@ -144,17 +156,16 @@ colleges_clean <- colleges_clean |>
 **Step 6:** Reaname `CONTROL` to `TYPE` and reorder the first variables so that they are in the following order:
 `INSTNM`, `CITY`, `STABBR`, `ZIP`, `REGION`, `TYPE`, `UGDS`, then everything else, I don't care what order they are in.
 
-```{r mutate-total}
+```{r}
+#| label: rename-and-reorder
+
 colleges_clean <- colleges_clean |> 
     select(INSTNM:ZIP, REGION, TYPE, UGDS)
 ```
 
-Notice that each of these steps started with
+Notice that each of these steps started with:
 
-```{r all-together}
-#| eval: false
-colleges_clean <- colleges_clean |> ...
-```
+`colleges_clean <- colleges_clean |>`
 
 That is pretty redundant! Instead, we could perform all these tasks as one long "pipeline."
 
@@ -164,7 +175,9 @@ That is pretty redundant! Instead, we could perform all these tasks as one long 
 Think about coding efficiency -- you **should not** have multiple calls to the **same** function!
 :::
 
-```{r combine}
+```{r}
+#| label: all-steps-in-one-pipeline
+
 # Code combining ALL of your previous steps into ONE pipeline
 ```
 
@@ -191,8 +204,10 @@ You should use the **cleaned version** of the data (`colleges_clean`) and these 
 
 7.  Out of the two remaining colleges, this college has the **least expensive** tuition. While you could just glance at the result to find this, practice using a dplyr verb to get down to one college.
 
-```{r identify-college}
+```{r}
+#| label: identify-college 
 # Code to solve for the mystery college using the 7 clues above.
+
 ```
 
 :::callout-tip
@@ -200,6 +215,3 @@ You should use the **cleaned version** of the data (`colleges_clean`) and these 
 
 The solution to this activity is a secret message! What is it?
 :::
-
-
-
