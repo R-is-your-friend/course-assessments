@@ -1,11 +1,8 @@
 ---
 title: "Lab 1: Hello Code"
 subtitle: "Fun Stuff"
-author: "YOUR NAME "
 toc: true
-format: 
-  html:
-   code-tools: true
+format: html
 execute:
   echo: true
   message: false

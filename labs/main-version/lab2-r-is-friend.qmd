@@ -1,7 +1,27 @@
 ---
-title: "Untitled"
-editor: visual
+title: "Lab 1: R is Friend"
+toc: true
+format: html
+execute:
+  echo: true
+  message: false
+  warning: false
+  error: true
 ---
 
-<!-- Give them data / coding scenarios and they pick which structure would be
-most appropriate and then code a small example. -->
+<!-- We need to decide what our AI policy is! -->
+
+::: callout-caution
+## Seeking Help
+
+Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else's code and *using their code to learn*. Therefore, if you use external resources, I want to know about it. You can "inform" me of any resources you used by **pasting the link to the resource in a code comment next to where you used that resource**.
+
+Additionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but **you are expected to do your own work**. Copying from each other is cheating, and letting people copy from you is also cheating. Please don't do either of those things.
+:::
+
+## Accessing the Lab
+
+You can download the R script for Lab 1 here: [lab-2.R](../student-version/lab-2.R)
+
+
+<!-- Give them data / coding scenarios and they pick which structure would be most appropriate and then code a small example. -->
