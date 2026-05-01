@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Untitled – R is Your Friend</title>
+<title>Lab 2: R is Friend – R is Your Friend</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -244,8 +279,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#create-an-r-script" id="toc-create-an-r-script" class="nav-link active" data-scroll-target="#create-an-r-script">Create an R Script</a></li>
+  <li><a href="#pismo-beach-water-temperature" id="toc-pismo-beach-water-temperature" class="nav-link" data-scroll-target="#pismo-beach-water-temperature">Pismo Beach Water Temperature</a></li>
+  <li><a href="#do-other-people-like-your-favorite-movies" id="toc-do-other-people-like-your-favorite-movies" class="nav-link" data-scroll-target="#do-other-people-like-your-favorite-movies">Do Other People Like Your Favorite Movies?</a></li>
+  <li><a href="#reviewing-your-work" id="toc-reviewing-your-work" class="nav-link" data-scroll-target="#reviewing-your-work">Reviewing Your Work</a></li>
+  <li><a href="#make-your-code-readable" id="toc-make-your-code-readable" class="nav-link" data-scroll-target="#make-your-code-readable">Make Your Code Readable</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -253,7 +298,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Untitled</h1>
+<h1 class="title">Lab 2: R is Friend</h1>
 </div>
 
 
@@ -270,10 +315,182 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- Give them data / coding scenarios and they pick which structure would be
-most appropriate and then code a small example. -->
+<!-- We need to decide what our AI policy is! -->
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Seeking Help
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and <em>using their code to learn</em>. Therefore, if you use external resources, I want to know about it. You can “inform” me of any resources you used by <strong>pasting the link to the resource in a code comment next to where you used that resource</strong>.</p>
+<p>Additionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but <strong>you are expected to do your own work</strong>. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.</p>
+</div>
+</div>
+<section id="create-an-r-script" class="level2">
+<h2 class="anchored" data-anchor-id="create-an-r-script">Create an R Script</h2>
+<p>Last week, you downloaded a template R script, but you’ve learned how to make one of these from scratch. So, this week you are going to make your own R script for Lab 2!</p>
+<ol type="1">
+<li><p>Create a new R script, give it a descriptive and appropriate file name, and save it in your Week 2 subfolder (of your STAT 1810 folder).</p></li>
+<li><p>In the newly created R script, add a comment to the top that describes the contents of this document. <em>Hint: it’s the code for Lab 2!</em></p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for Lab 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="pismo-beach-water-temperature" class="level2">
+<h2 class="anchored" data-anchor-id="pismo-beach-water-temperature">Pismo Beach Water Temperature</h2>
+<p>It’s Saturday, you have some free time, and you’re trying to decide if it’s warm enough to go swimming at Pismo Beach! You look up the water temperature at Pismo Pier on a surf watch website, but the temperature is only listed in degrees Celsius! What does that even mean???</p>
+<ol start="3" type="1">
+<li>Create a new object to hold to current water temperature in degrees Celsius – it’s listed as 11 degrees. Make sure you use a <strong>descriptive</strong> name for the object!</li>
+</ol>
+<ol start="4" type="1">
+<li>Write one line of code to turn degrees Celsius into degrees Fahrenheit, incorporating the variable you create in #3. What is the water temperature?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the appropriate formula on Google for converting Celsius into degrees Fahrenheit. Pay attention to the order of operations! Parentheses are your friend!</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(temp_C <span class="sc">*</span> (<span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>)) <span class="sc">+</span> <span class="dv">32</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 51.8</code></pre>
+</div>
+</div>
+<p>Since it was too cold to swim on Saturday, you decided to keep track of the water temperature to see what days might have temperatures warm enough for swimming. You observed the following temperatures:</p>
+<ul>
+<li>Sunday: 12°C</li>
+<li>Monday: 13°C</li>
+<li>Tuesday: 16°C</li>
+<li>Wednesday: 14°C</li>
+<li>Thursday: 17°C</li>
+<li>Friday: 16°C</li>
+<li>Saturday: 18°C</li>
+</ul>
+<ol start="5" type="1">
+<li>Create an object to store these seven temperatures. Make sure you use a <strong>descriptive</strong> name for the object!</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember to use the <code>c()</code> function and to separate values with a <code>,</code>.</p>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Create an object to store the seven days these temperatures are associated with. Make sure you use a <strong>descriptive</strong> name for the object!</li>
+</ol>
+<ol start="7" type="1">
+<li>Now that we have temperatures <strong>and</strong> their associated days of the week, let’s combine these into <strong>one</strong> object. Create an object that stores <em>both</em> the temperatures you made in #5 <strong>and</strong> the days you made in #6.</li>
+</ol>
+<ol start="8" type="1">
+<li>Now, let’s change the temperature values from Celsius into Fahrenheit. Be sure to save the updated values back into the original object (like you did in the Practice Activity)! <em>Hint: You should borrow the mathematical steps you used in #4!</em></li>
+</ol>
+<ol start="9" type="1">
+<li>If 60 degrees Fahrenheit is your threshold for swimming in the ocean, how many days had “swimable” temperatures?</li>
+</ol>
+</section>
+<section id="do-other-people-like-your-favorite-movies" class="level2">
+<h2 class="anchored" data-anchor-id="do-other-people-like-your-favorite-movies">Do Other People Like Your Favorite Movies?</h2>
+<p>Let’s use <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a> to find the average rating for five of your favorite movies. Do other people like them as much as you do?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When looking up your favorite movies, you can…</p>
+<ul>
+<li>use the critic rating <strong>or</strong> the general audience rating.</li>
+<li>record the rating as a percent <strong>or</strong> a proportion (e.g., 72% or 0.72).</li>
+</ul>
+<p>For both, make a decision and be consistent!</p>
+</div>
+</div>
+<ol start="10" type="1">
+<li>Create a variable that contains the Rotten Tomatoes ratings for your five favorite movies. Make sure you use a <strong>descriptive</strong> variable name.</li>
+</ol>
+<ol start="11" type="1">
+<li>Create a variable that contains the names of your five favorite movies. Remember the names should go in the same order as the ratings! Make sure you use a <strong>descriptive</strong> variable name.</li>
+</ol>
+<!-- give a vector of movies that are the 1810 professor's favorite movies -->
+<!-- check if any of the movies are in the list of your favorite movie  -->
+<!-- introduce %in%  -->
+<ol start="12" type="1">
+<li>Write a line of code to find the maximum rating for your top five movies. Write a second line of code to find the minimum rating.</li>
+</ol>
+<ol start="13" type="1">
+<li>Write a line of code to find the average rating for your top five movies.</li>
+</ol>
+<p>We’ve asked some of the statistics faculty what their favorite movie is and assembled them into a vector.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>stats_prof_movies <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"10 Things I Hate About You"</span>, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"The Notebook"</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Legally Blonde"</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Eternal Sunshine of the Spotless Mind"</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Mean Girls"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="14" type="1">
+<li>Use the <code>%in%</code> operator to check if any of these movies are included in the top five movies you made in #11. Here is an example of how to use the <code>%in%</code> operator:</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="st">"bananna"</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"kiwi"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<!-- 15. What type of output does the `%in%` operator give you? What do these  -->
+<!-- values represent? -->
+</section>
+<section id="reviewing-your-work" class="level2">
+<h2 class="anchored" data-anchor-id="reviewing-your-work">Reviewing Your Work</h2>
+<ol start="15" type="1">
+<li>What variables have you created during this lab? Using a code comment, list all of the variable names.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Environment pane in the top right corner will show you all the objects you’ve created.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I've created 6 variables: temp_C, temperatures, days, days_temps, top5_ratings, and top5_movies</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="make-your-code-readable" class="level2">
+<h2 class="anchored" data-anchor-id="make-your-code-readable">Make Your Code Readable</h2>
+<ol start="16" type="1">
+<li>Add comments throughout your script that describe what your code is doing.</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -697,7 +914,7 @@ most appropriate and then code a small example. -->
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with ❤️️ and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
