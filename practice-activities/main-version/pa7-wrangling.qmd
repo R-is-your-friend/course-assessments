@@ -2,9 +2,7 @@
 title: "Practice Activity 7: Data Wrangling"
 subtitle: "Data Wrangling"
 author: "YOUR NAME "
-format: 
-  html:
-   code-tools: true
+format: html
 execute:
   echo: true
   error: true
