@@ -1,5 +1,5 @@
 ---
-title: "PA 7: Data Wrangling"
+title: "Practice Activity 7: Data Wrangling"
 subtitle: "Data Wrangling"
 author: "YOUR NAME "
 format: 

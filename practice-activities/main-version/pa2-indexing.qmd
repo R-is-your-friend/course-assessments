@@ -1,5 +1,5 @@
 ---
-title: "PA 2: Working with R Objects"
+title: "Practice Activity 2: Working with R Objects"
 subtitle: "Practice with Indexing"
 author: "YOUR NAME"
 format: 
@@ -22,7 +22,7 @@ uncover a top secret message.
 
 ## Part Zero: Accessing the Practice Activity
 
-Download the template Practice Activity Quarto file here: <a href="student-version/pa-2-indexing.qmd" download>`pa-2-indexing.qmd`</a>
+Download the template Practice Activity Quarto file here: <a href="../student-version/pa-2-indexing.qmd" download>`pa-2-indexing.qmd`</a>
 
 ::: callout-important
 Be sure to save the file inside your Week 2 folder of your STAT 1810 folder!

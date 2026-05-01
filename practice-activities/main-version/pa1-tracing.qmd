@@ -1,0 +1,89 @@
+---
+title: "Practice Activity 1: What is Code?"
+format: html
+editor: source
+---
+
+## Introduction
+
+When we write code, we are giving our computer step-by-step instructions to
+complete a desired task. The computer will do **exactly** what we tell it to. Unfortunately, sometimes what we tell it to do isn't exactly what we meant...
+
+Let's practice giving *specific* instructions in a non-coding setting!
+
+### Code as Instructions; Partners as Computer
+
+1.  Pair up with **one** other student
+2.  Decide who will be Person A and who will be Person B.
+3.  Write explicit instructions for your assigned task, thinking carefully about how to get to the desired result.
+     -  **Person A**: Write step-by-step instructions for creating a **paper airplane** from a single sheet of paper.
+     -  **Person B**: Write step-by-step instructions for creating a **cootie catcher** from a single sheet of paper.
+
+::: callout-tip
+Remember! Your partner does not know the end goal and can only follow your exact instructions. Be careful and precise!
+:::
+
+4.  Now, switch instructions with your partner and **follow them exactly**. 
+[Do not]{.underline} guess the end product and [**do not**]]{.underline} ask for
+clarification. You can only do exactly what is written in the code!
+
+Let's see how good of a paper airplane you collectively made!
+
+5.  **Person A**: Take the final product from your partner (without making any
+changes!) and go to the flying area. How far does your paper airplane fly?
+
+::: callout-tip
+# Practice Activity Submission
+
+How far did your airplane fly (in inches)?
+:::
+
+6.  **Person B**: Take the final product from your partner (without making any
+changes!) and play the game (pick an number and see what you get)! 
+
+::: callout-tip
+# Practice Activity Submission
+
+What did you get in the cootie catcher?
+:::
+
+## Code Tracing
+
+Here is a piece of R code where we define variables and do some basic arithmetic.
+
+```{r}
+#| code-line-numbers: true
+#| eval: false
+
+x <- 3
+y <- 4
+x <- x + y
+x <- x + y
+z <- x * y
+y <- 10
+z < x * y
+```
+
+5.  Fill out the Code Tracing Table for each line of code above.
+
+| Line | `x` | `y`             | `z`             |
+|------|-----|-----------------|-----------------|
+| 1    | 3   | Does not exist. | Does not exist. |
+| 2    |     |                 |                 |
+| 3    |     |                 |                 |
+| 4    |     |                 |                 |
+| 5    |     |                 |                 |
+| 6    |     |                 |                 |
+| 7    |     |                 |                 |
+
+: Code Tracing Table: Enter the value of each variable at each line of the above code.
+
+::: callout-tip
+# Practice Activity Submission
+
+What are the values of `x`, `y`, and `z` at the end of the above code chunk?
+
+<!-- x = 11 -->
+<!-- y = 10 -->
+<!-- z = 44 -->
+:::
