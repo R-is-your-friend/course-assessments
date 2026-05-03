@@ -38,11 +38,9 @@ The best way to troubleshoot a sneaky bug is to explain, out loud, each step of 
 
 Meet up with classmates to have everyone talk through their code.
 
-If you are alone, try [Rubber Duck Debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging)!
-
 **Google is your friend!**
 
-The whole of the internet is at your disposal! Use it early, use it often.
+The whole of the internet is at your disposal! 
 
 Some tricks:
 
@@ -69,6 +67,7 @@ Next, we load in the data.
 
 colleges <- read_csv("https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=1")
 ```
+
 What information does `read_csv()` output? Did an error occur?
 
 
@@ -200,7 +199,7 @@ You should use the **cleaned version** of the data (`colleges_clean`) and these 
 
 6.  The average SAT score of this college is an odd number.
 
-7.  Out of the two remaining colleges, this college has the **least expensive** tuition. While you could just glance at the result to find this, practice using a dplyr verb to get down to one college.
+7.  Out of the two remaining colleges, this college has the **least expensive** tuition (both in and out of state). While you could just glance at the result to find this, practice using a dplyr verb to get down to one college.
 
 ```{r}
 #| label: identify-college 
