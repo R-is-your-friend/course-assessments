@@ -77,8 +77,8 @@ my_symbols <- dataframe(Symbol = my_symbols)
 ```{r}
 #| label: question-4
 
-## this should be dim() or nrow() since it is a dataframe (2-D)
-len <- length(my_symbols)
+## this should be nrow()
+len <- nrows(my_symbols)
 ```
 
 5.  Create a new variable in your dataframe that assigns a number to each symbol.
