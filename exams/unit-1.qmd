@@ -1,0 +1,146 @@
+---
+title: "Unit 1 Exam"
+format: 
+  html:
+    fig-width: 7
+    fig-height: 5
+filters:
+- flourish
+df-print: kable
+theme: flatly
+execute:
+  echo: true
+  message: false
+  warning: false
+  error: true
+---
+
+<!-- create a vector with c() -->
+<!-- create a matrix, data frame, list -->
+<!-- max, min, mean -->
+<!-- indexing -->
+<!-- relational comparisions -->
+<!-- adding logical values -->
+
+Benito Antonio Martínez Ocasio, known professionally as Bad Bunny, is a Puerto
+Rican rapper, actor, singer-songwriter, and record producer. Bad Bunny has
+relased six studio albums since 2018 with multiple obtaining platnum status. 
+
+We've obtained information on each album, specifically what year it was 
+released, the top chart position it reached in the US, how many sales the 
+album had, and the number of tracks in the album. 
+
+```{r}
+#| label: album-info-numeric
+#| echo: true
+
+year_released <- c(2018, 2020,  2020, 2022, 2023, 2025)
+top_us_chart_position <- c(11, 2, 1, 1, 1, 1)
+sales <- c(66000, 1444000, 348000, 3400000, 184000, 2833000)
+no_tracks <- c(15, 20, 16, 23, 22, 17)
+
+```
+
+**1. We would like to combine these four pieces of information into a _single_
+object. Complete the code below to combine these vectors into a matrix.**
+
+```{r}
+#| flourish:
+#| - target: 
+#|     - '   ncol'
+#|     - mask: true
+#|     - style: "text-decoration: underline;"
+#| eval: false
+
+matrix(
+  c(year_released, top_us_chart_position, sales, no_tracks), 
+     ncol = 4
+  )
+```
+**2. Will this code result in any errors? If yes, what error would be printed? 
+If no, why will there be no errors?**
+
+**3. Next we would like to add the album's name and the top award it received. 
+Can we add these vectors as columns in the matrix we made in #1? If yes, how 
+would this be done? If no, why can this not be done?**
+
+```{r}
+#| label: album-info-character
+#| echo: true
+
+albums <- c("X 100pre", 
+            "YHLQMDLG", 
+            "El Último Tour Del Mundo",
+            "Un Verano Sin Ti", 
+            "Nadie Sabe Lo Que Va a Pasar Mañana", 
+            "Debí Tirar Más Fotos")
+  
+awards <- c(NA, 
+            "Best Música Urbana Album, Latin Grammys",
+            "Best Urban Music Album, Grammys", 
+            "Top Latin Album, Billboard Music Awards",
+            "Top Latin Album, Billboard Music Awards",
+            "Album of the Year, Grammys"
+            )
+```
+
+**4. Finally, we are interested in incorporating the tracklist for each album. 
+What structure of object (i.e., vector, dataframe, list, matrix) would we 
+need to use to incorporate this information into the existing album
+information?**
+
+::: columns
+::: {.column width="48%"}
+```{r}
+#| label: album-tracks-1
+
+X <- c("Ni Bien Ni Mal", 
+       "200 MPH", 
+       "¿Quién Tú Eres?", 
+       "Caro", 
+       "Tenemos Que Hablar", 
+       "Otra Noche en Miami", 
+       "Ser Bichote", 
+       "Si Estuviésemos Juntos", 
+       "Solo de Mí", 
+       "Cuando Perriabas", 
+       "La Romana", 
+       "Como Antes", 
+       "RLNDT", 
+       "Estamos Bien", 
+       "Mía")
+```
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{r}
+#| label: album-tracks-2
+
+YHLQMDLG <- c("Si Veo a Tu Mamá", 
+              "La Difícil", 
+              "Pero Ya No", 
+              "La Santa",
+              "Yo Perreo Sola", 
+              "Bichiyal", 
+              "Soliá", 
+              "La Zona", 
+              "Que Malo", 
+              "Vete", 
+              "Ignorantes", 
+              "A Tu Merced", 
+              "Una Vez", 
+              "Safaera", 
+              "25/8", 
+              "Está Cabrón Ser Yo",
+              "Puesto Pa' Guerrial", 
+              "P FKN R", 
+              "Hablamos Mañana", 
+              "<3")
+    
+```
+:::
+:::
+
