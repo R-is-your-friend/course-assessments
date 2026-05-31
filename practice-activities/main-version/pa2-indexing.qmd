@@ -142,9 +142,9 @@ Next, carry out the following steps:
 
 10. Turn your vector of numbers into a matrix with 5 columns.
 
-11. Separately from your top secret numbers, create a vector of all the even
-numbers between 1 and 382. Name it `evens`. That is, `evens` should contain 
-the numbers 2, 4, 6, 8 ..., 382.
+11. Separately from your top secret numbers, use the `seq()` function to create
+a vector of all the even numbers between 1 and 382. Name this vector `evens`. 
+That is, `evens` should contain the numbers 2, 4, 6, 8 ..., 382.
 
 12. Subtract the `evens` vector from the first column of your secret message
 matrix. *Remember to save the updated column values in place of the old values!*

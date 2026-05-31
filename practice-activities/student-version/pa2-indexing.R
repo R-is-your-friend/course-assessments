@@ -81,8 +81,8 @@ top_secret <- read_csv("https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code
 
 
 
-# Question 11: Separately from your top secret numbers, create a vector of all
-# the even numbers between 1 and 382. Name it evens. 
+# Question 11: Separately from your top secret numbers, use the seq() function
+# to create a vector of all the even numbers between 1 and 382. Name it evens. 
 # That is, evens should contain the numbers 2, 4, 6, 8 ..., 382.
 
 
