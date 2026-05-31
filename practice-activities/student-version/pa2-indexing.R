@@ -43,6 +43,8 @@ my_symbols$Num <- 1%len
 # This code will load in the encoded secret message as a vector. 
 # DO NOT CHANGE THIS CODE!
   
+library(tidyverse)
+
 top_secret <- read_csv("https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1", 
                        col_names = FALSE)$X1
 
