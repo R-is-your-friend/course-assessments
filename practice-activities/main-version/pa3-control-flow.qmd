@@ -1,0 +1,11 @@
+---
+title: "Practice Activity 2: Control Flow"
+author: "YOUR NAME"
+format: html
+execute:
+  echo: true
+  error: true
+  eval: false
+---
+
+<!-- use if_else() from dplyr here since case_when() was in the reading -->
