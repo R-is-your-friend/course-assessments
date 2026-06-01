@@ -1,0 +1,8 @@
+---
+title: "Practice Activity 4: Data is Friend"
+format: html
+execute:
+  echo: true
+  error: true
+---
+
