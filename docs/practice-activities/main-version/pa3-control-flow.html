@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="YOUR NAME">
 
-<title>Practice Activity 1: What is Code? – R is Your Friend</title>
+<title>Practice Activity 2: Control Flow – R is Your Friend</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -279,18 +245,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#code-as-instructions-partners-as-computer" id="toc-code-as-instructions-partners-as-computer" class="nav-link" data-scroll-target="#code-as-instructions-partners-as-computer">Code as Instructions; Partners as Computer</a></li>
-  </ul></li>
-  <li><a href="#code-tracing" id="toc-code-tracing" class="nav-link" data-scroll-target="#code-tracing">Code Tracing</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -298,13 +254,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Practice Activity 1: What is Code?</h1>
+<h1 class="title">Practice Activity 2: Control Flow</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>YOUR NAME </p>
+          </div>
+  </div>
     
   
     
@@ -315,161 +277,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>When we write code, we are giving our computer step-by-step instructions to complete a desired task. The computer will do <strong>exactly</strong> what we tell it to. Unfortunately, sometimes what we tell it to do isn’t exactly what we meant…</p>
-<p>Let’s practice giving <em>specific</em> instructions in a non-coding setting!</p>
-<section id="code-as-instructions-partners-as-computer" class="level3">
-<h3 class="anchored" data-anchor-id="code-as-instructions-partners-as-computer">Code as Instructions; Partners as Computer</h3>
-<ol type="1">
-<li>Pair up with <strong>one</strong> other student</li>
-<li>Decide who will be Person A and who will be Person B.</li>
-<li>Write explicit instructions for your assigned task, thinking carefully about how to get to the desired result.
-<ul>
-<li><strong>Person A</strong>: Write step-by-step instructions for creating a <strong>paper airplane</strong> from a single sheet of paper.</li>
-<li><strong>Person B</strong>: Write step-by-step instructions for creating a <strong>cootie catcher</strong> from a single sheet of paper.</li>
-</ul></li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Remember! Your partner does not know the end goal and can only follow your exact instructions. Be careful and precise!</p>
-</div>
-</div>
-<ol start="4" type="1">
-<li>Now, switch instructions with your partner and <strong>follow them exactly</strong>. <u>Do not</u> guess the end product and [<strong>do not</strong>]]{.underline} ask for clarification. You can only do exactly what is written in the code!</li>
-</ol>
-<p>Let’s see how good of a paper airplane you collectively made!</p>
-<ol start="5" type="1">
-<li><strong>Person A</strong>: Take the final product from your partner (without making any changes!) and go to the flying area. How far does your paper airplane fly?</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Practice Activity Submission
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>How far did your airplane fly (in inches)?</p>
-</div>
-</div>
-<ol start="6" type="1">
-<li><strong>Person B</strong>: Take the final product from your partner (without making any changes!) and play the game (pick an number and see what you get)!</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Practice Activity Submission
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>What did you get in the cootie catcher?</p>
-</div>
-</div>
-</section>
-</section>
-<section id="code-tracing" class="level2">
-<h2 class="anchored" data-anchor-id="code-tracing">Code Tracing</h2>
-<p>Here is a piece of R code where we define variables and do some basic arithmetic.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
-<span id="cb1-4"><a href="#cb1-4"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
-<span id="cb1-5"><a href="#cb1-5"></a>z <span class="ot">&lt;-</span> x <span class="sc">*</span> y</span>
-<span id="cb1-6"><a href="#cb1-6"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>z <span class="ot">&lt;-</span> x <span class="sc">*</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ol start="5" type="1">
-<li>Fill out the Code Tracing Table for each line of code above.</li>
-</ol>
-<table class="caption-top table">
-<caption>Code Tracing Table: Enter the value of each variable at each line of the above code.</caption>
-<thead>
-<tr class="header">
-<th>Line</th>
-<th><code>x</code></th>
-<th><code>y</code></th>
-<th><code>z</code></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>3</td>
-<td>Does not exist.</td>
-<td>Does not exist.</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Practice Activity Submission
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>What are the values of <code>x</code>, <code>y</code>, and <code>z</code> at the end of the above code chunk?</p>
-<!-- x = 11 -->
-<!-- y = 10 -->
-<!-- z = 44 -->
-</div>
-</div>
+<!-- use if_else() from dplyr here since case_when() was in the reading -->
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -893,7 +703,7 @@ Tip
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with ❤️️ and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
