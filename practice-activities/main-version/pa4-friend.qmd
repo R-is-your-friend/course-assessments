@@ -6,3 +6,46 @@ execute:
   error: true
 ---
 
+## Intro to Quarto
+
+1. Create and save a Quarto file in your course Rproject directory called `pa4.qmd`.
+
+2. Edit header YAML (fill in with stuff from lab 1)
+
+3. Create an R chunk (add two favorite numbers)
+
+4. Different ways to run code in R chunk
+
+5. Write a sentence in markdown.
+
+6. Add a header above favorite number.
+
+7. Render
+
+## Read in Files
+
+8a. Add setup chunk and load `tidyverse`
+
+8. Use read_csv() to read in "04-magic-data.csv" save it as `emoji-codes`
+
+9. Double click on `emoji-codes` in Environment to look a the dataset. Look down at your console - what code was run?
+- what are the rows and columns?
+- what in the world???
+
+10. Print (i.e. return) the `emoji-codes` data in a new chunk. See what it looks like. We call this returning code "in-line". 
+
+11. To actually see our secret messages, you need to convert the tibble into a nice HTML table. Luckily there is a handy function to do that! `kable()` is part of the `knitr` package. Add knitr to your loaded packages in your setup chunk. `kable(emoji-codes)`
+
+12. Read in hidden sheet in .xlsx file. You need to load the `readxl` package. 
+
+13. `glimpse()` `str()` `head()`
+
+## Code Cracking
+
+14. Use the clues to help you decipher the each of the three emoji riddles. 
+
+
+:::callout-tip
+# Canvas Submission
+What do all of the answers to the riddles have in common?
+:::
