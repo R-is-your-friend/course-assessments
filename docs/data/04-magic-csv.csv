@@ -1,0 +1,9 @@
+phrase_id,order_id,emoji
+1,1,<span style='font-size:32px;'> &#9749; </span>
+1,2,<span style='font-size:32px;'> &#128148; </span>
+2,1,<span style='font-size:32px;'> &#127775; </span>
+2,2,<span style='font-size:32px;'> &#128181; </span>
+3,1,<span style='font-size:32px;'> &#127758; </span>
+3,2,<span style='font-size:32px;'> &#127939; </span>
+3,3,<span style='font-size:32px;'> &#128283; </span>
+3,4,<span style='font-size:32px;'> &#127849; </span>

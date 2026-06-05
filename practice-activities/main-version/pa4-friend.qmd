@@ -1,12 +1,12 @@
 ---
-title: "Practice Activity 4: Data is Friend"
+title: "Practice Activity 4: Emoji Riddles"
 format: html
 execute:
   echo: true
   error: true
 ---
 
-
+[Download 04-magic-csv.csv](../../data/04-magic-csv.csv)
 
 
 ## Intro to Quarto
@@ -16,7 +16,7 @@ execute:
 
 1.  In RStudio, go to `File` \> `New File` \> `Quarto Document...` and click on `Create Empty Document` in the bottom left corner of the dialog box **without changing anything**.
 
-2. Save your new Quarto file in an appropriate directory inside your stat-1810 folder like "pas" or "week-4" and name the file something appropriate like "pa4.qmd".
+2. Save your new Quarto file in an appropriate directory inside your stat-1810 folder like "pas" or "week-4" and name the file something descriptive like "pa4.qmd".
 
 :::callout-tip
 # Good file naming
@@ -60,7 +60,9 @@ d.  Manually add the code chunk by typing ```` ```{r} ````. Make sure to close y
 :::callout-note
 # Different ways to run code in R chunk
 
-Fill in
+You can run code in Quarto the exact same way that you have in R scripts, with a couple more options!
+
+
 :::
 
 5. Write a sentence in Markdown, below your code chunk explaining what the code does. Bold the first word of your sentence and italicize the last word!

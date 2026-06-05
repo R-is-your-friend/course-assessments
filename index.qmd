@@ -1,5 +1,6 @@
 ---
 title: "R is Your Friend Course Materials"
+tbl-colwidths: [5,5,45,10,10,10,10,10]
 ---
 
 ### Schedule
@@ -36,6 +37,11 @@ d <- readxl::read_excel("index.xlsx")
 
 t <- d |>
   gt() |> 
+  text_transform(cells_body(columns = c(preparation)),
+                 fn = function(x){
+                   ifelse(is.na(x), fontawesome::fa('book', fill_opacity = 0.1), 
+                          glue::glue('<a href="{x}"><i class="fa fa-book" style="color: purple;"></i></a>'))
+                 }) |> 
   text_transform(cells_body(columns = c(slides)),
                  fn = function(x){
                    ifelse(is.na(x), fontawesome::fa('laptop', fill_opacity = 0.1), 
@@ -56,7 +62,14 @@ t <- d |>
                    ifelse(is.na(x), fontawesome::fa('clipboard', fill_opacity = 0.1), 
                           glue::glue('<a href="{x}"><i class="fa fa-clipboard" style="color: purple;"></i></a>'))
                  }) |> 
-  sub_missing(columns = topic, missing_text = "") 
+  sub_missing(columns = topic, missing_text = "") |> 
+  cols_align(align = "center",
+             columns = !topic) |> 
+  cols_width(
+    week:day ~ pct(3),
+    topic ~ pct(15),
+    preparation:lab ~ pct(6)
+  )
 
 t <- t |>
   as_raw_html() 
@@ -69,12 +82,5 @@ t <- t |>
 
 cat(t)
 ```
-
-
-
-### Data
-
-- [teacher_evals.csv](data/teacher_evals.csv) (documentation)
-
 
 
