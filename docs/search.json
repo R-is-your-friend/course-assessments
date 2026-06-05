@@ -320,5 +320,40 @@
     "title": "Practice Activity 4: Emoji Riddles",
     "section": "Read in Puzzle Data",
     "text": "Read in Puzzle Data\n\nSetup\n\nDownload the 04-magic-data.csv and 04-clue-data.xlsx and save them in your an appropriate directory inside your stat-1810 directory. Think about where would be most reading the data into your pa4.qmd file!\nIt is best practice to always have a code chunk at the beginning of your quarto document to load packages and read in data. Add a code chunk after the YAML header. Include a label for this chunk called “setup”. Load the tidyverse package in this chunk.\nCreate another level two header at the end of your document called “Crack the Code”\n\n\n\nRead in Codes\n\nBelow that header, create a new R code chunk. Use read_csv() to read in “04-magic-data.csv” save it as emoji-codes.\nDouble click on emoji-codes in Environment to look a the dataset. Look down at your console\n\n\nwhat code was run?\nwhat are the rows and columns?\nwhat in the world is this data???\n\n\nPrint (i.e. return) the emoji-codes data in a new chunk. See what it looks like. We call this returning code “in-line”.\nTo actually see our secret messages, you need to convert the tibble into a nice HTML table. Luckily there is a handy function to do that! kable() is part of the knitr package. Add knitr to your loaded packages in your setup chunk. Create a new code chunk with the following code: kable(emoji-codes).\n\nNow you should see three emoji puzzles!\n\n\nRead in Clues\nTo help you decipher the puzzles, we have also provided clues in the 04-clue-data.xlsx.\nBut being the devious folks that professors are, the clues are in a hidden sheet called “clues”.\n\nUsing read_xlsx(), read in hidden sheet called “clues” from the 04-clue-data.xlsx file and save it as an object called emoji-clues.. Don’t forget to to load the readxl package in your startup chunk!\nExplore the emoji-clues data with glimpse() str() head()."
+  },
+  {
+    "objectID": "data/data-index.html",
+    "href": "data/data-index.html",
+    "title": "Data Referenced in Materials",
+    "section": "",
+    "text": "Week 4:\n\nmagic-csv.csv – created by us!\n\nWeek 5:\n\npenguins(palmerpenguins package)\ntxhousing (ggplot2 package)\n\nWeek 6\n\ncereal (liver package)\ncolleges.csv (where the heck is this data from y’all????? there is just a dropbox link to it)\nteacher_evals.csv (source) (documentation)\n\nWeek 7\n\nSIPRI-Milex-data-1949-2024.xlsx (source) (downloaded 1/3/25)"
+  },
+  {
+    "objectID": "reading/week-5.html",
+    "href": "reading/week-5.html",
+    "title": "Week 5: Data Visualization with ggplot2",
+    "section": "",
+    "text": "Describe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data"
+  },
+  {
+    "objectID": "reading/week-5.html#learning-objectives",
+    "href": "reading/week-5.html#learning-objectives",
+    "title": "Week 5: Data Visualization with ggplot2",
+    "section": "",
+    "text": "Describe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data"
+  },
+  {
+    "objectID": "reading/week-5.html#building-graphics-with-ggplot2",
+    "href": "reading/week-5.html#building-graphics-with-ggplot2",
+    "title": "Week 5: Data Visualization with ggplot2",
+    "section": "2 Building Graphics with ggplot2",
+    "text": "2 Building Graphics with ggplot2\n\n\n\n\n\nBuilding a masterpiece, by Allison Horst\n\n\n\n📖 Required Reading: R4DS Data Visualization 1.1 - 1.5.\n\n\n💻 Suggested Tutorials\n\nBar Charts\nHistograms\nScatterplots\nLine Plots\n\n\n\n📖 Required Reading: R4DS Layers."
+  },
+  {
+    "objectID": "reading/week-5.html#optional-videos",
+    "href": "reading/week-5.html#optional-videos",
+    "title": "Week 5: Data Visualization with ggplot2",
+    "section": "3 Optional Videos",
+    "text": "3 Optional Videos\nIf you like learning and reviewing with videos, these videos created by Dr. Allison Theobold for STAT 331 will review what is covered in the required reading.\n\nggplot2 First Steps\nWhat is an aesthetic?\nWhat is a geometric object?\nGlobal vs. local aesthetics\nAdding a third variable with facets\nWhat is being plotted? Positions"
   }
 ]

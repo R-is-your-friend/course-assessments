@@ -1,0 +1,29 @@
+---
+title: "Data Referenced in Materials"
+---
+
+
+
+
+
+
+Week 4:
+
+- [magic-csv.csv](04-magic-csv.csv) -- created by us!
+
+Week 5:
+
+- `penguins`([palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) package)
+- `txhousing` ([ggplot2](https://ggplot2.tidyverse.org/reference/txhousing.html) package)
+
+
+Week 6
+
+- `cereal` ([liver](https://cran.r-project.org/web/packages/liver/refman/liver.html#cereal) package)
+- colleges.csv (where the heck is this data from y'all????? there is just a dropbox link to it)
+- [teacher_evals.csv](06-teacher-evals.csv)  ([source](https://www.openicpsr.org/openicpsr/project/149801/version/V1/view)) ([documentation](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab3-dplyr/teacher_evals_codebook.pdf))
+
+Week 7
+
+- more `cereal` :) 
+- [SIPRI-Milex-data-1949-2024.xlsx](07-SIPRI-Milex-data-1949-2024.xlsx) ([source](https://www.sipri.org/databases/milex)) (downloaded 1/3/25)
