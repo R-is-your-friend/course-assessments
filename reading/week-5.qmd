@@ -1,0 +1,59 @@
+---
+title: "Week 5: Data Visualization with `ggplot2`"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+
+## Learning Objectives
+
+-   Describe charts using the grammar of graphics
+-   Create layered graphics that highlight multiple aspects of the data
+
+#### 📖 Readings: 45-60 min
+
+#### 💻 Activities: 45-60 min
+
+#### 📽 Optional Videos: 60 min
+
+------------------------------------------------------------------------
+
+## Building Graphics with `ggplot2`
+
+::: column-margin
+![Building a masterpiece, by Allison Horst](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_masterpiece.png)
+:::
+
+
+
+#### 📖 Required Reading: [R4DS Data Visualization 1.1 - 1.5](https://r4ds.hadley.nz/data-visualize.html#introduction).
+
+
+#### 💻 Suggested Tutorials
+
+-   [Bar Charts](https://r-primers.andrewheiss.com/visualize-data/02-bar-charts/)
+-   [Histograms](https://r-primers.andrewheiss.com/visualize-data/03-histograms/)
+-   [Scatterplots](https://r-primers.andrewheiss.com/visualize-data/03-histograms/)
+-   [Line Plots](https://r-primers.andrewheiss.com/visualize-data/06-line-graphs/)
+
+
+#### 📖 Required Reading: [R4DS Layers](https://r4ds.hadley.nz/layers.html).
+
+## Optional Videos
+
+If you like learning and reviewing with videos, these videos created by Dr. Allison Theobold for STAT 331 will review what is covered in the required reading.
+
+- [ggplot2 First Steps](https://www.youtube.com/watch?v=1Jmbfh6GotI)
+- [What is an aesthetic?](https://www.youtube.com/watch?v=oYVuzW_t93w)
+- [What is a geometric object?](https://www.youtube.com/watch?v=pMC2l2YhjMI)
+- [Global vs. local aesthetics](http://youtu.be/y3BWlYa7q-Q?hd=1)
+- [Adding a third variable with facets](http://somup.com/crffbHbH1h)
+- [What is being plotted?](http://somup.com/crffb8bH1x)
+[Positions](http://somup.com/crffFibH1R)

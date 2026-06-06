@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="YOUR NAME">
 
-<title>Practice Activity 7: Data Wrangling – R is Your Friend</title>
+<title>Week 5: Data Visualization with ggplot2 – R is Your Friend</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,64 +23,29 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-dd4909716db3f760ce154d69a8fc1979.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2d888a32c0040c3fc3788d6e3188641b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-dd4909716db3f760ce154d69a8fc1979.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dd4909716db3f760ce154d69a8fc1979.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-2d888a32c0040c3fc3788d6e3188641b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dd4909716db3f760ce154d69a8fc1979.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -287,31 +251,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#clean-data" id="toc-clean-data" class="nav-link active" data-scroll-target="#clean-data">Clean Data</a></li>
-  <li><a href="#part-two-identify-the-mystery-college" id="toc-part-two-identify-the-mystery-college" class="nav-link" data-scroll-target="#part-two-identify-the-mystery-college">Part Two: Identify the Mystery College</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">1</span> Learning Objectives</a></li>
+  <li><a href="#building-graphics-with-ggplot2" id="toc-building-graphics-with-ggplot2" class="nav-link" data-scroll-target="#building-graphics-with-ggplot2"><span class="header-section-number">2</span> Building Graphics with <code>ggplot2</code></a></li>
+  <li><a href="#optional-videos" id="toc-optional-videos" class="nav-link" data-scroll-target="#optional-videos"><span class="header-section-number">3</span> Optional Videos</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Practice Activity 7: Data Wrangling</h1>
-<p class="subtitle lead">Data Wrangling</p>
+<h1 class="title">Week 5: Data Visualization with <code>ggplot2</code></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>YOUR NAME </p>
-          </div>
-  </div>
     
   
     
@@ -322,231 +280,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Dealing with Errors
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>As you work through this PA, you will encounter some code that does not work as you want it to. Don’t despair! <strong>Errors</strong> (when R is unable to run your code) and <strong>bugs</strong> (when the code doesn’t do what you hoped) are a natural part of coding. Even the best of the best deal with these problems regularly - learning to track down the issue is a skill that you can learn and practice.</p>
-<p><strong>Errors can be sneaky - check results <em>often</em>!</strong></p>
-<p>If a chunk of code runs smoothly without giving you an error or warning this <strong>does not</strong> necessarily mean it accomplished the desired task.</p>
-<p>It is a good habit to check the results of your code <strong>every time</strong> you finish a task. In general, I would recommend completing the following tasks <strong>every time</strong> you write a code chunk.</p>
+<section id="learning-objectives" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1</span> Learning Objectives</h2>
 <ul>
-<li><p>Include a comment at the beginning of the code chunk that briefly states the purpose of the chunk. Comments in the code chunks come after <code>#</code> signs. These comments will remind later readers—which might be your future self!—what the desired output of the code chunk is.</p></li>
-<li><p>If you created a new object, take a look at it! You can inspect the object by either clicking its name in your <em>Environment</em> tab or by typing its name into the console. Make sure it looks about how you expect. <strong>Do not</strong> type code to inspect the object in your Quarto file, as that <strong>is not</strong> code that needs to be saved!</p></li>
-<li><p>If you created or updated a data frame, make sure your edits did what you hoped. Use the <em>Environment</em> or the <code>head()</code> function to investigate your changes.</p></li>
+<li>Describe charts using the grammar of graphics</li>
+<li>Create layered graphics that highlight multiple aspects of the data</li>
 </ul>
-<p><strong>Two heads are better than one!</strong></p>
-<p>It can be hard to spot bugs in code that you wrote.</p>
-<p>Work with those around you - if something goes wrong, ask a friend or neighbor to take a peek at your code and see if any glaring errors pop out.</p>
-<p><strong>Explain your code out loud!</strong></p>
-<p>The best way to troubleshoot a sneaky bug is to explain, out loud, each step of your code, and what you hoped to accomplish.</p>
-<p>Meet up with classmates to have everyone talk through their code.</p>
-<p><strong>Google is your friend!</strong></p>
-<p>The whole of the internet is at your disposal!</p>
-<p>Some tricks:</p>
-<ul>
-<li><p>Copy-paste the exact error message into Google. Chances are, somebody else had a similar problem and got a similar message.</p></li>
-<li><p>Include package names in your search terms. For example, “bar plot in ggplot” is a better search than “bar plot in R”.</p></li>
-</ul>
-</div>
-</div>
-</div>
-<p>First, we declare our package dependencies.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Next, we load in the data.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>colleges <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 7058 Columns: 27
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(24): INSTNM, CITY, STABBR, ZIP, ADM_RATE, SAT_AVG, TUITIONFEE_IN, TUITI... dbl
-(3): ...1, CONTROL, REGION
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `` -&gt; `...1`</code></pre>
-</div>
-</div>
-<p>What information does <code>read_csv()</code> output? Did an error occur?</p>
-<p>Take a look at the variables in your downloaded data by running the following code. This code with the <code>str</code> (structure) function reports the data type for each column in the dataset.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(colleges, <span class="at">give.attr =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>spc_tbl_ [7,058 × 27] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
- $ ...1                         : num [1:7058] 1 2 3 4 5 6 7 8 9 10 ...
- $ INSTNM                       : chr [1:7058] "Alabama A &amp; M University" "University of Alabama at Birmingham" "Amridge University" "University of Alabama in Huntsville" ...
- $ CITY                         : chr [1:7058] "Normal" "Birmingham" "Montgomery" "Huntsville" ...
- $ STABBR                       : chr [1:7058] "AL" "AL" "AL" "AL" ...
- $ ZIP                          : chr [1:7058] "35762" "35294-0110" "36117-3553" "35899" ...
- $ CONTROL                      : num [1:7058] 1 1 2 1 1 1 1 1 1 1 ...
- $ ADM_RATE                     : chr [1:7058] "0.9027" "0.9181" "NULL" "0.8123" ...
- $ SAT_AVG                      : chr [1:7058] "929" "1195" "NULL" "1322" ...
- $ TUITIONFEE_IN                : chr [1:7058] "9857" "8328" "6900" "10280" ...
- $ TUITIONFEE_OUT               : chr [1:7058] "18236" "19032" "6900" "21480" ...
- $ UGDS                         : chr [1:7058] "4824" "12866" "322" "6917" ...
- $ REGION                       : num [1:7058] 5 5 5 5 5 5 5 5 5 5 ...
- $ DEP_INC_PCT_H2               : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ MD_INC_WDRAW_2YR_TRANS_YR4_RT: chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ IND_COMP_4YR_TRANS_YR4_RT    : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ SD_EARN_WNE_P10              : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ FEMALE_WDRAW_4YR_TRANS_YR6_RT: chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ LO_INC_COMP_2YR_TRANS_YR3_RT : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ NOLOAN_COMP_ORIG_YR4_RT      : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ OPENADMP                     : chr [1:7058] "2" "2" "1" "2" ...
- $ PELL_COMP_4YR_TRANS_YR3_RT   : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ DEATH_YR2_RT                 : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ NOLOAN_UNKN_ORIG_YR2_RT      : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ NOT1STGEN_WDRAW_ORIG_YR6_RT  : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ HI_INC_YR8_N                 : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ CUML_DEBT_P90                : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...
- $ C100_L4                      : chr [1:7058] "NULL" "NULL" "NULL" "NULL" ...</code></pre>
-</div>
-</div>
-<p>You should also take a peak at the dataset by double-clicking on it in the environment.</p>
-<ol type="1">
-<li>What does one row in the data represent? What are some of the available variables?</li>
-</ol>
-<section id="clean-data" class="level2">
-<h2 class="anchored" data-anchor-id="clean-data">Clean Data</h2>
-<p>Now we will clean the data. Alas, each of the R chunks in this section will cause an error and / or do the desired task incorrectly. Even the chunks that run without error <strong>are not</strong> correct! You will need to find the mistake and correct it to complete the intended action.</p>
-<p><strong>Step 1:</strong> There are too many variables in this data set. We don’t need all of them.</p>
-<p>We only need the following variables:</p>
-<ul>
-<li><code>INSTNM</code> name of the institution</li>
-<li><code>CITY</code> city, <code>STABBR</code> state, and <code>ZIP</code> ZIP code of the institution</li>
-<li><code>ADM_RATE</code> admissions rate</li>
-<li><code>SAT_AVG</code> average SAT score</li>
-<li><code>UGDS</code> number of undergraduate students</li>
-<li><code>TUITIONFEE_IN</code> in- and <code>TUITIONFEE_OUT</code> out-of-state tuition</li>
-<li><code>CONTROL</code> Whether the school is public or private</li>
-<li><code>REGION</code> region of the school.</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges <span class="sc">|</span> <span class="er">&gt;</span>  </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(INSTNM, CITY, STABBR, ZIP,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         ADM_RATE, SAT_AVG, UGDS,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         TUITIONFEE_IN, TUITIONFEE_OUT</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>         CONTROL, REGION) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in parse(text = input): &lt;text&gt;:1:30: unexpected '&gt;'
-1: colleges_clean &lt;- colleges | &gt;
-                                 ^</code></pre>
-</div>
-</div>
-<p><strong>Step 2:</strong> Remove the schools that are for-profit (category 3), keeping public (category 1) and private schools (category 2).</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CONTROL <span class="sc">==</span> <span class="dv">1</span>, CONTROL <span class="sc">==</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error:
-! object 'colleges_clean' not found</code></pre>
-</div>
-</div>
-<p><strong>Step 3:</strong> Adjust the appropriate variables to be numeric, using <code>as.numeric()</code>.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">as.numeric</span>(TUITIONFEE_IN)  <span class="ot">=</span> TUITIONFEE_IN,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">as.numeric</span>(TUITIONFEE_OUT) <span class="ot">=</span> TUITIONFEE_OUT,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">as.numeric</span>(SAT_AVG)        <span class="ot">=</span> SAT_AVG,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">as.numeric</span>(UGDS)           <span class="ot">=</span> UGDS,</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>         <span class="fu">as.numeric</span>(ADM_RATE)       <span class="ot">=</span> ADM_RATE) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in parse(text = input): &lt;text&gt;:2:37: unexpected '='
-1: colleges_clean &lt;- colleges_clean |&gt; 
-2:   mutate(as.numeric(TUITIONFEE_IN)  =
-                                       ^</code></pre>
-</div>
-</div>
-<p><strong>Step 4:</strong> Create a new variable called <code>TUITION_DIFF</code> which contains the difference between out-of-state and in-state costs.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    TUITION_DIFF <span class="ot">=</span> TUITIONFEE_OUT <span class="sc">-</span> TUITIONFEE_IN</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in TUITION_DIFF: The pipe operator requires a function call as RHS (&lt;input&gt;:2:5)</code></pre>
-</div>
-</div>
-<p><strong>Step 5:</strong> Create a new variable called <code>TOTAL_IN</code> which contains the total amount of money made from tuition per year. (Note, this is just an approximation by mutliplying the number of undergrads by the in-state tuition)</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">TOTAL_IN =</span> UGDS x TUITIONFEE_IN)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in parse(text = input): &lt;text&gt;:2:28: unexpected symbol
-1: colleges_clean &lt;- colleges_clean |&gt; 
-2:     select(TOTAL_IN = UGDS x
-                              ^</code></pre>
-</div>
-</div>
-<p><strong>Step 6:</strong> Reaname <code>CONTROL</code> to <code>TYPE</code> and reorder the first variables so that they are in the following order: <code>INSTNM</code>, <code>CITY</code>, <code>STABBR</code>, <code>ZIP</code>, <code>REGION</code>, <code>TYPE</code>, <code>UGDS</code>, then everything else, I don’t care what order they are in.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(INSTNM<span class="sc">:</span>ZIP, REGION, TYPE, UGDS)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error:
-! object 'colleges_clean' not found</code></pre>
-</div>
-</div>
-<p>Notice that each of these steps started with:</p>
-<p><code>colleges_clean &lt;- colleges_clean |&gt;</code></p>
-<p>That is pretty redundant! Instead, we could perform all these tasks as one long “pipeline.”</p>
-<p><strong>Step 7:</strong> Combine your (fixed) code chunks into a <strong>single</strong> code chunk that carries out all of the steps necessary to clean the data and save it as <code>colleges_clean</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Think about coding efficiency – you <strong>should not</strong> have multiple calls to the <strong>same</strong> function!</p>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code combining ALL of your previous steps into ONE pipeline</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<section id="readings-45-60-min" class="level4">
+<h4 class="anchored" data-anchor-id="readings-45-60-min">📖 Readings: 45-60 min</h4>
 </section>
-<section id="part-two-identify-the-mystery-college" class="level1">
-<h1>Part Two: Identify the Mystery College</h1>
-<p>Wow! Your best friend Margaret has been accepted to her top choice college! Unfortunately, Margaret is a very mysterious person, and she won’t tell you directly which college this is. You’ll have to use her clues to figure out which school is her dream school.</p>
-<p>You should use the <strong>cleaned version</strong> of the data (<code>colleges_clean</code>) and these clues in order to find her dream school!</p>
-<p><strong>Clues:</strong></p>
-<ol type="1">
-<li><p>This college is located in Region 4.</p></li>
-<li><p>This college’s admission rate is above the median rate for the region.</p></li>
-<li><p>This college charges <em>more</em> for out-of-state tuition than in-state tuition.</p></li>
-<li><p>More than 10,000 undergraduates attend this college.</p></li>
-<li><p>The total amount of money made from tuition per year for this college is at least $200 million. (Use the <code>TOTAL_IN</code> variable you created)</p></li>
-<li><p>The average SAT score of this college is an odd number.</p></li>
-<li><p>Out of the two remaining colleges, this college has the <strong>least expensive</strong> tuition (both in and out of state). While you could just glance at the result to find this, practice using a dplyr verb to get down to one college.</p></li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code to solve for the mystery college using the 7 clues above.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="activities-45-60-min" class="level4">
+<h4 class="anchored" data-anchor-id="activities-45-60-min">💻 Activities: 45-60 min</h4>
+</section>
+<section id="optional-videos-60-min" class="level4">
+<h4 class="anchored" data-anchor-id="optional-videos-60-min">📽 Optional Videos: 60 min</h4>
+<hr>
+</section>
+</section>
+<section id="building-graphics-with-ggplot2" class="level2 page-columns page-full" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="building-graphics-with-ggplot2"><span class="header-section-number">2</span> Building Graphics with <code>ggplot2</code></h2>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_masterpiece.png" class="img-fluid figure-img"></p>
+<figcaption>Building a masterpiece, by Allison Horst</figcaption>
+</figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Puzzle Answer
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The solution to this activity is a secret message! What is it?</p>
-</div>
-</div>
+</div></div><section id="required-reading-r4ds-data-visualization-1.1---1.5." class="level4">
+<h4 class="anchored" data-anchor-id="required-reading-r4ds-data-visualization-1.1---1.5.">📖 Required Reading: <a href="https://r4ds.hadley.nz/data-visualize.html#introduction">R4DS Data Visualization 1.1 - 1.5</a>.</h4>
+</section>
+<section id="suggested-tutorials" class="level4">
+<h4 class="anchored" data-anchor-id="suggested-tutorials">💻 Suggested Tutorials</h4>
+<ul>
+<li><a href="https://r-primers.andrewheiss.com/visualize-data/02-bar-charts/">Bar Charts</a></li>
+<li><a href="https://r-primers.andrewheiss.com/visualize-data/03-histograms/">Histograms</a></li>
+<li><a href="https://r-primers.andrewheiss.com/visualize-data/03-histograms/">Scatterplots</a></li>
+<li><a href="https://r-primers.andrewheiss.com/visualize-data/06-line-graphs/">Line Plots</a></li>
+</ul>
+</section>
+<section id="required-reading-r4ds-layers." class="level4">
+<h4 class="anchored" data-anchor-id="required-reading-r4ds-layers.">📖 Required Reading: <a href="https://r4ds.hadley.nz/layers.html">R4DS Layers</a>.</h4>
+</section>
+</section>
+<section id="optional-videos" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="optional-videos"><span class="header-section-number">3</span> Optional Videos</h2>
+<p>If you like learning and reviewing with videos, these videos created by Dr.&nbsp;Allison Theobold for STAT 331 will review what is covered in the required reading.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=1Jmbfh6GotI">ggplot2 First Steps</a></li>
+<li><a href="https://www.youtube.com/watch?v=oYVuzW_t93w">What is an aesthetic?</a></li>
+<li><a href="https://www.youtube.com/watch?v=pMC2l2YhjMI">What is a geometric object?</a></li>
+<li><a href="http://youtu.be/y3BWlYa7q-Q?hd=1">Global vs.&nbsp;local aesthetics</a></li>
+<li><a href="http://somup.com/crffbHbH1h">Adding a third variable with facets</a></li>
+<li><a href="http://somup.com/crffb8bH1x">What is being plotted?</a> <a href="http://somup.com/crffFibH1R">Positions</a></li>
+</ul>
 
 
 </section>
