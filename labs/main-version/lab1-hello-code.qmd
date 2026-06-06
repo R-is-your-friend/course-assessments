@@ -1,6 +1,6 @@
 ---
 title: "Lab 1: Hello Code"
-subtitle: "Fun Stuff"
+subtitle: "Instructions"
 toc: true
 format: html
 execute:
