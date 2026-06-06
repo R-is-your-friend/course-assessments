@@ -1,7 +1,14 @@
 ---
 title: "Lab 2: R is Friend"
+subtitle: "Fun Stuff"
+author: "Instructions"
 toc: true
 format: html
+execute:
+  echo: true
+  message: false
+  warning: false
+  error: true
 ---
 
 <!-- We need to decide what our AI policy is! -->
@@ -72,7 +79,6 @@ swimming. You observed the following temperatures:
 - Thursday: 17°C
 - Friday: 16°C
 - Saturday: 18°C
-
 
 5. Create an object to store these seven temperatures.  Make sure you use a
 **descriptive** name for the object!
@@ -176,8 +182,8 @@ use a **descriptive** variable name.
 
 top5_movies <- c("Never Been Kissed",
                  "Fire Island",
-                 "Sister Act", 
-                 "Portrait of a Lady on Fire", 
+                 "Singing in the Rain", 
+                 "In the Mood for Love", 
                  "Sound of Music")
 ```
 
