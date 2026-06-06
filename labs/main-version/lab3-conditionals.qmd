@@ -1,0 +1,15 @@
+---
+title: "Lab 3: Conditionals"
+# subtitle: "Fun Stuff"
+author: "Instructions"
+toc: true
+format: 
+  html:
+   code-tools: true
+execute:
+  echo: true
+  message: false
+  warning: false
+  error: true
+---
+

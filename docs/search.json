@@ -123,7 +123,7 @@
     "href": "labs/main-version/lab2-r-is-friend.html",
     "title": "Lab 2: R is Friend",
     "section": "",
-    "text": "Seeking Help\n\n\n\nPart of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it. You can “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things."
+    "text": "CautionSeeking Help\n\n\n\nPart of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it. You can “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things."
   },
   {
     "objectID": "labs/main-version/lab2-r-is-friend.html#create-an-r-script",
