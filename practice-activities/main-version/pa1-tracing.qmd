@@ -4,8 +4,6 @@ format: html
 editor: source
 ---
 
-## Introduction
-
 When we write code, we are giving our computer step-by-step instructions to
 complete a desired task. The computer will do **exactly** what we tell it to. Unfortunately, sometimes what we tell it to do isn't exactly what we meant...
 
