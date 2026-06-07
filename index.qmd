@@ -3,9 +3,24 @@ title: "R is Your Friend Course Materials"
 tbl-colwidths: [5,5,45,10,10,10,10,10]
 ---
 
-### Schedule
+## {{< fa calendar title="An calendar" >}} Schedule
 
-{{< fa calendar title="An calendar" >}}  This page contains an easy reference the topics, content, and assignments for a semester.
+This page contains an easy reference the topics, content, and assignments for a
+semester.
+
+{{< fa book >}} **Prepare** – readings and videos to complete before class
+
+{{< fa laptop >}} **Slides** - presentation materials for class discussion / 
+warm-up before the activity / lab
+
+{{< fa clipboard >}} **Handout** - materials to accompany class discussion / 
+warm-up before the activity / lab
+
+{{< fa users >}} **Activity** – activities done during class
+
+{{< fa pencil >}} **Lab** – end of week assignments
+
+<!-- {{< fa pencil >}} **Exams** – end of unit practice exams -->
 
 <!--
 To update the calendar, add the relative path to the material's .qmd file
@@ -30,12 +45,29 @@ d <- readxl::read_excel("index.xlsx")
 
 ```
 
-
 ```{r}
 #| label: format-calendar-entries
 #| echo: false
 
 t <- d |>
+  select(-`practice exam`) |> 
+  mutate(
+    #week = if_else(is.na(week), "", week), 
+    week = str_c("Week ", week),
+    day = str_c("Day ", day),
+    unit = recode_values(unit, 
+                         0 ~ "Unit 0", 
+                         1 ~ "Unit 1", 
+                         2 ~ "Unit 2", 
+                         3 ~ "Unit 3"
+                         ), 
+  unit = fct_relevel(unit,
+                     "Unit 0", 
+                     "Unit 1", 
+                     "Unit 2",
+                     "Unit 3"
+                     )
+  ) |> 
   gt() |> 
   text_transform(cells_body(columns = c(preparation)),
                  fn = function(x){
@@ -69,9 +101,70 @@ t <- d |>
     week:day ~ pct(3),
     topic ~ pct(15),
     preparation:lab ~ pct(6)
-  )
-
-t <- t |>
+  ) |> 
+  tab_row_group(
+  label = "Unit 0",
+  rows = (unit == "Unit 0"), 
+  id = "Unit 0"
+  ) |> 
+  tab_row_group(
+  label = "Unit 1",
+  rows = (unit == "Unit 1"), 
+  id = "Unit 1"
+  ) |> 
+  tab_row_group(
+  label = "Unit 2",
+  rows = (unit == "Unit 2"), 
+  id = "Unit 2"
+  ) |> 
+  tab_row_group(
+  label = "Unit 3",
+  rows = (unit == "Unit 3"), 
+  id = "Unit 3"
+  ) |> 
+  cols_hide(unit) |> 
+  tab_style(
+    style = list(
+    cell_fill(color = "gray95"),
+    cell_text(size = "x-large")
+    ),
+    locations = cells_row_groups(groups = c("Unit 0",
+                                            "Unit 1",
+                                            "Unit 2",
+                                            "Unit 3"
+                                            )
+                                 )
+    ) |>
+  row_group_order(groups = c("Unit 0",
+                             "Unit 1",
+                             "Unit 2",
+                             "Unit 3")
+                  ) |> 
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(columns = topic)
+    ) |> 
+   tab_style(
+     style = list(
+      cell_fill(color = "#E8EEF6")
+      ),
+    locations = cells_body(
+      rows = str_detect(topic, pattern = "^Project [0-9]+ Due$")
+    )
+  ) |> 
+  tab_options(
+    row_group.padding = px(8)
+  ) |> 
+  cols_label(
+    week = "",
+    topic = "",
+    day = "",
+    preparation = md("**Prepare**"),
+    slides = md("**Slides**"), 
+    handout = md("**Handout**"),
+    activity = md("**Activity**"),
+    lab = md("**Lab**")
+    ) |> 
   as_raw_html() 
 ```
 
