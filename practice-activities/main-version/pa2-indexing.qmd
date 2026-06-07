@@ -1,7 +1,6 @@
 ---
 title: "Practice Activity 2: Working with R Objects"
 subtitle: "Practice with Indexing"
-author: "YOUR NAME"
 format: html
 execute:
   echo: true

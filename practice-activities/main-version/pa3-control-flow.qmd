@@ -1,6 +1,6 @@
 ---
 title: "Practice Activity 2: Control Flow"
-author: "YOUR NAME"
+subtitle: "Practice with Loops & Conditionals"
 format: html
 execute:
   echo: true

@@ -1,7 +1,6 @@
 ---
 title: "Lab 3: Conditionals"
-# subtitle: "Fun Stuff"
-author: "Instructions"
+subtitle: "Instructions"
 toc: true
 format: 
   html:
