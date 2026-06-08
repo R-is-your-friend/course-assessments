@@ -1,0 +1,16 @@
+---
+title: "Control Flow"
+format: 
+  revealjs:
+      theme: [simple, ../style.scss]
+      auto-stretch: false
+editor: source
+---
+
+<!-- [20 minutes] Activity: Give half the students one prompt and half another -- sketch diagram and trade for coding/implementation -->
+
+
+<!-- [20 minutes] Activity: Give half the students one prompt and half another -- sketch diagram and trade for coding/implementation -->
+
+<!-- Something like FizzBuzz -->
+
