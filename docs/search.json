@@ -635,5 +635,103 @@
     "title": "Writing Vector Functions",
     "section": "Dynamic Lookup",
     "text": "Dynamic Lookup\n\nFunctions look for objects FIRST in the function environment and SECOND in the global environment.\n\n\n\nIf the object doesn’t exist in either, the code will give an error.\n\n\nadd_two &lt;- function() {\n  return(x + 2)\n}\n\nadd_two()\n\n [1] 17 18 19 20 21 22 23 24 25 26 27\n\n\n\n\n\nIf it doesn’t exist in the function environment, then it will look in the global environment\n\n\nx &lt;- 10\n\nadd_two()\n\n[1] 12\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt is not good practice to rely on global environment objects inside a function!"
+  },
+  {
+    "objectID": "slides/01-tracing.html#creating-objects",
+    "href": "slides/01-tracing.html#creating-objects",
+    "title": "Creating Objects & Tracing Code",
+    "section": "Creating Objects",
+    "text": "Creating Objects\nnumbers characters"
+  },
+  {
+    "objectID": "slides/01-tracing.html#help-file",
+    "href": "slides/01-tracing.html#help-file",
+    "title": "Creating Objects & Tracing Code",
+    "section": "Help File",
+    "text": "Help File"
+  },
+  {
+    "objectID": "slides/01-tracing.html#an-easier-sequence-of-numbers",
+    "href": "slides/01-tracing.html#an-easier-sequence-of-numbers",
+    "title": "Creating Objects & Tracing Code",
+    "section": "An Easier Sequence of Numbers",
+    "text": "An Easier Sequence of Numbers"
+  },
+  {
+    "objectID": "slides/01-tracing.html#combining-objects",
+    "href": "slides/01-tracing.html#combining-objects",
+    "title": "Creating Objects & Tracing Code",
+    "section": "Combining Objects",
+    "text": "Combining Objects"
+  },
+  {
+    "objectID": "slides/01-tracing.html#code-tracing",
+    "href": "slides/01-tracing.html#code-tracing",
+    "title": "Creating Objects & Tracing Code",
+    "section": "Code Tracing",
+    "text": "Code Tracing\nIs a great tool for growing your intuition of what is happening in a computer program.\n\n\n\nx &lt;- 10\ny &lt;- seq(from = 1, to = 10, by = 2)\nx &lt;- x + y\nz &lt;- c(x, y)\n\n\nFill out the Code Tracing Table for each line of code above."
+  },
+  {
+    "objectID": "slides/01-tracing.html#creating-small-objects",
+    "href": "slides/01-tracing.html#creating-small-objects",
+    "title": "Creating Objects & Tracing Code",
+    "section": "Creating Small Objects",
+    "text": "Creating Small Objects\nThis week you’ve learned a bit about making objects in R. Let’s refresh our brains on how this works!\nPencil out how you would write code to create…\n\nan object called year that contains the value 2020\nan object called name that contains the name of your high school"
+  },
+  {
+    "objectID": "slides/01-tracing.html#creating-larger-objects",
+    "href": "slides/01-tracing.html#creating-larger-objects",
+    "title": "Creating Objects & Tracing Code",
+    "section": "Creating Larger Objects",
+    "text": "Creating Larger Objects\nBut what if we wanted to create a sequence of numbers, not just 2020. Well, we could use the c() function to concatenate a set of numbers together.\n\nWrite down how you would expect to use the c() function to make a sequence of numbers from 2015 to 2025.\n\n\n\nc(\n  \n \n  \n   \n  \n)"
+  },
+  {
+    "objectID": "slides/01-tracing.html#creating-larger-objects-1",
+    "href": "slides/01-tracing.html#creating-larger-objects-1",
+    "title": "Creating Objects & Tracing Code",
+    "section": "Creating Larger Objects",
+    "text": "Creating Larger Objects\nLet’s check to see if your intuition is right!\n\n\nc(2015, \n  2016, \n  2017, \n  2018, \n  2019, \n  2020, \n  2021, \n  2022, \n  2023, \n  2024, \n  2025)\n\n [1] 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025\n\n\n\n\n\nThat took a lot of typing! Maybe there is an easier way."
+  },
+  {
+    "objectID": "slides/01-tracing.html#the-seq-function---help-file",
+    "href": "slides/01-tracing.html#the-seq-function---help-file",
+    "title": "Creating Objects & Tracing Code",
+    "section": "The seq() Function - Help File",
+    "text": "The seq() Function - Help File\n\n\nWe can access the help file for a function by typing ?function-name in the Console.\n\nThis is what comes up when we type ?seq in the Console."
+  },
+  {
+    "objectID": "slides/01-tracing.html#the-seq-function---implementation",
+    "href": "slides/01-tracing.html#the-seq-function---implementation",
+    "title": "Creating Objects & Tracing Code",
+    "section": "The seq() Function - Implementation",
+    "text": "The seq() Function - Implementation\nUsing the help file for seq(), pencil out how you would expect to use this function to make a sequence of numbers from 2015 to 2025.\n\n\n\n\n\n\n \n\nseq(from = 2015, to = 2025, by = 1)\n\n [1] 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025"
+  },
+  {
+    "objectID": "handouts/01-tracing.html",
+    "href": "handouts/01-tracing.html",
+    "title": "Week 1: Creating Objects & Tracing Code",
+    "section": "",
+    "text": "Pencil out how you would write code to create…\n\n\nan object called year that contains the value 2020\nan object called name that contains the name of your high school\n\n  \n\nWrite down how you would expect to use the c() function to make a sequence of numbers from 2015 to 2025.\n\n\nc(\n  \n \n  \n   \n  \n)\n\n\n\n\nUsing the help file for seq(), pencil out how you would expect to use this function to make a sequence of numbers from 2015 to 2025.\n\n\n\n\n\n\n\n\nFill out the Code Tracing Table for each line of code in the slides.\n\n\n\n\nLine\nx\ny\nz\n\n\n\n\n1\n10\nDoes not exist.\nDoes not exist.\n\n\n2\n\n\n\n\n\n3\n\n\n\n\n\n4"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa12-functions.html",
+    "href": "practice-activities/main-version/pa12-functions.html",
+    "title": "PA 11: Writing Functions",
+    "section": "",
+    "text": "You will write several small functions, then use them to unscramble a message. Many of the functions have been started for you below, but none of them are complete as is.\nThis task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to produce the best product possible, you will need to use the skills of each member of your group.\n\n1. Write code to manipulate the vector of numbers nums. Your code should divide each element in the vector by the smallest element and round the results to the nearest whole number. Hint: This code should not be a function.\n\nnums &lt;- 3:12\n\n2. Turn your code from Q1 into a function called divide_and_round(). Fill in the skeleton code below.\n\ndivide_and_round &lt;- function(vec){\n  \n}\n\n3. Test your function by running the code below.\n\ntest &lt;- c(5:10, NA)\ndivide_and_round(test)\n\nNULL\n\n\n\n4. Write code to manipulate the vector of numbers nums. Your code should, for each element, return TRUE if the number is NOT divisible by 9 or 12, and return FALSE otherwise. Hint: This code should not be a function.\n5. Turn your code from Q4 into a function called no_nines_or_twelves().\n6. Test your function by running the code below.\n\ntest &lt;- c(seq(from = 15, to = 60, by = 5), \n          NA)\n\nno_nines_or_twelves(test)\n\nError in `no_nines_or_twelves()`:\n! could not find function \"no_nines_or_twelves\"\n\n\n\n7. Write code to manipulate the vector of numbers nums. Your code should generate the sequence of indices of nums using seq_along(). You should then determine which indices are even numbers using %%.\n\nnums &lt;- 9:18\n\n8. Turn you code from Q7 into a function called every_other(). This function should take in a vector and return every other value in the vector. The function should include an optional argument called start which lets you choose where to start skipping. That is, if start = 1, the function returns the 1st, 3rd, 5th, etc. values and if start = 2, the function returns the 2nd, 4th, 6th, etc. values. Fill in the skeleton below.\n\nevery_other &lt;- function(vec){\n  \n  if(start == 2){\n\n    vec[]\n  } else if(start == 1) {\n    \n    vec[]\n  }\n  \n}\n\n9. Test your function by running the code below.\n\ntest &lt;- 1:10\n\nevery_other(test)\n\nError in `start == 2`:\n! comparison (==) is possible only for atomic and list types\n\nevery_other(test, start = 2)\n\nError in `every_other()`:\n! unused argument (start = 2)\n\n\n\n10. Write code to manipulate the vector of numbers nums. Your code should, compute the running total at each position using the cumsum() function, and check where the cumulative sum is larger than 25.\n\nnums &lt;- 1:15\n\n11. Turn your code from Q10 into a function called shorten(). The function should take in a vector, drop all values BEFORE the cumulative sum is greater than a provided number, and return the remaining values from the original vector.\n\nshorten &lt;- function(vec, sum){\n\n  # Calculate the cumulative sum\n\n  # Find the indices that exceed the limit\n  \n  # Keep indices from first exceedance onward\n  \n}\n\n12. Test your function by running the code below.\n\ntest &lt;- 20:50 \nshorten(test, 350)\n\nNULL\n\n\n13. Once you have written your four functions correctly, run the following code:\n\nmy_vec &lt;- c(39, 1.87, 48, 11, 8, 45, 21, 5, 12, 33, 9, 11, 108,\n            4, 18, 5, 16, 17, 8, 48, 27, 24, 4, 22, 12, 27, 23,\n            46, 42, 35, 15, 34, 36, 26, 18, 10, 18.21, 72.04,\n            36.9, 41.81, 29, 89.75, 34.03, 20.18, 48.74, 15.76,\n            31.86, 83.6, 43.55, 39.99, 23.55, 8.54, 24.71, 22.02,\n            9.71, 62.14, 35.46, 16.61, 15.66, 21.29, 30.52,\n            201.07, 45.81, 7.85, 30.13, 34.14, 22.62, 10.2, 6.02,\n            30.12, 10.64, 31.72, 24.57, 14.43, 43.37, 89.93,\n            44.72, 51.32, 13.62, 45.56, 22.96, 7.05, 29.99, 41.38,\n            26.59, 23.04, 19.82, 50.73, 39.56, 43.79, 30.22, 85.85,\n            5.78, 78.85, 29.52, 66.27, 44.06, 27.28, 24.43, 64.32,\n            3.35, 67.45, 46.72, 48.44, 48.65, 33.3, 40.28, 19.04)\n\nmy_vec &lt;- every_other(my_vec, start = 2)\n\nError in `every_other()`:\n! unused argument (start = 2)\n\n# Should have 54 elements! \n\nmy_vec &lt;- divide_and_round(my_vec)\n\nmy_vec &lt;- every_other(my_vec, start = 1)\n\nError in `every_other()`:\n! unused argument (start = 1)\n\n# Should have 27 elements!\n\nmy_vec &lt;- shorten(my_vec, 350)\n# Should have 12 elements!\n\nmy_vec &lt;- my_vec[no_nines_or_twelves(my_vec)]\n\nError in `no_nines_or_twelves()`:\n! could not find function \"no_nines_or_twelves\"\n\n# Should have 6 elements! \n\nmy_vec &lt;- sort(my_vec)\n\nmy_vec\n\nNULL\n\n\n\nCanvas Submission\nIf you have done everything correctly, your final vector will be six numbers long. Google these six numbers to find a TV show as your final answer and submit to Canvas."
+  },
+  {
+    "objectID": "handouts/12-handout.html",
+    "href": "handouts/12-handout.html",
+    "title": "Week 12: Writing Your Own Functions",
+    "section": "",
+    "text": "Write a function named add_two() that will add 2 to whatever number is input.\n\n\nIn your function what is the:\n\n\nFunction Name:\nFunction Argument(s):\nFunction Body:\nFunction Return:\n\n\nWhat if we wanted to write a more general function, named add_something(). The function would take two inputs:\nx the vector to add to\nsomething the value to add to x\n\nHow would your function change?\n\nAre your arguments optional or required?\nWhat is the difference?\nWhat are the two ways you can return a value in a function?\nWhich method for returning a value makes more sense to you?\n\n\n\n\nFill in the code below to create a function named above_average(). The function should keep only the elements of x greater than the mean.\n\n\nabove_average &lt;- function(x) {\n\n  \n  \n  \n}\n\n\nWrite down the steps you would need to create a function named every_third() that takes in a vector and returns every third element from that vector (i.e., indices 1, 4, 7, 10, etc.).\n\nThink about:\n\nWhat inputs the function should take.\nHow to identify which positions in the vector are “every third.”\nHow to select those elements from the vector."
+  },
+  {
+    "objectID": "handouts/12-handout.html#function-practice",
+    "href": "handouts/12-handout.html#function-practice",
+    "title": "Week 12: Writing Your Own Functions",
+    "section": "",
+    "text": "Fill in the code below to create a function named above_average(). The function should keep only the elements of x greater than the mean.\n\n\nabove_average &lt;- function(x) {\n\n  \n  \n  \n}\n\n\nWrite down the steps you would need to create a function named every_third() that takes in a vector and returns every third element from that vector (i.e., indices 1, 4, 7, 10, etc.).\n\nThink about:\n\nWhat inputs the function should take.\nHow to identify which positions in the vector are “every third.”\nHow to select those elements from the vector."
   }
 ]

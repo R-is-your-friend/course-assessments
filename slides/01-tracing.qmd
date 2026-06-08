@@ -1,0 +1,158 @@
+---
+title: "Creating Objects & Tracing Code"
+format: 
+  revealjs:
+      theme: [simple, style.scss]
+      auto-stretch: false
+editor: source
+---
+
+## Creating Small Objects
+
+This week you've learned a bit about making objects in R. Let's refresh our
+brains on how this works!
+
+Pencil out how you would write code to create...
+
+- an object called `year` that contains the value `2020`
+- an object called `name` that contains the name of your high school
+
+## Creating Larger Objects
+
+But what if we wanted to create a *sequence* of numbers, not just `2020`. 
+Well, we could use the `c()` function to **concatenate** a set of numbers 
+together. 
+
+</br>
+
+Write down how you would expect to use the `c()` function to make a sequence
+of numbers from `2015` to `2025`.
+
+::: columns
+::: {.column width="75%"}
+```{r}
+#| echo: true
+#| label: guess-c-usage
+#| code-line-numbers: false
+#| eval: false
+
+c(
+  
+ 
+  
+   
+  
+)
+```
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="20%"}
+```{r}
+countdown::countdown(minutes = 2)
+```
+:::
+:::
+
+## Creating Larger Objects 
+
+Let's check to see if your intuition is right!
+
+. . .
+
+```{r}
+#| echo: true
+#| label: create-vec-of-nums
+#| code-line-numbers: false
+
+c(2015, 
+  2016, 
+  2017, 
+  2018, 
+  2019, 
+  2020, 
+  2021, 
+  2022, 
+  2023, 
+  2024, 
+  2025)
+```
+
+. . .
+
+</br>
+
+That took a lot of typing! Maybe there is an easier way. 
+
+## The `seq()` Function - Help File
+
+::: columns
+::: {.column width="30%"}
+We can access the help file for a function by typing `?function-name` in the 
+Console. 
+
+</br>
+
+This is what comes up when we type `?seq` in the Console.
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="68%"}
+![](images/01-seq-help-file.png){fig-alt="A screenshot of the help file for the seq function, which appears in the Help tab when you type `?seq` in the Console. The title of the help file says 'Sequence Generation', followed by a description of what the function does, 'Generate regular sequences.' The next section says 'Usage' and provides examples of how the seq function and its relatives (seq.int, seq_along, seq_len) are used. The final section is titled 'Arguments' and provides descriptions of each argument to the seq function. The key arguments are from, to, and by. The from argument declares where the sequence should start from, the to argument declares what value the sequence should go up to, and the by argument declares what increment the numbers should go by."}
+:::
+:::
+
+## The `seq()` Function - Implementation
+
+Using the help file for `seq()`, pencil out how you would expect to use 
+this function to make a sequence of numbers from `2015` to `2025`. 
+
+```{r}
+countdown::countdown(minutes = 2)
+```
+
+. . .
+
+</br>
+</br>
+
+```{r}
+#| echo: true
+#| label: sequence-verify
+#| code-line-numbers: false
+
+seq(from = 2015, to = 2025, by = 1)
+```
+
+## Code Tracing
+
+Is a great tool for growing your intuition of what is happening in a computer
+program. 
+
+<!-- add a number to a sequence -->
+<!-- add a character to a sequence -->
+
+```{r}
+#| code-line-numbers: true
+#| eval: false
+#| echo: true
+
+x <- 10
+y <- seq(from = 1, to = 10, by = 2)
+x <- x + y
+z <- c(x, y)
+```
+
+</br>
+
+Fill out the Code Tracing Table for each line of code above.
+
+```{r}
+countdown::countdown(minutes = 5)
+```
