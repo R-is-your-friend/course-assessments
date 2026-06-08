@@ -1,5 +1,5 @@
 ---
-title: "Week 7: Writing Your Own (Vector) Functions"
+title: "Week 12: Writing Your Own Functions"
 format: docx
 execute: 
   eval: false
