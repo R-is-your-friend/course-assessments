@@ -2,7 +2,7 @@
 title: "Control Flow"
 format: 
   revealjs:
-      theme: [simple, ../style.scss]
+      theme: [simple, style.scss]
       auto-stretch: false
 editor: source
 ---
