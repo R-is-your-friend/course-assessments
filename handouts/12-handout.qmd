@@ -1,6 +1,6 @@
 ---
 title: "Week 12: Writing Your Own Functions"
-format: docx
+format: html
 execute: 
   eval: false
 ---
