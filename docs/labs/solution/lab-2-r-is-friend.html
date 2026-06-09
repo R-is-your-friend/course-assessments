@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Week 5: Data Visualization with ggplot2 – R is Your Friend</title>
+<title>Lab 2: R is Friend – R is Your Friend</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,29 +17,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-33ac72d7f20070f30db0ca28148d8f73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aac29be8fd630ab10ef3f7e4267d51c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-33ac72d7f20070f30db0ca28148d8f73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-33ac72d7f20070f30db0ca28148d8f73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-aac29be8fd630ab10ef3f7e4267d51c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-33ac72d7f20070f30db0ca28148d8f73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -236,26 +271,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
-   
-  <ul>
-<li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">1</span> Learning Objectives</a></li>
-  <li>
-<a href="#building-graphics-with-ggplot2" id="toc-building-graphics-with-ggplot2" class="nav-link" data-scroll-target="#building-graphics-with-ggplot2"><span class="header-section-number">2</span> Building Graphics with <code>ggplot2</code></a>
-  <ul>
-<li><a href="#required-reading-r4ds-data-visualization-1.1---1.5." id="toc-required-reading-r4ds-data-visualization-1.1---1.5." class="nav-link" data-scroll-target="#required-reading-r4ds-data-visualization-1.1---1.5.">📖 Required Reading: R4DS Data Visualization 1.1 - 1.5.</a></li>
-  <li><a href="#suggested-tutorials" id="toc-suggested-tutorials" class="nav-link" data-scroll-target="#suggested-tutorials">💻 Suggested Tutorials</a></li>
-  <li><a href="#required-reading-r4ds-layers." id="toc-required-reading-r4ds-layers." class="nav-link" data-scroll-target="#required-reading-r4ds-layers.">📖 Required Reading: R4DS Layers.</a></li>
-  </ul>
-</li>
-  <li><a href="#optional-videos" id="toc-optional-videos" class="nav-link" data-scroll-target="#optional-videos"><span class="header-section-number">3</span> Optional Videos</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Week 5: Data Visualization with <code>ggplot2</code>
-</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Lab 2: R is Friend</h1>
+<p class="subtitle lead">Instructions</p>
 </div>
 
 
@@ -269,61 +291,102 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header><section id="learning-objectives" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="learning-objectives">
-<span class="header-section-number">1</span> Learning Objectives</h2>
-<ul>
-<li>Describe charts using the grammar of graphics</li>
-<li>Create layered graphics that highlight multiple aspects of the data</li>
-</ul>
-<p>In this week’s reading, we have:</p>
-<div class="columns">
-<div class="column" style="width:48%;">
-<section id="readings-60-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
-</section><section id="activities-30-min" class="level4"><h4 class="anchored" data-anchor-id="activities-30-min">🏋🏾‍♂️ Activities: 30 min</h4>
-</section>
-</div><div class="column" style="width:4%;">
-
-</div><div class="column" style="width:48%;">
-<section id="videos-0-min" class="level4"><h4 class="anchored" data-anchor-id="videos-0-min">📽 Videos: 0 min</h4>
-</section><section id="tutorials-0-min" class="level4"><h4 class="anchored" data-anchor-id="tutorials-0-min">💻 Tutorials: 0 min</h4>
-</section>
+</header><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># This document contains code for Lab 2</span></span>
+<span></span>
+<span><span class="co"># Make a temperature variable</span></span>
+<span><span class="va">temp_C</span> <span class="op">&lt;-</span> <span class="fl">11</span></span>
+<span></span>
+<span><span class="co"># Math to transform from Celsius to Fahrenheit</span></span>
+<span><span class="op">(</span><span class="va">temp_C</span> <span class="op">*</span> <span class="op">(</span><span class="fl">9</span><span class="op">/</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fl">32</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 51.8</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Temperatures for the entire week</span></span>
+<span><span class="va">temperatures</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, </span>
+<span>                  <span class="fl">13</span>, </span>
+<span>                  <span class="fl">16</span>, </span>
+<span>                  <span class="fl">14</span>, </span>
+<span>                  <span class="fl">17</span>, </span>
+<span>                  <span class="fl">16</span>, </span>
+<span>                  <span class="fl">18</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Days of the week</span></span>
+<span><span class="va">days</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sunday"</span>, </span>
+<span>          <span class="st">"Monday"</span>, </span>
+<span>          <span class="st">"Tuesday"</span>, </span>
+<span>          <span class="st">"Wednesday"</span>, </span>
+<span>          <span class="st">"Thursday"</span>, </span>
+<span>          <span class="st">"Friday"</span>, </span>
+<span>          <span class="st">"Saturday"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Make a dataframe of temperatures and their corresponding days</span></span>
+<span><span class="va">days_temps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>days <span class="op">=</span> <span class="va">days</span>, </span>
+<span>                         temps <span class="op">=</span> <span class="va">temperatures</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Convert temps to Fahrenheit</span></span>
+<span><span class="va">days_temps</span><span class="op">$</span><span class="va">temps</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">days_temps</span><span class="op">$</span><span class="va">temps</span> <span class="op">*</span> <span class="op">(</span><span class="fl">9</span><span class="op">/</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fl">32</span></span>
+<span></span>
+<span><span class="co"># Days with swimable temperatures</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">days_temps</span><span class="op">$</span><span class="va">temps</span> <span class="op">&gt;=</span> <span class="fl">60</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
 </div>
-<hr>
-<p></p>
-</section><section id="building-graphics-with-ggplot2" class="level2 page-columns page-full" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="building-graphics-with-ggplot2">
-<span class="header-section-number">2</span> Building Graphics with <code>ggplot2</code>
-</h2>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_masterpiece.png" class="img-fluid figure-img"></p>
-<figcaption>Building a masterpiece, by Allison Horst</figcaption></figure>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Movie Ratings</span></span>
+<span></span>
+<span><span class="co"># Ratings for my top 5 movies</span></span>
+<span><span class="va">top5_ratings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">86</span>, </span>
+<span>                  <span class="fl">44</span>, </span>
+<span>                  <span class="fl">94</span>, </span>
+<span>                  <span class="fl">70</span>, </span>
+<span>                  <span class="fl">91</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># My top 5 movies</span></span>
+<span><span class="va">top5_movies</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Never Been Kissed"</span>,</span>
+<span>                 <span class="st">"Fire Island"</span>,</span>
+<span>                 <span class="st">"Singing in the Rain"</span>, </span>
+<span>                 <span class="st">"In the Mood for Love"</span>, </span>
+<span>                 <span class="st">"Sound of Music"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Min rating</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">top5_ratings</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 44</code></pre>
 </div>
-</div></div><section id="required-reading-r4ds-data-visualization-1.1---1.5." class="level4"><h4 class="anchored" data-anchor-id="required-reading-r4ds-data-visualization-1.1---1.5.">📖 Required Reading: <a href="https://r4ds.hadley.nz/data-visualize.html#introduction">R4DS Data Visualization 1.1 - 1.5</a>.</h4>
-</section><section id="suggested-tutorials" class="level4"><h4 class="anchored" data-anchor-id="suggested-tutorials">💻 Suggested Tutorials</h4>
-<ul>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/02-bar-charts/">Bar Charts</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/03-histograms/">Histograms</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/03-histograms/">Scatterplots</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/06-line-graphs/">Line Plots</a></li>
-</ul></section><section id="required-reading-r4ds-layers." class="level4"><h4 class="anchored" data-anchor-id="required-reading-r4ds-layers.">📖 Required Reading: <a href="https://r4ds.hadley.nz/layers.html">R4DS Layers</a>.</h4>
-</section></section><section id="optional-videos" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="optional-videos">
-<span class="header-section-number">3</span> Optional Videos</h2>
-<p>If you like learning and reviewing with videos, these videos created by Dr.&nbsp;Allison Theobold for STAT 331 will review what is covered in the required reading.</p>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=1Jmbfh6GotI">ggplot2 First Steps</a></li>
-<li><a href="https://www.youtube.com/watch?v=oYVuzW_t93w">What is an aesthetic?</a></li>
-<li><a href="https://www.youtube.com/watch?v=pMC2l2YhjMI">What is a geometric object?</a></li>
-<li><a href="http://youtu.be/y3BWlYa7q-Q?hd=1">Global vs.&nbsp;local aesthetics</a></li>
-<li><a href="http://somup.com/crffbHbH1h">Adding a third variable with facets</a></li>
-<li>
-<a href="http://somup.com/crffb8bH1x">What is being plotted?</a> <a href="http://somup.com/crffFibH1R">Positions</a>
-</li>
-</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Max rating</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">top5_ratings</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 94</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Mean rating</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">top5_ratings</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 77</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Stats professor movies</span></span>
+<span><span class="va">stats_prof_movies</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"10 Things I Hate About You"</span>, </span>
+<span>                       <span class="st">"The Notebook"</span>, </span>
+<span>                       <span class="st">"Legally Blonde"</span>, </span>
+<span>                       <span class="st">"Eternal Sunshine of the Spotless Mind"</span>, </span>
+<span>                       <span class="st">"Mean Girls"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check if my movies are included in the stats professor movies</span></span>
+<span><span class="va">top5_movies</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">stats_prof_movies</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## These logical values tell me if each of my top movies (from the top5_movies vector)</span></span>
+<span><span class="co">## is included in the vector stats_prof_movies</span></span>
+<span><span class="co">## Since they are FALSE, we don't seem to like the same movies!</span></span>
+<span></span>
+<span></span>
+<span><span class="co">## In this script, I've created 7 objects: </span></span>
+<span><span class="co">## temp_C, temperatures, days, days_temps, top5_ratings, stats_prof_movies, and top5_movies</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -743,7 +806,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with ❤️️ and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

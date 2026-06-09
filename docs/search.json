@@ -289,30 +289,30 @@
   {
     "objectID": "reading/week-5.html",
     "href": "reading/week-5.html",
-    "title": "Week 5: Data Visualization with ggplot2",
+    "title": "Week 5: Data Visualization with ggplot2\n",
     "section": "",
-    "text": "Describe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data"
+    "text": "Describe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data\n\nIn this week’s reading, we have:"
   },
   {
     "objectID": "reading/week-5.html#learning-objectives",
     "href": "reading/week-5.html#learning-objectives",
-    "title": "Week 5: Data Visualization with ggplot2",
+    "title": "Week 5: Data Visualization with ggplot2\n",
     "section": "",
-    "text": "Describe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data"
+    "text": "Describe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data\n\nIn this week’s reading, we have:"
   },
   {
     "objectID": "reading/week-5.html#building-graphics-with-ggplot2",
     "href": "reading/week-5.html#building-graphics-with-ggplot2",
-    "title": "Week 5: Data Visualization with ggplot2",
-    "section": "2 Building Graphics with ggplot2",
-    "text": "2 Building Graphics with ggplot2\n\n\n\n\n\nBuilding a masterpiece, by Allison Horst\n\n\n\n📖 Required Reading: R4DS Data Visualization 1.1 - 1.5.\n\n\n💻 Suggested Tutorials\n\nBar Charts\nHistograms\nScatterplots\nLine Plots\n\n\n\n📖 Required Reading: R4DS Layers."
+    "title": "Week 5: Data Visualization with ggplot2\n",
+    "section": "\n2 Building Graphics with ggplot2\n",
+    "text": "2 Building Graphics with ggplot2\n\n\n\n\n\nBuilding a masterpiece, by Allison Horst\n\n📖 Required Reading: R4DS Data Visualization 1.1 - 1.5.\n💻 Suggested Tutorials\n\nBar Charts\nHistograms\nScatterplots\nLine Plots\n📖 Required Reading: R4DS Layers."
   },
   {
     "objectID": "reading/week-5.html#optional-videos",
     "href": "reading/week-5.html#optional-videos",
-    "title": "Week 5: Data Visualization with ggplot2",
-    "section": "3 Optional Videos",
-    "text": "3 Optional Videos\nIf you like learning and reviewing with videos, these videos created by Dr. Allison Theobold for STAT 331 will review what is covered in the required reading.\n\nggplot2 First Steps\nWhat is an aesthetic?\nWhat is a geometric object?\nGlobal vs. local aesthetics\nAdding a third variable with facets\nWhat is being plotted? Positions"
+    "title": "Week 5: Data Visualization with ggplot2\n",
+    "section": "\n3 Optional Videos",
+    "text": "3 Optional Videos\nIf you like learning and reviewing with videos, these videos created by Dr. Allison Theobold for STAT 331 will review what is covered in the required reading.\n\nggplot2 First Steps\nWhat is an aesthetic?\nWhat is a geometric object?\nGlobal vs. local aesthetics\nAdding a third variable with facets\n\nWhat is being plotted? Positions"
   },
   {
     "objectID": "practice-activities/solution/paX-fun.html",
@@ -809,14 +809,14 @@
     "href": "reading/week-4.html",
     "title": "Week 4: Data is Friend",
     "section": "",
-    "text": "Define the observational unit (rows) and variables (columns) of rectangular data\nIdentify variable types given rectangular data\nExplore rectangular data quickly in R (with code and with RStudio visually)\nRead rectangular data with various delimiters into R using an appropriate readr or readxl function\nDefine relative versus absolute file paths\nIntegrate R code and Markdown text in Quarto documents"
+    "text": "In this week’s reading, we have:"
   },
   {
     "objectID": "reading/week-4.html#learning-objectives",
     "href": "reading/week-4.html#learning-objectives",
     "title": "Week 4: Data is Friend",
-    "section": "",
-    "text": "Define the observational unit (rows) and variables (columns) of rectangular data\nIdentify variable types given rectangular data\nExplore rectangular data quickly in R (with code and with RStudio visually)\nRead rectangular data with various delimiters into R using an appropriate readr or readxl function\nDefine relative versus absolute file paths\nIntegrate R code and Markdown text in Quarto documents"
+    "section": "\n1 Learning Objectives",
+    "text": "1 Learning Objectives\n\nDefine the observational unit (rows) and variables (columns) of rectangular data\nIdentify variable types given rectangular data\nExplore rectangular data quickly in R (with code and with RStudio visually)\nRead rectangular data with various delimiters into R using an appropriate readr or readxl function\nDefine relative versus absolute file paths\nIntegrate R code and Markdown text in Quarto documents"
   },
   {
     "objectID": "reading/week-4.html#preparation",
@@ -831,5 +831,12 @@
     "title": "Week 3: Control Flow",
     "section": "\n1 Control Flow",
     "text": "1 Control Flow\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nWhat a conditional statement is\nHow to create a simple conditional statement with if () and else\n\nHow to series of conditional statements with else if ()\n\nWhat it means for a function to be vectorized\nHow to make a vectorized conditional statement\nWhere to access help on an R function\nRecognize when to use a for () loop instead of a while () loop\nUnderstand how to index a loop\n\n\n\n📖 Required Reading: Control Flow\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\n\nWhich of the following is the correct way to format a conditional statement?\n\n\n\n\n\nif (num &lt; 100){\n  print(num)\n}\nelse {\n  print(\"banana\")\n}\n\n\n\n\n\nif (num &lt; 100){\n  print(num)\n} else {\n  print(\"banana\")\n}\n\n\n\n\n\nif (num &lt; 100){ print(num) } else { print(\"banana\") }\n\n\n\n\n\nif (num &lt; 100) print(num) else print(\"banana\") \n\n\nWith if + else you have ____ condition(s) to check and ____ possible outcome(s).\nIn the IRS tax brackets we had ____ possible outcomes and ____ conditions that needed to be checked.\nIn general, if you have \\(n\\) possible outcomes, you will always have ____ conditions to check.\nA function is “vectorized” if it accepts a [vector / matrix / dataframe / list] with length [equal to / greater than / less than] 1 as an input.\nWhich of the following options would open the help file for the mean() function? Select all that apply!\n\n\nType mean in the Console\nType ?mean in the Console\nSearch for mean in the search bar of the Packages tab\nSearch for mean in the search bar of the Help tab\n\n\nThe .unmatched argument of case_when() throws an error when ____.\nThe .default argument of case_when() sets a default value for inputs that ____.\nTrue or false, you can use both the .unmatched and .default arguments. Meaning you can set .unmatched =  \"error\" and .default = \"zero\"?\nMatch the loop to its correct setting.\n\n\n\nfor() Loop\n\nwhile() Loop\n\n\n\nRuns until a condition is not met (FALSE)\nRuns a set number of times"
+  },
+  {
+    "objectID": "labs/solution/lab-2-r-is-friend.html",
+    "href": "labs/solution/lab-2-r-is-friend.html",
+    "title": "Lab 2: R is Friend",
+    "section": "",
+    "text": "# This document contains code for Lab 2\n\n# Make a temperature variable\ntemp_C &lt;- 11\n\n# Math to transform from Celsius to Fahrenheit\n(temp_C * (9/5)) + 32\n\n[1] 51.8\n\n# Temperatures for the entire week\ntemperatures &lt;- c(12, \n                  13, \n                  16, \n                  14, \n                  17, \n                  16, \n                  18)\n\n# Days of the week\ndays &lt;- c(\"Sunday\", \n          \"Monday\", \n          \"Tuesday\", \n          \"Wednesday\", \n          \"Thursday\", \n          \"Friday\", \n          \"Saturday\")\n\n# Make a dataframe of temperatures and their corresponding days\ndays_temps &lt;- data.frame(days = days, \n                         temps = temperatures)\n\n# Convert temps to Fahrenheit\ndays_temps$temps &lt;- (days_temps$temps * (9/5)) + 32\n\n# Days with swimable temperatures\nsum(days_temps$temps &gt;= 60)\n\n[1] 4\n\n## Movie Ratings\n\n# Ratings for my top 5 movies\ntop5_ratings &lt;- c(86, \n                  44, \n                  94, \n                  70, \n                  91)\n\n# My top 5 movies\ntop5_movies &lt;- c(\"Never Been Kissed\",\n                 \"Fire Island\",\n                 \"Singing in the Rain\", \n                 \"In the Mood for Love\", \n                 \"Sound of Music\")\n\n# Min rating\nmin(top5_ratings)\n\n[1] 44\n\n# Max rating\nmax(top5_ratings)\n\n[1] 94\n\n# Mean rating\nmean(top5_ratings)\n\n[1] 77\n\n# Stats professor movies\nstats_prof_movies &lt;- c(\"10 Things I Hate About You\", \n                       \"The Notebook\", \n                       \"Legally Blonde\", \n                       \"Eternal Sunshine of the Spotless Mind\", \n                       \"Mean Girls\")\n\n# Check if my movies are included in the stats professor movies\ntop5_movies %in% stats_prof_movies\n\n[1] FALSE FALSE FALSE FALSE FALSE\n\n## These logical values tell me if each of my top movies (from the top5_movies vector)\n## is included in the vector stats_prof_movies\n## Since they are FALSE, we don't seem to like the same movies!\n\n\n## In this script, I've created 7 objects: \n## temp_C, temperatures, days, days_temps, top5_ratings, stats_prof_movies, and top5_movies"
   }
 ]
