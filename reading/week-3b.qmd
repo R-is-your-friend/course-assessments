@@ -1,0 +1,90 @@
+---
+title: "Week 3 Part 2: Writing Simple Functions in R"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+At this point, you've encountered almost 20 functions either built-in to R 
+(e.g., `sqrt()`) or that live in specific packages (e.g., `case_when()`). For
+each function, we've learned how we can use it to get the results we were after,
+but we haven't dug into what makes a function a function. For the second half
+of this week, we're going to learn about what makes a function a function.
+
+In this week's reading, we have:
+
+::: columns
+::: {.column width="48%"}
+#### 📖 Readings: 60 min
+
+#### 🏋🏾‍♂️ Activities: 30 min
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 0 min 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
+
+------------------------------------------------------------------------
+
+</br>
+
+## Writing Functions in R
+
+::: callout
+## Learning Objectives
+
+- Understand the components of a function
+- Outline how function arguments are used
+- Contrast arguments with and without default values
+- Illustrate how control flow can be used inside the body of a function
+- Explain the differences between explicit and implicit function returns
+:::
+
+### 📖 Required Reading: [Writing Simple Functions in R](
+https://r-is-your-friend.github.io/course-pack/03b-writing-functions.html)
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+1.  Now that we have created the `rescale()` function, let's check our intuition
+for what the function should output (return) for different inputs.
+
+```{r}
+x <- 3
+y <- 10:20
+z <- c(1, 4, 5, 6, "dog")
+```
+
+a.  What would you expect `rescale()` to output when `x` is input?
+b.  What would you expect `rescale()` to output when `y` is input?
+c.  What would you expect `rescale()` to output when `z` is input?
+
+We know `rescale()` works, so let's test our intuition for what would happen
+for the following scenarios. 
+
+2. `rescale(nums, method = "normalize")`
+3. `rescale(nums, method = "min-max")`
+4. `rescale(nums, na.rm = TRUE)`
+
+We've incorporated a input check for the size of `x`, but not for the size of
+`na.rm` or `method`. 
+
+5. What `length()` should we expect `na.rm` to have?
+
+6. What `length()` should we expect `method` to have?
+
+7. What should the final set of input checks be?
+:::

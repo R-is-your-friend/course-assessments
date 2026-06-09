@@ -1,5 +1,5 @@
 ---
-title: "Week 3: Control Flow"
+title: "Week 3 Part 1: Control Flow"
 number-sections: true
 number-depth: 2
 ---
@@ -11,8 +11,9 @@ number-depth: 2
 library(tidyverse)
 ```
 
-This week we're going to learn about control flow---statements in a computer
-program that that determines when, how, and how many times code is evaluated. 
+In the first part of this week we're going to learn about control
+flow---statements in a computer program that that determines when, how, and how
+many times code is evaluated. 
 
 In this week's reading, we have:
 
@@ -54,7 +55,7 @@ In this week's reading, we have:
 :::
 
 ### 📖 Required Reading: [Control Flow](
-https://r-is-your-friend.github.io/course-pack/03-control-flow.html)
+https://r-is-your-friend.github.io/course-pack/03a-control-flow.html)
 
 By the end of the reading, you should be able to answer the following questions:
 

@@ -1,0 +1,15 @@
+{
+  "hash": "dc53f9a36d0a85a06545144ebb60d0a9",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Week 3 Part 2: Writing Simple Functions in R\"\nnumber-sections: true\nnumber-depth: 2\n---\n\n\n\nAt this point, you've encountered almost 20 functions either built-in to R \n(e.g., `sqrt()`) or that live in specific packages (e.g., `case_when()`). For\neach function, we've learned how we can use it to get the results we were after,\nbut we haven't dug into what makes a function a function. For the second half\nof this week, we're going to learn about what makes a function a function.\n\nIn this week's reading, we have:\n\n::: columns\n::: {.column width=\"48%\"}\n#### 📖 Readings: 60 min\n\n#### 🏋🏾‍♂️ Activities: 30 min\n\n:::\n\n::: {.column width=\"4%\"}\n:::\n\n::: {.column width=\"48%\"}\n#### 📽 Videos: 0 min \n\n#### 💻 Tutorials: 0 min\n:::\n:::\n\n------------------------------------------------------------------------\n\n</br>\n\n## Writing Functions in R\n\n::: callout\n## Learning Objectives\n\n- Understand the components of a function\n- Outline how function arguments are used\n- Contrast arguments with and without default values\n- Illustrate how control flow can be used inside the body of a function\n- Explain the differences between explicit and implicit function returns\n:::\n\n### 📖 Required Reading: [Writing Simple Functions in R](\nhttps://r-is-your-friend.github.io/course-pack/03b-writing-functions.html)\n\nBy the end of the reading, you should be able to answer the following questions:\n\n::: {.callout-check-in}\n1.  Now that we have created the `rescale()` function, let's check our intuition\nfor what the function should output (return) for different inputs.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nx <- 3\ny <- 10:20\nz <- c(1, 4, 5, 6, \"dog\")\n```\n:::\n\n\na.  What would you expect `rescale()` to output when `x` is input?\nb.  What would you expect `rescale()` to output when `y` is input?\nc.  What would you expect `rescale()` to output when `z` is input?\n\nWe know `rescale()` works, so let's test our intuition for what would happen\nfor the following scenarios. \n\n2. `rescale(nums, method = \"normalize\")`\n3. `rescale(nums, method = \"min-max\")`\n4. `rescale(nums, na.rm = TRUE)`\n\nWe've incorporated a input check for the size of `x`, but not for the size of\n`na.rm` or `method`. \n\n5. What `length()` should we expect `na.rm` to have?\n\n6. What `length()` should we expect `method` to have?\n\n7. What should the final set of input checks be?\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
