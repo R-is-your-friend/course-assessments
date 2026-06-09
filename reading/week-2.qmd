@@ -1,0 +1,208 @@
+---
+title: "Week 1: Computer is Friend & What is Code"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+This week we're going to learn more about the building blocks of the R 
+programming language. 
+
+In total, we have:
+
+#### 📖 Readings: 60 min
+
+#### 💻 Activities: 30-minutes
+
+#### 📽 Videos: 0 min 
+
+## R is Friend
+
+::: callout
+## Learning Objectives
+
++ Identify three of the foundational data types in R
++ Explain similarities and differences between different object types
++ Use indexing to extract elements from different object types
++ Use functions to calculate summary statistics
++ Use logical values and indexing to calculate summary statistics
+:::
+
+### 📖 Required Reading: [R is Friend](
+https://r-is-your-friend.github.io/course-pack/02-r-is-friend.html)
+
+There are **a lot** of check-in questions this week! Each section contains 1-3 
+questions targeting the ideas covered in that section. We encourage you to 
+keep track of your answers as you progress!
+
+::: {.callout-check-in}
+
+For each of the examples below, identify what data type do you believe the
+vector will have.
+
+1. `c(67, 13, 1989, TRUE)`
+2. `c("hello", "goodbye", TRUE)`
+3. `c("TRUE", FALSE, TRUE, "FALSE")`
+
+4. Draw out how this matrix will look:
+
+```{r}
+#| eval: false
+#| label: matrix-draw-dimensions
+
+shows <- c("Tale of a Thousand Stars", 
+           "Bad Buddy", 
+           "Moonlight Chicken", 
+           "Not Me")
+
+matrix(shows, ncol = 2)
+```
+
+```{r}
+#| echo: false
+#| label: identify-object-fruit-info
+
+fruits <- c("apple",
+            "orange", 
+            "lemon", 
+            "lime", 
+            "mango", 
+            "peach")
+
+trees <- c("Malus domestica", 
+           "Citrus sinensis", 
+           "Citrus limon", 
+           "Citrus aurantifolia", 
+           "Mangifera indica", 
+           "Prunus persica")
+
+harvest_window <- c(3, 5, 12, 12, 5, 3)
+```
+
+5. What type of object is this?
+
+```{r}
+#| label: identify-object-1
+#| echo: false
+ 
+list(trees, harvest_window)
+```
+
+6. What type of object is this?
+
+```{r}
+#| label: identify-object-2
+#| echo: false
+
+matrix(harvest_window, nrow = 3)
+```
+
+7. What type of object is this?
+
+```{r}
+#| label: identify-object-3
+#| echo: false
+
+data.frame(fruits, trees)
+```
+
+8. What type of object is this?
+
+```{r}
+#| label: identify-object-4
+#| echo: false
+
+list(tree = trees, harvest_window = harvest_window)
+```
+
+9. What type of object is this?
+
+```{r}
+#| label: identify-object-5
+#| echo: false
+
+trees
+```
+
+```{r}
+#| label: vector-check-in
+fruits <- c("apple",
+            "orange", 
+            "lemon", 
+            "lime", 
+            "mango", 
+            "peach")
+```
+
+10. Grab the first three elements of the vector named `fruits`.
+
+11. Grab the first, third, and fifth element of the vector named `fruits`.
+
+```{r}
+trees <- c("Malus domestica", 
+           "Citrus sinensis", 
+           "Citrus limon", 
+           "Citrus aurantifolia", 
+           "Mangifera indica", 
+           "Prunus persica")
+
+tree_matrix <- matrix(trees, ncol = 2)
+tree_matrix
+```
+
+12. Grab the tree in the second row, second column of the matrix named 
+`tree_matrix`.
+
+13. Grab the trees in the first two rows of the matrix named `tree_matrix`. 
+
+14. Grab the trees in the second column of the matrix named `tree_matrix`.
+
+```{r}
+harvest_window <- c(3, 5, 12, 12, 5, 3)
+
+fruit_tree_harvest <- list(fruit = fruits, 
+                           tree = trees, 
+                           harvest_window = harvest_window)
+fruit_tree_harvest
+```
+
+15. Grab the first component (`fruit`) of the list named `fruit_tree_harvest`.  
+
+16. Grab the third tree from the `tree` component of the list named  
+`fruit_tree_harvest`.
+
+```{r}
+fruit_trees <- data.frame(fruits, trees, harvest_window)
+fruit_trees
+```
+
+17. Grab the second column (`trees`) of the `fruit_trees` dataframe.
+
+18. Grab the second and third columns (`trees`, `harvest_window`) of the
+`fruit_trees` dataframe.
+
+19. Grab the second row of all three columns of the `fruit_trees` dataframe.
+
+20. What will be the output of the following operation?
+
+```{r}
+#| eval: false
+#| label: add-two-vectors-exercise
+
+vec1 <- c(1, 2, 3, 4)
+vec2 <- c(5, 6, 7, 8)
+
+vec1 + vec2
+```
+
+(a) `1 2 3 4 5 6 7 8`
+(b) `6 8 10 12`
+(c) this code will have an error
+:::
+
