@@ -1,5 +1,5 @@
 ---
-title: "Week 1: Computer is Friend & What is Code"
+title: "Week 2: R is Friend"
 number-sections: true
 number-depth: 2
 ---
@@ -14,13 +14,25 @@ library(tidyverse)
 This week we're going to learn more about the building blocks of the R 
 programming language. 
 
-In total, we have:
+In this week's reading, we have:
 
+::: columns
+::: {.column width="48%"}
 #### 📖 Readings: 60 min
 
-#### 💻 Activities: 30-minutes
+#### 🏋🏾‍♂️ Activities: 30 min
 
-#### 📽 Videos: 0 min 
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 0 min
+
+#### 💻 Tutorials: 0 min
+:::
+:::
 
 ## R is Friend
 

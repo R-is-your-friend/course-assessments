@@ -16,13 +16,25 @@ stored on your computer, foundational ideas that will we draw on every week!
 Second, we will learn what makes code code, what makes R different from other
 coding languages, and how we will be interacting with R throughout the class.
 
-In total, both sections have:
+In this week's reading, we have:
 
+::: columns
+::: {.column width="48%"}
 #### 📖 Readings: 60-75 min
 
-#### 💻 Activities: 30 min (Section 1) + 30 min (Section 2)
+#### 🏋🏾‍♂️ Activities: 30 min (Section 1) + 30 min (Section 2)
 
-#### 📽 Videos: 20 min (all in Section 1)
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 20 min (all in Section 1) 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
 
 ## Computer is Friend
 

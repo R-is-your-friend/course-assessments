@@ -697,7 +697,7 @@
     "href": "reading/week-1.html",
     "title": "Week 1: Computer is Friend & What is Code",
     "section": "",
-    "text": "There are two sections to this week. First, we will learn about how things are stored on your computer, foundational ideas that will we draw on every week! Second, we will learn what makes code code, what makes R different from other coding languages, and how we will be interacting with R throughout the class.\nIn total, both sections have:"
+    "text": "There are two sections to this week. First, we will learn about how things are stored on your computer, foundational ideas that will we draw on every week! Second, we will learn what makes code code, what makes R different from other coding languages, and how we will be interacting with R throughout the class.\nIn this week’s reading, we have:"
   },
   {
     "objectID": "reading/week-1.html#section-1-computer-is-friend",
@@ -725,35 +725,35 @@
     "href": "reading/week-3.html",
     "title": "Week 3: Control Flow",
     "section": "",
-    "text": "Describe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data"
+    "text": "This week we’re going to learn about control flow—statements in a computer program that that determines when, how, and how many times code is evaluated.\nIn this week’s reading, we have:"
   },
   {
     "objectID": "reading/week-3.html#learning-objectives",
     "href": "reading/week-3.html#learning-objectives",
     "title": "Week 3: Control Flow",
-    "section": "",
-    "text": "Describe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data"
+    "section": "\n1 Learning Objectives",
+    "text": "1 Learning Objectives\n\nDescribe charts using the grammar of graphics\nCreate layered graphics that highlight multiple aspects of the data\n\n📖 Readings: 45-60 min\n💻 Activities: 45-60 min\n📽 Optional Videos: 60 min"
   },
   {
     "objectID": "reading/week-3.html#building-graphics-with-ggplot2",
     "href": "reading/week-3.html#building-graphics-with-ggplot2",
     "title": "Week 3: Control Flow",
-    "section": "2 Building Graphics with ggplot2",
-    "text": "2 Building Graphics with ggplot2\n\n\n\n\n\nBuilding a masterpiece, by Allison Horst\n\n\n\n📖 Required Reading: R4DS Data Visualization 1.1 - 1.5.\n\n\n💻 Suggested Tutorials\n\nBar Charts\nHistograms\nScatterplots\nLine Plots\n\n\n\n📖 Required Reading: R4DS Layers."
+    "section": "\n2 Building Graphics with ggplot2\n",
+    "text": "2 Building Graphics with ggplot2\n\n\n\n\n\nBuilding a masterpiece, by Allison Horst\n\n📖 Required Reading: R4DS Data Visualization 1.1 - 1.5.\n💻 Suggested Tutorials\n\nBar Charts\nHistograms\nScatterplots\nLine Plots\n📖 Required Reading: R4DS Layers."
   },
   {
     "objectID": "reading/week-3.html#optional-videos",
     "href": "reading/week-3.html#optional-videos",
     "title": "Week 3: Control Flow",
-    "section": "3 Optional Videos",
-    "text": "3 Optional Videos\nIf you like learning and reviewing with videos, these videos created by Dr. Allison Theobold for STAT 331 will review what is covered in the required reading.\n\nggplot2 First Steps\nWhat is an aesthetic?\nWhat is a geometric object?\nGlobal vs. local aesthetics\nAdding a third variable with facets\nWhat is being plotted? Positions"
+    "section": "\n3 Optional Videos",
+    "text": "3 Optional Videos\nIf you like learning and reviewing with videos, these videos created by Dr. Allison Theobold for STAT 331 will review what is covered in the required reading.\n\nggplot2 First Steps\nWhat is an aesthetic?\nWhat is a geometric object?\nGlobal vs. local aesthetics\nAdding a third variable with facets\n\nWhat is being plotted? Positions"
   },
   {
     "objectID": "reading/week-2.html",
     "href": "reading/week-2.html",
-    "title": "Week 1: Computer is Friend & What is Code",
+    "title": "Week 2: R is Friend",
     "section": "",
-    "text": "This week we’re going to learn more about the building blocks of the R programming language.\nIn total, we have:"
+    "text": "This week we’re going to learn more about the building blocks of the R programming language.\nIn this week’s reading, we have:"
   },
   {
     "objectID": "reading/week-2.html#learning-objectives",
@@ -793,7 +793,7 @@
   {
     "objectID": "reading/week-2.html#r-is-friend",
     "href": "reading/week-2.html#r-is-friend",
-    "title": "Week 1: Computer is Friend & What is Code",
+    "title": "Week 2: R is Friend",
     "section": "\n1 R is Friend",
     "text": "1 R is Friend\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nIdentify three of the foundational data types in R\nExplain similarities and differences between different object types\nUse indexing to extract elements from different object types\nUse functions to calculate summary statistics\nUse logical values and indexing to calculate summary statistics\n\n\n\n📖 Required Reading: R is Friend\n\nThere are a lot of check-in questions this week! Each section contains 1-3 questions targeting the ideas covered in that section. We encourage you to keep track of your answers as you progress!\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nFor each of the examples below, identify what data type do you believe the vector will have.\n\nc(67, 13, 1989, TRUE)\nc(\"hello\", \"goodbye\", TRUE)\nc(\"TRUE\", FALSE, TRUE, \"FALSE\")\nDraw out how this matrix will look:\n\n\nshows &lt;- c(\"Tale of a Thousand Stars\", \n           \"Bad Buddy\", \n           \"Moonlight Chicken\", \n           \"Not Me\")\n\nmatrix(shows, ncol = 2)\n\n\nWhat type of object is this?\n\n\n\n[[1]]\n[1] \"Malus domestica\"     \"Citrus sinensis\"     \"Citrus limon\"       \n[4] \"Citrus aurantifolia\" \"Mangifera indica\"    \"Prunus persica\"     \n\n[[2]]\n[1]  3  5 12 12  5  3\n\n\n\nWhat type of object is this?\n\n\n\n     [,1] [,2]\n[1,]    3   12\n[2,]    5    5\n[3,]   12    3\n\n\n\nWhat type of object is this?\n\n\n\n  fruits               trees\n1  apple     Malus domestica\n2 orange     Citrus sinensis\n3  lemon        Citrus limon\n4   lime Citrus aurantifolia\n5  mango    Mangifera indica\n6  peach      Prunus persica\n\n\n\nWhat type of object is this?\n\n\n\n$tree\n[1] \"Malus domestica\"     \"Citrus sinensis\"     \"Citrus limon\"       \n[4] \"Citrus aurantifolia\" \"Mangifera indica\"    \"Prunus persica\"     \n\n$harvest_window\n[1]  3  5 12 12  5  3\n\n\n\nWhat type of object is this?\n\n\n\n[1] \"Malus domestica\"     \"Citrus sinensis\"     \"Citrus limon\"       \n[4] \"Citrus aurantifolia\" \"Mangifera indica\"    \"Prunus persica\"     \n\n\n\nfruits &lt;- c(\"apple\",\n            \"orange\", \n            \"lemon\", \n            \"lime\", \n            \"mango\", \n            \"peach\")\n\n\nGrab the first three elements of the vector named fruits.\nGrab the first, third, and fifth element of the vector named fruits.\n\n\ntrees &lt;- c(\"Malus domestica\", \n           \"Citrus sinensis\", \n           \"Citrus limon\", \n           \"Citrus aurantifolia\", \n           \"Mangifera indica\", \n           \"Prunus persica\")\n\ntree_matrix &lt;- matrix(trees, ncol = 2)\ntree_matrix\n\n     [,1]              [,2]                 \n[1,] \"Malus domestica\" \"Citrus aurantifolia\"\n[2,] \"Citrus sinensis\" \"Mangifera indica\"   \n[3,] \"Citrus limon\"    \"Prunus persica\"     \n\n\n\nGrab the tree in the second row, second column of the matrix named tree_matrix.\nGrab the trees in the first two rows of the matrix named tree_matrix.\nGrab the trees in the second column of the matrix named tree_matrix.\n\n\nharvest_window &lt;- c(3, 5, 12, 12, 5, 3)\n\nfruit_tree_harvest &lt;- list(fruit = fruits, \n                           tree = trees, \n                           harvest_window = harvest_window)\nfruit_tree_harvest\n\n$fruit\n[1] \"apple\"  \"orange\" \"lemon\"  \"lime\"   \"mango\"  \"peach\" \n\n$tree\n[1] \"Malus domestica\"     \"Citrus sinensis\"     \"Citrus limon\"       \n[4] \"Citrus aurantifolia\" \"Mangifera indica\"    \"Prunus persica\"     \n\n$harvest_window\n[1]  3  5 12 12  5  3\n\n\n\nGrab the first component (fruit) of the list named fruit_tree_harvest.\nGrab the third tree from the tree component of the list namedfruit_tree_harvest.\n\n\nfruit_trees &lt;- data.frame(fruits, trees, harvest_window)\nfruit_trees\n\n  fruits               trees harvest_window\n1  apple     Malus domestica              3\n2 orange     Citrus sinensis              5\n3  lemon        Citrus limon             12\n4   lime Citrus aurantifolia             12\n5  mango    Mangifera indica              5\n6  peach      Prunus persica              3\n\n\n\nGrab the second column (trees) of the fruit_trees dataframe.\nGrab the second and third columns (trees, harvest_window) of the fruit_trees dataframe.\nGrab the second row of all three columns of the fruit_trees dataframe.\nWhat will be the output of the following operation?\n\n\nvec1 &lt;- c(1, 2, 3, 4)\nvec2 &lt;- c(5, 6, 7, 8)\n\nvec1 + vec2\n\n\n1 2 3 4 5 6 7 8\n6 8 10 12\nthis code will have an error"
   },
@@ -803,5 +803,33 @@
     "title": "Week 1: Computer is Friend & What is Code",
     "section": "\n2 What is Code?",
     "text": "2 What is Code?\nNow that we know how our computer functions, let’s learn about what makes code code.\nLearning Objectives\n\nLocate different panes of RStudio\nUse the Console to run code\nUnderstand what the &lt;- operator does\nUse the &lt;- operator to create simple objects\nUse Environment tab to identify what objects have been created\nUse the History tab to see all the code that has been run\nCreate an R Script\nHow to save an R Script in a specific folder\nUnderstand what makes a code comment\nExplain why code comments are useful\n\n📖 Required Reading: Computer is Friend.\nBy the end of the reading, you should have generated a week1.R script.\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nSubmit the week1.R script you created during the reading!"
+  },
+  {
+    "objectID": "reading/week-4.html",
+    "href": "reading/week-4.html",
+    "title": "Week 4: Data is Friend",
+    "section": "",
+    "text": "Define the observational unit (rows) and variables (columns) of rectangular data\nIdentify variable types given rectangular data\nExplore rectangular data quickly in R (with code and with RStudio visually)\nRead rectangular data with various delimiters into R using an appropriate readr or readxl function\nDefine relative versus absolute file paths\nIntegrate R code and Markdown text in Quarto documents"
+  },
+  {
+    "objectID": "reading/week-4.html#learning-objectives",
+    "href": "reading/week-4.html#learning-objectives",
+    "title": "Week 4: Data is Friend",
+    "section": "",
+    "text": "Define the observational unit (rows) and variables (columns) of rectangular data\nIdentify variable types given rectangular data\nExplore rectangular data quickly in R (with code and with RStudio visually)\nRead rectangular data with various delimiters into R using an appropriate readr or readxl function\nDefine relative versus absolute file paths\nIntegrate R code and Markdown text in Quarto documents"
+  },
+  {
+    "objectID": "reading/week-4.html#preparation",
+    "href": "reading/week-4.html#preparation",
+    "title": "Week 4: Data is Friend",
+    "section": "\n2 Preparation",
+    "text": "2 Preparation\n\nRead Rectangular Data\n\nRead File Paths\n\nRead R4DS 7.1-7.3 about reading in data files\nRead R4DS 7.5 about saving data externally\nRead R4DS 20 about working with Excel files\nRead R4DS 28 about Quarto"
+  },
+  {
+    "objectID": "reading/week-3.html#control-flow",
+    "href": "reading/week-3.html#control-flow",
+    "title": "Week 3: Control Flow",
+    "section": "\n1 Control Flow",
+    "text": "1 Control Flow\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nWhat a conditional statement is\nHow to create a simple conditional statement with if () and else\n\nHow to series of conditional statements with else if ()\n\nWhat it means for a function to be vectorized\nHow to make a vectorized conditional statement\nWhere to access help on an R function\nRecognize when to use a for () loop instead of a while () loop\nUnderstand how to index a loop\n\n\n\n📖 Required Reading: Control Flow\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\n\nWhich of the following is the correct way to format a conditional statement?\n\n\n\n\n\nif (num &lt; 100){\n  print(num)\n}\nelse {\n  print(\"banana\")\n}\n\n\n\n\n\nif (num &lt; 100){\n  print(num)\n} else {\n  print(\"banana\")\n}\n\n\n\n\n\nif (num &lt; 100){ print(num) } else { print(\"banana\") }\n\n\n\n\n\nif (num &lt; 100) print(num) else print(\"banana\") \n\n\nWith if + else you have ____ condition(s) to check and ____ possible outcome(s).\nIn the IRS tax brackets we had ____ possible outcomes and ____ conditions that needed to be checked.\nIn general, if you have \\(n\\) possible outcomes, you will always have ____ conditions to check.\nA function is “vectorized” if it accepts a [vector / matrix / dataframe / list] with length [equal to / greater than / less than] 1 as an input.\nWhich of the following options would open the help file for the mean() function? Select all that apply!\n\n\nType mean in the Console\nType ?mean in the Console\nSearch for mean in the search bar of the Packages tab\nSearch for mean in the search bar of the Help tab\n\n\nThe .unmatched argument of case_when() throws an error when ____.\nThe .default argument of case_when() sets a default value for inputs that ____.\nTrue or false, you can use both the .unmatched and .default arguments. Meaning you can set .unmatched =  \"error\" and .default = \"zero\"?\nMatch the loop to its correct setting.\n\n\n\nfor() Loop\n\nwhile() Loop\n\n\n\nRuns until a condition is not met (FALSE)\nRuns a set number of times"
   }
 ]
