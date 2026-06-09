@@ -17,13 +17,29 @@ library(tidyverse)
 -   Describe charts using the grammar of graphics
 -   Create layered graphics that highlight multiple aspects of the data
 
-#### 📖 Readings: 45-60 min
+In this week's reading, we have:
 
-#### 💻 Activities: 45-60 min
+::: columns
+::: {.column width="48%"}
+#### 📖 Readings: 60 min
 
-#### 📽 Optional Videos: 60 min
+#### 🏋🏾‍♂️ Activities: 30 min
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 0 min 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
 
 ------------------------------------------------------------------------
+
+</br>
 
 ## Building Graphics with `ggplot2`
 
