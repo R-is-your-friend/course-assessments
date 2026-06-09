@@ -30,16 +30,41 @@ website:
   #   style: "docked"
   #   search: true
 
+# format:
+#   html:
+#     theme:
+#       light: [cosmo, style/risfriend.scss]
+#       dark: [cosmo, style/risfriend.scss, style/dark.scss]
+#     mainfont: "Atkinson Hyperlegible"
+#     code-copy: true
+#     code-overflow: wrap
+#     toc: true
+#     linkcolor: "#8856a7"
+# #    highlight-style: a11y-dark
+
 format:
   html:
+    code-link: true
     theme:
-      light: [cosmo, style/risfriend.scss]
-      dark: [cosmo, style/risfriend.scss, style/dark.scss]
-    mainfont: "Atkinson Hyperlegible"
+      light: [cosmo, style/customcallouts.scss, style/risfriend.scss]
+      dark: [cosmo, style/customcallouts.scss, style/risfriend.scss]
     code-copy: true
+    mainfont: "Atkinson Hyperlegible"
     code-overflow: wrap
     toc: true
     linkcolor: "#8856a7"
-#    highlight-style: a11y-dark
+    code-annotations: below
+    toc-depth: 4
+  # pdf:
+  #   documentclass: scrreprt
 
+filters:
+  - style/custom_callout.lua
+  
 editor: source
+
+execute: 
+  echo: true
+  warning: false
+  error: true
+  freeze: auto
