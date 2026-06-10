@@ -2,3 +2,29 @@
 title: "Handout 4: Data Is Friend"
 ---
 
+
+<!-- Check in? -->
++ Show code for reading in the data -- read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)? 
+  + What if the data looks like xxxx.
++ How many dimensions is the data? -- use dim()
++ Screenshot of reflected file folder structure & Files tab in R.
+  
+<!-- File Folders -->
+
++ Image of file folder structure -- putting a pin/moving/trace the path to the data. Fill in the file folder structure.   
+  + What if it is a .qmd file instead of a .R script (DUMB!)
+  + Where is your "home base"?
+  + Would the code run? yes/no
+  
++ If you have downloaded data, where should you save it on your computer to read it into your qmd? Sketch your folder project management gameplan!
+  
+<!-- Rectangles -->
+
++ What does the rectangle look like?
+  + what is a row -- week of the year? A single day?
+  + how many columns?
+  + the same data can look like different rectangles (8 can be 1x8 or a 2x4 or a 4x2) shape-shifting data.
+  + Page of a survey (how data was collected) -> converted to the rectangle!!!
+
++ match the View(), str(), glimpse()
+  + what sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?
