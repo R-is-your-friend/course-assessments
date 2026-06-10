@@ -1,0 +1,127 @@
+---
+title: "Week 1: Computer is Friend & What is Code"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+There are two sections to this week. First, we will learn about how things are 
+stored on your computer, foundational ideas that will we draw on every week!
+Second, we will learn what makes code code, what makes R different from other
+coding languages, and how we will be interacting with R throughout the class.
+
+In this week's reading, we have:
+
+::: columns
+::: {.column width="48%"}
+#### 📖 Readings: 60-75 min
+
+#### 🏋🏾‍♂️ Activities: 30 min (Section 1) + 30 min (Section 2)
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 20 min (all in Section 1) 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
+
+------------------------------------------------------------------------
+
+</br>
+
+## Computer is Friend
+
+First, let's learn about our computer!
+
+::: callout
+## Learning Objectives
+
++ Explain the difference between hardware and software
++ Define operating system terminology: hard drive, memory, file system, directory, system paths
++ Describe how these concepts work together to keep your computer running
++ Explain where files live on your laptop
++ Create a class folder in your Documents
++ Install R & RStudio
++ Recognize how R differs from RStudio
+:::
+
+### 📖 Required Reading: [Computer is Friend](https://r-is-your-friend.github.io/course-pack/00-setup.html).
+
+By the end of the reading, you should have answers to these questions:
+
+::: {.callout-check-in}
+
+**Question 1:** Create a `stat-1810` folder in the `Documents` folder of your
+computer. Ensure your folder is stored locally on your computer, **not** on
+OneDrive or iCloud!
+
+Take a screenshot of your class directory, showing:
+
+1.  the location of your `stat-1810` folder
+2.  a Week 1 sub-folder 
+
+**Question 2:** Open RStudio. In the lower left corner, you should see some
+messages about RStudio loading up R. Something like:
+
+```
+R version 4.5.2 (2025-10-31) -- "[Not] Part in a Rumble"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+```
+
+**Take a screenshot of this message.**
+:::
+
+## What is Code?
+
+Now that we know how our computer functions, let's learn about what makes code
+code. 
+
+::: callout
+## Learning Objectives
+
+-   Locate different panes of RStudio
+-   Use the Console to run code
+-   Understand what the `<-` operator does
+-   Use the `<-` operator to create simple objects
+-   Use Environment tab to identify what objects have been created
+-   Use the History tab to see all the code that has been run
+-   Create an R Script
+-   How to save an R Script in a specific folder
+-   Understand what makes a code comment
+-   Explain why code comments are useful
+:::
+
+### 📖 Required Reading: [Computer is Friend](https://r-is-your-friend.github.io/course-pack/00-setup.html).
+
+By the end of the reading, you should have generated a `week1.R` script. 
+
+::: {.callout-check-in}
+Submit the `week1.R` script you created during the reading!
+:::
+

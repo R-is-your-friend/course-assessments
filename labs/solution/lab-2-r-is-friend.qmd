@@ -1,0 +1,93 @@
+---
+title: "Lab 2: R is Friend"
+subtitle: "Instructions"
+toc: true
+format: html
+execute:
+  echo: true
+  message: false
+  warning: false
+  error: true
+---
+
+```{r}
+# This document contains code for Lab 2
+
+# Make a temperature variable
+temp_C <- 11
+
+# Math to transform from Celsius to Fahrenheit
+(temp_C * (9/5)) + 32
+
+# Temperatures for the entire week
+temperatures <- c(12, 
+                  13, 
+                  16, 
+                  14, 
+                  17, 
+                  16, 
+                  18)
+
+# Days of the week
+days <- c("Sunday", 
+          "Monday", 
+          "Tuesday", 
+          "Wednesday", 
+          "Thursday", 
+          "Friday", 
+          "Saturday")
+
+# Make a dataframe of temperatures and their corresponding days
+days_temps <- data.frame(days = days, 
+                         temps = temperatures)
+
+# Convert temps to Fahrenheit
+days_temps$temps <- (days_temps$temps * (9/5)) + 32
+
+# Days with swimable temperatures
+sum(days_temps$temps >= 60)
+
+
+## Movie Ratings
+
+# Ratings for my top 5 movies
+top5_ratings <- c(86, 
+                  44, 
+                  94, 
+                  70, 
+                  91)
+
+# My top 5 movies
+top5_movies <- c("Never Been Kissed",
+                 "Fire Island",
+                 "Singing in the Rain", 
+                 "In the Mood for Love", 
+                 "Sound of Music")
+
+# Min rating
+min(top5_ratings)
+
+# Max rating
+max(top5_ratings)
+
+# Mean rating
+mean(top5_ratings)
+
+# Stats professor movies
+stats_prof_movies <- c("10 Things I Hate About You", 
+                       "The Notebook", 
+                       "Legally Blonde", 
+                       "Eternal Sunshine of the Spotless Mind", 
+                       "Mean Girls")
+
+# Check if my movies are included in the stats professor movies
+top5_movies %in% stats_prof_movies
+
+## These logical values tell me if each of my top movies (from the top5_movies vector)
+## is included in the vector stats_prof_movies
+## Since they are FALSE, we don't seem to like the same movies!
+
+
+## In this script, I've created 7 objects: 
+## temp_C, temperatures, days, days_temps, top5_ratings, stats_prof_movies, and top5_movies
+```

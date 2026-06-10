@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Week 5: Data Visualization with ggplot2 – R is Your Friend</title>
+<title>Week 1: Computer is Friend &amp; What is Code – R is Your Friend</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -240,22 +240,23 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">1</span> Learning Objectives</a></li>
-  <li>
-<a href="#building-graphics-with-ggplot2" id="toc-building-graphics-with-ggplot2" class="nav-link" data-scroll-target="#building-graphics-with-ggplot2"><span class="header-section-number">2</span> Building Graphics with <code>ggplot2</code></a>
+<li>
+<a href="#computer-is-friend" id="toc-computer-is-friend" class="nav-link active" data-scroll-target="#computer-is-friend"><span class="header-section-number">1</span> Computer is Friend</a>
   <ul>
-<li><a href="#required-reading-r4ds-data-visualization-1.1---1.5." id="toc-required-reading-r4ds-data-visualization-1.1---1.5." class="nav-link" data-scroll-target="#required-reading-r4ds-data-visualization-1.1---1.5.">📖 Required Reading: R4DS Data Visualization 1.1 - 1.5.</a></li>
-  <li><a href="#suggested-tutorials" id="toc-suggested-tutorials" class="nav-link" data-scroll-target="#suggested-tutorials">💻 Suggested Tutorials</a></li>
-  <li><a href="#required-reading-r4ds-layers." id="toc-required-reading-r4ds-layers." class="nav-link" data-scroll-target="#required-reading-r4ds-layers.">📖 Required Reading: R4DS Layers.</a></li>
+<li><a href="#required-reading-computer-is-friend." id="toc-required-reading-computer-is-friend." class="nav-link" data-scroll-target="#required-reading-computer-is-friend.">📖 Required Reading: Computer is Friend.</a></li>
   </ul>
 </li>
-  <li><a href="#optional-videos" id="toc-optional-videos" class="nav-link" data-scroll-target="#optional-videos"><span class="header-section-number">3</span> Optional Videos</a></li>
+  <li>
+<a href="#what-is-code" id="toc-what-is-code" class="nav-link" data-scroll-target="#what-is-code"><span class="header-section-number">2</span> What is Code?</a>
+  <ul>
+<li><a href="#required-reading-computer-is-friend.-1" id="toc-required-reading-computer-is-friend.-1" class="nav-link" data-scroll-target="#required-reading-computer-is-friend.-1">📖 Required Reading: Computer is Friend.</a></li>
+  </ul>
+</li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Week 5: Data Visualization with <code>ggplot2</code>
-</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Week 1: Computer is Friend &amp; What is Code</h1>
 </div>
 
 
@@ -269,61 +270,131 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header><section id="learning-objectives" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="learning-objectives">
-<span class="header-section-number">1</span> Learning Objectives</h2>
-<ul>
-<li>Describe charts using the grammar of graphics</li>
-<li>Create layered graphics that highlight multiple aspects of the data</li>
-</ul>
+</header><p>There are two sections to this week. First, we will learn about how things are stored on your computer, foundational ideas that will we draw on every week! Second, we will learn what makes code code, what makes R different from other coding languages, and how we will be interacting with R throughout the class.</p>
 <p>In this week’s reading, we have:</p>
 <div class="columns">
 <div class="column" style="width:48%;">
-<section id="readings-60-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
-</section><section id="activities-30-min" class="level4"><h4 class="anchored" data-anchor-id="activities-30-min">🏋🏾‍♂️ Activities: 30 min</h4>
+<section id="readings-60-75-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-75-min">📖 Readings: 60-75 min</h4>
+</section><section id="activities-30-min-section-1-30-min-section-2" class="level4"><h4 class="anchored" data-anchor-id="activities-30-min-section-1-30-min-section-2">🏋🏾‍♂️ Activities: 30 min (Section 1) + 30 min (Section 2)</h4>
 </section>
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:48%;">
-<section id="videos-0-min" class="level4"><h4 class="anchored" data-anchor-id="videos-0-min">📽 Videos: 0 min</h4>
+<section id="videos-20-min-all-in-section-1" class="level4"><h4 class="anchored" data-anchor-id="videos-20-min-all-in-section-1">📽 Videos: 20 min (all in Section 1)</h4>
 </section><section id="tutorials-0-min" class="level4"><h4 class="anchored" data-anchor-id="tutorials-0-min">💻 Tutorials: 0 min</h4>
 </section>
 </div>
 </div>
 <hr>
 <p></p>
-</section><section id="building-graphics-with-ggplot2" class="level2 page-columns page-full" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="building-graphics-with-ggplot2">
-<span class="header-section-number">2</span> Building Graphics with <code>ggplot2</code>
-</h2>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_masterpiece.png" class="img-fluid figure-img"></p>
-<figcaption>Building a masterpiece, by Allison Horst</figcaption></figure>
+<section id="computer-is-friend" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="computer-is-friend">
+<span class="header-section-number">1</span> Computer is Friend</h2>
+<p>First, let’s learn about our computer!</p>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-</div></div><section id="required-reading-r4ds-data-visualization-1.1---1.5." class="level4"><h4 class="anchored" data-anchor-id="required-reading-r4ds-data-visualization-1.1---1.5.">📖 Required Reading: <a href="https://r4ds.hadley.nz/data-visualize.html#introduction">R4DS Data Visualization 1.1 - 1.5</a>.</h4>
-</section><section id="suggested-tutorials" class="level4"><h4 class="anchored" data-anchor-id="suggested-tutorials">💻 Suggested Tutorials</h4>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/02-bar-charts/">Bar Charts</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/03-histograms/">Histograms</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/03-histograms/">Scatterplots</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/06-line-graphs/">Line Plots</a></li>
-</ul></section><section id="required-reading-r4ds-layers." class="level4"><h4 class="anchored" data-anchor-id="required-reading-r4ds-layers.">📖 Required Reading: <a href="https://r4ds.hadley.nz/layers.html">R4DS Layers</a>.</h4>
-</section></section><section id="optional-videos" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="optional-videos">
-<span class="header-section-number">3</span> Optional Videos</h2>
-<p>If you like learning and reviewing with videos, these videos created by Dr.&nbsp;Allison Theobold for STAT 331 will review what is covered in the required reading.</p>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=1Jmbfh6GotI">ggplot2 First Steps</a></li>
-<li><a href="https://www.youtube.com/watch?v=oYVuzW_t93w">What is an aesthetic?</a></li>
-<li><a href="https://www.youtube.com/watch?v=pMC2l2YhjMI">What is a geometric object?</a></li>
-<li><a href="http://youtu.be/y3BWlYa7q-Q?hd=1">Global vs.&nbsp;local aesthetics</a></li>
-<li><a href="http://somup.com/crffbHbH1h">Adding a third variable with facets</a></li>
-<li>
-<a href="http://somup.com/crffb8bH1x">What is being plotted?</a> <a href="http://somup.com/crffFibH1R">Positions</a>
-</li>
+<li>Explain the difference between hardware and software</li>
+<li>Define operating system terminology: hard drive, memory, file system, directory, system paths</li>
+<li>Describe how these concepts work together to keep your computer running</li>
+<li>Explain where files live on your laptop</li>
+<li>Create a class folder in your Documents</li>
+<li>Install R &amp; RStudio</li>
+<li>Recognize how R differs from RStudio</li>
 </ul>
+</div>
+</div>
+<section id="required-reading-computer-is-friend." class="level3"><h3 class="anchored" data-anchor-id="required-reading-computer-is-friend.">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/00-setup.html">Computer is Friend</a>.</h3>
+<p>By the end of the reading, you should have answers to these questions:</p>
+<div class="callout callout-style-default callout-check-in callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Check-in</span>Check In
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Question 1:</strong> Create a <code>stat-1810</code> folder in the <code>Documents</code> folder of your computer. Ensure your folder is stored locally on your computer, <strong>not</strong> on OneDrive or iCloud!</p>
+<p>Take a screenshot of your class directory, showing:</p>
+<ol type="1">
+<li>the location of your <code>stat-1810</code> folder</li>
+<li>a Week 1 sub-folder</li>
+</ol>
+<p><strong>Question 2:</strong> Open RStudio. In the lower left corner, you should see some messages about RStudio loading up R. Something like:</p>
+<pre><code>R version 4.5.2 (2025-10-31) -- "[Not] Part in a Rumble"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.</code></pre>
+<p><strong>Take a screenshot of this message.</strong></p>
+</div>
+</div>
+</section></section><section id="what-is-code" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="what-is-code">
+<span class="header-section-number">2</span> What is Code?</h2>
+<p>Now that we know how our computer functions, let’s learn about what makes code code.</p>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Locate different panes of RStudio</li>
+<li>Use the Console to run code</li>
+<li>Understand what the <code>&lt;-</code> operator does</li>
+<li>Use the <code>&lt;-</code> operator to create simple objects</li>
+<li>Use Environment tab to identify what objects have been created</li>
+<li>Use the History tab to see all the code that has been run</li>
+<li>Create an R Script</li>
+<li>How to save an R Script in a specific folder</li>
+<li>Understand what makes a code comment</li>
+<li>Explain why code comments are useful</li>
+</ul>
+</div>
+</div>
+<section id="required-reading-computer-is-friend.-1" class="level3"><h3 class="anchored" data-anchor-id="required-reading-computer-is-friend.-1">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/00-setup.html">Computer is Friend</a>.</h3>
+<p>By the end of the reading, you should have generated a <code>week1.R</code> script.</p>
+<div class="callout callout-style-default callout-check-in callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Check-in</span>Check In
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Submit the <code>week1.R</code> script you created during the reading!</p>
+</div>
+</div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

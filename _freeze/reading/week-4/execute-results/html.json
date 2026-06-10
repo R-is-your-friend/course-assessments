@@ -1,0 +1,17 @@
+{
+  "hash": "384be53714ddeaf5cc5d20ecc76ec0dc",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Week 4: Data is Friend\"\nnumber-sections: true\nnumber-depth: 2\n---\n\n\n\n\nIn this week's reading, we have:\n\n::: columns\n::: {.column width=\"48%\"}\n#### 📖 Readings: 60 min\n\n#### 🏋🏾‍♂️ Activities: 30 min\n\n:::\n\n::: {.column width=\"4%\"}\n:::\n\n::: {.column width=\"48%\"}\n#### 📽 Videos: 0 min \n\n#### 💻 Tutorials: 0 min\n:::\n:::\n\n------------------------------------------------------------------------\n\n</br>\n\n## Learning Objectives\n\n+ Define the observational unit (rows) and variables (columns) of rectangular data\n+ Identify variable types given rectangular data\n+ Explore rectangular data quickly in R (with code and with RStudio visually)\n+ Read rectangular data with various delimiters into R using an appropriate `readr` or `readxl` function\n+ Define relative versus absolute file paths\n+ Integrate R code and Markdown text in **Quarto** documents\n\n\n## Preparation\n\n- Read [Rectangular Data](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rectangular-data)\n- Read [File Paths](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths)\n- Read [R4DS 7.1-7.3](https://r4ds.hadley.nz/data-import.html) about reading in data files\n- Read [R4DS 7.5](https://r4ds.hadley.nz/data-import.html#sec-writing-to-a-file) about saving data externally\n- Read [R4DS 20](https://r4ds.hadley.nz/spreadsheets.html) about working with Excel files\n- Read [R4DS 28](https://r4ds.hadley.nz/quarto.html) about Quarto\n",
+    "supporting": [
+      "week-4_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

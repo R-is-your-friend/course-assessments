@@ -12,6 +12,30 @@ library(tidyverse)
 ```
 
 
+In this week's reading, we have:
+
+::: columns
+::: {.column width="48%"}
+#### 📖 Readings: 60 min
+
+#### 🏋🏾‍♂️ Activities: 30 min
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 0 min 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
+
+------------------------------------------------------------------------
+
+</br>
+
 ## Learning Objectives
 
 + Define the observational unit (rows) and variables (columns) of rectangular data

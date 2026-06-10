@@ -52,22 +52,31 @@ d <- readxl::read_excel("index.xlsx")
 t <- d |>
   select(-`practice exam`) |> 
   mutate(
-    #week = if_else(is.na(week), "", week), 
     week = str_c("Week ", week),
     day = str_c("Day ", day),
+    week_label = case_when(week == "Week 1" & day == "Day 1" ~ week, 
+                           week != lag(week) ~ week,
+                           .default = ""), 
     unit = recode_values(unit, 
-                         0 ~ "Unit 0", 
                          1 ~ "Unit 1", 
                          2 ~ "Unit 2", 
                          3 ~ "Unit 3"
                          ), 
-  unit = fct_relevel(unit,
-                     "Unit 0", 
+    unit = fct_relevel(unit,
                      "Unit 1", 
                      "Unit 2",
                      "Unit 3"
                      )
   ) |> 
+  select(unit, 
+         week_label, 
+         day, 
+         topic, 
+         preparation, 
+         slides, 
+         activity, 
+         lab, 
+         handout) |> 
   gt() |> 
   text_transform(cells_body(columns = c(preparation)),
                  fn = function(x){
@@ -98,14 +107,9 @@ t <- d |>
   cols_align(align = "center",
              columns = !topic) |> 
   cols_width(
-    week:day ~ pct(3),
+    week_label:day ~ pct(3),
     topic ~ pct(15),
     preparation:lab ~ pct(6)
-  ) |> 
-  tab_row_group(
-  label = "Unit 0",
-  rows = (unit == "Unit 0"), 
-  id = "Unit 0"
   ) |> 
   tab_row_group(
   label = "Unit 1",
@@ -128,15 +132,13 @@ t <- d |>
     cell_fill(color = "gray95"),
     cell_text(size = "x-large")
     ),
-    locations = cells_row_groups(groups = c("Unit 0",
-                                            "Unit 1",
+    locations = cells_row_groups(groups = c("Unit 1",
                                             "Unit 2",
                                             "Unit 3"
                                             )
                                  )
     ) |>
-  row_group_order(groups = c("Unit 0",
-                             "Unit 1",
+  row_group_order(groups = c("Unit 1",
                              "Unit 2",
                              "Unit 3")
                   ) |> 
@@ -156,7 +158,7 @@ t <- d |>
     row_group.padding = px(8)
   ) |> 
   cols_label(
-    week = "",
+    week_label = "",
     topic = "",
     day = "",
     preparation = md("**Prepare**"),

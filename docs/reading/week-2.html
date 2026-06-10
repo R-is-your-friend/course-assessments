@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Week 5: Data Visualization with ggplot2 – R is Your Friend</title>
+<title>Week 2: R is Friend – R is Your Friend</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -16,6 +16,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -240,22 +275,17 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">1</span> Learning Objectives</a></li>
-  <li>
-<a href="#building-graphics-with-ggplot2" id="toc-building-graphics-with-ggplot2" class="nav-link" data-scroll-target="#building-graphics-with-ggplot2"><span class="header-section-number">2</span> Building Graphics with <code>ggplot2</code></a>
+<li>
+<a href="#r-is-friend" id="toc-r-is-friend" class="nav-link active" data-scroll-target="#r-is-friend"><span class="header-section-number">1</span> R is Friend</a>
   <ul>
-<li><a href="#required-reading-r4ds-data-visualization-1.1---1.5." id="toc-required-reading-r4ds-data-visualization-1.1---1.5." class="nav-link" data-scroll-target="#required-reading-r4ds-data-visualization-1.1---1.5.">📖 Required Reading: R4DS Data Visualization 1.1 - 1.5.</a></li>
-  <li><a href="#suggested-tutorials" id="toc-suggested-tutorials" class="nav-link" data-scroll-target="#suggested-tutorials">💻 Suggested Tutorials</a></li>
-  <li><a href="#required-reading-r4ds-layers." id="toc-required-reading-r4ds-layers." class="nav-link" data-scroll-target="#required-reading-r4ds-layers.">📖 Required Reading: R4DS Layers.</a></li>
+<li><a href="#required-reading-r-is-friend" id="toc-required-reading-r-is-friend" class="nav-link" data-scroll-target="#required-reading-r-is-friend">📖 Required Reading: R is Friend</a></li>
   </ul>
 </li>
-  <li><a href="#optional-videos" id="toc-optional-videos" class="nav-link" data-scroll-target="#optional-videos"><span class="header-section-number">3</span> Optional Videos</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Week 5: Data Visualization with <code>ggplot2</code>
-</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Week 2: R is Friend</h1>
 </div>
 
 
@@ -269,12 +299,7 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header><section id="learning-objectives" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="learning-objectives">
-<span class="header-section-number">1</span> Learning Objectives</h2>
-<ul>
-<li>Describe charts using the grammar of graphics</li>
-<li>Create layered graphics that highlight multiple aspects of the data</li>
-</ul>
+</header><p>This week we’re going to learn more about the building blocks of the R programming language.</p>
 <p>In this week’s reading, we have:</p>
 <div class="columns">
 <div class="column" style="width:48%;">
@@ -291,39 +316,207 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <hr>
 <p></p>
-</section><section id="building-graphics-with-ggplot2" class="level2 page-columns page-full" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="building-graphics-with-ggplot2">
-<span class="header-section-number">2</span> Building Graphics with <code>ggplot2</code>
-</h2>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_masterpiece.png" class="img-fluid figure-img"></p>
-<figcaption>Building a masterpiece, by Allison Horst</figcaption></figure>
+<section id="r-is-friend" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="r-is-friend">
+<span class="header-section-number">1</span> R is Friend</h2>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-</div></div><section id="required-reading-r4ds-data-visualization-1.1---1.5." class="level4"><h4 class="anchored" data-anchor-id="required-reading-r4ds-data-visualization-1.1---1.5.">📖 Required Reading: <a href="https://r4ds.hadley.nz/data-visualize.html#introduction">R4DS Data Visualization 1.1 - 1.5</a>.</h4>
-</section><section id="suggested-tutorials" class="level4"><h4 class="anchored" data-anchor-id="suggested-tutorials">💻 Suggested Tutorials</h4>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/02-bar-charts/">Bar Charts</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/03-histograms/">Histograms</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/03-histograms/">Scatterplots</a></li>
-<li><a href="https://r-primers.andrewheiss.com/visualize-data/06-line-graphs/">Line Plots</a></li>
-</ul></section><section id="required-reading-r4ds-layers." class="level4"><h4 class="anchored" data-anchor-id="required-reading-r4ds-layers.">📖 Required Reading: <a href="https://r4ds.hadley.nz/layers.html">R4DS Layers</a>.</h4>
-</section></section><section id="optional-videos" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="optional-videos">
-<span class="header-section-number">3</span> Optional Videos</h2>
-<p>If you like learning and reviewing with videos, these videos created by Dr.&nbsp;Allison Theobold for STAT 331 will review what is covered in the required reading.</p>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=1Jmbfh6GotI">ggplot2 First Steps</a></li>
-<li><a href="https://www.youtube.com/watch?v=oYVuzW_t93w">What is an aesthetic?</a></li>
-<li><a href="https://www.youtube.com/watch?v=pMC2l2YhjMI">What is a geometric object?</a></li>
-<li><a href="http://youtu.be/y3BWlYa7q-Q?hd=1">Global vs.&nbsp;local aesthetics</a></li>
-<li><a href="http://somup.com/crffbHbH1h">Adding a third variable with facets</a></li>
-<li>
-<a href="http://somup.com/crffb8bH1x">What is being plotted?</a> <a href="http://somup.com/crffFibH1R">Positions</a>
-</li>
+<li>Identify three of the foundational data types in R</li>
+<li>Explain similarities and differences between different object types</li>
+<li>Use indexing to extract elements from different object types</li>
+<li>Use functions to calculate summary statistics</li>
+<li>Use logical values and indexing to calculate summary statistics</li>
 </ul>
+</div>
+</div>
+<section id="required-reading-r-is-friend" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r-is-friend">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/02-r-is-friend.html">R is Friend</a>
+</h3>
+<p>There are <strong>a lot</strong> of check-in questions this week! Each section contains 1-3 questions targeting the ideas covered in that section. We encourage you to keep track of your answers as you progress!</p>
+<div class="callout callout-style-default callout-check-in callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Check-in</span>Check In
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For each of the examples below, identify what data type do you believe the vector will have.</p>
+<ol type="1">
+<li><p><code>c(67, 13, 1989, TRUE)</code></p></li>
+<li><p><code>c("hello", "goodbye", TRUE)</code></p></li>
+<li><p><code>c("TRUE", FALSE, TRUE, "FALSE")</code></p></li>
+<li><p>Draw out how this matrix will look:</p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tale of a Thousand Stars"</span>, </span>
+<span>           <span class="st">"Bad Buddy"</span>, </span>
+<span>           <span class="st">"Moonlight Chicken"</span>, </span>
+<span>           <span class="st">"Not Me"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">shows</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="5" type="1">
+<li>What type of object is this?</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "Malus domestica"     "Citrus sinensis"     "Citrus limon"       
+[4] "Citrus aurantifolia" "Mangifera indica"    "Prunus persica"     
+
+[[2]]
+[1]  3  5 12 12  5  3</code></pre>
+</div>
+</div>
+<ol start="6" type="1">
+<li>What type of object is this?</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]    3   12
+[2,]    5    5
+[3,]   12    3</code></pre>
+</div>
+</div>
+<ol start="7" type="1">
+<li>What type of object is this?</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  fruits               trees
+1  apple     Malus domestica
+2 orange     Citrus sinensis
+3  lemon        Citrus limon
+4   lime Citrus aurantifolia
+5  mango    Mangifera indica
+6  peach      Prunus persica</code></pre>
+</div>
+</div>
+<ol start="8" type="1">
+<li>What type of object is this?</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>$tree
+[1] "Malus domestica"     "Citrus sinensis"     "Citrus limon"       
+[4] "Citrus aurantifolia" "Mangifera indica"    "Prunus persica"     
+
+$harvest_window
+[1]  3  5 12 12  5  3</code></pre>
+</div>
+</div>
+<ol start="9" type="1">
+<li>What type of object is this?</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Malus domestica"     "Citrus sinensis"     "Citrus limon"       
+[4] "Citrus aurantifolia" "Mangifera indica"    "Prunus persica"     </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>,</span>
+<span>            <span class="st">"orange"</span>, </span>
+<span>            <span class="st">"lemon"</span>, </span>
+<span>            <span class="st">"lime"</span>, </span>
+<span>            <span class="st">"mango"</span>, </span>
+<span>            <span class="st">"peach"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="10" type="1">
+<li><p>Grab the first three elements of the vector named <code>fruits</code>.</p></li>
+<li><p>Grab the first, third, and fifth element of the vector named <code>fruits</code>.</p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Malus domestica"</span>, </span>
+<span>           <span class="st">"Citrus sinensis"</span>, </span>
+<span>           <span class="st">"Citrus limon"</span>, </span>
+<span>           <span class="st">"Citrus aurantifolia"</span>, </span>
+<span>           <span class="st">"Mangifera indica"</span>, </span>
+<span>           <span class="st">"Prunus persica"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tree_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">trees</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">tree_matrix</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]              [,2]                 
+[1,] "Malus domestica" "Citrus aurantifolia"
+[2,] "Citrus sinensis" "Mangifera indica"   
+[3,] "Citrus limon"    "Prunus persica"     </code></pre>
+</div>
+</div>
+<ol start="12" type="1">
+<li><p>Grab the tree in the second row, second column of the matrix named <code>tree_matrix</code>.</p></li>
+<li><p>Grab the trees in the first two rows of the matrix named <code>tree_matrix</code>.</p></li>
+<li><p>Grab the trees in the second column of the matrix named <code>tree_matrix</code>.</p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">harvest_window</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">12</span>, <span class="fl">12</span>, <span class="fl">5</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">fruit_tree_harvest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>fruit <span class="op">=</span> <span class="va">fruits</span>, </span>
+<span>                           tree <span class="op">=</span> <span class="va">trees</span>, </span>
+<span>                           harvest_window <span class="op">=</span> <span class="va">harvest_window</span><span class="op">)</span></span>
+<span><span class="va">fruit_tree_harvest</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$fruit
+[1] "apple"  "orange" "lemon"  "lime"   "mango"  "peach" 
+
+$tree
+[1] "Malus domestica"     "Citrus sinensis"     "Citrus limon"       
+[4] "Citrus aurantifolia" "Mangifera indica"    "Prunus persica"     
+
+$harvest_window
+[1]  3  5 12 12  5  3</code></pre>
+</div>
+</div>
+<ol start="15" type="1">
+<li><p>Grab the first component (<code>fruit</code>) of the list named <code>fruit_tree_harvest</code>.</p></li>
+<li><p>Grab the third tree from the <code>tree</code> component of the list named<br><code>fruit_tree_harvest</code>.</p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fruit_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">fruits</span>, <span class="va">trees</span>, <span class="va">harvest_window</span><span class="op">)</span></span>
+<span><span class="va">fruit_trees</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  fruits               trees harvest_window
+1  apple     Malus domestica              3
+2 orange     Citrus sinensis              5
+3  lemon        Citrus limon             12
+4   lime Citrus aurantifolia             12
+5  mango    Mangifera indica              5
+6  peach      Prunus persica              3</code></pre>
+</div>
+</div>
+<ol start="17" type="1">
+<li><p>Grab the second column (<code>trees</code>) of the <code>fruit_trees</code> dataframe.</p></li>
+<li><p>Grab the second and third columns (<code>trees</code>, <code>harvest_window</code>) of the <code>fruit_trees</code> dataframe.</p></li>
+<li><p>Grab the second row of all three columns of the <code>fruit_trees</code> dataframe.</p></li>
+<li><p>What will be the output of the following operation?</p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vec1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="va">vec2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">8</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">vec1</span> <span class="op">+</span> <span class="va">vec2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol type="a">
+<li><code>1 2 3 4 5 6 7 8</code></li>
+<li><code>6 8 10 12</code></li>
+<li>this code will have an error</li>
+</ol>
+</div>
+</div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

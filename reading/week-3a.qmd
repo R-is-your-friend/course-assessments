@@ -1,0 +1,156 @@
+---
+title: "Week 3 Part 1: Control Flow"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+In the first part of this week we're going to learn about control
+flow---statements in a computer program that that determines when, how, and how
+many times code is evaluated. 
+
+In this week's reading, we have:
+
+::: columns
+::: {.column width="48%"}
+#### 📖 Readings: 60 min
+
+#### 🏋🏾‍♂️ Activities: 30 min
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 0 min 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
+
+------------------------------------------------------------------------
+
+</br>
+
+## Control Flow
+
+::: callout
+## Learning Objectives
+
+- What a conditional statement is
+- How to create a simple conditional statement with `if ()` and `else`
+- How to series of conditional statements with `else if ()`
+- What it means for a function to be vectorized
+- How to make a vectorized conditional statement
+- Where to access help on an R function
+- Recognize when to use a `for ()` loop instead of a `while ()` loop
+- Understand how to index a loop
+:::
+
+### 📖 Required Reading: [Control Flow](
+https://r-is-your-friend.github.io/course-pack/03a-control-flow.html)
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+1. Which of the following is the correct way to format a conditional statement?
+
+(a)
+```{r}
+#| label: question-1-a
+#| eval: false
+
+if (num < 100){
+  print(num)
+}
+else {
+  print("banana")
+}
+```
+
+(b)
+```{r}
+#| label: question-1-b
+#| eval: false
+
+if (num < 100){
+  print(num)
+} else {
+  print("banana")
+}
+```
+
+(c)
+```{r}
+#| label: question-1-c
+#| eval: false
+
+if (num < 100){ print(num) } else { print("banana") }
+```
+
+(d)
+```{r}
+#| label: question-1-d
+#| eval: false
+
+if (num < 100) print(num) else print("banana") 
+```
+
+2. With `if` + `else` you have ____ condition(s) to check and ____ possible 
+outcome(s).
+
+3. In the IRS tax brackets we had ____ possible outcomes and ____ conditions that needed to be checked. 
+
+4. In general, if you have $n$ possible outcomes, you will **always** have
+____ conditions to check. 
+
+5. A function is "vectorized" if it accepts a 
+[vector / matrix / dataframe / list] with length 
+[equal to / greater than / less than] 1 as an input. 
+
+6. Which of the following options would open the help file for the `mean()`
+function? Select all that apply!
+
+(a) Type `mean` in the Console
+(b) Type `?mean` in the Console
+(c) Search for mean in the search bar of the Packages tab
+(d) Search for mean in the search bar of the Help tab
+
+7. The `.unmatched` argument of `case_when()` throws an error when ____. 
+
+8. The `.default` argument of `case_when()` sets a default value for inputs that
+____. 
+
+9. True or false, you can use **both** the `.unmatched` and `.default`
+arguments. Meaning you can set `.unmatched =  "error"` **and** 
+`.default = "zero"`?
+
+10. Match the loop to its correct setting. 
+
+::: columns
+::: {.column width="48%"}
+
+`for()` Loop
+
+</br>
+
+`while()` Loop
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+
+Runs until a condition is not met (`FALSE`)
+
+Runs a set number of times
+:::
+:::
