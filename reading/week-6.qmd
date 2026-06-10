@@ -1,0 +1,43 @@
+---
+title: "Week 6: Data Wrangling"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+
+## Learning Objectives
+
++ Identify the rectangular dataset required for a given task.
++ Identify required sequence of steps to get from one rectangular dataset to another.
++ Apply data manipulation verbs (`filter()`, `select()`, `group_by()`, `summarize()`, `mutate()`) to get from one rectangular dataset to another
++ Describe step-by-step data cleaning process in lay terms appropriately and understand the consequences of data cleaning steps.
+
+
+## Preparation
+
+#### Required Reading
+
+- Read [Welcome to the tidyverse!](https://r-is-your-friend.github.io/course-pack/06-data-wrangling.html#welcome-to-the-tidyverse)
+- Read [Data Wrangling](https://r-is-your-friend.github.io/course-pack/06-data-wrangling.html#data-wrangling)
+- Read [R4DS 3](https://r4ds.hadley.nz/data-transform.html) about data wrangling and transformation using `dplyr` verbs
+
+
+#### 📽 Optional Videos on `dplyr` verbs
+
+- [`filter()` -- 11 minutes](https://youtu.be/pPI-prhLYqI)
+- [`select()` -- 6 minutes](https://youtu.be/OInnmiccHt8)
+- [`mutate()` -- 9 minutes](https://youtu.be/QWyUnQ2EzPs)
+- [`arrange()` -- 7 minutes](https://youtu.be/4Qhdc81mpvo)
+- [`summarize()`-- 8 minutes](http://somup.com/crflYibWZw)
+- [`group_by()` -- 6 minutes](http://somup.com/crflqbbWFy)
+- [The pipe operator -- 8 minutes](http://somup.com/crflYfbWZD)
+- [Extending the pipe -- 3 minutes](http://somup.com/crflYmbWup)
+
+#### 💻 Optional Tutorial for more practice:  [Practice with dplyr](https://r-primers.andrewheiss.com/transform-data/03-deriving/)
