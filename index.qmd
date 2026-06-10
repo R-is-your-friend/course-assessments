@@ -78,6 +78,11 @@ t <- d |>
          lab, 
          handout) |> 
   gt() |> 
+  cols_width(
+    week_label:day ~ pct(3),
+    topic ~ pct(15),
+    preparation:handout ~ pct(6)
+  ) |> 
   text_transform(cells_body(columns = c(preparation)),
                  fn = function(x){
                    ifelse(is.na(x), fontawesome::fa('book', fill_opacity = 0.1), 
@@ -106,11 +111,6 @@ t <- d |>
   sub_missing(columns = topic, missing_text = "") |> 
   cols_align(align = "center",
              columns = !topic) |> 
-  cols_width(
-    week_label:day ~ pct(3),
-    topic ~ pct(15),
-    preparation:lab ~ pct(6)
-  ) |> 
   tab_row_group(
   label = "Unit 1",
   rows = (unit == "Unit 1"), 
