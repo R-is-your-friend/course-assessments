@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 3 Part 2: Writing Simple Functions in R – R is Your Friend</title>
+<title>Week 9: Special Variable Types – R is Your Friend</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -286,9 +251,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#writing-functions-in-r" id="toc-writing-functions-in-r" class="nav-link active" data-scroll-target="#writing-functions-in-r"><span class="header-section-number">1</span> Writing Functions in R</a>
+  <li><a href="#character-variables-and-strings" id="toc-character-variables-and-strings" class="nav-link active" data-scroll-target="#character-variables-and-strings"><span class="header-section-number">1</span> Character Variables and Strings</a>
   <ul>
-  <li><a href="#required-reading-writing-simple-functions-in-r" id="toc-required-reading-writing-simple-functions-in-r" class="nav-link" data-scroll-target="#required-reading-writing-simple-functions-in-r">📖 Required Reading: Writing Simple Functions in R</a></li>
+  <li><a href="#required-reading-r4ds-14.1-14.5-strings" id="toc-required-reading-r4ds-14.1-14.5-strings" class="nav-link" data-scroll-target="#required-reading-r4ds-14.1-14.5-strings">📖 Required Reading: R4DS 14.1-14.5: Strings</a></li>
+  <li><a href="#required-reading-r4ds-15.1-15.4-strings" id="toc-required-reading-r4ds-15.1-15.4-strings" class="nav-link" data-scroll-target="#required-reading-r4ds-15.1-15.4-strings">📖 Required Reading: R4DS 15.1-15.4: Strings</a></li>
+  </ul></li>
+  <li><a href="#date-and-time-variables" id="toc-date-and-time-variables" class="nav-link" data-scroll-target="#date-and-time-variables"><span class="header-section-number">2</span> Date and Time Variables</a>
+  <ul>
+  <li><a href="#required-reading-r4ds-17-dates-and-times" id="toc-required-reading-r4ds-17-dates-and-times" class="nav-link" data-scroll-target="#required-reading-r4ds-17-dates-and-times">📖 Required Reading: R4DS 17: Dates and Times</a>
+  <ul class="collapse">
+  <li><a href="#optional-video-working-wtih-dates" id="toc-optional-video-working-wtih-dates" class="nav-link" data-scroll-target="#optional-video-working-wtih-dates">📽 Optional Video: Working wtih Dates</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -299,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 3 Part 2: Writing Simple Functions in R</h1>
+<h1 class="title">Week 9: Special Variable Types</h1>
 </div>
 
 
@@ -316,15 +289,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>At this point, you’ve encountered almost 20 functions either built-in to R (e.g., <code>sqrt()</code>) or that live in specific packages (e.g., <code>case_when()</code>). For each function, we’ve learned how we can use it to get the results we were after, but we haven’t dug into what makes a function a function. For the second half of this week, we’re going to learn about what makes a function a function.</p>
-<p>In this week’s reading, we have:</p>
 <div class="columns">
 <div class="column" style="width:48%;">
 <section id="readings-60-min" class="level4">
 <h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
 </section>
-<section id="activities-30-min" class="level4">
-<h4 class="anchored" data-anchor-id="activities-30-min">🏋🏾‍♂️ Activities: 30 min</h4>
+<section id="activities-0-min" class="level4">
+<h4 class="anchored" data-anchor-id="activities-0-min">🏋🏾‍♂️ Activities: 0 min</h4>
 </section>
 </div><div class="column" style="width:4%;">
 
@@ -338,9 +309,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <hr>
-<p><br></p>
-<section id="writing-functions-in-r" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="writing-functions-in-r"><span class="header-section-number">1</span> Writing Functions in R</h2>
+<section id="character-variables-and-strings" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="character-variables-and-strings"><span class="header-section-number">1</span> Character Variables and Strings</h2>
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -352,16 +322,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Understand the components of a function</li>
-<li>Outline how function arguments are used</li>
-<li>Contrast arguments with and without default values</li>
-<li>Illustrate how control flow can be used inside the body of a function</li>
-<li>Explain the differences between explicit and implicit function returns</li>
+<li>Clean and extract information from character variables using stringr</li>
+<li>Recognize what a basic regular expression will match</li>
 </ul>
 </div>
 </div>
-<section id="required-reading-writing-simple-functions-in-r" class="level3">
-<h3 class="anchored" data-anchor-id="required-reading-writing-simple-functions-in-r">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/03b-writing-functions.html">Writing Simple Functions in R</a></h3>
+<section id="required-reading-r4ds-14.1-14.5-strings" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-r4ds-14.1-14.5-strings">📖 Required Reading: <a href="https://r4ds.had.co.nz/strings.html#strings">R4DS 14.1-14.5: Strings</a></h3>
+</section>
+<section id="required-reading-r4ds-15.1-15.4-strings" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-r4ds-15.1-15.4-strings">📖 Required Reading: <a href="https://r4ds.hadley.nz/regexps.html">R4DS 15.1-15.4: Strings</a></h3>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -373,35 +343,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li>Now that we have created the <code>rescale()</code> function, let’s check our intuition for what the function should output (return) for different inputs.</li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">20</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="st">"dog"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>TO-DO</p>
 </div>
-<ol type="a">
-<li>What would you expect <code>rescale()</code> to output when <code>x</code> is input?</li>
-<li>What would you expect <code>rescale()</code> to output when <code>y</code> is input?</li>
-<li>What would you expect <code>rescale()</code> to output when <code>z</code> is input?</li>
-</ol>
-<p>We know <code>rescale()</code> works, so let’s test our intuition for what would happen for the following scenarios.</p>
-<ol start="2" type="1">
-<li><code>rescale(nums, method = "normalize")</code></li>
-<li><code>rescale(nums, method = "min-max")</code></li>
-<li><code>rescale(nums, na.rm = TRUE)</code></li>
-</ol>
-<p>We’ve incorporated a input check for the size of <code>x</code>, but not for the size of <code>na.rm</code> or <code>method</code>.</p>
-<ol start="5" type="1">
-<li><p>What <code>length()</code> should we expect <code>na.rm</code> to have?</p></li>
-<li><p>What <code>length()</code> should we expect <code>method</code> to have?</p></li>
-<li><p>What should the final set of input checks be?</p></li>
-</ol>
+</div>
+</section>
+</section>
+<section id="date-and-time-variables" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="date-and-time-variables"><span class="header-section-number">2</span> Date and Time Variables</h2>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Work with date and time variables using lubridate</li>
+<li>Convert a string variable into a date / time variable</li>
+<li>Extract date / time information from a date / time variable (e.g.&nbsp;month, year, day of the week, etc)</li>
+<li>Convert between time zones</li>
+</ul>
+</div>
+</div>
+<section id="required-reading-r4ds-17-dates-and-times" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-r4ds-17-dates-and-times">📖 Required Reading: <a href="https://r4ds.hadley.nz/datetimes.html">R4DS 17: Dates and Times</a></h3>
+<section id="optional-video-working-wtih-dates" class="level4">
+<h4 class="anchored" data-anchor-id="optional-video-working-wtih-dates">📽 Optional Video: <a href="https://www.youtube.com/watch?v=SEPjN2AJqbo">Working wtih Dates</a></h4>
+<p>By the end of the reading, you should be able to answer the following questions:</p>
+<div class="callout callout-style-default callout-check-in callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Check-in</span>Check In
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>TO-DO</p>
 </div>
 </div>
 
 
+</section>
 </section>
 </section>
 

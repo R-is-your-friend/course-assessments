@@ -1,0 +1,17 @@
+{
+  "hash": "6ca5898053301bb4ab19ded0777c1007",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Week 7: Data Wrangling II\"\nnumber-sections: true\nnumber-depth: 2\n---\n\n\n\n\n::: columns\n::: {.column width=\"48%\"}\n#### 📖 Readings: 60 min\n\n#### 🏋🏾‍♂️ Activities: 0 min\n\n:::\n\n::: {.column width=\"4%\"}\n:::\n\n::: {.column width=\"48%\"}\n#### 📽 Videos: 0 min \n\n#### 💻 Tutorials: 0 min\n:::\n:::\n\n------------------------------------------------------------------------\n\n\n::: callout\n## Learning Objectives\n\n+ Determine what data format is necessary to generate a desired plot or statistical model.\n+ Build fluency with and extend data manipulation verbs to get from one rectangular dataset to another.\n+ Use helper functions like `across()` and `case_when()` wiht dplyr verbs.\n+ Describe the differences between “wide” and “long” format data and how to transition between the two structures.\n\n:::\n\n## Extending Data Manipulation Verbs\n\n### 📖 Required Reading: [Extending dplyr verbs](https://r-is-your-friend.github.io/course-pack/07-more-wrangling.html#what-data-do-we-need)\n\n::: {.callout-check-in}\n\nTO-DO\n\n:::\n\n## Data Pivots\n\n### 📖 Required Reading: [R4DS 5](https://r4ds.hadley.nz/data-tidy.html) about data pivots\n\n#### 📽 Optional Videos\n\n- [Pivot Longer](https://www.youtube.com/embed/2rQZNlH2734 )\n- [Pivot Wider](https://www.youtube.com/embed/NKnl2WoNpK0)\n\nBy the end of the reading, you should be able to answer the following questions:\n\n::: {.callout-check-in}\n\nTO-DO\n\n:::\n\n",
+    "supporting": [
+      "week-7_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

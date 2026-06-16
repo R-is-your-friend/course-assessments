@@ -1,0 +1,72 @@
+---
+title: "Week 7: Data Wrangling II"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+
+::: columns
+::: {.column width="48%"}
+#### 📖 Readings: 60 min
+
+#### 🏋🏾‍♂️ Activities: 0 min
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 0 min 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
+
+------------------------------------------------------------------------
+
+
+::: callout
+## Learning Objectives
+
++ Determine what data format is necessary to generate a desired plot or statistical model.
++ Build fluency with and extend data manipulation verbs to get from one rectangular dataset to another.
++ Use helper functions like `across()` and `case_when()` wiht dplyr verbs.
++ Describe the differences between “wide” and “long” format data and how to transition between the two structures.
+
+:::
+
+## Extending Data Manipulation Verbs
+
+### 📖 Required Reading: [Extending dplyr verbs](https://r-is-your-friend.github.io/course-pack/07-more-wrangling.html#what-data-do-we-need)
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
+## Data Pivots
+
+### 📖 Required Reading: [R4DS 5](https://r4ds.hadley.nz/data-tidy.html) about data pivots
+
+#### 📽 Optional Videos
+
+- [Pivot Longer](https://www.youtube.com/embed/2rQZNlH2734 )
+- [Pivot Wider](https://www.youtube.com/embed/NKnl2WoNpK0)
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+

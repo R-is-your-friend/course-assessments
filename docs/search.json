@@ -361,7 +361,7 @@
     "href": "practice-activities/main-version/pa4-friend.html#read-in-puzzle-data",
     "title": "Practice Activity 4: Emoji Riddles",
     "section": "Read in Puzzle Data",
-    "text": "Read in Puzzle Data\n\nSetup\n\nDownload the 04-magic-data.csv and 04-clue-data.xlsx and save them in your an appropriate directory inside your stat-1810 directory. Think about where would be most reading the data into your pa4.qmd file!\nIt is best practice to always have a code chunk at the beginning of your quarto document to load packages and read in data. Add a code chunk after the YAML header. Include a label for this chunk called “setup”. Load the tidyverse package in this chunk.\nCreate another level two header at the end of your document called “Crack the Code”\n\n\n\nRead in Codes\n\nBelow that header, create a new R code chunk. Use read_csv() to read in “04-magic-data.csv” save it as emoji-codes.\nDouble click on emoji-codes in Environment to look a the dataset. Look down at your console\n\n\nwhat code was run?\nwhat are the rows and columns?\nwhat in the world is this data???\n\n\nPrint (i.e. return) the emoji-codes data in a new chunk. See what it looks like. We call this returning code “in-line”.\nTo actually see our secret messages, you need to convert the tibble into a nice HTML table. Luckily there is a handy function to do that! kable() is part of the knitr package. Add knitr to your loaded packages in your setup chunk. Create a new code chunk with the following code: kable(emoji-codes).\n\nNow you should see three emoji puzzles!\n\n\nRead in Clues\nTo help you decipher the puzzles, we have also provided clues in the 04-clue-data.xlsx.\nBut being the devious folks that professors are, the clues are in a hidden sheet called “clues”.\n\nUsing read_xlsx(), read in hidden sheet called “clues” from the 04-clue-data.xlsx file and save it as an object called emoji-clues.. Don’t forget to to load the readxl package in your startup chunk!\nExplore the emoji-clues data with glimpse() str() head()."
+    "text": "Read in Puzzle Data\n\nSetup\n\nDownload the 04-magic-data.csv and 04-clue-data.xlsx and save them in your an appropriate directory inside your stat-1810 directory. Think about where would be most reading the data into your pa4.qmd file!\nIt is best practice to always have a code chunk at the beginning of your quarto document to load packages and read in data. Add a code chunk after the YAML header. Include a label for this chunk called “setup”. Load the tidyverse package in this chunk.\nCreate another level two header at the end of your document called “Crack the Code”\n\n\n\nRead in Codes\n\nBelow that header, create a new R code chunk. Use read_csv() to read in “04-magic-data.csv” save it as emoji-codes.\nDouble click on emoji-codes in Environment to look a the dataset.\n\nLook at the dataset that popped up in your source window.\n\nwhat are the rows and columns?\nwhat in the world is this data???\n\nLook down at your console\n\nwhat code was run?\n\n\nPrint (i.e. return) the emoji-codes data in a new chunk. See what it looks like. We call this returning code “in-line”.\nTo actually see our secret messages, you need to convert the tibble into a nice HTML table. Luckily there is a handy function to do that! kable() is part of the knitr package. Add knitr to your loaded packages in your setup chunk. Create a new code chunk with the following code: kable(emoji-codes).\n\nNow you should see three emoji puzzles!\n\n\nRead in Clues\nTo help you decipher the puzzles, we have also provided clues in the 04-clue-data.xlsx.\nBut being the devious folks that professors are, the clues are in a hidden sheet called “clues”.\n\nUsing read_xlsx(), read in hidden sheet called “clues” from the 04-clue-data.xlsx file and save it as an object called emoji-clues.. Don’t forget to to load the readxl package in your startup chunk!\nExplore the emoji-clues data with glimpse() str() head()."
   },
   {
     "objectID": "practice-activities/main-version/pa4-friend.html#code-cracking",
@@ -480,7 +480,7 @@
     "href": "index.html",
     "title": "R is Your Friend Course Materials",
     "section": "",
-    "text": "This page contains an easy reference the topics, content, and assignments for a semester.\n Prepare – readings and videos to complete before class\n Slides - presentation materials for class discussion / warm-up before the activity / lab\n Handout - materials to accompany class discussion / warm-up before the activity / lab\n Activity – activities done during class\n Lab – end of week assignments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrepare\n\n\nSlides\n\n\nActivity\n\n\nLab\n\n\nHandout\n\n\n\n\n\nUnit 1\n\n\n\n\nWeek 1\n\n\nDay 1\n\n\nComputer is Friend & What is Code?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\nDay 1\n\n\nR is friend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\n\n\nDay 1\n\n\nControl Flow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\n\n\nDay 1\n\n\nUnit 1 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnit 2\n\n\n\n\n\n\nDay 2\n\n\nData is friend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\n\n\nDay 1\n\n\nData Visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\n\n\nDay 1\n\n\nData Wrangling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\n\n\nDay 1\n\n\nData Wrangling Continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\n\n\nDay 1\n\n\nJoins and Factors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\n\n\nDay 1\n\n\nStrings and Dates\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 10\n\n\nDay 1\n\n\nCommunication\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\nUnit 2 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnit 3\n\n\n\n\nWeek 11\n\n\nDay 1\n\n\nFunctions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 12\n\n\nDay 1\n\n\nFunctions and Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 13\n\n\nDay 1\n\n\nSimulation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 14\n\n\nDay 1\n\n\nUnit 3 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 15\n\n\nDay 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2"
+    "text": "This page contains an easy reference the topics, content, and assignments for a semester.\n Prepare – readings and videos to complete before class\n Slides - presentation materials for class discussion / warm-up before the activity / lab\n Handout - materials to accompany class discussion / warm-up before the activity / lab\n Activity – activities done during class\n Lab – end of week assignments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrepare\n\n\nSlides\n\n\nActivity\n\n\nLab\n\n\nHandout\n\n\n\n\n\n\nUnit 1\n\n\n\n\nWeek 1\n\n\nDay 1\n\n\nComputer is Friend & What is Code?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\nDay 1\n\n\nR is friend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\n\n\nDay 1\n\n\nControl Flow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\nWriting Simple Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\n\n\nDay 1\n\n\nUnit 1 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnit 2\n\n\n\n\n\n\nDay 2\n\n\nData is friend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\n\n\nDay 1\n\n\nData Visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\n\n\nDay 1\n\n\nData Wrangling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\n\n\nDay 1\n\n\nData Wrangling Continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\n\n\nDay 1\n\n\nJoins and Factors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\n\n\nDay 1\n\n\nStrings and Dates\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 10\n\n\nDay 1\n\n\nCommunication\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\nUnit 2 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnit 3\n\n\n\n\nWeek 11\n\n\nDay 1\n\n\nWriting More Complex Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 12\n\n\nDay 1\n\n\nFunctions and Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 13\n\n\nDay 1\n\n\nSimulation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 14\n\n\nDay 1\n\n\nUnit 3 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 15\n\n\nDay 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2"
   },
   {
     "objectID": "index.html#schedule",
@@ -871,7 +871,105 @@
     "objectID": "reading/week-3b.html#writing-functions-in-r",
     "href": "reading/week-3b.html#writing-functions-in-r",
     "title": "Week 3 Part 2: Writing Simple Functions in R",
-    "section": "\n1 Writing Functions in R",
-    "text": "1 Writing Functions in R\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nUnderstand the components of a function\nOutline how function arguments are used\nContrast arguments with and without default values\nIllustrate how control flow can be used inside the body of a function\nExplain the differences between explicit and implicit function returns\n\n\n\n📖 Required Reading: Writing Simple Functions in R\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\n\nNow that we have created the rescale() function, let’s check our intuition for what the function should output (return) for different inputs.\n\n\nx &lt;- 3\ny &lt;- 10:20\nz &lt;- c(1, 4, 5, 6, \"dog\")\n\n\nWhat would you expect rescale() to output when x is input?\nWhat would you expect rescale() to output when y is input?\nWhat would you expect rescale() to output when z is input?\n\nWe know rescale() works, so let’s test our intuition for what would happen for the following scenarios.\n\nrescale(nums, method = \"normalize\")\nrescale(nums, method = \"min-max\")\nrescale(nums, na.rm = TRUE)\n\nWe’ve incorporated a input check for the size of x, but not for the size of na.rm or method.\n\nWhat length() should we expect na.rm to have?\nWhat length() should we expect method to have?\nWhat should the final set of input checks be?"
+    "section": "1 Writing Functions in R",
+    "text": "1 Writing Functions in R\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nUnderstand the components of a function\nOutline how function arguments are used\nContrast arguments with and without default values\nIllustrate how control flow can be used inside the body of a function\nExplain the differences between explicit and implicit function returns\n\n\n\n\n📖 Required Reading: Writing Simple Functions in R\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\n\nNow that we have created the rescale() function, let’s check our intuition for what the function should output (return) for different inputs.\n\n\nx &lt;- 3\ny &lt;- 10:20\nz &lt;- c(1, 4, 5, 6, \"dog\")\n\n\nWhat would you expect rescale() to output when x is input?\nWhat would you expect rescale() to output when y is input?\nWhat would you expect rescale() to output when z is input?\n\nWe know rescale() works, so let’s test our intuition for what would happen for the following scenarios.\n\nrescale(nums, method = \"normalize\")\nrescale(nums, method = \"min-max\")\nrescale(nums, na.rm = TRUE)\n\nWe’ve incorporated a input check for the size of x, but not for the size of na.rm or method.\n\nWhat length() should we expect na.rm to have?\nWhat length() should we expect method to have?\nWhat should the final set of input checks be?"
+  },
+  {
+    "objectID": "index.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2066612063616c656e646172207469746c653d22416e2063616c656e64617222203e7d7d-schedule",
+    "href": "index.html#b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c2066612063616c656e646172207469746c653d22416e2063616c656e64617222203e7d7d-schedule",
+    "title": "R is Your Friend Course Materials",
+    "section": "",
+    "text": "This page contains an easy reference the topics, content, and assignments for a semester.\n Prepare – readings and videos to complete before class\n Slides - presentation materials for class discussion / warm-up before the activity / lab\n Handout - materials to accompany class discussion / warm-up before the activity / lab\n Activity – activities done during class\n Lab – end of week assignments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrepare\n\n\nSlides\n\n\nActivity\n\n\nLab\n\n\nHandout\n\n\n\n\n\n\nUnit 1\n\n\n\n\nWeek 1\n\n\nDay 1\n\n\nComputer is Friend & What is Code?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\nDay 1\n\n\nR is friend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\n\n\nDay 1\n\n\nControl Flow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\nWriting Simple Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\n\n\nDay 1\n\n\nUnit 1 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnit 2\n\n\n\n\n\n\nDay 2\n\n\nData is friend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\n\n\nDay 1\n\n\nData Visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\n\n\nDay 1\n\n\nData Wrangling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\n\n\nDay 1\n\n\nData Wrangling Continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\n\n\nDay 1\n\n\nJoins and Factors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\n\n\nDay 1\n\n\nStrings and Dates\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 10\n\n\nDay 1\n\n\nCommunication\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\nUnit 2 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnit 3\n\n\n\n\nWeek 11\n\n\nDay 1\n\n\nWriting More Complex Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 12\n\n\nDay 1\n\n\nFunctions and Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 13\n\n\nDay 1\n\n\nSimulation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 14\n\n\nDay 1\n\n\nUnit 3 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 15\n\n\nDay 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2"
+  },
+  {
+    "objectID": "handouts/04-handout.html",
+    "href": "handouts/04-handout.html",
+    "title": "Handout 4: Data Is Friend",
+    "section": "",
+    "text": "Show code for reading in the data – read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)?\n\nWhat if the data looks like xxxx.\n\nHow many dimensions is the data? – use dim()\nScreenshot of reflected file folder structure & Files tab in R.\n\n\n\nImage of file folder structure – putting a pin/moving/trace the path to the data. Fill in the file folder structure.\n\nWhat if it is a .qmd file instead of a .R script (DUMB!)\nWhere is your “home base”?\nWould the code run? yes/no\n\nIf you have downloaded data, where should you save it on your computer to read it into your qmd? Sketch your folder project management gameplan!\n\n\n\nWhat does the rectangle look like?\n\nwhat is a row – week of the year? A single day?\nhow many columns?\nthe same data can look like different rectangles (8 can be 1x8 or a 2x4 or a 4x2) shape-shifting data.\nPage of a survey (how data was collected) -&gt; converted to the rectangle!!!\n\nmatch the View(), str(), glimpse()\n\nwhat sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?"
+  },
+  {
+    "objectID": "reading/week-4.html#required-reading",
+    "href": "reading/week-4.html#required-reading",
+    "title": "Week 4: Data is Friend",
+    "section": "1 📖 Required Reading",
+    "text": "1 📖 Required Reading\n\nRead Rectangular Data\nRead File Paths\nRead R4DS 7.1-7.3 about reading in data files\nRead R4DS 7.5 about saving data externally\nRead R4DS 20 about working with Excel files\nRead R4DS 28 about Quarto"
+  },
+  {
+    "objectID": "reading/week-4.html#rectangular-data",
+    "href": "reading/week-4.html#rectangular-data",
+    "title": "Week 4: Data is Friend",
+    "section": "1 Rectangular Data",
+    "text": "1 Rectangular Data\n\n📖 Required Reading: Rectangular Data\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "reading/week-4.html#importing-data-into-r",
+    "href": "reading/week-4.html#importing-data-into-r",
+    "title": "Week 4: Data is Friend",
+    "section": "2 Importing Data into R",
+    "text": "2 Importing Data into R\n\n📖 Required Reading: File Paths\n\n\n📖 Required Reading: R4DS 7.1-7.3 about reading in data files\n\n\n📖 Required Reading: R4DS 7.5 about saving data externally\n\n\n📖 Required Reading: R4DS 20 about working with Excel files\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "reading/week-4.html#quarto",
+    "href": "reading/week-4.html#quarto",
+    "title": "Week 4: Data is Friend",
+    "section": "3 Quarto",
+    "text": "3 Quarto\n\n📖 Required Reading: R4DS 28 about Quarto\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "reading/week-7.html#extending-data-manipulation-verbs",
+    "href": "reading/week-7.html#extending-data-manipulation-verbs",
+    "title": "Week 7: Data Wrangling II",
+    "section": "1 Extending Data Manipulation Verbs",
+    "text": "1 Extending Data Manipulation Verbs\n\n📖 Required Reading: Extending dplyr verbs\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "reading/week-7.html#data-pivots",
+    "href": "reading/week-7.html#data-pivots",
+    "title": "Week 7: Data Wrangling II",
+    "section": "2 Data Pivots",
+    "text": "2 Data Pivots\n\n📖 Required Reading: R4DS 5 about data pivots\n\n📽 Optional Videos\n\nPivot Longer\nPivot Wider\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "reading/week-8.html#data-joins",
+    "href": "reading/week-8.html#data-joins",
+    "title": "Week 8: Data Joins and Factors",
+    "section": "1 Data Joins",
+    "text": "1 Data Joins\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nUse data joins to assemble data from multiple relational tables into a single table.\n\n\n\n\n📖 Required Reading: R4DS 19.1-19.4: Joins\n\nNote: don’t read 19.5! We will not cover non-equi joins in this course\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "reading/week-8.html#factor-variables",
+    "href": "reading/week-8.html#factor-variables",
+    "title": "Week 8: Data Joins and Factors",
+    "section": "2 Factor Variables",
+    "text": "2 Factor Variables\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nReorder and relabel factor variables in data cleaning steps and data visualizations using forcats\nDesign and implement more advanced plots\n\n\n\n\n📖 Required Reading: R4DS 16: Factors\n\n📽 Optional Video: forcats\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "reading/week-6.html",
+    "href": "reading/week-6.html",
+    "title": "Week 6: Data Wrangling I",
+    "section": "",
+    "text": "NoneLearning Objectives\n\n\n\n\nIdentify the rectangular dataset required for a given task.\nIdentify required sequence of steps to get from one rectangular dataset to another.\nApply data manipulation verbs (filter(), select(), group_by(), summarize(), mutate()) to get from one rectangular dataset to another\nDescribe step-by-step data cleaning process in lay terms appropriately and understand the consequences of data cleaning steps."
+  },
+  {
+    "objectID": "reading/week-6.html#preparation",
+    "href": "reading/week-6.html#preparation",
+    "title": "Week 6: Data Wrangling I",
+    "section": "1 Preparation",
+    "text": "1 Preparation\n\nRequired Reading\n\nRead Welcome to the tidyverse!\nRead Data Wrangling\nRead R4DS 3 about data wrangling and transformation using dplyr verbs\n\n\n\n📽 Optional Videos on dplyr verbs\n\nfilter() – 11 minutes\nselect() – 6 minutes\nmutate() – 9 minutes\narrange() – 7 minutes\nsummarize()– 8 minutes\ngroup_by() – 6 minutes\nThe pipe operator – 8 minutes\nExtending the pipe – 3 minutes\n\n\n\n💻 Optional Tutorial for more practice: Practice with dplyr"
+  },
+  {
+    "objectID": "reading/week-9.html#character-variables-and-strings",
+    "href": "reading/week-9.html#character-variables-and-strings",
+    "title": "Week 9: Special Variable Types",
+    "section": "1 Character Variables and Strings",
+    "text": "1 Character Variables and Strings\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nClean and extract information from character variables using stringr\nRecognize what a basic regular expression will match\n\n\n\n\n📖 Required Reading: R4DS 14.1-14.5: Strings\n\n\n📖 Required Reading: R4DS 15.1-15.4: Strings\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "reading/week-9.html#date-and-time-variables",
+    "href": "reading/week-9.html#date-and-time-variables",
+    "title": "Week 9: Special Variable Types",
+    "section": "2 Date and Time Variables",
+    "text": "2 Date and Time Variables\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nWork with date and time variables using lubridate\nConvert a string variable into a date / time variable\nExtract date / time information from a date / time variable (e.g. month, year, day of the week, etc)\nConvert between time zones\n\n\n\n\n📖 Required Reading: R4DS 17: Dates and Times\n\n📽 Optional Video: Working wtih Dates\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   }
 ]

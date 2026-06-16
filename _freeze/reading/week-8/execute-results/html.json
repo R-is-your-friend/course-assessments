@@ -1,0 +1,15 @@
+{
+  "hash": "55c12d396d42184f23cb3009289702a0",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Week 8: Data Joins and Factors\"\nnumber-sections: true\nnumber-depth: 2\n---\n\n\n\n\n::: columns\n::: {.column width=\"48%\"}\n#### 📖 Readings: 60 min\n\n#### 🏋🏾‍♂️ Activities: 0 min\n\n:::\n\n::: {.column width=\"4%\"}\n:::\n\n::: {.column width=\"48%\"}\n#### 📽 Videos: 0 min \n\n#### 💻 Tutorials: 0 min\n:::\n:::\n\n------------------------------------------------------------------------\n\n\n\n\n## Data Joins\n\n::: callout\n## Learning Objectives\n\n+ Use data joins to assemble data from multiple relational tables into a single table.\n\n:::\n\n### 📖 Required Reading: [R4DS 19.1-19.4: Joins](https://r4ds.hadley.nz/joins.html)\n\n- Note: don't read 19.5! We will not cover non-equi joins in this course\n\nBy the end of the reading, you should be able to answer the following questions:\n\n::: {.callout-check-in}\n\nTO-DO\n\n:::\n\n## Factor Variables\n\n::: callout\n## Learning Objectives\n+ Reorder and relabel factor variables in data cleaning steps and data visualizations using forcats \n+ Design and implement more advanced plots\n:::\n\n### 📖 Required Reading: [R4DS 16: Factors](https://r4ds.hadley.nz/factors.html)\n\n#### 📽 Optional Video: [forcats](https://www.youtube.com/embed/dAiSYli7tVg)\n\nBy the end of the reading, you should be able to answer the following questions:\n\n::: {.callout-check-in}\n\nTO-DO\n\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

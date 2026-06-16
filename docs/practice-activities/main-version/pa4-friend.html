@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Practice Activity 4: Emoji Riddles – R is Your Friend</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -31,19 +34,18 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-fad26494ecb6ad66f4afbfbf12486cc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7b47a951b730fa877cbee758ae846ea5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-fad26494ecb6ad66f4afbfbf12486cc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2ab61de5d75b10846a09b9ecabc208ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-1e0d46156da295a56c45eb8569d5d390.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2ab61de5d75b10846a09b9ecabc208ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,12 +252,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#intro-to-quarto" id="toc-intro-to-quarto" class="nav-link active" data-scroll-target="#intro-to-quarto">Intro to Quarto</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#create-your-pa-4-quarto-file" id="toc-create-your-pa-4-quarto-file" class="nav-link" data-scroll-target="#create-your-pa-4-quarto-file">Create your PA 4 Quarto File</a></li>
   <li><a href="#add-code-and-text" id="toc-add-code-and-text" class="nav-link" data-scroll-target="#add-code-and-text">Add Code and Text</a></li>
   </ul></li>
   <li><a href="#read-in-puzzle-data" id="toc-read-in-puzzle-data" class="nav-link" data-scroll-target="#read-in-puzzle-data">Read in Puzzle Data</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#read-in-codes" id="toc-read-in-codes" class="nav-link" data-scroll-target="#read-in-codes">Read in Codes</a></li>
   <li><a href="#read-in-clues" id="toc-read-in-clues" class="nav-link" data-scroll-target="#read-in-clues">Read in Clues</a></li>
@@ -395,12 +397,16 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="read-in-codes">Read in Codes</h3>
 <ol start="11" type="1">
 <li><p>Below that header, create a new R code chunk. Use <code>read_csv()</code> to read in “04-magic-data.csv” save it as <code>emoji-codes</code>.</p></li>
-<li><p>Double click on <code>emoji-codes</code> in Environment to look a the dataset. Look down at your console</p></li>
+<li><p>Double click on <code>emoji-codes</code> in Environment to look a the dataset.</p></li>
 </ol>
+<p>Look at the dataset that popped up in your source window.</p>
 <ul>
-<li>what code was run?</li>
 <li>what are the rows and columns?</li>
 <li>what in the world is this data???</li>
+</ul>
+<p>Look down at your console</p>
+<ul>
+<li>what code was run?</li>
 </ul>
 <ol start="13" type="1">
 <li><p>Print (i.e.&nbsp;return) the <code>emoji-codes</code> data in a new chunk. See what it looks like. We call this returning code “in-line”.</p></li>

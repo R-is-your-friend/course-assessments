@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 6: Data Wrangling – R is Your Friend</title>
+<title>Week 6: Data Wrangling I – R is Your Friend</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -43,9 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dd4909716db3f760ce154d69a8fc1979.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-2d888a32c0040c3fc3788d6e3188641b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-dd4909716db3f760ce154d69a8fc1979.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2ab61de5d75b10846a09b9ecabc208ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-1e0d46156da295a56c45eb8569d5d390.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2ab61de5d75b10846a09b9ecabc208ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -251,8 +251,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">1</span> Learning Objectives</a></li>
-  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation"><span class="header-section-number">2</span> Preparation</a></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation"><span class="header-section-number">1</span> Preparation</a>
+  <ul>
+  <li><a href="#required-reading" id="toc-required-reading" class="nav-link" data-scroll-target="#required-reading">Required Reading</a></li>
+  <li><a href="#optional-videos-on-dplyr-verbs" id="toc-optional-videos-on-dplyr-verbs" class="nav-link" data-scroll-target="#optional-videos-on-dplyr-verbs">📽 Optional Videos on <code>dplyr</code> verbs</a></li>
+  <li><a href="#optional-tutorial-for-more-practice-practice-with-dplyr" id="toc-optional-tutorial-for-more-practice-practice-with-dplyr" class="nav-link" data-scroll-target="#optional-tutorial-for-more-practice-practice-with-dplyr">💻 Optional Tutorial for more practice: Practice with dplyr</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -262,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 6: Data Wrangling</h1>
+<h1 class="title">Week 6: Data Wrangling I</h1>
 </div>
 
 
@@ -279,17 +283,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="learning-objectives" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1</span> Learning Objectives</h2>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>Identify the rectangular dataset required for a given task.</li>
 <li>Identify required sequence of steps to get from one rectangular dataset to another.</li>
 <li>Apply data manipulation verbs (<code>filter()</code>, <code>select()</code>, <code>group_by()</code>, <code>summarize()</code>, <code>mutate()</code>) to get from one rectangular dataset to another</li>
 <li>Describe step-by-step data cleaning process in lay terms appropriately and understand the consequences of data cleaning steps.</li>
 </ul>
-</section>
-<section id="preparation" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="preparation"><span class="header-section-number">2</span> Preparation</h2>
+</div>
+</div>
+<section id="preparation" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="preparation"><span class="header-section-number">1</span> Preparation</h2>
 <section id="required-reading" class="level4">
 <h4 class="anchored" data-anchor-id="required-reading">Required Reading</h4>
 <ul>

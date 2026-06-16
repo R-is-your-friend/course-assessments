@@ -12,13 +12,11 @@ library(tidyverse)
 ```
 
 
-In this week's reading, we have:
-
 ::: columns
 ::: {.column width="48%"}
 #### 📖 Readings: 60 min
 
-#### 🏋🏾‍♂️ Activities: 30 min
+#### 🏋🏾‍♂️ Activities: 0 min
 
 :::
 
@@ -34,8 +32,8 @@ In this week's reading, we have:
 
 ------------------------------------------------------------------------
 
-</br>
 
+::: callout
 ## Learning Objectives
 
 + Define the observational unit (rows) and variables (columns) of rectangular data
@@ -44,13 +42,44 @@ In this week's reading, we have:
 + Read rectangular data with various delimiters into R using an appropriate `readr` or `readxl` function
 + Define relative versus absolute file paths
 + Integrate R code and Markdown text in **Quarto** documents
+:::
 
+## Rectangular Data
 
-## Preparation
+### 📖 Required Reading: [Rectangular Data](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rectangular-data)
 
-- Read [Rectangular Data](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rectangular-data)
-- Read [File Paths](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths)
-- Read [R4DS 7.1-7.3](https://r4ds.hadley.nz/data-import.html) about reading in data files
-- Read [R4DS 7.5](https://r4ds.hadley.nz/data-import.html#sec-writing-to-a-file) about saving data externally
-- Read [R4DS 20](https://r4ds.hadley.nz/spreadsheets.html) about working with Excel files
-- Read [R4DS 28](https://r4ds.hadley.nz/quarto.html) about Quarto
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
+## Importing Data into R
+
+### 📖 Required Reading: [File Paths](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths)
+### 📖 Required Reading: [R4DS 7.1-7.3](https://r4ds.hadley.nz/data-import.html) about reading in data files
+### 📖 Required Reading: [R4DS 7.5](https://r4ds.hadley.nz/data-import.html#sec-writing-to-a-file) about saving data externally
+### 📖 Required Reading: [R4DS 20](https://r4ds.hadley.nz/spreadsheets.html) about working with Excel files
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
+## Quarto
+
+### 📖 Required Reading: [R4DS 28](https://r4ds.hadley.nz/quarto.html) about Quarto
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+

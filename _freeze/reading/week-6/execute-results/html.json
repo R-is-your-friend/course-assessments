@@ -1,0 +1,15 @@
+{
+  "hash": "9be5e21c3f143e5a3d664921b5bb95de",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Week 6: Data Wrangling I\"\nnumber-sections: true\nnumber-depth: 2\n---\n\n\n\n::: callout\n## Learning Objectives\n\n+ Identify the rectangular dataset required for a given task.\n+ Identify required sequence of steps to get from one rectangular dataset to another.\n+ Apply data manipulation verbs (`filter()`, `select()`, `group_by()`, `summarize()`, `mutate()`) to get from one rectangular dataset to another\n+ Describe step-by-step data cleaning process in lay terms appropriately and understand the consequences of data cleaning steps.\n:::\n\n## Preparation\n\n#### Required Reading\n\n- Read [Welcome to the tidyverse!](https://r-is-your-friend.github.io/course-pack/06-data-wrangling.html#welcome-to-the-tidyverse)\n- Read [Data Wrangling](https://r-is-your-friend.github.io/course-pack/06-data-wrangling.html#data-wrangling)\n- Read [R4DS 3](https://r4ds.hadley.nz/data-transform.html) about data wrangling and transformation using `dplyr` verbs\n\n\n#### 📽 Optional Videos on `dplyr` verbs\n\n- [`filter()` -- 11 minutes](https://youtu.be/pPI-prhLYqI)\n- [`select()` -- 6 minutes](https://youtu.be/OInnmiccHt8)\n- [`mutate()` -- 9 minutes](https://youtu.be/QWyUnQ2EzPs)\n- [`arrange()` -- 7 minutes](https://youtu.be/4Qhdc81mpvo)\n- [`summarize()`-- 8 minutes](http://somup.com/crflYibWZw)\n- [`group_by()` -- 6 minutes](http://somup.com/crflqbbWFy)\n- [The pipe operator -- 8 minutes](http://somup.com/crflYfbWZD)\n- [Extending the pipe -- 3 minutes](http://somup.com/crflYmbWup)\n\n#### 💻 Optional Tutorial for more practice:  [Practice with dplyr](https://r-primers.andrewheiss.com/transform-data/03-deriving/)\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
