@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>Week 3 Part 1: Control Flow – R is Your Friend</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -54,6 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -62,24 +69,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-33ac72d7f20070f30db0ca28148d8f73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-aac29be8fd630ab10ef3f7e4267d51c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-33ac72d7f20070f30db0ca28148d8f73.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -100,7 +107,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -126,8 +138,10 @@ window.Quarto = {
   typesetMath
 };
 </script>
+
 </head>
-<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -292,24 +306,58 @@ window.Quarto = {
   </script>
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">R is Your Friend</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../data/data-index.html"> 
+<span class="menu-text">Data</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li>
-<a href="#control-flow" id="toc-control-flow" class="nav-link active" data-scroll-target="#control-flow"><span class="header-section-number">1</span> Control Flow</a>
+  <li><a href="#control-flow" id="toc-control-flow" class="nav-link active" data-scroll-target="#control-flow"><span class="header-section-number">1</span> Control Flow</a>
   <ul>
-<li><a href="#required-reading-control-flow" id="toc-required-reading-control-flow" class="nav-link" data-scroll-target="#required-reading-control-flow">📖 Required Reading: Control Flow</a></li>
+  <li><a href="#required-reading-control-flow" id="toc-required-reading-control-flow" class="nav-link" data-scroll-target="#required-reading-control-flow">📖 Required Reading: Control Flow</a></li>
+  </ul></li>
   </ul>
-</li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title">Week 3 Part 1: Control Flow</h1>
 </div>
 
@@ -324,25 +372,34 @@ window.Quarto = {
   
 
 
-</header><p>In the first part of this week we’re going to learn about control flow—statements in a computer program that that determines when, how, and how many times code is evaluated.</p>
+</header>
+
+
+<p>In the first part of this week we’re going to learn about control flow—statements in a computer program that that determines when, how, and how many times code is evaluated.</p>
 <p>In this week’s reading, we have:</p>
 <div class="columns">
 <div class="column" style="width:48%;">
-<section id="readings-60-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
-</section><section id="activities-30-min" class="level4"><h4 class="anchored" data-anchor-id="activities-30-min">🏋🏾‍♂️ Activities: 30 min</h4>
+<section id="readings-60-min" class="level4">
+<h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
+</section>
+<section id="activities-30-min" class="level4">
+<h4 class="anchored" data-anchor-id="activities-30-min">🏋🏾‍♂️ Activities: 30 min</h4>
 </section>
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:48%;">
-<section id="videos-0-min" class="level4"><h4 class="anchored" data-anchor-id="videos-0-min">📽 Videos: 0 min</h4>
-</section><section id="tutorials-0-min" class="level4"><h4 class="anchored" data-anchor-id="tutorials-0-min">💻 Tutorials: 0 min</h4>
+<section id="videos-0-min" class="level4">
+<h4 class="anchored" data-anchor-id="videos-0-min">📽 Videos: 0 min</h4>
+</section>
+<section id="tutorials-0-min" class="level4">
+<h4 class="anchored" data-anchor-id="tutorials-0-min">💻 Tutorials: 0 min</h4>
 </section>
 </div>
 </div>
 <hr>
-<p></p>
-<section id="control-flow" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="control-flow">
-<span class="header-section-number">1</span> Control Flow</h2>
+<p><br></p>
+<section id="control-flow" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="control-flow"><span class="header-section-number">1</span> Control Flow</h2>
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -355,10 +412,8 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <ul>
 <li>What a conditional statement is</li>
-<li>How to create a simple conditional statement with <code>if ()</code> and <code>else</code>
-</li>
-<li>How to series of conditional statements with <code>else if ()</code>
-</li>
+<li>How to create a simple conditional statement with <code>if ()</code> and <code>else</code></li>
+<li>How to series of conditional statements with <code>else if ()</code></li>
 <li>What it means for a function to be vectorized</li>
 <li>How to make a vectorized conditional statement</li>
 <li>Where to access help on an R function</li>
@@ -367,8 +422,8 @@ window.Quarto = {
 </ul>
 </div>
 </div>
-<section id="required-reading-control-flow" class="level3"><h3 class="anchored" data-anchor-id="required-reading-control-flow">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/03a-control-flow.html">Control Flow</a>
-</h3>
+<section id="required-reading-control-flow" class="level3">
+<h3 class="anchored" data-anchor-id="required-reading-control-flow">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/03a-control-flow.html">Control Flow</a></h3>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -384,8 +439,8 @@ window.Quarto = {
 <li>Which of the following is the correct way to format a conditional statement?</li>
 </ol>
 <ol type="a">
-<li>
-</li></ol>
+<li></li>
+</ol>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (num <span class="sc">&lt;</span> <span class="dv">100</span>){</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(num)</span>
@@ -395,37 +450,37 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="2" type="a">
-<li>
-</li></ol>
+<li></li>
+</ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="va">num</span> <span class="op">&lt;</span> <span class="fl">100</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">num</span><span class="op">)</span></span>
-<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"banana"</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (num <span class="sc">&lt;</span> <span class="dv">100</span>){</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(num)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"banana"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="3" type="a">
-<li>
-</li></ol>
+<li></li>
+</ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="va">num</span> <span class="op">&lt;</span> <span class="fl">100</span><span class="op">)</span><span class="op">{</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">num</span><span class="op">)</span> <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"banana"</span><span class="op">)</span> <span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (num <span class="sc">&lt;</span> <span class="dv">100</span>){ <span class="fu">print</span>(num) } <span class="cf">else</span> { <span class="fu">print</span>(<span class="st">"banana"</span>) }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="a">
-<li>
-</li></ol>
+<li></li>
+</ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="va">num</span> <span class="op">&lt;</span> <span class="fl">100</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">num</span><span class="op">)</span> <span class="kw">else</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"banana"</span><span class="op">)</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (num <span class="sc">&lt;</span> <span class="dv">100</span>) <span class="fu">print</span>(num) <span class="cf">else</span> <span class="fu">print</span>(<span class="st">"banana"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="2" type="1">
 <li><p>With <code>if</code> + <code>else</code> you have ____ condition(s) to check and ____ possible outcome(s).</p></li>
 <li><p>In the IRS tax brackets we had ____ possible outcomes and ____ conditions that needed to be checked.</p></li>
 <li><p>In general, if you have <span class="math inline">\(n\)</span> possible outcomes, you will <strong>always</strong> have ____ conditions to check.</p></li>
 <li><p>A function is “vectorized” if it accepts a [vector / matrix / dataframe / list] with length [equal to / greater than / less than] 1 as an input.</p></li>
-<li><p>Which of the following options would open the help file for the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function? Select all that apply!</p></li>
+<li><p>Which of the following options would open the help file for the <code>mean()</code> function? Select all that apply!</p></li>
 </ol>
 <ol type="a">
 <li>Type <code>mean</code> in the Console</li>
-<li>Type <code><a href="https://rdrr.io/r/base/mean.html">?mean</a></code> in the Console</li>
+<li>Type <code>?mean</code> in the Console</li>
 <li>Search for mean in the search bar of the Packages tab</li>
 <li>Search for mean in the search bar of the Help tab</li>
 </ol>
@@ -438,7 +493,7 @@ window.Quarto = {
 <div class="columns">
 <div class="column" style="width:48%;">
 <p><code>for()</code> Loop</p>
-<p></p>
+<p><br></p>
 <p><code>while()</code> Loop</p>
 </div><div class="column" style="width:4%;">
 
@@ -451,7 +506,11 @@ window.Quarto = {
 
 </div>
 </div>
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -865,7 +924,8 @@ window.Quarto = {
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Built by Kelly Bodwin, Charlotte Mann, Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold.</p>
 </div>   
@@ -877,6 +937,8 @@ window.Quarto = {
 </div>
   </div>
 </footer>
+
+
 
 
 </body></html>
