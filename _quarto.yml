@@ -16,31 +16,17 @@ website:
   page-footer:
     right: "This page is built with ❤️️ and [Quarto](https://quarto.org/)."
     left: "Built by Kelly Bodwin, Charlotte Mann,  Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold."
-    background: "#bfd3e6"
+    background: "#7fcdbb"
 
-  # sidebar:
-  #   background: "#8c96c6"
-  #   pinned: true
-  #   align: center
-  #   tools:
-  #     - icon: github
-  #       href: https://github.com/manncz/stat-331-s25
-  #       text: "GitHub organization"
-  # 
-  #   style: "docked"
-  #   search: true
+  navbar:
+    pinned: true
+    background: "#7fcdbb"
+    right:
+      - href: index.qmd
+        text: Schedule
+      - href: data/data-index.qmd
+        text: Data
 
-# format:
-#   html:
-#     theme:
-#       light: [cosmo, style/risfriend.scss]
-#       dark: [cosmo, style/risfriend.scss, style/dark.scss]
-#     mainfont: "Atkinson Hyperlegible"
-#     code-copy: true
-#     code-overflow: wrap
-#     toc: true
-#     linkcolor: "#8856a7"
-# #    highlight-style: a11y-dark
 
 format:
   html:

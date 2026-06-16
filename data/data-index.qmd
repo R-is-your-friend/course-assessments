@@ -9,7 +9,7 @@ title: "Data Referenced in Materials"
 
 Week 4:
 
-- [magic-csv.csv](04-magic-csv.csv) -- created by us!
+- [magic-csv.csv](04-magic-csv.csv) (created by us!)
 
 Week 5:
 
@@ -27,3 +27,13 @@ Week 7
 
 - more `cereal` :) 
 - [SIPRI-Milex-data-1949-2024.xlsx](07-SIPRI-Milex-data-1949-2024.xlsx) ([source](https://www.sipri.org/databases/milex)) (downloaded 1/3/25)
+
+Week 8
+
+- [childcare_costs.csv](https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-05-09/childcare_costs.csv) ([source](https://github.com/rfordatascience/tidytuesday/blob/main/data/2023/2023-05-09/readme.md))
+- [counties.csv](https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-05-09/counties.csv) ([source](https://github.com/rfordatascience/tidytuesday/blob/main/data/2023/2023-05-09/readme.md))
+- [ca_tax_revenue.csv](08-ca_tax_revenue.csv) (compiled from the [California State Controller](https://counties.bythenumbers.sco.ca.gov/#!/year/default))
+
+Week 9
+
+- [bCH_murder_data.Rdata](09-bCH_murder_data.Rdata) (compiled from the [knight lab](https://mystery.knightlab.com/) at Northwestern University)

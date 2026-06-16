@@ -1,0 +1,52 @@
+---
+title: "Setup Up Murder Data for Lab 9"
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+# clear global environment
+
+rm(list = ls())
+```
+
+```{r}
+table_names <- c("crime_scene_report","drivers_license",
+                 "facebook_event_checkin",
+                 "get_fit_now_check_in","get_fit_now_member",
+                 "income", "interview","person")
+
+# For each name, read in the table and store it as the name.
+purrr::walk(table_names, function(x) {
+  assign(x, readr::read_csv(paste0(x, ".csv")), envir = .GlobalEnv)
+})
+```
+
+```{r}
+# remove vector from global environment
+
+rm(table_names)
+```
+
+
+To add some extra practice with regular expressions, I am going to edit the `person` data.
+
+```{r}
+person <- person |> 
+  mutate(address = str_c(address_number, 
+                         address_street_name,
+                         sep = " "),
+         .before = address_number) |> 
+  select(-address_number,
+         -address_street_name)
+```
+
+
+```{r}
+# save all data frames in global environment to an .Rdata file
+# when loaded, will open up all data frames
+
+save.image(file = "../../09-bCH_murder_data.Rdata")
+```

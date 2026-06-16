@@ -3,7 +3,8 @@ title: "R is Your Friend Course Materials"
 tbl-colwidths: [5,5,45,10,10,10,10,10]
 ---
 
-## {{< fa calendar title="An calendar" >}} Schedule
+<!--## {{< fa calendar title="An calendar" >}} Schedule
+-->
 
 This page contains an easy reference the topics, content, and assignments for a
 semester.
