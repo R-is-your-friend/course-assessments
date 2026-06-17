@@ -1,5 +1,5 @@
 ---
-title: "Lab 5: Murder in SQL City"
+title: "Lab 9: Murder in SQL City"
 subtitle: "`join` + `stringr` + `ludridate`"
 format: 
   html:
@@ -12,7 +12,7 @@ execute:
   warning: false
 ---
 
-[Download starter .qmd file]()
+[Download starter .qmd file](../student-version/lab9-murder.qmd)
 
 For this lab, you will be joining and filtering related datasets to solve a murder mystery!
 
@@ -29,22 +29,47 @@ The relational data you will be working with contains tables with different piec
 
 ## Access the Data
 
-Talk about .Rdata files and using load!
 
-<!--This code chunk will read in all of the tables of data for you. Don't modify or remove this!
+:::callout-important
+## .Rdata, what's this?
 
+So far we have used data built into R (accessing using the `data()` function), or from .csv or `.xlsx` filter (accessed using `readr` functions). There is a special data type that is only used with R with the suffix .Rdata, which we will use in this lab.
+
+The benefits of saving data that you are working with as .Rdata are:
+
+1. You can save as many named objects as you want in one file! In this case, there are 8 data frames saved in `08-bCH_murder_data.Rdata`
+2. .Rdata files are much smaller (i.e. take up less space on your computer) than the same data saved as a .csv.
+
+You "load" .Rdata files into your Global Environment in R using the `load()` function. All objects included in the .Rdata file will be loaded with the name they were saved with.
+:::
+
+Save the `08-bCH_murder_data.Rdata` file to your course directory and edit the file path in the code chunk below as needed to load in the data.
+
+::: main-version
 ```{r}
 #| message: false
 #| warning: false
+#| eval: false
+
 library(tidyverse)
 
-url("https://raw.githubusercontent.com/manncz/stat-331-s25/main/labs/lab5/data/bCH_murder_data.Rdata") |> 
-  load()
+load("08-bCH_murder_data.Rdata")
 ```
+:::
 
-:::callout-tip
-If the code above does not work for you for some reason, you can download the special data file [here](data/bCH_murder_data.Rdata) and use the `load()` function to read it in.
-:::-->
+::: student-version
+```{r}
+#| message: false
+#| warning: false
+#| label: setup
+
+library(tidyverse)
+
+load("08-bCH_murder_data.Rdata")
+```
+:::
+
+You will notice that the 8 data frames shown in the schema above are now all in your Global Environment!
 
 ## Clean and Combine the Data
 
@@ -108,7 +133,7 @@ Solve the murder mystery, showing **all of your work in this document**. Your do
 
 + Use headers and written descriptions to indicate what you are doing.
 + You **must** use `dplyr` verbs and `join` functions rather than just looking through the tables manually.
-+ You should never filter on a specific person id -- rather use `join` functions
++ You should **never filter on a specific person id** -- rather use `join` functions
 + You should have a final output that just includes the murder's name as well as their interview transcript (**which is missing!**).
 + Use the data frames you just created when helpful!
 + Use good code formatting practices.
