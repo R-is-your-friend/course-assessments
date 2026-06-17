@@ -1,5 +1,5 @@
 ---
-title: "Lab 4: Childcare Costs in California"
+title: "Lab 8: Childcare Costs in California"
 format: 
   html:
     code-tools: true
@@ -54,7 +54,7 @@ counties <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytues
 tax_rev <- read_csv('https://raw.githubusercontent.com/r-is-your-friend/course-assessments/main/data/08-ca_tax_revenue.csv')
 ```
 
-**1. Briefly describe the data (~ 4 sentences). What information does it contain?**
+**1. Briefly describe the data (~ 3 sentences). What information does it contain?**
 
 
 
@@ -63,7 +63,7 @@ tax_rev <- read_csv('https://raw.githubusercontent.com/r-is-your-friend/course-a
 
 **2. Let's focus only on California. Create a `ca_childcare` dataset containing (1) county information and (2) all information from the `childcare_costs` dataset.**
 
-**a. Sketch a plan for completing this task and include an image of the sketch or write out the steps of your plan in plain english (not with function names!). You should do all of this within one pipeline**
+**a. Sketch a plan for completing this task and include an image of the sketch or write out the steps of your plan in plain English (not with function names!). You should do all of this within one pipeline**
 
 
 
@@ -161,13 +161,14 @@ The code for the first question should give me the EXACT answer. This means havi
 # code for Q6
 ```
 
-**7. The following plot shows, for all ten regions, the change over time of the full-time median price for center-based childcare for infants, toddlers, and preschoolers. Recreate the plot. You do not have to replicate the exact colors or theme, but your plot should have the same content, including the order of the facets and legend, reader-friendly labels, axes breaks, and a loess smoother.**
+
+**7a. The following plot shows, for all ten regions, the change over time of the full-time median price for center-based childcare for infants, toddlers, and preschoolers. Recreate the plot. You do not have to replicate the exact colors or theme, but your plot should have the same content, including the order of the facets and legend, reader-friendly labels, and axes breaks.**
 
 :::callout-tip
 # Hints
 This will require transforming your data! Sketch out what you want the data to look like before you begin to code. You should be starting with your California dataset that contains the regions.
 
-A point on the plot represents one county and year.
+A point on the plot represents one *county* and year.
 
 You should use a `forcats` function to reorder the legend automatically
 
@@ -178,64 +179,22 @@ Again, your plot does not need to look exactly like this one!!
 Remember to avoid "object junk" in your environment!
 :::
 
+![Plot to replicate.](images/08-fig-to-replicate.png)
 
-:::callout-warning
-## Don't go too hard with `geom_smooth()`
 
-This plot makes use of smoothed lines to help the viewer see patterns over time, that might be difficult by just looking at the points for each county. However, it is important that we have also included the points! The smoothed lines are based on a **statistical model**, so only including these smoothed lines would be misleading. By including both, the viewer can see how the smoothed lines relate to the original data.
-
-:::
-
-![Plot to recreate](https://github.com/zoerehnberg/STAT331-S23/blob/main/lab_assignments/lab4/LA4_recreate_plot.png?raw=true)
 
 ```{r}
 # code for Q7
 ```
 
-## Median Household Income vs. Childcare Costs for Infants
 
-::: callout-tip
+**7b. Hmmm we can sort of see a pattern but it is a bit difficult with all of the different points for counties and colors for regions. Let's add a trend line to help! Since there is more than one data point per region, it doesn't make sense to use `geom_line()` to add a trend line. Instead, we can add a Loess smooth line for each region. You don't need to copy-and paste your code from part a, just add Loess smooth lines to the code for your plot above.**
 
-#### Refresher on Linear Regression
+:::callout-warning
+## Don't go too hard with `geom_smooth()`
 
-While a second course in statistics is a pre-requisite for this class, [here](https://moderndive.com/10-inference-for-regression.html) is a refresher on simple linear regression with a single predictor.
+The final plot makes use of smoothed lines to help the viewer see patterns over time, that might be difficult by just looking at the points for each county. However, it is important that we have also included the points! The smoothed lines are based on a **statistical model**, so only including these smoothed lines would be misleading. By including both, the viewer can see how the smoothed lines relate to the original data.
+
+It also wouldn't make much sense to use a Loess smoother if there was just one point per region and year! In that case, we should just use a line plot with `geom_line()`.
 
 :::
-
-**8. Create a scatterplot showing the relationship between median household income (expressed in 2018 dollars) and the full-time median weekly price charged for center-based childcare for an infant in California. Overlay a linear regression line (lm) to show the trend.**
-
-```{r}
-# plot for scatterplot
-```
-
-**9. Look up the documentation for `lm()` and fit a linear regression model to the relationship shown in your plot above (recall: $y = mx+b$). Identify the coefficient estimates from the model.**
-
-```{r}
-# complete the code provided
-reg_mod1 <- lm()
-summary(reg_mod1)
-```
-
-**10. Do you have evidence to conclude there is a relationship between the median household income and the median weekly cost of center-based childcare for infants in California? Cite values from your output for support.**
-
-
-## Open-Ended Analysis
-
-**11. Posit and investigate a research question involving at least two variables in this dataset. Present exactly one table of summary statistics and one plot that helps to address your research question.**
-
-This write-up should include:
-
-  - Your research question
-  - One **well-designed** table of summary statistics
-      - Note, this should **not** be inference (results from a statistical test). i.e., I should see no models, p-values, or confidence intervals.
-      - This should be a summary table of the data itself, like Q5 
-  - One **well-designed** plot
-  - Descriptions of the table and plot that both:
-      - Explain what the table/plot is literally showing (e.g. the median cost by year)
-      - Analyze what you learn from the table/plot about your research question
-      
-The table and plot should not show reduntant information, they should be used to 
-gain more insight on your question.
-
-
-Dr. C will be reading through these and providing some feedback!
