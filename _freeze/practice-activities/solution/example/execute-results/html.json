@@ -1,0 +1,15 @@
+{
+  "hash": "e99073d261b8e7a64cad0849730dae58",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nexecute:\n  eval: true\ntitle: SOLUTION\n---\n## Question 1\n\nWhat is 1+1?\n*Text that is outside of versioning appears in all versions!*\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# this will appear in all solution subversions\n1+1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

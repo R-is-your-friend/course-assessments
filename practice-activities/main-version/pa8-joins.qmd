@@ -1,0 +1,57 @@
+---
+title: "PA 8: Hot Ones"
+subtitle: "Data Joins"
+format: 
+  html:
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+# load packages
+library(readxl) 
+library(tidyverse)
+```
+
+
+
+```{r}
+episodes <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-08-08/episodes.csv')
+sauces <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-08-08/sauces.csv')
+seasons <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-08-08/seasons.csv')
+```
+
+
+```{r}
+
+cities <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/cities.csv')
+links <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/links.csv')
+```
+```{r}
+linked_cities <- links |> 
+  left_join(cities, join_by(source == id)) |> 
+  rename_with(.fn = \(x) paste0("source_", x), 
+              .cols = name:continent) |> 
+  left_join(cities, join_by(target == id))
+```
+
+```{r}
+linked_cities |> 
+  filter(is.na(source_name) | is.na(name))
+```
+
+
+How many cities are not linked to a sister city?
+
+```{r}
+cities |> 
+  anti_join(linked_cities,
+            by = join_by(id == source))
+```
+

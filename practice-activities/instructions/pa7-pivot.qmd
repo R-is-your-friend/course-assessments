@@ -1,23 +1,6 @@
 ---
 title: "PA 7: Military Spending"
 subtitle: "Tidy Data with `dplyr` and `tidyr`"
-filters:
-  - versions
-versions:
-  - student:
-      out-dir: ".."
-      yaml:
-        author: "Your Name"
-        embed-resources: true
-  - instructions:
-      out-dir: ".."
-      yaml:
-        eval: false
-  - solution:
-      out-dir: ".."
-      out-file: "pa7-solution.qmd"
-      yaml:
-        author: "SOLUTIONS"
 format: 
   html:
     code-tools: true
@@ -27,8 +10,9 @@ execute:
   echo: true
   message: false
   warning: false
----
 
+eval: false
+---
 ```{r setup}
 # load packages
 library(readxl) 
@@ -37,12 +21,9 @@ library(tidyverse)
 
 Today you will be tidying messy data to explore the relationship between countries of the world and military spending.
 
-
-:::{.version-instructions}
 [Download starter .qmd file](../student/pa7-pivot.qmd)
 
 [Download data -- `SPIRI-Milex-data-1949-2024.xlsx`](../../data/07-SIPRI-Milex-data-1949-2024.xlsx)
-:::
 
 ## Data Description
 
@@ -70,7 +51,6 @@ Rather than copying this one sheet into a new Excel file and deleting the first 
 As much as you can, always try to **keep your raw data raw**! Rather than changing anything about the raw data file by hand - figure out different ways to import the data to fit your needs.
 :::
 
-
 ::: callout-tip
 ## Data Import with `read_xlsx()`
 
@@ -83,27 +63,14 @@ The `read_xlsx()` function has several useful arguments:
 **1. Modify the code below (potentially including the file path) to read the military expenditures data into your global environment.**
 
 ```{r}
-#| version:
-#| - instructions
-#| - student
 military <- read_xlsx("SIPRI-Milex-data-1949-2024.xlsx", 
                       sheet = , 
                       skip  = )
 ```
 
-```{r}
-#| version: solution
-
-military <- read_xlsx("../../data/07-SIPRI-Milex-data-1949-2024.xlsx", 
-                      sheet = "Share of Govt. spending", 
-                      skip  = 7)
-```
-
-
 ::: callout-warning
 If you have the Excel file open on your computer while trying to import the data, you may get an error. If you do, close the Excel file and try running your code again.
 :::
-
 
 ## Data Cleaning
 
@@ -159,7 +126,6 @@ cont_region <- read_xlsx("../../data/07-SIPRI-Milex-data-1949-2024.xlsx",
 # code for Q5b
 ```
 
-
 ::: callout-note
 
 ### Canvas Q1 & Q2
@@ -174,7 +140,6 @@ Useful functions: `filter()`, `if_all()`, `is.na()`. You will also want to doubl
 ```{r}
 # code for Q6
 ```
-
 
 ## Data Organization
 
@@ -194,7 +159,6 @@ knitr::include_graphics("https://github.com/earobinson95/stat331-calpoly/blob/ma
 #| out-width: 70%
 knitr::include_graphics("../_images/07-military-expenditure-ex-line.png")
 ```
-
 
 ::: callout-warning
 Unfortunately, if we want a point in the graph representing the spending for every country and year (without some SERIOUS headache), we need every year to be a **single column**!
@@ -222,7 +186,6 @@ These form the three required arguments for the `pivot_longer()` function.
 # code for Q7
 ```
 
-
 **8. Notice that when you pivoted the data, the `year` variable is a character data type. Convert this to numeric.**
 
 ```{r}
@@ -232,7 +195,6 @@ summary(military_long)
 ```{r}
 # code for Q8
 ```
-
 
 ## Data Visualization
 
@@ -260,7 +222,6 @@ eastern_europe <- c("Armenia", "Azerbaijan", "Belarus",
 
 **10. Create a line plot to explore the military spending of Eastern European countries over time.**
 
-
 ```{r}
 # code for Q10
 ```
@@ -269,7 +230,6 @@ eastern_europe <- c("Armenia", "Azerbaijan", "Belarus",
 ### Canvas Q3 + Q4
 
 11. Looking at the plots you created above, which Eastern European country had the *smallest* variability in military expenditures over time? Consider a measure of variability that is *robust* to outliers (like IQR).
-
 
 12. Looking at the plots you created above, you can see that for one Eastern European country, their miliary spending (%) over doubled and then returned to previous levels by around 2015. What is the name of the war that would explain this trend?.
 :::

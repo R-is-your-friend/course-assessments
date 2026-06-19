@@ -1,0 +1,15 @@
+{
+  "hash": "4e3ddd4b540d33de4b1d65008ceeaf3c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Example Assignment\"\nfilters:\n  - versions\nversions:\n  - student:\n      out-dir: \"../materials/\"\n      out-file: \"example-student.qmd\"\n      render: false\n      yaml:\n        execute:\n          error: true\n        embed-resources: true\n  - solution:\n      out-dir: \"..\"\n      render: true\n      yaml:\n        title: \"SOLUTION\"\n        execute:\n          eval: true\n  - none:\n      ignore: true\n        \nexecute:\n  eval: false\n---\n\n## Question 1\n\n:::{.version-none}\n\nNote: Rendering this qmd will create the versioning file structure one folder level above where this is saved.\n\n*This is a secret message that appears nowhere in the generated version files, because the \"ignore\" option is set to \"true\" for the version \"none\".*\n:::\n\n\nWhat is 1+1?\n*Text that is outside of versioning appears in all versions!*\n\n:::{.version-student}\n\nHint: Try the code below.\n*This will only appear in the student's copy.*\n\n:::\n\n\n::: {.cell version='student'}\n\n```{.r .cell-code}\n1+1\n```\n:::\n\n\n:::{.version-solution-student}\n\nIt is 2, as you can see below.\n*This will only appear in the student subversion of the solutions directory.*\n\n:::\n\n\n\n::: {.cell version='solution'}\n\n```{.r .cell-code}\n# this will appear in all solution subversions\n1+1\n```\n:::\n\n\n:::{.version-solution-instructor}\n\nTake off 5 points if they answered 3 instead of 2.\n*This will only appear in the instructors subversion of the solutions directory*\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
