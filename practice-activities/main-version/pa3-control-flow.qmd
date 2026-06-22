@@ -19,7 +19,6 @@ format: html
 execute:
   echo: true
   error: true
-embed-resources: true
 ---
 
 ```{r}
