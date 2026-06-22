@@ -31,6 +31,8 @@ rm(table_names)
 ```
 
 
+<!-- The current course is not covering regular expressions. This adds challenge if desired.
+
 To add some extra practice with regular expressions, I am going to edit the `person` data.
 
 ```{r}
@@ -43,7 +45,7 @@ person <- person |>
          -address_street_name)
 ```
 
-
+-->
 ```{r}
 # save all data frames in global environment to an .Rdata file
 # when loaded, will open up all data frames

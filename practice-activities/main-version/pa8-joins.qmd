@@ -1,11 +1,28 @@
 ---
-title: "PA 8: Hot Ones"
+title: "PA 8: Twinning"
 subtitle: "Data Joins"
+filters:
+  - versions
+versions:
+  - student:
+      out-dir: ".."
+      yaml:
+        author: "Your Name"
+        embed-resources: true
+  - instructions:
+      out-dir: ".."
+      yaml:
+        eval: false
+  - solution:
+      out-dir: ".."
+      out-file: "pa8-solution.qmd"
+      yaml:
+        author: "SOLUTIONS"
+        embed-resources: true
 format: 
   html:
     code-tools: true
-    toc: true
-editor: source
+    toc: true      
 execute: 
   error: true
   echo: true
@@ -20,38 +37,84 @@ library(tidyverse)
 ```
 
 
+The data come to us from [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-05-12/readme.md#data-dictionary) -- originally compiled by 
+[Ahmad Barclay](https://github.com/bothness/twin-cities) and further curated by [Nicola Rennie](https://github.com/nrennie) for TidyTuesday.
+
+We also created a dataset `dists` with the following columns:
+
+- `source`: same as in `links`
+- `target`: same as in `links`
+- `dist`: distance between paired cities in km
 
 ```{r}
-episodes <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-08-08/episodes.csv')
-sauces <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-08-08/sauces.csv')
-seasons <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-08-08/seasons.csv')
-```
-
-
-```{r}
-
 cities <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/cities.csv')
 links <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/links.csv')
+
+# NEED TO CHANGE THIS TO A LINK TO OUR GITHUB
+dists <- read_csv("../../data/08-dists.csv")
 ```
+
+1. Check out the data. What is one observation in the `cities` dataset and what kind of information do we get from this data? What is one observation in the `links` dataset and what kind of information do we get from this data?
+
+
+
+
+
+
+The `links` data contains all of the pairs of cities, but we can't learn anything interesting just from the city IDs! We want to add the city information on.
+
+2. What are the key(s) between the `city` and `links` data?
+
+
+As the data dictionary states, the order of "source" and "target" city is arbitrary. 
+
+3. Created a new dataframe called  `linked_cities` that includes all of the information in the `cities` data for both cities in each pair of twinned cities.
+
+Note: This means you will have *two* name, latitude, longitude, etc. columns for each row. Think about how you might want to name columns to keep things from being confusing!
+
 ```{r}
+#| version: solution
+
 linked_cities <- links |> 
-  left_join(cities, join_by(source == id)) |> 
-  rename_with(.fn = \(x) paste0("source_", x), 
+  inner_join(cities, join_by(source == id)) |> 
+  rename_with(.fn = \(x) paste0(x, "_1"), 
               .cols = name:continent) |> 
-  left_join(cities, join_by(target == id))
+  inner_join(cities, join_by(target == id)) |> 
+  rename_with(.fn = \(x) paste0(x, "_2"), 
+              .cols = name:continent)
 ```
+
+4. Are any of the twinned cities missing city information like their name?
 
 ```{r}
 linked_cities |> 
   filter(is.na(source_name) | is.na(name))
 ```
 
+5. Q4 implies that we could have used which of the following joins (or all of them)? inner, left, right, and/or full?
 
-How many cities are not linked to a sister city?
+
+6.  Join the distances between cities on to your `linked_cities` data. Pay close attention: what identifies one observation in the `dists` data? Your `linked_cities` data should still have 10,596 observations.
+
+7. Which two twin cities are the *farthest* apart?
+
+8. Which two twin cities are the *closest* together? Is this a mistake in the data!? Look up the two cities on a map.
+
+9. Which country has the most twinned cities within the same country?
+
+10. CHALLENGE: Which continent has the most twinned cities with North America?
 
 ```{r}
-cities |> 
-  anti_join(linked_cities,
-            by = join_by(id == source))
+linked_cities |> 
+  filter(continent_1 == "North America"|
+           continent_2 == "North America") |> 
+  group_by(continent_1, continent_2) |> 
+  count() |> 
+  pivot_longer(starts_with("continent"),
+               names_to = "order",
+               values_to = "continent") |> 
+  filter(continent != "North America") |> 
+  summarize(n = sum(n), .by = continent) |> 
+  arrange(desc(n))
 ```
 

@@ -18,6 +18,7 @@ versions:
       out-file: "pa7-solution.qmd"
       yaml:
         author: "SOLUTIONS"
+        embed-resources: true
 format: 
   html:
     code-tools: true
@@ -98,6 +99,7 @@ military <- read_xlsx("../../data/07-SIPRI-Milex-data-1949-2024.xlsx",
                       sheet = "Share of Govt. spending", 
                       skip  = 7)
 ```
+
 
 
 ::: callout-warning
