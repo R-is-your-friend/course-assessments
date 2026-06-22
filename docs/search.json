@@ -290,29 +290,29 @@
     "objectID": "reading/week-9.html#character-variables-and-strings",
     "href": "reading/week-9.html#character-variables-and-strings",
     "title": "Week 9: Special Variable Types",
-    "section": "1 Character Variables and Strings",
-    "text": "1 Character Variables and Strings\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nClean and extract information from character variables using stringr\nRecognize what a basic regular expression will match\n\n\n\n\n📖 Required Reading: R4DS 14.1-14.5: Strings\n\n\n📖 Required Reading: R4DS 15.1-15.4: Strings\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "section": "\n1 Character Variables and Strings",
+    "text": "1 Character Variables and Strings\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nClean and extract information from character variables using stringr\nRecognize what a basic regular expression will match\n\n\n\n📖 Required Reading: R4DS 14.1-14.5: Strings\n\n📖 Required Reading: R4DS 15.1-15.4: Strings\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   },
   {
     "objectID": "reading/week-9.html#date-and-time-variables",
     "href": "reading/week-9.html#date-and-time-variables",
     "title": "Week 9: Special Variable Types",
-    "section": "2 Date and Time Variables",
-    "text": "2 Date and Time Variables\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nWork with date and time variables using lubridate\nConvert a string variable into a date / time variable\nExtract date / time information from a date / time variable (e.g. month, year, day of the week, etc)\nConvert between time zones\n\n\n\n\n📖 Required Reading: R4DS 17: Dates and Times\n\n📽 Optional Video: Working wtih Dates\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "section": "\n2 Date and Time Variables",
+    "text": "2 Date and Time Variables\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nWork with date and time variables using lubridate\nConvert a string variable into a date / time variable\nExtract date / time information from a date / time variable (e.g. month, year, day of the week, etc)\nConvert between time zones\n\n\n\n📖 Required Reading: R4DS 17: Dates and Times\n\n📽 Optional Video: Working wtih Dates\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   },
   {
     "objectID": "reading/week-7.html#extending-data-manipulation-verbs",
     "href": "reading/week-7.html#extending-data-manipulation-verbs",
     "title": "Week 7: Data Wrangling II",
-    "section": "1 Extending Data Manipulation Verbs",
-    "text": "1 Extending Data Manipulation Verbs\n\n📖 Required Reading: Extending dplyr verbs\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "section": "\n1 Extending Data Manipulation Verbs",
+    "text": "1 Extending Data Manipulation Verbs\n📖 Required Reading: Extending dplyr verbs\n\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   },
   {
     "objectID": "reading/week-7.html#data-pivots",
     "href": "reading/week-7.html#data-pivots",
     "title": "Week 7: Data Wrangling II",
-    "section": "2 Data Pivots",
-    "text": "2 Data Pivots\n\n📖 Required Reading: R4DS 5 about data pivots\n\n📽 Optional Videos\n\nPivot Longer\nPivot Wider\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "section": "\n2 Data Pivots",
+    "text": "2 Data Pivots\n📖 Required Reading: R4DS 5 about data pivots\n📽 Optional Videos\n\nPivot Longer\nPivot Wider\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   },
   {
     "objectID": "reading/week-5.html",
@@ -522,7 +522,7 @@
     "href": "practice-activities/main-version/pa1-tracing.html#code-tracing",
     "title": "Practice Activity 1: What is Code?",
     "section": "Code Tracing",
-    "text": "Code Tracing\nHere is a piece of R code where we define variables and do some basic arithmetic.\n\nx &lt;- 3\ny &lt;- 4\nx &lt;- x + y\nx &lt;- x + y\nz &lt;- x * y\ny &lt;- 10\nz &lt;- x * y\n\n\nFill out the Code Tracing Table for each line of code above.\n\n\nCode Tracing Table: Enter the value of each variable at each line of the above code.\n\n\nLine\nx\ny\nz\n\n\n\n\n1\n3\nDoes not exist.\nDoes not exist.\n\n\n2\n\n\n\n\n\n3\n\n\n\n\n\n4\n\n\n\n\n\n5\n\n\n\n\n\n6\n\n\n\n\n\n7\n\n\n\n\n\n\n\n\n\n\n\n\nTipPractice Activity Submission\n\n\n\nWhat are the values of x, y, and z at the end of the above code chunk?"
+    "text": "Code Tracing\nHere is a piece of R code where we define variables and do some basic arithmetic.\n\nx &lt;- 3\ny &lt;- 4\nx &lt;- x + y\nx &lt;- x + y\nz &lt;- x * y\ny &lt;- 10\nz &lt;- x * y\n\n\nFill out the Code Tracing Table for each line of code above.\n\n\nCode Tracing Table: Enter the value of each variable at each line of the above code.\n\nLine\nx\ny\nz\n\n\n\n1\n3\nDoes not exist.\nDoes not exist.\n\n\n2\n\n\n\n\n\n3\n\n\n\n\n\n4\n\n\n\n\n\n5\n\n\n\n\n\n6\n\n\n\n\n\n7\n\n\n\n\n\n\n\n\n\n\n\n\nTipPractice Activity Submission\n\n\n\nWhat are the values of x, y, and z at the end of the above code chunk?"
   },
   {
     "objectID": "labs/solution/labX-funfunfun.html",
@@ -795,7 +795,7 @@
     "href": "practice-activities/main-version/pa6-wrangling.html#clean-data",
     "title": "Practice Activity 6: Mystery College",
     "section": "Clean Data",
-    "text": "Clean Data\nNow we will clean the data. Alas, each of the R chunks in this section will cause an error and / or do the desired task incorrectly. Even the chunks that run without error are not correct! You will need to find the mistake and correct it to complete the intended action.\nStep 1: There are too many variables in this data set. We don’t need all of them.\nWe only need the following variables:\n\nINSTNM name of the institution\nCITY city, STABBR state, and ZIP ZIP code of the institution\nADM_RATE admissions rate\nSAT_AVG average SAT score\nUGDS number of undergraduate students\nTUITIONFEE_IN in- and TUITIONFEE_OUT out-of-state tuition\nCONTROL Whether the school is public or private\nREGION region of the school.\n\n\ncolleges_clean &lt;- colleges | &gt;  \n  select(INSTNM, CITY, STABBR, ZIP,\n         ADM_RATE, SAT_AVG, UGDS,\n         TUITIONFEE_IN, TUITIONFEE_OUT\n         CONTROL, REGION) \n\nError in parse(text = input): &lt;text&gt;:1:30: unexpected '&gt;'\n1: colleges_clean &lt;- colleges | &gt;\n                                 ^\n\n\nStep 2: Remove the schools that are for-profit (category 3), keeping public (category 1) and private schools (category 2).\n\ncolleges_clean &lt;- colleges_clean |&gt; \n  filter(CONTROL == 1, CONTROL == 2)\n\nError:\n! object 'colleges_clean' not found\n\n\nStep 3: Adjust the appropriate variables to be numeric, using as.numeric().\n\ncolleges_clean &lt;- colleges_clean |&gt; \n  mutate(as.numeric(TUITIONFEE_IN)  = TUITIONFEE_IN,\n         as.numeric(TUITIONFEE_OUT) = TUITIONFEE_OUT,\n         as.numeric(SAT_AVG)        = SAT_AVG,\n         as.numeric(UGDS)           = UGDS,\n         as.numeric(ADM_RATE)       = ADM_RATE) \n\nError in parse(text = input): &lt;text&gt;:2:37: unexpected '='\n1: colleges_clean &lt;- colleges_clean |&gt; \n2:   mutate(as.numeric(TUITIONFEE_IN)  =\n                                       ^\n\n\nStep 4: Create a new variable called TUITION_DIFF which contains the difference between out-of-state and in-state costs.\n\ncolleges_clean |&gt; \n    TUITION_DIFF = TUITIONFEE_OUT - TUITIONFEE_IN\n\nError in TUITION_DIFF: The pipe operator requires a function call as RHS (&lt;input&gt;:2:5)\n\n\nStep 5: Create a new variable called TOTAL_IN which contains the total amount of money made from tuition per year. (Note, this is just an approximation by mutliplying the number of undergrads by the in-state tuition)\n\ncolleges_clean &lt;- colleges_clean |&gt; \n    select(TOTAL_IN = UGDS x TUITIONFEE_IN)\n\nError in parse(text = input): &lt;text&gt;:2:28: unexpected symbol\n1: colleges_clean &lt;- colleges_clean |&gt; \n2:     select(TOTAL_IN = UGDS x\n                              ^\n\n\nStep 6: Reaname CONTROL to TYPE and reorder the first variables so that they are in the following order: INSTNM, CITY, STABBR, ZIP, REGION, TYPE, UGDS, then everything else, I don’t care what order they are in.\n\ncolleges_clean &lt;- colleges_clean |&gt; \n    select(INSTNM:ZIP, REGION, TYPE, UGDS)\n\nError:\n! object 'colleges_clean' not found\n\n\nNotice that each of these steps started with:\ncolleges_clean &lt;- colleges_clean |&gt;\nThat is pretty redundant! Instead, we could perform all these tasks as one long “pipeline.”\nStep 7: Combine your (fixed) code chunks into a single code chunk that carries out all of the steps necessary to clean the data and save it as colleges_clean.\n\n\n\n\n\n\nTip\n\n\n\nThink about coding efficiency – you should not have multiple calls to the same function!\n\n\n\n# Code combining ALL of your previous steps into ONE pipeline"
+    "text": "Clean Data\nNow we will clean the data. Alas, each of the R chunks in this section will cause an error and / or do the desired task incorrectly. Even the chunks that run without error are not correct! You will need to find the mistake and correct it to complete the intended action.\nStep 1: There are too many variables in this data set. We don’t need all of them.\nWe only need the following variables:\n\n\nINSTNM name of the institution\n\nCITY city, STABBR state, and ZIP ZIP code of the institution\n\nADM_RATE admissions rate\n\nSAT_AVG average SAT score\n\nUGDS number of undergraduate students\n\nTUITIONFEE_IN in- and TUITIONFEE_OUT out-of-state tuition\n\nCONTROL Whether the school is public or private\n\nREGION region of the school.\n\n\ncolleges_clean &lt;- colleges | &gt;  \n  select(INSTNM, CITY, STABBR, ZIP,\n         ADM_RATE, SAT_AVG, UGDS,\n         TUITIONFEE_IN, TUITIONFEE_OUT\n         CONTROL, REGION) \n\nError in parse(text = input): &lt;text&gt;:1:30: unexpected '&gt;'\n1: colleges_clean &lt;- colleges | &gt;\n                                 ^\n\n\nStep 2: Remove the schools that are for-profit (category 3), keeping public (category 1) and private schools (category 2).\n\ncolleges_clean &lt;- colleges_clean |&gt; \n  filter(CONTROL == 1, CONTROL == 2)\n\nError:\n! object 'colleges_clean' not found\n\n\nStep 3: Adjust the appropriate variables to be numeric, using as.numeric().\n\ncolleges_clean &lt;- colleges_clean |&gt; \n  mutate(as.numeric(TUITIONFEE_IN)  = TUITIONFEE_IN,\n         as.numeric(TUITIONFEE_OUT) = TUITIONFEE_OUT,\n         as.numeric(SAT_AVG)        = SAT_AVG,\n         as.numeric(UGDS)           = UGDS,\n         as.numeric(ADM_RATE)       = ADM_RATE) \n\nError in parse(text = input): &lt;text&gt;:2:37: unexpected '='\n1: colleges_clean &lt;- colleges_clean |&gt; \n2:   mutate(as.numeric(TUITIONFEE_IN)  =\n                                       ^\n\n\nStep 4: Create a new variable called TUITION_DIFF which contains the difference between out-of-state and in-state costs.\n\ncolleges_clean |&gt; \n    TUITION_DIFF = TUITIONFEE_OUT - TUITIONFEE_IN\n\nError in TUITION_DIFF: The pipe operator requires a function call as RHS (&lt;input&gt;:2:5)\n\n\nStep 5: Create a new variable called TOTAL_IN which contains the total amount of money made from tuition per year. (Note, this is just an approximation by mutliplying the number of undergrads by the in-state tuition)\n\ncolleges_clean &lt;- colleges_clean |&gt; \n    select(TOTAL_IN = UGDS x TUITIONFEE_IN)\n\nError in parse(text = input): &lt;text&gt;:2:28: unexpected symbol\n1: colleges_clean &lt;- colleges_clean |&gt; \n2:     select(TOTAL_IN = UGDS x\n                              ^\n\n\nStep 6: Reaname CONTROL to TYPE and reorder the first variables so that they are in the following order: INSTNM, CITY, STABBR, ZIP, REGION, TYPE, UGDS, then everything else, I don’t care what order they are in.\n\ncolleges_clean &lt;- colleges_clean |&gt; \n    select(INSTNM:ZIP, REGION, TYPE, UGDS)\n\nError:\n! object 'colleges_clean' not found\n\n\nNotice that each of these steps started with:\ncolleges_clean &lt;- colleges_clean |&gt;\nThat is pretty redundant! Instead, we could perform all these tasks as one long “pipeline.”\nStep 7: Combine your (fixed) code chunks into a single code chunk that carries out all of the steps necessary to clean the data and save it as colleges_clean.\n\n\n\n\n\n\nTip\n\n\n\nThink about coding efficiency – you should not have multiple calls to the same function!\n\n\n\n# Code combining ALL of your previous steps into ONE pipeline"
   },
   {
     "objectID": "practice-activities/solution/pa1-tracing.html",
@@ -864,22 +864,22 @@
     "objectID": "reading/week-4.html#rectangular-data",
     "href": "reading/week-4.html#rectangular-data",
     "title": "Week 4: Data is Friend",
-    "section": "1 Rectangular Data",
-    "text": "1 Rectangular Data\n\n📖 Required Reading: Rectangular Data\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "section": "\n1 Rectangular Data",
+    "text": "1 Rectangular Data\n📖 Required Reading: Rectangular Data\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   },
   {
     "objectID": "reading/week-4.html#importing-data-into-r",
     "href": "reading/week-4.html#importing-data-into-r",
     "title": "Week 4: Data is Friend",
-    "section": "2 Importing Data into R",
-    "text": "2 Importing Data into R\n\n📖 Required Reading: File Paths\n\n\n📖 Required Reading: R4DS 7.1-7.3 about reading in data files\n\n\n📖 Required Reading: R4DS 7.5 about saving data externally\n\n\n📖 Required Reading: R4DS 20 about working with Excel files\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "section": "\n2 Importing Data into R",
+    "text": "2 Importing Data into R\n📖 Required Reading: File Paths\n\n📖 Required Reading: R4DS 7.1-7.3 about reading in data files\n📖 Required Reading: R4DS 7.5 about saving data externally\n📖 Required Reading: R4DS 20 about working with Excel files\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   },
   {
     "objectID": "reading/week-4.html#quarto",
     "href": "reading/week-4.html#quarto",
     "title": "Week 4: Data is Friend",
-    "section": "3 Quarto",
-    "text": "3 Quarto\n\n📖 Required Reading: R4DS 28 about Quarto\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "section": "\n3 Quarto",
+    "text": "3 Quarto\n📖 Required Reading: R4DS 28 about Quarto\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   },
   {
     "objectID": "reading/week-6.html",
@@ -892,22 +892,22 @@
     "objectID": "reading/week-6.html#preparation",
     "href": "reading/week-6.html#preparation",
     "title": "Week 6: Data Wrangling I",
-    "section": "1 Preparation",
-    "text": "1 Preparation\n\nRequired Reading\n\nRead Welcome to the tidyverse!\nRead Data Wrangling\nRead R4DS 3 about data wrangling and transformation using dplyr verbs\n\n\n\n📽 Optional Videos on dplyr verbs\n\nfilter() – 11 minutes\nselect() – 6 minutes\nmutate() – 9 minutes\narrange() – 7 minutes\nsummarize()– 8 minutes\ngroup_by() – 6 minutes\nThe pipe operator – 8 minutes\nExtending the pipe – 3 minutes\n\n\n\n💻 Optional Tutorial for more practice: Practice with dplyr"
+    "section": "\n1 Preparation",
+    "text": "1 Preparation\nRequired Reading\n\nRead Welcome to the tidyverse!\n\nRead Data Wrangling\n\nRead R4DS 3 about data wrangling and transformation using dplyr verbs\n📽 Optional Videos on dplyr verbs\n\nfilter() – 11 minutes\nselect() – 6 minutes\nmutate() – 9 minutes\narrange() – 7 minutes\nsummarize()– 8 minutes\ngroup_by() – 6 minutes\nThe pipe operator – 8 minutes\nExtending the pipe – 3 minutes\n💻 Optional Tutorial for more practice: Practice with dplyr"
   },
   {
     "objectID": "reading/week-8.html#data-joins",
     "href": "reading/week-8.html#data-joins",
     "title": "Week 8: Data Joins and Factors",
-    "section": "1 Data Joins",
-    "text": "1 Data Joins\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nUse data joins to assemble data from multiple relational tables into a single table.\n\n\n\n\n📖 Required Reading: R4DS 19.1-19.4: Joins\n\nNote: don’t read 19.5! We will not cover non-equi joins in this course\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "section": "\n1 Data Joins",
+    "text": "1 Data Joins\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nUse data joins to assemble data from multiple relational tables into a single table.\n\n\n\n📖 Required Reading: R4DS 19.1-19.4: Joins\n\n\nNote: don’t read 19.5! We will not cover non-equi joins in this course\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   },
   {
     "objectID": "reading/week-8.html#factor-variables",
     "href": "reading/week-8.html#factor-variables",
     "title": "Week 8: Data Joins and Factors",
-    "section": "2 Factor Variables",
-    "text": "2 Factor Variables\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nReorder and relabel factor variables in data cleaning steps and data visualizations using forcats\nDesign and implement more advanced plots\n\n\n\n\n📖 Required Reading: R4DS 16: Factors\n\n📽 Optional Video: forcats\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "section": "\n2 Factor Variables",
+    "text": "2 Factor Variables\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nReorder and relabel factor variables in data cleaning steps and data visualizations using forcats\nDesign and implement more advanced plots\n\n\n\n📖 Required Reading: R4DS 16: Factors\n\n📽 Optional Video: forcats\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   },
   {
     "objectID": "slides/01-tracing.html#creating-small-objects",
@@ -1265,5 +1265,103 @@
     "title": "PA 7: Military Spending",
     "section": "Data Visualization",
     "text": "Data Visualization\nNow that we’ve transformed the data, let’s create a plot to explore military spending across Eastern European countries.\n9. Create side-by-side boxplots to explore the military spending between Eastern European countries.\n\n\n\n\n\n\nTip\n\n\n\nMake sure you change the plot title and axis labels to accurately represent the plot.\nYou might also want to change the x-axis limits and the color of your plots.\nPlace the Country variable on an axis that makes it easier to read the labels!\n\n\n\n# I have provided a list of Eastern European countries (in these data) for you to use.\neastern_europe &lt;- c(\"Armenia\", \"Azerbaijan\", \"Belarus\", \n                    \"Georgia\", \"Moldova\", \"Russia\", \"Ukraine\")\n\n# code for Q9\n\n10. Create a line plot to explore the military spending of Eastern European countries over time.\n\n# code for Q10\n\n\n\n\n\n\n\nNoteCanvas Q3 + Q4\n\n\n\n\nLooking at the plots you created above, which Eastern European country had the smallest variability in military expenditures over time? Consider a measure of variability that is robust to outliers (like IQR).\nLooking at the plots you created above, you can see that for one Eastern European country, their miliary spending (%) over doubled and then returned to previous levels by around 2015. What is the name of the war that would explain this trend?."
+  },
+  {
+    "objectID": "practice-activities/main-version/pa3-control-flow.html",
+    "href": "practice-activities/main-version/pa3-control-flow.html",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "",
+    "text": "The baRistas at Tidy Roasters have received a huge drink order and are preparing to fill it. Your job is to help summarize, and fix, the orders."
+  },
+  {
+    "objectID": "practice-activities/main-version/pa3-control-flow.html#part-zero-accessing-the-practice-activity",
+    "href": "practice-activities/main-version/pa3-control-flow.html#part-zero-accessing-the-practice-activity",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Part Zero: Accessing the Practice Activity",
+    "text": "Part Zero: Accessing the Practice Activity\nThis week there are two files you need to download:\n\nDownload the template Practice Activity R script here: pa-3-control-flow.R\nDownload the coffee order data here: coffee_orders.xlsx\n\n\n\n\n\n\n\nImportant\n\n\n\nBe sure to save both files inside your Week 3 folder of your STAT 1810 folder!"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa3-control-flow.html#part-one-getting-the-drink-orders",
+    "href": "practice-activities/main-version/pa3-control-flow.html#part-one-getting-the-drink-orders",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Part One: Getting the Drink Orders",
+    "text": "Part One: Getting the Drink Orders\n\n\nLet’s get the drink order data into R. Since we haven’t covered reading in data yet, we’ll make it easy! Follow these steps.\n\nIn RStudio, go to the Files pane and navigate to the saved data.\nClick on the file name and select Import Dataset….\nKeep all of the settings and click Import.\n\n\n\nYou should now see the coffee_orders dataset in your Environment tab (upper right corner).\n\n\ncoffee_orders\n\n# A tibble: 15 × 7\n   Name       Type       Base     Milk  Sweetener Temperature Size  \n   &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt; \n 1 Miles      latte      espresso dairy none      hot         small \n 2 Connie     cortado    espresso dairy none      hot         &lt;NA&gt;  \n 3 Jing       latte      matcha   soy   vanilla   iced        medium\n 4 Bruce      coffee     coffee   none  sugar     hot         large \n 5 Zoya       latte      espresso oat   lavender  hot         medium\n 6 Aja        americano  espresso none  honey     iced        large \n 7 Em         latte      chai     soy   none      hot         small \n 8 Grace      coffee     coffee   dairy none      iced        medium\n 9 Gilbert    espresso   espresso none  none      hot         &lt;NA&gt;  \n10 Maurice    latte      espresso dairy chocolate iced        large \n11 Hector     latte      espresso oat   none      hot         small \n12 Alessandra cappuccino espresso soy   none      hot         small \n13 Dennis     coffee     coffee   dairy sugar     hot         medium\n14 Dionne     latte      matcha   soy   lavender  iced        large \n15 Janae      coffee     coffee   none  none      hot         small"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa3-control-flow.html#part-two-getting-information-about-the-drink-orders",
+    "href": "practice-activities/main-version/pa3-control-flow.html#part-two-getting-information-about-the-drink-orders",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Part Two: Getting Information About the Drink Orders",
+    "text": "Part Two: Getting Information About the Drink Orders\n\nHow many drinks are in the order? Save this number in an object named num_orders and print out the value.\n\n\n\n\n\n\n\n\nTip\n\n\n\nHint: Think about what dimension of the data correspond to the number of drinks. What R function measures that dimension?\n\n\n\n\n\nnum_orders &lt;- nrow(coffee_orders)\nnum_orders\n\n[1] 15\n\n\n\n\nThink back to last week. What operator allows you to grab a single column from a dataframe? Using that operator, write a line of code that produces a vector of the drink Base for all drinks.\n\n\n\ncoffee_orders$Base\n\n [1] \"espresso\" \"espresso\" \"matcha\"   \"coffee\"   \"espresso\" \"espresso\"\n [7] \"chai\"     \"coffee\"   \"espresso\" \"espresso\" \"espresso\" \"espresso\"\n[13] \"coffee\"   \"matcha\"   \"coffee\"  \n\n\n\n\nNow write a line of code that produces the drink Base for the fourth drink order.\n\n\n\ncoffee_orders$Base[4]\n\n[1] \"coffee\""
+  },
+  {
+    "objectID": "practice-activities/main-version/pa3-control-flow.html#part-three-finding-specific-drink-orders",
+    "href": "practice-activities/main-version/pa3-control-flow.html#part-three-finding-specific-drink-orders",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Part Three: Finding Specific Drink Orders",
+    "text": "Part Three: Finding Specific Drink Orders\n\nUse a while() loop to find the first person to order a drink with a chai Base. Report this person’s full drink order.\n\n\n\n\n\n\n\n\nTip\n\n\n\nHint: Look over the handout to identify components you need for a while() loop!\n\n\n\n\n\nbase &lt;- \"\"\ncounter &lt;- 0\nwhile (base != \"chai\") {\n  counter &lt;- counter + 1\n  base &lt;- coffee_orders$Base[counter]\n}\ncoffee_orders[counter,]\n\n# A tibble: 1 × 7\n  Name  Type  Base  Milk  Sweetener Temperature Size \n  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;\n1 Em    latte chai  soy   none      hot         small\n\n\n\n\nUse a for() loop to count the total number of espresso drinks.\n\n\n\n\n\n\n\n\nTip\n\n\n\nHint: You will need to use a conditional statement inside your for() loop!\n\n\n\n\n\nnum_espresso &lt;- 0\n\nfor(i in 1:num_orders){\n  if (coffee_orders$Base[i] == \"espresso\") {\n    num_espresso &lt;- num_espresso + 1\n  }\n}\nnum_espresso\n\n[1] 8"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa3-control-flow.html#part-four-making-drink-modifications",
+    "href": "practice-activities/main-version/pa3-control-flow.html#part-four-making-drink-modifications",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Part Four: Making Drink Modifications",
+    "text": "Part Four: Making Drink Modifications\n\nOh no! Tidy Roasters has run out of soy milk. The baRistas decide to use oat milk instead. In the coffee_orders dataframe, change all the soy milk requests to oat milk. Use the if_else() function from dplyr to do this.\n\n\n\n\n\n\n\n\nTip\n\n\n\nHint 1: Remember, you can find the documentation for a specific function by running ?FUNCTION_NAME in the console.\nHint 2: Remember to save the updated Milk back into the coffee_orders dataframe! This is the same step you used in last week’s PA!\n\n\n\n\n\ncoffee_orders$Milk &lt;- if_else(condition = coffee_orders$Milk == \"soy\",\n                              true = \"oat\",\n                              false = coffee_orders$Milk)\n\n\n\nThe baRistas need to know how much ice to have on hand. For a medium iced drink, they need 4oz of ice. For a large iced drink, they need 6oz of ice. Use a for() loop and conditionals to calculate the total ice amount the baRistas need.\n\n\n\nice &lt;- 0\nfor (i in 1:num_orders) {\n  if (coffee_orders$Temperature[i] == \"iced\") {\n    if (coffee_orders$Size[i] == \"medium\") {\n      ice &lt;- ice + 4\n    }\n    else {\n      ice &lt;- ice + 6\n    }\n  }\n}\nice\n\n[1] 26"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa3-control-flow.html#canvas-submission",
+    "href": "practice-activities/main-version/pa3-control-flow.html#canvas-submission",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Canvas Submission",
+    "text": "Canvas Submission\nYou will submit your answers to Questions 2, 5, 6, and 8 on Canvas."
+  },
+  {
+    "objectID": "practice-activities/instructions/pa3-control-flow.html",
+    "href": "practice-activities/instructions/pa3-control-flow.html",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "",
+    "text": "The baRistas at Tidy Roasters have received a huge drink order and are preparing to fill it. Your job is to help summarize, and fix, the orders."
+  },
+  {
+    "objectID": "practice-activities/instructions/pa3-control-flow.html#part-zero-accessing-the-practice-activity",
+    "href": "practice-activities/instructions/pa3-control-flow.html#part-zero-accessing-the-practice-activity",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Part Zero: Accessing the Practice Activity",
+    "text": "Part Zero: Accessing the Practice Activity\nThis week there are two files you need to download:\n\nDownload the template Practice Activity R script here: pa-3-control-flow.R\nDownload the coffee order data here: coffee_orders.xlsx\n\n\n\n\n\n\n\nImportant\n\n\n\nBe sure to save both files inside your Week 3 folder of your STAT 1810 folder!"
+  },
+  {
+    "objectID": "practice-activities/instructions/pa3-control-flow.html#part-one-getting-the-drink-orders",
+    "href": "practice-activities/instructions/pa3-control-flow.html#part-one-getting-the-drink-orders",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Part One: Getting the Drink Orders",
+    "text": "Part One: Getting the Drink Orders\n\n\nLet’s get the drink order data into R. Since we haven’t covered reading in data yet, we’ll make it easy! Follow these steps.\n\nIn RStudio, go to the Files pane and navigate to the saved data.\nClick on the file name and select Import Dataset….\nKeep all of the settings and click Import.\n\n\n\nYou should now see the coffee_orders dataset in your Environment tab (upper right corner)."
+  },
+  {
+    "objectID": "practice-activities/instructions/pa3-control-flow.html#part-two-getting-information-about-the-drink-orders",
+    "href": "practice-activities/instructions/pa3-control-flow.html#part-two-getting-information-about-the-drink-orders",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Part Two: Getting Information About the Drink Orders",
+    "text": "Part Two: Getting Information About the Drink Orders\n\nHow many drinks are in the order? Save this number in an object named num_orders and print out the value.\n\n\n\n\n\n\n\nTip\n\n\n\nHint: Think about what dimension of the data correspond to the number of drinks. What R function measures that dimension?\n\n\n\nThink back to last week. What operator allows you to grab a single column from a dataframe? Using that operator, write a line of code that produces a vector of the drink Base for all drinks.\nNow write a line of code that produces the drink Base for the fourth drink order."
+  },
+  {
+    "objectID": "practice-activities/instructions/pa3-control-flow.html#part-three-finding-specific-drink-orders",
+    "href": "practice-activities/instructions/pa3-control-flow.html#part-three-finding-specific-drink-orders",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Part Three: Finding Specific Drink Orders",
+    "text": "Part Three: Finding Specific Drink Orders\n\nUse a while() loop to find the first person to order a drink with a chai Base. Report this person’s full drink order.\n\n\n\n\n\n\n\nTip\n\n\n\nHint: Look over the handout to identify components you need for a while() loop!\n\n\n\nUse a for() loop to count the total number of espresso drinks.\n\n\n\n\n\n\n\nTip\n\n\n\nHint: You will need to use a conditional statement inside your for() loop!"
+  },
+  {
+    "objectID": "practice-activities/instructions/pa3-control-flow.html#part-four-making-drink-modifications",
+    "href": "practice-activities/instructions/pa3-control-flow.html#part-four-making-drink-modifications",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Part Four: Making Drink Modifications",
+    "text": "Part Four: Making Drink Modifications\n\nOh no! Tidy Roasters has run out of soy milk. The baRistas decide to use oat milk instead. In the coffee_orders dataframe, change all the soy milk requests to oat milk. Use the if_else() function from dplyr to do this.\n\n\n\n\n\n\n\nTip\n\n\n\nHint 1: Remember, you can find the documentation for a specific function by running ?FUNCTION_NAME in the console.\nHint 2: Remember to save the updated Milk back into the coffee_orders dataframe! This is the same step you used in last week’s PA!\n\n\n\nThe baRistas need to know how much ice to have on hand. For a medium iced drink, they need 4oz of ice. For a large iced drink, they need 6oz of ice. Use a for() loop and conditionals to calculate the total ice amount the baRistas need."
+  },
+  {
+    "objectID": "practice-activities/instructions/pa3-control-flow.html#canvas-submission",
+    "href": "practice-activities/instructions/pa3-control-flow.html#canvas-submission",
+    "title": "Practice Activity 3: Control Flow",
+    "section": "Canvas Submission",
+    "text": "Canvas Submission\nYou will submit your answers to Questions 2, 5, 6, and 8 on Canvas."
   }
 ]

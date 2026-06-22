@@ -1,0 +1,102 @@
+---
+title: "Practice Activity 3: Control Flow"
+subtitle: "Practice with Loops & Conditionals"
+format: html
+execute:
+  echo: true
+  error: true
+embed-resources: true
+
+author: INSTRUCTIONS
+eval: false
+---
+```{r}
+#| include: false
+#| label: packages
+
+library(tidyverse)
+```
+
+The ba`R`istas at Tidy `R`oasters have received a huge drink order and are
+preparing to fill it. Your job is to help summarize, and fix, the orders.
+
+## Part Zero: Accessing the Practice Activity
+
+This week there are two files you need to download:
+
+1. Download the template Practice Activity R script here: <a href="../student/pa-3-control-flow.R" download>`pa-3-control-flow.R`</a>
+
+2. Download the coffee order data here: <a href="../student/coffee_orders.xlsx" download>`coffee_orders.xlsx`</a>
+
+::: callout-important
+Be sure to save both files inside your Week 3 folder of your STAT 1810 folder!
+:::
+
+## Part One: Getting the Drink Orders
+
+1.  Let's get the drink order data into `R`. Since we haven't covered reading
+in data yet, we'll make it easy! Follow these steps.
+
+    1.  In RStudio, go to the *Files* pane and navigate to the saved data.
+
+    2.  Click on the file name and select *Import Dataset...*.
+    
+    3.  Keep all of the settings and click *Import*.
+    
+You should now see the `coffee_orders` dataset in your Environment tab (upper
+right corner). 
+
+## Part Two: Getting Information About the Drink Orders
+
+2.  How many drinks are in the order? Save this number in an object named 
+`num_orders` and print out the value.
+
+::: {.callout-tip}
+Hint: Think about what dimension of the data correspond to the number of drinks.
+What `R` function measures that dimension?
+:::
+
+3. Think back to last week. What operator allows you to grab a single column
+from a dataframe? Using that operator, write a line of code that produces a 
+vector of the drink `Base` for all drinks. 
+
+4. Now write a line of code that produces the drink `Base` for the fourth drink
+order.
+
+## Part Three: Finding Specific Drink Orders
+
+5. Use a `while()` loop to find the first person to order a drink with a chai
+`Base`. Report this person's full drink order.
+
+::: {.callout-tip}
+Hint: Look over the handout to identify components you need for a `while()` loop!
+:::
+
+6. Use a `for()` loop to count the total number of espresso drinks. 
+
+::: {.callout-tip}
+Hint: You will need to use a conditional statement inside your `for()` loop!
+:::
+
+## Part Four: Making Drink Modifications
+
+7. Oh no! Tidy `R`oasters has run out of soy milk. The ba`R`istas decide to use
+oat milk instead. In the `coffee_orders` dataframe, change all the soy milk 
+requests to oat milk. Use the `if_else()` function from `dplyr` to do this.
+
+::: {.callout-tip}
+Hint 1: Remember, you can find the **documentation** for a specific function by
+running `?FUNCTION_NAME` in the console.
+
+Hint 2: Remember to save the updated `Milk` back into the `coffee_orders` 
+dataframe! This is the same step you used in last week's PA!
+:::
+
+8. The ba`R`istas need to know how much ice to have on hand. For a medium iced
+drink, they need 4oz of ice. For a large iced drink, they need 6oz of ice. Use 
+a `for()` loop and conditionals to calculate the total ice amount the ba`R`istas
+need.
+
+## Canvas Submission
+
+You will submit your answers to Questions 2, 5, 6, and 8 on Canvas. 
