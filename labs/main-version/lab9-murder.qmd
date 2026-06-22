@@ -1,10 +1,27 @@
 ---
 title: "Lab 9: Murder in SQL City"
 subtitle: "`join` + `stringr` + `ludridate`"
+filters:
+  - versions
+versions:
+  - student:
+      out-dir: ".."
+      yaml:
+        author: "Your Name"
+        embed-resources: true
+  - instructions:
+      out-dir: ".."
+      yaml:
+        eval: false
+  - solution:
+      out-dir: ".."
+      out-file: "lab9-solution.qmd"
+      yaml:
+        author: "SOLUTIONS"
 format: 
   html:
-    toc: true
-editor: source
+    code-tools: true
+    toc: true      
 execute: 
   error: true
   echo: true
@@ -12,7 +29,7 @@ execute:
   warning: false
 ---
 
-[Download starter .qmd file](../student-version/lab9-murder.qmd)
+[Download starter .qmd file](../student/lab9-murder.qmd)
 
 For this lab, you will be joining and filtering related datasets to solve a murder mystery!
 

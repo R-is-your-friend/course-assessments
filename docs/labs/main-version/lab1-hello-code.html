@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Lab 1: Hello Code – R is Your Friend</title>
 <style>
 /* Default styles provided by pandoc.
@@ -24,7 +21,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
@@ -45,8 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -73,10 +68,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -242,9 +234,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">R is Your Friend</span>
@@ -256,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
@@ -265,35 +255,26 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#accessing-the-lab" id="toc-accessing-the-lab" class="nav-link active" data-scroll-target="#accessing-the-lab">Accessing the Lab</a></li>
+<li><a href="#accessing-the-lab" id="toc-accessing-the-lab" class="nav-link active" data-scroll-target="#accessing-the-lab">Accessing the Lab</a></li>
   <li><a href="#creating-objects" id="toc-creating-objects" class="nav-link" data-scroll-target="#creating-objects">Creating Objects</a></li>
   <li><a href="#using-simple-functions" id="toc-using-simple-functions" class="nav-link" data-scroll-target="#using-simple-functions">Using Simple Functions</a></li>
   <li><a href="#combining-values" id="toc-combining-values" class="nav-link" data-scroll-target="#combining-values">Combining Values</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Lab 1: Hello Code</h1>
 <p class="subtitle lead">Instructions</p>
 </div>
@@ -309,10 +290,7 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
-
-
-<div class="callout callout-style-default callout-caution callout-titled">
+</header><div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -326,42 +304,32 @@ ul.task-list li input[type="checkbox"] {
 <p>Additionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but <strong>you are expected to do your own work</strong>. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.</p>
 </div>
 </div>
-<section id="accessing-the-lab" class="level2">
-<h2 class="anchored" data-anchor-id="accessing-the-lab">Accessing the Lab</h2>
-<p>You can download the R script for Lab 1 here: <a href="../student-version/lab-1.R">lab-1.R</a></p>
-</section>
-<section id="creating-objects" class="level2">
-<h2 class="anchored" data-anchor-id="creating-objects">Creating Objects</h2>
+<section id="accessing-the-lab" class="level2"><h2 class="anchored" data-anchor-id="accessing-the-lab">Accessing the Lab</h2>
+<p>You can download the R script for Lab 1 here: <a href="../student/lab-1.R">lab-1.R</a></p>
+</section><section id="creating-objects" class="level2"><h2 class="anchored" data-anchor-id="creating-objects">Creating Objects</h2>
 <p><strong>Question 1: Create three objects: <code>x</code>, <code>y</code>, <code>z</code>. Each object should have a different numerical value.</strong></p>
 <p><strong>Question 2: Create an object <code>a</code>, that contains the word <code>"hello"</code>.</strong></p>
-</section>
-<section id="using-simple-functions" class="level2">
-<h2 class="anchored" data-anchor-id="using-simple-functions">Using Simple Functions</h2>
+</section><section id="using-simple-functions" class="level2"><h2 class="anchored" data-anchor-id="using-simple-functions">Using Simple Functions</h2>
 <p>In the coursework, we didn’t explore how we can use functions to calculate values from our data. Let’s give this a go!</p>
-<p>One of the best things about R is the <strong>amazing</strong> documentation. You can look up the documentation page (i.e., help page) for any function by typing a <code>?</code> in front of the function name in your console. For example, if I wanted to know how to use the <code>sqrt()</code> function (square root), I would type <code>?sqrt</code> into my console. This would open up a page in the “Help” tab (in the lower right) that looks like this:</p>
-<p><img src="images/lab-1-documentation.png" class="img-fluid" alt="A screenshot of the documentation  page for the sqrt() function. The documentation page appears in the 'Help' tab in the lower right corner of RStudio. The top of the documentation page says 'Miscellaneous Mathematical Functions'. Below the title there is a Description line that says: abs(x) computes the absolute value of x, sqrt(x) computes the (principal) square root of x. The description states that the names of the square root (sqrt) and absolute value (abs) functions follows the standard for computer languages such as C or Fortran. The Usage line shows abs(x) and sqrt(x), indicating that x is the value input into the function. The Arguments line states that x (the input into the function) needs to be a numeric or complex vector or array."></p>
+<p>One of the best things about R is the <strong>amazing</strong> documentation. You can look up the documentation page (i.e., help page) for any function by typing a <code>?</code> in front of the function name in your console. For example, if I wanted to know how to use the <code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code> function (square root), I would type <code><a href="https://rdrr.io/r/base/MathFun.html">?sqrt</a></code> into my console. This would open up a page in the “Help” tab (in the lower right) that looks like this:</p>
+<p><img src="../_images/lab-1-documentation.png" class="img-fluid" alt="A screenshot of the documentation  page for the sqrt() function. The documentation page appears in the 'Help' tab in the lower right corner of RStudio. The top of the documentation page says 'Miscellaneous Mathematical Functions'. Below the title there is a Description line that says: abs(x) computes the absolute value of x, sqrt(x) computes the (principal) square root of x. The description states that the names of the square root (sqrt) and absolute value (abs) functions follows the standard for computer languages such as C or Fortran. The Usage line shows abs(x) and sqrt(x), indicating that x is the value input into the function. The Arguments line states that x (the input into the function) needs to be a numeric or complex vector or array."></p>
 <p>The “Description” line <em>describes</em> what the function does. The “Usage” line shows how the function can be used, including any arguments the function accepts. The “Arguments” line states what arguments (inputs) the function requires and if any arguments have default values.</p>
-<p><strong>Question 3: Use the <code>mean()</code> function to find the average of <code>x</code>, <code>y</code>, and <code>z</code>.</strong></p>
+<p><strong>Question 3: Use the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function to find the average of <code>x</code>, <code>y</code>, and <code>z</code>.</strong></p>
 <div class="callout-hint">
-<p>You should look up the help file for the <code>mean()</code> function by typing <code>?mean</code> into your console!</p>
+<p>You should look up the help file for the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function by typing <code><a href="https://rdrr.io/r/base/mean.html">?mean</a></code> into your console!</p>
 </div>
-<p><strong>Question 4: Use the <code>seq()</code> function to make a sequence of numbers from 1 to 10.</strong></p>
+<p><strong>Question 4: Use the <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function to make a sequence of numbers from 1 to 10.</strong></p>
 <div class="callout-hint">
-<p>You should look up the help file for the <code>seq()</code> function by typing <code>?seq</code> into your console!</p>
+<p>You should look up the help file for the <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function by typing <code><a href="https://rdrr.io/r/base/seq.html">?seq</a></code> into your console!</p>
 </div>
-</section>
-<section id="combining-values" class="level2">
-<h2 class="anchored" data-anchor-id="combining-values">Combining Values</h2>
+</section><section id="combining-values" class="level2"><h2 class="anchored" data-anchor-id="combining-values">Combining Values</h2>
 <p>Thus far, we’ve only been working with objects that have a single value (e.g., <code>x &lt;- 5</code>). As we progress in our coding, we will almost always be working with <strong>vectors</strong> of values instead of single values. So, let’s explore how we can make vectors!</p>
-<p><strong>Question 5: Use the <code>c()</code> function to combine <code>x</code>, <code>y</code>, and <code>z</code> into a single vector. Save the vector into a new object that has an intuitive name!</strong></p>
-<p><strong>Question 6: Use the <code>c()</code> function again to add <code>a</code> into the vector and display the result. You do not need to create an object here!</strong></p>
+<p><strong>Question 5: Use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function to combine <code>x</code>, <code>y</code>, and <code>z</code> into a single vector. Save the vector into a new object that has an intuitive name!</strong></p>
+<p><strong>Question 6: Use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function again to add <code>a</code> into the vector and display the result. You do not need to create an object here!</strong></p>
 <p><strong>Question 7: What happened when you combined <code>a</code> with the vector of values? Why do you think that happened?</strong></p>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -775,8 +743,7 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Built by Kelly Bodwin, Charlotte Mann, Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold.</p>
 </div>   
@@ -788,8 +755,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

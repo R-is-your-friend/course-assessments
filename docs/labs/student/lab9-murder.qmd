@@ -1,0 +1,169 @@
+---
+title: "Lab 9: Murder in SQL City"
+subtitle: "`join` + `stringr` + `ludridate`"
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+
+author: Your Name
+embed-resources: true
+---
+[Download starter .qmd file](../student/lab9-murder.qmd)
+
+For this lab, you will be joining and filtering related datasets to solve a murder mystery!
+
+## Instructions
+
+Northwestern University's Knight Lab wanted to help sharpen users' database skills, so they created a murder mystery. Can you solve this crime in SQL City??
+
+The relational data you will be working with contains tables with different pieces of information pertinent to the crime - people, social media check-ins, driver's licenses, crime scene reports, police interviews, and more!
+
+![Database schema](https://mystery.knightlab.com/schema.png)
+
+## Access the Data
+
+:::callout-important
+## .Rdata, what's this?
+
+So far we have used data built into R (accessing using the `data()` function), or from .csv or `.xlsx` filter (accessed using `readr` functions). There is a special data type that is only used with R with the suffix .Rdata, which we will use in this lab.
+
+The benefits of saving data that you are working with as .Rdata are:
+
+1. You can save as many named objects as you want in one file! In this case, there are 8 data frames saved in `08-bCH_murder_data.Rdata`
+2. .Rdata files are much smaller (i.e. take up less space on your computer) than the same data saved as a .csv.
+
+You "load" .Rdata files into your Global Environment in R using the `load()` function. All objects included in the .Rdata file will be loaded with the name they were saved with.
+:::
+
+Save the `08-bCH_murder_data.Rdata` file to your course directory and edit the file path in the code chunk below as needed to load in the data.
+
+::: main-version
+```{r}
+#| message: false
+#| warning: false
+#| eval: false
+
+library(tidyverse)
+
+load("08-bCH_murder_data.Rdata")
+```
+:::
+
+::: student-version
+```{r}
+#| message: false
+#| warning: false
+#| label: setup
+
+library(tidyverse)
+
+load("08-bCH_murder_data.Rdata")
+```
+:::
+
+You will notice that the 8 data frames shown in the schema above are now all in your Global Environment!
+
+## Clean and Combine the Data
+
+Let's set ourselves up to solve this crime lickity-split!
+
+**0.1 Use a `stringr` function(s) and a regular expression(s) to create `address_number` and `address_street_name` columns in the `person` dataset. Convert the `address_number` variable to numeric.**
+
+```{r}
+# code for Q0.1
+```
+
+**0.2 Design and implement a check that you created the `address_number` and `address_street_name` columns correctly. Your output should prove that you completed it correctly (not print all of the rows of the data!)**
+
+:::callout-tip
+# Hint
+For example, if you re-combine the `address_number` and `address_street_name` columns, you should get the same value as original `address` column exactly.
+:::
+
+```{r}
+# code for Q0.2
+```
+
+**0.3 Create two new datasets:**
+
+- `get_fit_now_full`
+  - every row represents one visit to the "Get Fit Now" gym. 
+  - all member information is included (e.g. check in times, names, and membership information)
+  - should have 2,703 rows and 8 columns
+
+- `suspects_all`
+  - each row represents one person
+  - includes their address, driver's licence information, income, and interview with the police, if they have one
+  - drop the `address` column
+  - should have 10,011 rows and 16 columns
+
+:::callout-tip
+Don't worry about missing values! We are just gathering all of the information that we have about everyone.
+:::
+  
+```{r}
+# code to create get_fit_now_full
+
+```
+
+```{r}
+# code to create suspects_all
+
+```
+  
+## Solve the Crime
+
+### Crime Scene Report
+
+Detective Wickham reaches out to you...
+
+> A crime has taken place and I need your help! There was a murder in SQL City sometime on Jan. 15, 2018. Could you retrieve the crime scene report from the police department’s database and follow the clues to find the person responsible for the murder?!
+
+Solve the murder mystery, showing **all of your work in this document**. Your document and code must be well organized, easy to follow, and reproducible.
+
++ Use headers and written descriptions to indicate what you are doing.
++ You **must** use `dplyr` verbs and `join` functions rather than just looking through the tables manually.
++ You should **never filter on a specific person id** -- rather use `join` functions
++ You should have a final output that just includes the murder's name as well as their interview transcript (**which is missing!**).
++ Use the data frames you just created when helpful!
++ Use good code formatting practices.
++ Comment your code.
++ Cite any external sources you use to solve the mystery.
+
+::: callout-tip
+
+Use `kable()` to nicely output clues!
+
+:::
+
+**Follow the evidence to the person responsible for the murder, building a report as you go.**
+
+```{r}
+# code for looking at the relevant crime scene report.
+
+# you will want to use multiple chunks!
+```
+
+::: callout-caution
+
+Make sure you check for interviews with any suspects and anyone mentioned!
+
+**The murderer will have no interview** - don't stop until you find them!
+
+:::
+
+::: callout-note
+
+## And the final suspect is...
+
+*put the name of the person responsible for the murder here.*
+
+**AGAIN THE MURDERER WILL HAVE NO INTERVIEW**
+
+:::

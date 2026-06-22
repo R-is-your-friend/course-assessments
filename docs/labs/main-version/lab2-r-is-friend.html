@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Lab 2: R is Friend – R is Your Friend</title>
 <style>
 /* Default styles provided by pandoc.
@@ -60,7 +57,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -80,8 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -108,10 +103,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -277,9 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">R is Your Friend</span>
@@ -291,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
@@ -300,36 +290,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#create-an-r-script" id="toc-create-an-r-script" class="nav-link active" data-scroll-target="#create-an-r-script">Create an R Script</a></li>
+<li><a href="#create-an-r-script" id="toc-create-an-r-script" class="nav-link active" data-scroll-target="#create-an-r-script">Create an R Script</a></li>
   <li><a href="#pismo-beach-water-temperature" id="toc-pismo-beach-water-temperature" class="nav-link" data-scroll-target="#pismo-beach-water-temperature">Pismo Beach Water Temperature</a></li>
   <li><a href="#do-other-people-like-your-favorite-movies" id="toc-do-other-people-like-your-favorite-movies" class="nav-link" data-scroll-target="#do-other-people-like-your-favorite-movies">Do Other People Like Your Favorite Movies?</a></li>
   <li><a href="#reviewing-your-work" id="toc-reviewing-your-work" class="nav-link" data-scroll-target="#reviewing-your-work">Reviewing Your Work</a></li>
   <li><a href="#make-your-code-readable" id="toc-make-your-code-readable" class="nav-link" data-scroll-target="#make-your-code-readable">Make Your Code Readable</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Lab 2: R is Friend</h1>
 <p class="subtitle lead">Instructions</p>
 </div>
@@ -345,11 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header>
-
-
-<!-- We need to decide what our AI policy is! -->
-<div class="callout callout-style-default callout-caution callout-titled">
+</header><!-- We need to decide what our AI policy is! --><div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -363,19 +340,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Additionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but <strong>you are expected to do your own work</strong>. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.</p>
 </div>
 </div>
-<section id="create-an-r-script" class="level2">
-<h2 class="anchored" data-anchor-id="create-an-r-script">Create an R Script</h2>
+<section id="create-an-r-script" class="level2"><h2 class="anchored" data-anchor-id="create-an-r-script">Create an R Script</h2>
 <p>Last week, you downloaded a template R script, but you’ve learned how to make one of these from scratch. So, this week you are going to make your own R script for Lab 2!</p>
 <ol type="1">
 <li><p>Create a new R script, give it a descriptive and appropriate file name, and save it in your Week 2 subfolder (of your STAT 1810 folder).</p></li>
 <li><p>In the newly created R script, add a comment to the top that describes the contents of this document. <em>Hint: it’s the code for Lab 2!</em></p></li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for Lab 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Code for Lab 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="pismo-beach-water-temperature" class="level2">
-<h2 class="anchored" data-anchor-id="pismo-beach-water-temperature">Pismo Beach Water Temperature</h2>
+</section><section id="pismo-beach-water-temperature" class="level2"><h2 class="anchored" data-anchor-id="pismo-beach-water-temperature">Pismo Beach Water Temperature</h2>
 <p>It’s Saturday, you have some free time, and you’re trying to decide if it’s warm enough to go swimming at Pismo Beach! You look up the water temperature at Pismo Pier on a surf watch website, but the temperature is only listed in degrees Celsius! What does that even mean???</p>
 <ol start="3" type="1">
 <li>Create a new object to hold to current water temperature in degrees Celsius – it’s listed as 11 degrees. Make sure you use a <strong>descriptive</strong> name for the object!</li>
@@ -397,7 +371,7 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(temp_C <span class="sc">*</span> (<span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>)) <span class="sc">+</span> <span class="dv">32</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">temp_C</span> <span class="op">*</span> <span class="op">(</span><span class="fl">9</span><span class="op">/</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fl">32</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 51.8</code></pre>
 </div>
@@ -425,7 +399,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Remember to use the <code>c()</code> function and to separate values with a <code>,</code>.</p>
+<p>Remember to use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function and to separate values with a <code>,</code>.</p>
 </div>
 </div>
 <ol start="6" type="1">
@@ -435,14 +409,12 @@ Tip
 <li>Now that we have temperatures <strong>and</strong> their associated days of the week, let’s combine these into <strong>one</strong> object. Create an object that stores <em>both</em> the temperatures you made in #5 <strong>and</strong> the days you made in #6.</li>
 </ol>
 <ol start="8" type="1">
-<li>Now, let’s change the temperature values from Celsius into Fahrenheit. Be sure to save the updated values back into the original object (like you did in the Practice Activity)! <em>Hint: You should borrow the mathematical steps you used in #4!</em></li>
+<li>Now, let’s change the temperature values from Celsius into Fahrenheit. Be sure to save the updated values back into the original object (like you did in the Practice Activity)! <em>Hint: You should borrow the mathematical steps you used in #4!</em>
+</li>
 </ol>
 <ol start="9" type="1">
 <li>If 60 degrees Fahrenheit is your threshold for swimming in the ocean, how many days had “swimable” temperatures?</li>
-</ol>
-</section>
-<section id="do-other-people-like-your-favorite-movies" class="level2">
-<h2 class="anchored" data-anchor-id="do-other-people-like-your-favorite-movies">Do Other People Like Your Favorite Movies?</h2>
+</ol></section><section id="do-other-people-like-your-favorite-movies" class="level2"><h2 class="anchored" data-anchor-id="do-other-people-like-your-favorite-movies">Do Other People Like Your Favorite Movies?</h2>
 <p>Let’s use <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a> to find the average rating for five of your favorite movies. Do other people like them as much as you do?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -468,10 +440,7 @@ Tip
 <ol start="11" type="1">
 <li>Create a variable that contains the names of your five favorite movies. Remember the names should go in the same order as the ratings! Make sure you use a <strong>descriptive</strong> variable name.</li>
 </ol>
-<!-- give a vector of movies that are the 1810 professor's favorite movies -->
-<!-- check if any of the movies are in the list of your favorite movie  -->
-<!-- introduce %in%  -->
-<ol start="12" type="1">
+<!-- give a vector of movies that are the 1810 professor's favorite movies --><!-- check if any of the movies are in the list of your favorite movie  --><!-- introduce %in%  --><ol start="12" type="1">
 <li>Write a line of code to find the maximum rating for your top five movies. Write a second line of code to find the minimum rating.</li>
 </ol>
 <ol start="13" type="1">
@@ -479,23 +448,21 @@ Tip
 </ol>
 <p>We’ve asked some of the statistics faculty what their favorite movie is and assembled them into a vector.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>stats_prof_movies <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"10 Things I Hate About You"</span>, </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"The Notebook"</span>, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Legally Blonde"</span>, </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Eternal Sunshine of the Spotless Mind"</span>, </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Mean Girls"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">stats_prof_movies</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"10 Things I Hate About You"</span>, </span>
+<span>                       <span class="st">"The Notebook"</span>, </span>
+<span>                       <span class="st">"Legally Blonde"</span>, </span>
+<span>                       <span class="st">"Eternal Sunshine of the Spotless Mind"</span>, </span>
+<span>                       <span class="st">"Mean Girls"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="14" type="1">
 <li>Use the <code>%in%</code> operator to check if any of these movies are included in the top five movies you made in #11. Here is an example of how to use the <code>%in%</code> operator:</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="st">"bananna"</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"kiwi"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"bananna"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"kiwi"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <!-- 15. What type of output does the `%in%` operator give you? What do these  -->
 <!-- values represent? -->
-</section>
-<section id="reviewing-your-work" class="level2">
-<h2 class="anchored" data-anchor-id="reviewing-your-work">Reviewing Your Work</h2>
+</section><section id="reviewing-your-work" class="level2"><h2 class="anchored" data-anchor-id="reviewing-your-work">Reviewing Your Work</h2>
 <ol start="15" type="1">
 <li>What variables have you created during this lab? Using a code comment, list all of the variable names.</li>
 </ol>
@@ -513,20 +480,15 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I've created 6 variables: temp_C, temperatures, days, days_temps, top5_ratings, and top5_movies</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># I've created 6 variables: temp_C, temperatures, days, days_temps, top5_ratings, and top5_movies</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="make-your-code-readable" class="level2">
-<h2 class="anchored" data-anchor-id="make-your-code-readable">Make Your Code Readable</h2>
+</section><section id="make-your-code-readable" class="level2"><h2 class="anchored" data-anchor-id="make-your-code-readable">Make Your Code Readable</h2>
 <ol start="16" type="1">
 <li>Add comments throughout your script that describe what your code is doing.</li>
 </ol>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -940,8 +902,7 @@ Tip
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Built by Kelly Bodwin, Charlotte Mann, Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold.</p>
 </div>   
@@ -953,8 +914,6 @@ Tip
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
