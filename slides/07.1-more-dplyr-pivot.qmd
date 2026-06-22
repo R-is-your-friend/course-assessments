@@ -1,0 +1,449 @@
+---
+title: "Data Wrangling II"
+format: 
+  revealjs:
+      theme: [simple, style.scss]
+      auto-stretch: false
+editor: source
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+
+```
+
+## DATE
+
+Today we will...
+
+-   New Material
+    -   Extend `dplyr` verbs to have more functionality.
+    -   Data pivots.
+-   PA 7: Military Spending
+
+# Extending `dplyr` verbs
+
+## Reminder: Example Data [Cereal](https://search.r-project.org/CRAN/refmans/liver/html/cereal.html)
+
+```{r}
+#| echo: true
+#| eval: false
+library(liver)
+data(cereal)
+head(cereal, n = 5)
+```
+
+```{r}
+#| eval: true
+#| echo: false
+cereal |> 
+  slice_head(n = 5) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "350px") |> 
+  kableExtra::kable_styling(font_size = 24)
+```
+
+## More `dplyr`
+
+-   We have already covered a lot, but not everything you might want...
+
+-   Today we will cover functions that help with the following tasks:
+
+    -   extract a variable as a vector
+    -   simple frequency table of a categorical variable
+    -   creating a categorical variable from levels of a quantitatie variable
+    -   applying slice to groups and multiple variables
+    -   mutating or summarizing many variables at once
+
+## `pull()`
+
+What is the mean potassium for cold cereals? 🧩
+
+. . .
+
+- You can't use the `$` operator in a pipeline
+- `pull()` to the rescue!
+- `pull()` extracts a data frame column as a *vector* 
+
+. . .
+
+```{r}
+#| echo: true
+cereal |> 
+  filter(type == "cold") |> 
+  pull(potass) |> 
+  mean(na.rm = T)
+```
+
+
+
+## Reminder: count with `summarize()`
+
+How many cereals does each `manuf` have in this dataset?
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  group_by(manuf) |> 
+  summarize(n = n())
+```
+
+```{r}
+#| eval: true
+#| echo: false
+cereal |> 
+  group_by(manuf) |> 
+  summarize(n = n()) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px") |> 
+  kableExtra::kable_styling(font_size = 30)
+```
+
+## Count with `count()`
+
+How many cereals does each `manuf` have in this dataset?
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  count(manuf)
+```
+
+```{r}
+#| eval: true
+#| echo: false
+cereal |> 
+  group_by(manuf) |> 
+  count() |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px") |> 
+  kableExtra::kable_styling(font_size = 30)
+```
+
+## `if_else()`
+
+For each cereal, label the `potass` as "high" or "low".
+
+. . .
+
+One `if-else` statement:
+
+<font size = 6>
+
+-   `if_else(<CONDITION>, <TRUE OUTPUT>, <FALSE OUTPUT>)`
+
+</font>
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  mutate(po_category = if_else(potass <= 100, "low", "high"),
+         .after = potass)
+```
+
+```{r}
+#| eval: true
+#| echo: false
+cereal |> 
+  mutate(po_category = if_else(potass <= 100, "low", "high"),
+         .after = potass) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "200px") |> 
+  kableExtra::kable_styling(font_size = 30)
+```
+
+`.after` -- specifies the location of the newly created column
+
+## `case_when()`
+
+For each cereal, label the amount of sugar as "low", "medium", "high", or "very high".
+
+. . .
+
+A **series** of `if-else` statements.
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  mutate(sugar_level = case_when(sugars == -1 ~ NA_character_,
+                                 sugars < 2   ~ "low",
+                                 sugars < 5   ~ "medium",
+                                 sugars < 10  ~ "high",
+                                 .default = "very high")) |> 
+  select(name, sugars, sugar_level)
+```
+
+```{r}
+#| eval: true
+#| echo: false
+cereal |> 
+  mutate(sugar_level = case_when(sugars == -1 ~ NA_character_,
+                                 sugars <= 2  ~ "low",
+                                 sugars <= 5  ~ "medium",
+                                 sugars <= 10 ~ "high",
+                                 .default = "very high")) |> 
+  select(name, sugars, sugar_level) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "250px") |> 
+  kableExtra::kable_styling(font_size = 30)
+```
+
+
+## Summarize multiple columns
+
+For each `type` of cereal, calculate the `mean` nutrient levels.
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: false
+
+cereal |> 
+  group_by(type) |> 
+  summarize(mean_calories = mean(calories, na.rm = T),
+            mean_protein  = mean(protein, na.rm = T),
+            mean_fat      = mean(fat, na.rm = T),
+            mean_sodium   = mean(sodium, na.rm = T),
+            . . .,
+            mean_vitamins = mean(vitamins, na.rm = T))
+```
+
+. . .
+
+:::callout-warning
+# SO MUCH COPY-PASTE!
+
+There are 9 different nutrient columns in the dataset! There has to be a better way...
+:::
+
+
+
+## Summarize multiple columns with `across()`
+
+For each `type` of cereal, calculate the `mean` nutrient levels.
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  group_by(type) |> 
+  summarise(across(.cols = calories:potass, 
+                   .fns = \(x) mean(x, na.rm = T)))
+```
+
+```{r}
+#| eval: true
+#| echo: false
+cereal |> 
+  group_by(type) |> 
+  summarise(across(.cols = calories:potass, .fns = mean)) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "130px") |> 
+  kableExtra::kable_styling(font_size = 23)
+```
+
+
+:::callout-tip
+# So much better!
+
+:::
+
+
+## Summarize multiple columns with `across()`
+
+**Within** the `summarize()` function, we use the `across()` function, with two arguments:
+
+-   `.cols` -- to specify the **columns** to apply functions to.
+-   `.fns` -- to specify the **functions** to apply.
+
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  group_by(type) |> 
+  summarise(across(.cols = calories:potass, 
+                   .fns = \(x) mean(x, na.rm = T)))
+```
+
+
+Use **lambda functions**: `\(x) <FUN_NAME>(x, <ARGS>)`
+
+(also called anonymous functions)
+
+## Summarize multiple columns with `across()`
+
+-   To choose columns, you can use the same options as with `select()`
+
+. . .
+
+For each `type` of cereal, calculate the means of all numeric variables. 
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "3"
+
+cereal |> 
+  group_by(type) |> 
+  summarise(across(.cols = where(is.numeric),
+                   .fns = \(x) mean(x, na.rm = T)))
+```
+
+```{r}
+#| eval: true
+#| echo: false
+cereal |> 
+  group_by(type) |> 
+  summarise(across(.cols = where(is.numeric),
+                   .fns = ~ mean(.x, na.rm = T))) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "130px") |> 
+  kableExtra::kable_styling(font_size = 23)
+```
+
+## If you are struggling with `across()`
+
+:::incremental
+
+Break it down:
+  
+  1. think about what the code would be for *one* column
+      
+```{r}
+#| echo: true
+#| eval: false
+
+summarize(calories = mean(calories, na.rm = T))
+```
+  
+
+  2. replace the column name with the placeholder `x` and add `\(x)` in front for the `.fns` argument. You have created a lambda function!
+    
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: '2'
+
+summarize(across(.cols = ,
+                 .fns  = \(x) mean(x, na.rm = T)))
+```
+  
+  3. think about **which** columns you want to apply this to for the `.cols` argument
+    
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: '1'
+
+summarize(across(.cols = calories:potass,
+                 .fns  = \(x) mean(x, na.rm = T)))
+```
+
+:::
+
+## `across()`: Related Functions
+
+These functions are used with `filter()` to select rows based on a logical statement applied to multiple columns
+
+- `if_any()` -- returns a logical vector (one element for each row) that is `TRUE` if the logical statement is true for *any* column in the supplied columns
+- `if_all()` -- returns a logical vector (one element for each row) that is `TRUE` if the logical statement is true for *all* columns in the supplied columns
+
+## `if_any()` Example
+
+```{r}
+colleges <- read_csv("https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=1")
+
+colleges_clean <- colleges |> 
+    select(INSTNM, CITY, STABBR, ZIP,
+         ADM_RATE, SAT_AVG, UGDS,
+         TUITIONFEE_IN, TUITIONFEE_OUT,
+         CONTROL, REGION) |> 
+  filter(CONTROL == 1 | CONTROL == 2)
+```
+
+Remember, you got warnings in PA3 when converting some columns to numeric? If you look at the original data, you can see this is because missing values were indicated with the string `"NULL"`. 🧩
+
+```{r}
+colleges_clean |> 
+  slice_head(n = 3) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "175px") |> 
+  kableExtra::kable_styling(font_size = 20)
+```
+. . .
+
+We could drop these rows before converting the columns to numeric if desired, using `if_any()`:
+
+```{r}
+#| echo: true
+
+colleges_clean <- colleges_clean |> 
+  filter(!if_any(.cols = ADM_RATE:TUITIONFEE_OUT, 
+                 .fns = \(x) x == "NULL")) 
+```
+
+
+## Using `kable()` for formatting in labs
+
+- When printing rows of a data frame or tibble
+- need to load the `knitr` package at the beginning of your file
+- `kable()` outputs a **markdown version** of your data
+- should only be used to nicely format data you are **printing**
+
+:::columns
+:::column
+**e.g.**
+
+```{r}
+#| echo: true
+#| eval: false
+
+
+cereal |> 
+  mutate(ratio = sugars / potass) |> 
+  slice_head(n = 3) |> 
+  kable()
+```
+
+:::
+:::column
+
+**NOT**
+
+```{r}
+#| echo: true
+#| eval: false
+cereal_clean <- cereal |> 
+  mutate(ratio = sugars / potass) |> 
+  slice_head(n = 3) |> 
+  kable()
+```
+
+:::
+:::
+
+## To do...
+
+-   **Lab 3: Teacher Evaluations**
+    -   Due Sunday, 4/19 at 11:59pm
+-   **Required [Reading](../../reading/week-3.2.qmd)**
+-   Review all material from this week for the **group quiz on Monday**!
+    - Make sure that you can answer all of the questions in this week's notes!
+    - Group quiz at the **beginning** of class
+- Reminder: rescheduled office hours 12-1:30 pm tomorrow
