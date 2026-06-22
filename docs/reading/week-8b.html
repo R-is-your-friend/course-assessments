@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Week 9: Special Variable Types – R is Your Friend</title>
+<title>Week 8 Part 2: Factors – R is Your Friend</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -268,22 +268,21 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
 <li>
-<a href="#character-variables-and-strings" id="toc-character-variables-and-strings" class="nav-link active" data-scroll-target="#character-variables-and-strings"><span class="header-section-number">1</span> Character Variables and Strings</a>
+<a href="#factor-variables" id="toc-factor-variables" class="nav-link active" data-scroll-target="#factor-variables"><span class="header-section-number">1</span> Factor Variables</a>
   <ul>
-<li><a href="#required-reading-r4ds-14.1-14.5-strings" id="toc-required-reading-r4ds-14.1-14.5-strings" class="nav-link" data-scroll-target="#required-reading-r4ds-14.1-14.5-strings">📖 Required Reading: R4DS 14.1-14.5: Strings</a></li>
+<li>
+<a href="#required-reading-r4ds-16-factors" id="toc-required-reading-r4ds-16-factors" class="nav-link" data-scroll-target="#required-reading-r4ds-16-factors">📖 Required Reading: R4DS 16: Factors</a>
+  <ul class="collapse">
+<li><a href="#optional-video-forcats" id="toc-optional-video-forcats" class="nav-link" data-scroll-target="#optional-video-forcats">📽 Optional Video: forcats</a></li>
   </ul>
 </li>
-  <li>
-<a href="#date-and-time-variables" id="toc-date-and-time-variables" class="nav-link" data-scroll-target="#date-and-time-variables"><span class="header-section-number">2</span> Date and Time Variables</a>
-  <ul>
-<li><a href="#required-reading-r4ds-17-dates-and-times" id="toc-required-reading-r4ds-17-dates-and-times" class="nav-link" data-scroll-target="#required-reading-r4ds-17-dates-and-times">📖 Required Reading: R4DS 17: Dates and Times</a></li>
   </ul>
 </li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Week 9: Special Variable Types</h1>
+<h1 class="title">Week 8 Part 2: Factors</h1>
 </div>
 
 
@@ -311,8 +310,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr>
-<section id="character-variables-and-strings" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="character-variables-and-strings">
-<span class="header-section-number">1</span> Character Variables and Strings</h2>
+<section id="factor-variables" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="factor-variables">
+<span class="header-section-number">1</span> Factor Variables</h2>
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -324,47 +323,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Clean and extract information from character variables using stringr</li>
+<li>Reorder and relabel factor variables in data cleaning steps and data visualizations using forcats</li>
+<li>Design and implement more advanced plots</li>
 </ul>
 </div>
 </div>
-<section id="required-reading-r4ds-14.1-14.5-strings" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-14.1-14.5-strings">📖 Required Reading: <a href="https://r4ds.had.co.nz/strings.html#strings">R4DS 14.1-14.5: Strings</a>
+<section id="required-reading-r4ds-16-factors" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-16-factors">📖 Required Reading: <a href="https://r4ds.hadley.nz/factors.html">R4DS 16: Factors</a>
 </h3>
-<p>By the end of the reading, you should be able to answer the following questions:</p>
-<div class="callout callout-style-default callout-check-in callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Check-in</span>Check In
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>TO-DO</p>
-</div>
-</div>
-</section></section><section id="date-and-time-variables" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="date-and-time-variables">
-<span class="header-section-number">2</span> Date and Time Variables</h2>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">None</span>Learning Objectives
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Work with date and time variables using lubridate</li>
-<li>Convert a string variable into a date / time variable</li>
-<li>Extract date / time information from a date / time variable (e.g.&nbsp;month, year, day of the week, etc)</li>
-</ul>
-</div>
-</div>
-<section id="required-reading-r4ds-17-dates-and-times" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-17-dates-and-times">📖 Required Reading: <a href="https://r4ds.hadley.nz/datetimes.html">R4DS 17: Dates and Times</a>
-</h3>
+<section id="optional-video-forcats" class="level4"><h4 class="anchored" data-anchor-id="optional-video-forcats">📽 Optional Video: <a href="https://www.youtube.com/embed/dAiSYli7tVg">forcats</a>
+</h4>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -381,7 +348,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

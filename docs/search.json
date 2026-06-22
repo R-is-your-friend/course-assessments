@@ -291,14 +291,14 @@
     "href": "reading/week-9.html#character-variables-and-strings",
     "title": "Week 9: Special Variable Types",
     "section": "\n1 Character Variables and Strings",
-    "text": "1 Character Variables and Strings\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nClean and extract information from character variables using stringr\nRecognize what a basic regular expression will match\n\n\n\n📖 Required Reading: R4DS 14.1-14.5: Strings\n\n📖 Required Reading: R4DS 15.1-15.4: Strings\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "text": "1 Character Variables and Strings\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nClean and extract information from character variables using stringr\n\n\n\n📖 Required Reading: R4DS 14.1-14.5: Strings\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   },
   {
     "objectID": "reading/week-9.html#date-and-time-variables",
     "href": "reading/week-9.html#date-and-time-variables",
     "title": "Week 9: Special Variable Types",
     "section": "\n2 Date and Time Variables",
-    "text": "2 Date and Time Variables\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nWork with date and time variables using lubridate\nConvert a string variable into a date / time variable\nExtract date / time information from a date / time variable (e.g. month, year, day of the week, etc)\nConvert between time zones\n\n\n\n📖 Required Reading: R4DS 17: Dates and Times\n\n📽 Optional Video: Working wtih Dates\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "text": "2 Date and Time Variables\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nWork with date and time variables using lubridate\nConvert a string variable into a date / time variable\nExtract date / time information from a date / time variable (e.g. month, year, day of the week, etc)\n\n\n\n📖 Required Reading: R4DS 17: Dates and Times\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   },
   {
     "objectID": "reading/week-7.html#extending-data-manipulation-verbs",
@@ -373,9 +373,9 @@
   {
     "objectID": "practice-activities/main-version/pa8-joins.html",
     "href": "practice-activities/main-version/pa8-joins.html",
-    "title": "PA 8: Hot Ones",
+    "title": "PA 8: Twinning",
     "section": "",
-    "text": "# load packages\nlibrary(readxl) \nlibrary(tidyverse)\n\n\nepisodes &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-08-08/episodes.csv')\nsauces &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-08-08/sauces.csv')\nseasons &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-08-08/seasons.csv')\n\n\ncities &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/cities.csv')\nlinks &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/links.csv')\n\n\nlinked_cities &lt;- links |&gt; \n  left_join(cities, join_by(source == id)) |&gt; \n  rename_with(.fn = \\(x) paste0(\"source_\", x), \n              .cols = name:continent) |&gt; \n  left_join(cities, join_by(target == id))\n\n\nlinked_cities |&gt; \n  filter(is.na(source_name) | is.na(name))\n\n# A tibble: 0 × 14\n# ℹ 14 variables: source &lt;chr&gt;, target &lt;chr&gt;, source_name &lt;chr&gt;,\n#   source_lng &lt;dbl&gt;, source_lat &lt;dbl&gt;, source_country &lt;chr&gt;,\n#   source_countrycd &lt;chr&gt;, source_continent &lt;chr&gt;, name &lt;chr&gt;, lng &lt;dbl&gt;,\n#   lat &lt;dbl&gt;, country &lt;chr&gt;, countrycd &lt;chr&gt;, continent &lt;chr&gt;\n\n\nHow many cities are not linked to a sister city?\n\ncities |&gt; \n  anti_join(linked_cities,\n            by = join_by(id == source))\n\n# A tibble: 1,598 × 7\n   id      name               lng   lat country countrycd continent\n   &lt;chr&gt;   &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;    \n 1 Q385684 Ono               136.  36.0 Japan   JP        Asia     \n 2 Q386052 Ōshū              141.  39.1 Japan   JP        Asia     \n 3 Q428989 Noboribetsu       141.  42.4 Japan   JP        Asia     \n 4 Q495809 Fujimi            140.  35.9 Japan   JP        Asia     \n 5 Q496472 Kuwana            137.  35.1 Japan   JP        Asia     \n 6 Q502205 Nemuro            146.  43.3 Japan   JP        Asia     \n 7 Q596486 Fujioka           139.  36.3 Japan   JP        Asia     \n 8 Q622594 Takayama          137.  36.1 Japan   JP        Asia     \n 9 Q642018 Natori            141.  38.2 Japan   JP        Asia     \n10 Q653372 Higashihiroshima  133.  34.4 Japan   JP        Asia     \n# ℹ 1,588 more rows"
+    "text": "# load packages\nlibrary(readxl) \nlibrary(tidyverse)\n\nThe data come to us from TidyTuesday – originally compiled by Ahmad Barclay and further curated by Nicola Rennie for TidyTuesday.\nWe also created a dataset dists with the following columns:\n\n\nsource: same as in links\n\n\ntarget: same as in links\n\n\ndist: distance between paired cities in km\n\n\ncities &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/cities.csv')\nlinks &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/links.csv')\n\n# NEED TO CHANGE THIS TO A LINK TO OUR GITHUB\ndists &lt;- read_csv(\"../../data/08-dists.csv\")\n\n\nCheck out the data. What is one observation in the cities dataset and what kind of information do we get from this data? What is one observation in the links dataset and what kind of information do we get from this data?\n\nThe links data contains all of the pairs of cities, but we can’t learn anything interesting just from the city IDs! We want to add the city information on.\n\nWhat are the key(s) between the city and links data?\n\nAs the data dictionary states, the order of “source” and “target” city is arbitrary.\n\nCreated a new dataframe called linked_cities that includes all of the information in the cities data for both cities in each pair of twinned cities.\n\nNote: This means you will have two name, latitude, longitude, etc. columns for each row. Think about how you might want to name columns to keep things from being confusing!\n\nlinked_cities &lt;- links |&gt; \n  inner_join(cities, join_by(source == id)) |&gt; \n  rename_with(.fn = \\(x) paste0(x, \"_1\"), \n              .cols = name:continent) |&gt; \n  inner_join(cities, join_by(target == id)) |&gt; \n  rename_with(.fn = \\(x) paste0(x, \"_2\"), \n              .cols = name:continent)\n\n\nAre any of the twinned cities missing city information like their name?\n\n\nlinked_cities |&gt; \n  filter(is.na(source_name) | is.na(name))\n\nError in `filter()`:\nℹ In argument: `is.na(source_name) | is.na(name)`.\nCaused by error:\n! object 'source_name' not found\n\n\n\nQ4 implies that we could have used which of the following joins (or all of them)? inner, left, right, and/or full?\nJoin the distances between cities on to your linked_cities data. Pay close attention: what identifies one observation in the dists data? Your linked_cities data should still have 10,596 observations.\nWhich two twin cities are the farthest apart?\nWhich two twin cities are the closest together? Is this a mistake in the data!? Look up the two cities on a map.\nWhich country has the most twinned cities within the same country?\nCHALLENGE: Which continent has the most twinned cities with North America?\n\n\nlinked_cities |&gt; \n  filter(continent_1 == \"North America\"|\n           continent_2 == \"North America\") |&gt; \n  group_by(continent_1, continent_2) |&gt; \n  count() |&gt; \n  pivot_longer(starts_with(\"continent\"),\n               names_to = \"order\",\n               values_to = \"continent\") |&gt; \n  filter(continent != \"North America\") |&gt; \n  summarize(n = sum(n), .by = continent) |&gt; \n  arrange(desc(n))\n\n# A tibble: 5 × 2\n  continent         n\n  &lt;chr&gt;         &lt;int&gt;\n1 Asia            839\n2 Europe          790\n3 South America   260\n4 Africa          143\n5 Oceania          31"
   },
   {
     "objectID": "practice-activities/main-version/pa6-wrangling.html",
@@ -599,7 +599,7 @@
     "href": "labs/instructions/lab9-murder.html",
     "title": "Lab 9: Murder in SQL City",
     "section": "",
-    "text": "Download starter .qmd file\nFor this lab, you will be joining and filtering related datasets to solve a murder mystery!"
+    "text": "Download starter .qmd file\nDownload 09-bHC_muder_data.Rdata\nFor this lab, you will be joining and filtering related datasets to solve a murder mystery!"
   },
   {
     "objectID": "labs/instructions/lab9-murder.html#instructions",
@@ -613,14 +613,14 @@
     "href": "labs/instructions/lab9-murder.html#access-the-data",
     "title": "Lab 9: Murder in SQL City",
     "section": "Access the Data",
-    "text": "Access the Data\n\n\n\n\n\n\nImportant.Rdata, what’s this?\n\n\n\nSo far we have used data built into R (accessing using the data() function), or from .csv or .xlsx filter (accessed using readr functions). There is a special data type that is only used with R with the suffix .Rdata, which we will use in this lab.\nThe benefits of saving data that you are working with as .Rdata are:\n\nYou can save as many named objects as you want in one file! In this case, there are 8 data frames saved in 08-bCH_murder_data.Rdata\n\n.Rdata files are much smaller (i.e. take up less space on your computer) than the same data saved as a .csv.\n\nYou “load” .Rdata files into your Global Environment in R using the load() function. All objects included in the .Rdata file will be loaded with the name they were saved with.\n\n\nSave the 08-bCH_murder_data.Rdata file to your course directory and edit the file path in the code chunk below as needed to load in the data.\n\n\nlibrary(tidyverse)\n\nload(\"08-bCH_murder_data.Rdata\")\n\n\n\n\nlibrary(tidyverse)\n\nload(\"08-bCH_murder_data.Rdata\")\n\n\nYou will notice that the 8 data frames shown in the schema above are now all in your Global Environment!"
+    "text": "Access the Data\n\n\n\n\n\n\nImportant.Rdata, what’s this?\n\n\n\nSo far we have used data built into R (accessing using the data() function), or from .csv or .xlsx filter (accessed using readr functions). There is a special data type that is only used with R with the suffix .Rdata, which we will use in this lab.\nThe benefits of saving data that you are working with as .Rdata are:\n\nYou can save as many named objects as you want in one file! In this case, there are 8 data frames saved in 09-bCH_murder_data.Rdata\n\n.Rdata files are much smaller (i.e. take up less space on your computer) than the same data saved as a .csv.\n\nYou “load” .Rdata files into your Global Environment in R using the load() function. All objects included in the .Rdata file will be loaded with the name they were saved with.\n\n\nSave the 09-bCH_murder_data.Rdata file to your course directory and edit the file path in the code chunk below as needed to load in the data.\n\nlibrary(tidyverse)\nlibrary(knitr)\n\nload(\"09-bCH_murder_data.Rdata\")\n\nYou will notice that the 8 data frames shown in the schema above are now all in your Global Environment!"
   },
   {
     "objectID": "labs/instructions/lab9-murder.html#clean-and-combine-the-data",
     "href": "labs/instructions/lab9-murder.html#clean-and-combine-the-data",
     "title": "Lab 9: Murder in SQL City",
     "section": "Clean and Combine the Data",
-    "text": "Clean and Combine the Data\nLet’s set ourselves up to solve this crime lickity-split!\n0.1 Use a stringr function(s) and a regular expression(s) to create address_number and address_street_name columns in the person dataset. Convert the address_number variable to numeric.\n\n# code for Q0.1\n\n0.2 Design and implement a check that you created the address_number and address_street_name columns correctly. Your output should prove that you completed it correctly (not print all of the rows of the data!)\n\n\n\n\n\n\nTipHint\n\n\n\nFor example, if you re-combine the address_number and address_street_name columns, you should get the same value as original address column exactly.\n\n\n\n# code for Q0.2\n\n0.3 Create two new datasets:\n\n\nget_fit_now_full\n\nevery row represents one visit to the “Get Fit Now” gym.\nall member information is included (e.g. check in times, names, and membership information)\nshould have 2,703 rows and 8 columns\n\n\n\nsuspects_all\n\neach row represents one person\nincludes their address, driver’s licence information, income, and interview with the police, if they have one\ndrop the address column\nshould have 10,011 rows and 16 columns\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nDon’t worry about missing values! We are just gathering all of the information that we have about everyone.\n\n\n\n# code to create get_fit_now_full\n\n\n# code to create suspects_all"
+    "text": "Clean and Combine the Data\nLet’s set ourselves up to solve this crime lickity-split!\n0 Create two new datasets:\n\n\nget_fit_now_full\n\nevery row represents one visit to the “Get Fit Now” gym.\nall member information is included (e.g. check in times, names, and membership information)\nshould have 2,703 rows and 8 columns\n\n\n\nsuspects_all\n\neach row represents one person\nincludes their address, driver’s licence information, income, and interview with the police, if they have one\nshould have 10,011 rows and 16 columns\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nDon’t worry about missing values! We are just gathering all of the information that we have about everyone.\n\n\n\n# code to create get_fit_now_full\n\n\n# code to create suspects_all"
   },
   {
     "objectID": "labs/instructions/lab9-murder.html#solve-the-crime",
@@ -676,7 +676,7 @@
     "href": "index.html",
     "title": "R is Your Friend Course Materials",
     "section": "",
-    "text": "This page contains an easy reference the topics, content, and assignments for a semester.\n Prepare – readings and videos to complete before class\n Slides - presentation materials for class discussion / warm-up before the activity / lab\n Handout - materials to accompany class discussion / warm-up before the activity / lab\n Activity – activities done during class\n Lab – end of week assignments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrepare\n\n\nSlides\n\n\nActivity\n\n\nLab\n\n\nHandout\n\n\n\n\n\nUnit 1\n\n\n\n\nWeek 1\n\n\nDay 1\n\n\nComputer is Friend & What is Code?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\nDay 1\n\n\nR is friend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\n\n\nDay 1\n\n\nControl Flow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\nWriting Simple Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\n\n\nDay 1\n\n\nUnit 1 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnit 2\n\n\n\n\n\n\nDay 2\n\n\nData is friend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\n\n\nDay 1\n\n\nData Visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\n\n\nDay 1\n\n\nData Wrangling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\n\n\nDay 1\n\n\nData Wrangling Continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\n\n\nDay 1\n\n\nJoins and Factors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\n\n\nDay 1\n\n\nStrings and Dates\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 10\n\n\nDay 1\n\n\nCommunication\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\nUnit 2 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnit 3\n\n\n\n\nWeek 11\n\n\nDay 1\n\n\nWriting More Complex Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 12\n\n\nDay 1\n\n\nFunctions and Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 13\n\n\nDay 1\n\n\nSimulation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 14\n\n\nDay 1\n\n\nUnit 3 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 15\n\n\nDay 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2"
+    "text": "This page contains an easy reference the topics, content, and assignments for a semester.\n Prepare – readings and videos to complete before class\n Slides - presentation materials for class discussion / warm-up before the activity / lab\n Handout - materials to accompany class discussion / warm-up before the activity / lab\n Activity – activities done during class\n Lab – end of week assignments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPrepare\n\n\nSlides\n\n\nActivity\n\n\nLab\n\n\nHandout\n\n\n\n\n\nUnit 1\n\n\n\n\nWeek 1\n\n\nDay 1\n\n\nComputer is Friend & What is Code?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2\n\n\nDay 1\n\n\nR is friend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3\n\n\nDay 1\n\n\nControl Flow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\nWriting Simple Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 4\n\n\nDay 1\n\n\nUnit 1 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnit 2\n\n\n\n\n\n\nDay 2\n\n\nData is friend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 5\n\n\nDay 1\n\n\nData Visualization\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 6\n\n\nDay 1\n\n\nData Wrangling\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 7\n\n\nDay 1\n\n\nData Wrangling Continued\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 8\n\n\nDay 1\n\n\nJoins\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\nFactors\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 9\n\n\nDay 1\n\n\nStrings and Dates\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 10\n\n\nDay 1\n\n\nCommunication\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\nUnit 2 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnit 3\n\n\n\n\nWeek 11\n\n\nDay 1\n\n\nWriting More Complex Functions\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 12\n\n\nDay 1\n\n\nFunctions and Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 13\n\n\nDay 1\n\n\nSimulation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 14\n\n\nDay 1\n\n\nUnit 3 Assessment\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 15\n\n\nDay 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2"
   },
   {
     "objectID": "labs/main-version/lab1-hello-code.html",
@@ -914,7 +914,7 @@
     "href": "practice-activities/main-version/pa7-pivot.html#data-cleaning",
     "title": "PA 7: Military Spending",
     "section": "Data Cleaning",
-    "text": "Data Cleaning\nYou will notice that there are a couple of columns that don’t include spending data or are all missing (Notes and Reporting year). There is also an extra row that doesn’t include information on a country (i.e. it doesn’t include a country name!).\n2. In one pipeline, drop those columns and that row. Save this dataset as a new object named military_clean.\n\n# code for Q2\n\nIn addition to NAs, missing values were coded in two other ways.\n3. Find these two methods and write code to replace these values with NAs. Save these changes into an updated version of military_clean.\n\n\n\n\n\n\nTip\n\n\n\nThe information in the top 6 rows of the excel sheet will help you answer this question.\nHelpful functions: mutate(), across() – you will need two of these, na_if()\nNote: When referring to one of the year variable names that start with a number must put tick marks (above the tab key) around the name. Starting the name of a variable with a number is not commonly read as a variable name. E.g., to read the 1988 column through the 2019 column, use `1988.0`:`2019.0`. However, you don’t have to refer to the variable names to complete this task - it might be most efficient to specify columns you don’t want to mutate.\n\n\n\n# code for Q3\n\nBecause characters were used to indicate missing values, all of the columns 1988 through 2023 were read in as characters.\n4. Change these columns to a numeric data type using across(). Save these changes into an updated version of military_clean.\n\n# code for Q4\n\nIf you give the Country column a look, you’ll see there are names of continents and regions included. These names are only included to make it simpler to find countries, as they contain no data.\nLuckily for us, these region names were also stored in the “Regional totals” sheet. We can use the Region column of this dataset to filter out the names we don’t want.\n5a. Use pull() to create a vector called cont_region_names with the names provided in the cont_region data below.\n\ncont_region &lt;- read_xlsx(\"../../data/07-SIPRI-Milex-data-1949-2024.xlsx\", \n                      sheet = \"Regional totals\", \n                      skip = 13) |&gt; \n  filter(Region != \"World total (including Iraq)\", \n         Region != \"World total (excluding Iraq)\") \n\n5b. Remove the rows of military_clean representing regions/continents using the cont_region_names vector you created. Save these changes into an updated version of military_clean.\n\n# code for Q5b\n\n\n\n\n\n\n\nNoteCanvas Q1 & Q2\n\n\n\n\nHow many countries have no spending information in this dataset? What are some of these countries (a list to choose from will be given in Canvas)?\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nUseful functions: filter(), if_all(), is.na(). You will also want to double check that any observations that are missing information aren’t just a region/continent1!\n\n\n\n# code for Q6"
+    "text": "Data Cleaning\nYou will notice that there are a couple of columns that don’t include spending data or are all missing (Notes and Reporting year). There is also an extra row that doesn’t include information on a country (i.e. it doesn’t include a country name!).\n2. In one pipeline, drop those columns and that row. Save this dataset as a new object named military_clean.\n\n# code for Q2\n\nIn addition to NAs, missing values were coded in two other ways.\n3. Find these two methods and write code to replace these values with NAs. Save these changes into an updated version of military_clean.\n\n\n\n\n\n\nTip\n\n\n\nThe information in the top 6 rows of the excel sheet will help you answer this question.\nHelpful functions: mutate(), across() – you will need two of these, na_if()\nNote: When referring to one of the year variable names that start with a number must put tick marks (above the tab key) around the name. Starting the name of a variable with a number is not commonly read as a variable name. E.g., to read the 1988 column through the 2019 column, use `1988.0`:`2019.0`. However, you don’t have to refer to the variable names to complete this task - it might be most efficient to specify columns you don’t want to mutate.\n\n\n\n# code for Q3\n\nBecause characters were used to indicate missing values, all of the columns 1988 through 2023 were read in as characters.\n4. Change these columns to a numeric data type using across(). Save these changes into an updated version of military_clean.\n\n# code for Q4\n\nIf you give the Country column a look, you’ll see there are names of continents and regions included. These names are only included to make it simpler to find countries, as they contain no data.\nLuckily for us, these region names were also stored in the “Regional totals” sheet. We can use the Region column of this dataset to filter out the names we don’t want.\n5a. Use pull() to create a vector called cont_region_names with the names provided in the cont_region data below.\n\ncont_region &lt;- read_xlsx(\"../../data/07-SIPRI-Milex-data-1949-2024.xlsx\", \n                      sheet = \"Regional totals\", \n                      skip = 13) |&gt; \n  filter(Region != \"World total (including Iraq)\", \n         Region != \"World total (excluding Iraq)\") \n\n5b. Remove the rows of military_clean representing regions/continents using the cont_region_names vector you created. Save these changes into an updated version of military_clean.\n\n# code for Q5b\n\n\n\n\n\n\n\nNoteCanvas Q1 & Q2\n\n\n\n\nHow many countries have no spending information in this dataset? What are some of these countries (a list to choose from will be given in Canvas)?\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nUseful functions: filter(), if_all(), is.na(). You will also want to double check that any observations that are missing information aren’t just a region/continent!\n\n\n\n# code for Q6"
   },
   {
     "objectID": "practice-activities/main-version/pa7-pivot.html#data-organization",
@@ -928,7 +928,7 @@
     "href": "practice-activities/main-version/pa7-pivot.html#data-visualization",
     "title": "PA 7: Military Spending",
     "section": "Data Visualization",
-    "text": "Data Visualization\nNow that we’ve transformed the data, let’s create a plot to explore military spending across Eastern European countries.\n9. Create side-by-side boxplots to explore the military spending between Eastern European countries.\n\n\n\n\n\n\nTip\n\n\n\nMake sure you change the plot title and axis labels to accurately represent the plot.\nYou might also want to change the x-axis limits and the color of your plots.\nPlace the Country variable on an axis that makes it easier to read the labels!\n\n\n\n# I have provided a list of Eastern European countries (in these data) for you to use.\neastern_europe &lt;- c(\"Armenia\", \"Azerbaijan\", \"Belarus\", \n                    \"Georgia\", \"Moldova\", \"Russia\", \"Ukraine\")\n\n# code for Q9\n\n10. Create a line plot to explore the military spending of Eastern European countries over time.\n\n# code for Q10\n\n\n\n\n\n\n\nNoteCanvas Q3 + Q4\n\n\n\n\nLooking at the plots you created above, which Eastern European country had the smallest variability in military expenditures over time? Consider a measure of variability that is robust to outliers (like IQR).\nLooking at the plots you created above, you can see that for one Eastern European country, their miliary spending (%) over doubled and then returned to previous levels by around 2015. What is the name of the war that would explain this trend?."
+    "text": "Data Visualization\nNow that we’ve transformed the data, let’s create a plot to explore military spending across Eastern European countries.\n9. Create side-by-side boxplots to explore the military spending between Eastern European countries.\n\n\n\n\n\n\nTip\n\n\n\nMake sure you change the plot title and axis labels to accurately represent the plot.\nYou might also want to change the x-axis limits and the color of your plots.\nPlace the Country variable on an axis that makes it easier to read the labels!\n\n\n\n# I have provided a list of Eastern European countries (in these data) for you to use.\neastern_europe &lt;- c(\"Armenia\", \"Azerbaijan\", \"Belarus\", \n                    \"Georgia\", \"Moldova\", \"Russia\", \"Ukraine\")\n\n# code for Q9\n\n10. Create a line plot to explore the military spending of Eastern European countries over time.\n\n# code for Q10\n\n\n\n\n\n\n\nNoteCanvas Q3 + Q4\n\n\n\n\nLooking at the plots you created above, which Eastern European country had the smallest variability in military expenditures over time? Consider a measure of variability that is robust to outliers (like IQR).\nLooking at the plots you created above, you can see that for one Eastern European country, their military spending (%) over doubled and then returned to previous levels by around 2015. What is the name of the war that would explain this trend?."
   },
   {
     "objectID": "reading/week-1.html",
@@ -1055,5 +1055,152 @@
     "title": "Creating Objects & Tracing Code",
     "section": "Code Tracing",
     "text": "Code Tracing\nIs a great tool for growing your intuition of what is happening in a computer program.\n\n\n\nx &lt;- 10\ny &lt;- seq(from = 1, to = 10, by = 2)\nx &lt;- x + y\nz &lt;- c(x, y)\n\n\nFill out the Code Tracing Table for each line of code above.\n\ncountdown::countdown(minutes = 5)"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html",
+    "href": "slides/07.1-more-dplyr-pivot.html",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "Today we will…\n\nNew Material\n\nExtend dplyr verbs to have more functionality.\nData pivots.\n\n\nPA 7: Military Spending"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#date",
+    "href": "slides/07.1-more-dplyr-pivot.html#date",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "Today we will…\n\nNew Material\n\nExtend dplyr verbs to have more functionality.\nData pivots.\n\n\nPA 7: Military Spending"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#reminder-example-data-cereal",
+    "href": "slides/07.1-more-dplyr-pivot.html#reminder-example-data-cereal",
+    "title": "Data Wrangling II",
+    "section": "Reminder: Example Data Cereal\n",
+    "text": "Reminder: Example Data Cereal\n\n\nlibrary(liver)\ndata(cereal)\nhead(cereal, n = 5)\n\n\n\nError:\n! object 'cereal' not found"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#more-dplyr",
+    "href": "slides/07.1-more-dplyr-pivot.html#more-dplyr",
+    "title": "Data Wrangling II",
+    "section": "More dplyr\n",
+    "text": "More dplyr\n\n\nWe have already covered a lot, but not everything you might want…\n\nToday we will cover functions that help with the following tasks:\n\nextract a variable as a vector\nsimple frequency table of a categorical variable\ncreating a categorical variable from levels of a quantitatie variable\napplying slice to groups and multiple variables\nmutating or summarizing many variables at once"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#pull",
+    "href": "slides/07.1-more-dplyr-pivot.html#pull",
+    "title": "Data Wrangling II",
+    "section": "pull()",
+    "text": "pull()\nWhat is the mean potassium for cold cereals? 🧩\n. . .\n\nYou can’t use the $ operator in a pipeline\n\npull() to the rescue!\n\npull() extracts a data frame column as a vector\n\n\n. . .\n\ncereal |&gt; \n  filter(type == \"cold\") |&gt; \n  pull(potass) |&gt; \n  mean(na.rm = T)\n\nError:\n! object 'cereal' not found"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#reminder-count-with-summarize",
+    "href": "slides/07.1-more-dplyr-pivot.html#reminder-count-with-summarize",
+    "title": "Data Wrangling II",
+    "section": "Reminder: count with summarize()\n",
+    "text": "Reminder: count with summarize()\n\nHow many cereals does each manuf have in this dataset?\n. . .\n\ncereal |&gt; \n  group_by(manuf) |&gt; \n  summarize(n = n())\n\n\n\nError:\n! object 'cereal' not found"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#count-with-count",
+    "href": "slides/07.1-more-dplyr-pivot.html#count-with-count",
+    "title": "Data Wrangling II",
+    "section": "Count with count()\n",
+    "text": "Count with count()\n\nHow many cereals does each manuf have in this dataset?\n. . .\n\ncereal |&gt; \n  count(manuf)\n\n\n\nError:\n! object 'cereal' not found"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#if_else",
+    "href": "slides/07.1-more-dplyr-pivot.html#if_else",
+    "title": "Data Wrangling II",
+    "section": "if_else()",
+    "text": "if_else()\nFor each cereal, label the potass as “high” or “low”.\n. . .\nOne if-else statement:\n\n\nif_else(&lt;CONDITION&gt;, &lt;TRUE OUTPUT&gt;, &lt;FALSE OUTPUT&gt;)\n\n\n. . .\n\ncereal |&gt; \n  mutate(po_category = if_else(potass &lt;= 100, \"low\", \"high\"),\n         .after = potass)\n\n\n\nError:\n! object 'cereal' not found\n\n\n.after – specifies the location of the newly created column"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#case_when",
+    "href": "slides/07.1-more-dplyr-pivot.html#case_when",
+    "title": "Data Wrangling II",
+    "section": "case_when()",
+    "text": "case_when()\nFor each cereal, label the amount of sugar as “low”, “medium”, “high”, or “very high”.\n. . .\nA series of if-else statements.\n\ncereal |&gt; \n  mutate(sugar_level = case_when(sugars == -1 ~ NA_character_,\n                                 sugars &lt; 2   ~ \"low\",\n                                 sugars &lt; 5   ~ \"medium\",\n                                 sugars &lt; 10  ~ \"high\",\n                                 .default = \"very high\")) |&gt; \n  select(name, sugars, sugar_level)\n\n\n\nError:\n! object 'cereal' not found"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#summarize-multiple-columns",
+    "href": "slides/07.1-more-dplyr-pivot.html#summarize-multiple-columns",
+    "title": "Data Wrangling II",
+    "section": "Summarize multiple columns",
+    "text": "Summarize multiple columns\nFor each type of cereal, calculate the mean nutrient levels.\n. . .\n\ncereal |&gt; \n  group_by(type) |&gt; \n  summarize(mean_calories = mean(calories, na.rm = T),\n            mean_protein  = mean(protein, na.rm = T),\n            mean_fat      = mean(fat, na.rm = T),\n            mean_sodium   = mean(sodium, na.rm = T),\n            . . .,\n            mean_vitamins = mean(vitamins, na.rm = T))\n\n. . .\n\n\n\n\n\n\nWarningSO MUCH COPY-PASTE!\n\n\n\nThere are 9 different nutrient columns in the dataset! There has to be a better way…"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#summarize-multiple-columns-with-across",
+    "href": "slides/07.1-more-dplyr-pivot.html#summarize-multiple-columns-with-across",
+    "title": "Data Wrangling II",
+    "section": "Summarize multiple columns with across()\n",
+    "text": "Summarize multiple columns with across()\n\nFor each type of cereal, calculate the mean nutrient levels.\n\ncereal |&gt; \n  group_by(type) |&gt; \n  summarise(across(.cols = calories:potass, \n                   .fns = \\(x) mean(x, na.rm = T)))\n\n\n\nError:\n! object 'cereal' not found\n\n\n\n\n\n\n\n\nTipSo much better!"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#summarize-multiple-columns-with-across-1",
+    "href": "slides/07.1-more-dplyr-pivot.html#summarize-multiple-columns-with-across-1",
+    "title": "Data Wrangling II",
+    "section": "Summarize multiple columns with across()\n",
+    "text": "Summarize multiple columns with across()\n\nWithin the summarize() function, we use the across() function, with two arguments:\n\n\n.cols – to specify the columns to apply functions to.\n\n.fns – to specify the functions to apply.\n\n\ncereal |&gt; \n  group_by(type) |&gt; \n  summarise(across(.cols = calories:potass, \n                   .fns = \\(x) mean(x, na.rm = T)))\n\nUse lambda functions: \\(x) &lt;FUN_NAME&gt;(x, &lt;ARGS&gt;)\n(also called anonymous functions)"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#summarize-multiple-columns-with-across-2",
+    "href": "slides/07.1-more-dplyr-pivot.html#summarize-multiple-columns-with-across-2",
+    "title": "Data Wrangling II",
+    "section": "Summarize multiple columns with across()\n",
+    "text": "Summarize multiple columns with across()\n\n\nTo choose columns, you can use the same options as with select()\n\n\n. . .\nFor each type of cereal, calculate the means of all numeric variables.\n. . .\n\ncereal |&gt; \n  group_by(type) |&gt; \n  summarise(across(.cols = where(is.numeric),\n                   .fns = \\(x) mean(x, na.rm = T)))\n\n\n\nError:\n! object 'cereal' not found"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#if-you-are-struggling-with-across",
+    "href": "slides/07.1-more-dplyr-pivot.html#if-you-are-struggling-with-across",
+    "title": "Data Wrangling II",
+    "section": "If you are struggling with across()\n",
+    "text": "If you are struggling with across()\n\n\nBreak it down:\n\nthink about what the code would be for one column\n\n\nsummarize(calories = mean(calories, na.rm = T))\n\n\nreplace the column name with the placeholder x and add \\(x) in front for the .fns argument. You have created a lambda function!\n\n\nsummarize(across(.cols = ,\n                 .fns  = \\(x) mean(x, na.rm = T)))\n\n\nthink about which columns you want to apply this to for the .cols argument\n\n\nsummarize(across(.cols = calories:potass,\n                 .fns  = \\(x) mean(x, na.rm = T)))"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#across-related-functions",
+    "href": "slides/07.1-more-dplyr-pivot.html#across-related-functions",
+    "title": "Data Wrangling II",
+    "section": "\nacross(): Related Functions",
+    "text": "across(): Related Functions\nThese functions are used with filter() to select rows based on a logical statement applied to multiple columns\n\n\nif_any() – returns a logical vector (one element for each row) that is TRUE if the logical statement is true for any column in the supplied columns\n\nif_all() – returns a logical vector (one element for each row) that is TRUE if the logical statement is true for all columns in the supplied columns"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#if_any-example",
+    "href": "slides/07.1-more-dplyr-pivot.html#if_any-example",
+    "title": "Data Wrangling II",
+    "section": "\nif_any() Example",
+    "text": "if_any() Example\n\ncolleges &lt;- read_csv(\"https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=1\")\n\ncolleges_clean &lt;- colleges |&gt; \n    select(INSTNM, CITY, STABBR, ZIP,\n         ADM_RATE, SAT_AVG, UGDS,\n         TUITIONFEE_IN, TUITIONFEE_OUT,\n         CONTROL, REGION) |&gt; \n  filter(CONTROL == 1 | CONTROL == 2)\n\nRemember, you got warnings in PA3 when converting some columns to numeric? If you look at the original data, you can see this is because missing values were indicated with the string \"NULL\". 🧩\n\ncolleges_clean |&gt; \n  slice_head(n = 3) |&gt; \n  knitr::kable() |&gt; \n  kableExtra::scroll_box(height = \"175px\") |&gt; \n  kableExtra::kable_styling(font_size = 20)\n\n\n\n\nINSTNM\nCITY\nSTABBR\nZIP\nADM_RATE\nSAT_AVG\nUGDS\nTUITIONFEE_IN\nTUITIONFEE_OUT\nCONTROL\nREGION\n\n\n\nAlabama A & M University\nNormal\nAL\n35762\n0.9027\n929\n4824\n9857\n18236\n1\n5\n\n\nUniversity of Alabama at Birmingham\nBirmingham\nAL\n35294-0110\n0.9181\n1195\n12866\n8328\n19032\n1\n5\n\n\nAmridge University\nMontgomery\nAL\n36117-3553\nNULL\nNULL\n322\n6900\n6900\n2\n5\n\n\n\n\n\n\n. . .\nWe could drop these rows before converting the columns to numeric if desired, using if_any():\n\ncolleges_clean &lt;- colleges_clean |&gt; \n  filter(!if_any(.cols = ADM_RATE:TUITIONFEE_OUT, \n                 .fns = \\(x) x == \"NULL\"))"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#using-kable-for-formatting-in-labs",
+    "href": "slides/07.1-more-dplyr-pivot.html#using-kable-for-formatting-in-labs",
+    "title": "Data Wrangling II",
+    "section": "Using kable() for formatting in labs",
+    "text": "Using kable() for formatting in labs\n\nWhen printing rows of a data frame or tibble\nneed to load the knitr package at the beginning of your file\n\nkable() outputs a markdown version of your data\nshould only be used to nicely format data you are printing\n\n\n\n\ne.g.\n\ncereal |&gt; \n  mutate(ratio = sugars / potass) |&gt; \n  slice_head(n = 3) |&gt; \n  kable()\n\n\nNOT\n\ncereal_clean &lt;- cereal |&gt; \n  mutate(ratio = sugars / potass) |&gt; \n  slice_head(n = 3) |&gt; \n  kable()"
+  },
+  {
+    "objectID": "slides/07.1-more-dplyr-pivot.html#to-do",
+    "href": "slides/07.1-more-dplyr-pivot.html#to-do",
+    "title": "Data Wrangling II",
+    "section": "To do…",
+    "text": "To do…\n\n\nLab 3: Teacher Evaluations\n\nDue Sunday, 4/19 at 11:59pm\n\n\nRequired Reading\nReview all material from this week for the group quiz on Monday!\n\nMake sure that you can answer all of the questions in this week’s notes!\nGroup quiz at the beginning of class\n\n\nReminder: rescheduled office hours 12-1:30 pm tomorrow"
+  },
+  {
+    "objectID": "reading/week-8b.html#factor-variables",
+    "href": "reading/week-8b.html#factor-variables",
+    "title": "Week 8 Part 2: Factors",
+    "section": "\n1 Factor Variables",
+    "text": "1 Factor Variables\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nReorder and relabel factor variables in data cleaning steps and data visualizations using forcats\nDesign and implement more advanced plots\n\n\n\n📖 Required Reading: R4DS 16: Factors\n\n📽 Optional Video: forcats\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa9-strings-dates.html",
+    "href": "practice-activities/main-version/pa9-strings-dates.html",
+    "title": "PA 9: Cancel Culture",
+    "section": "",
+    "text": "# load packages\nlibrary(tidyverse)\n\nThe data are compiled by Grant Witness.\nThere is both a Tidy Tuesday version, and an updated version I can download from Grant Witness… Maybe we stick with tidy tuesday since it has the cruz list column which is fun? There are 2000 observations in the updated data though. It also doesn’t have a clean data dictionary.\nYou can find the data dictionary here\n\nnsf_terminations &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-06/nsf_terminations.csv')\n\nString things:\n\norg_city to title case str_to_title()\n\ncount number of times the string “diversity” (or something else) is in the abstract str_count()\n\n“clean up” the grant name by replacing words str_replace_all()\n\n\nstr_count() on title\n\nstr_detect() to find certain types of grants\n\nDate things: - Create year start and year end variables - Create a variable for the day of the week that termination letters were sent - Calculate the total length of the grant in days - Calculate the number of days that had passed for the grant before it was terminated - Calculate the % of the grant time that was allowed"
+  },
+  {
+    "objectID": "reading/week-8a.html#data-joins",
+    "href": "reading/week-8a.html#data-joins",
+    "title": "Week 8 Part 1: Data Joins",
+    "section": "\n1 Data Joins",
+    "text": "1 Data Joins\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nUse data joins to assemble data from multiple relational tables into a single table.\n\n\n\n📖 Required Reading: R4DS 19.1-19.4: Joins\n\n\nNote: don’t read 19.5! We will not cover non-equi joins in this course\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
   }
 ]

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Week 9: Special Variable Types – R is Your Friend</title>
+<title>Week 8 Part 1: Data Joins – R is Your Friend</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -268,22 +268,16 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
 <li>
-<a href="#character-variables-and-strings" id="toc-character-variables-and-strings" class="nav-link active" data-scroll-target="#character-variables-and-strings"><span class="header-section-number">1</span> Character Variables and Strings</a>
+<a href="#data-joins" id="toc-data-joins" class="nav-link active" data-scroll-target="#data-joins"><span class="header-section-number">1</span> Data Joins</a>
   <ul>
-<li><a href="#required-reading-r4ds-14.1-14.5-strings" id="toc-required-reading-r4ds-14.1-14.5-strings" class="nav-link" data-scroll-target="#required-reading-r4ds-14.1-14.5-strings">📖 Required Reading: R4DS 14.1-14.5: Strings</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#date-and-time-variables" id="toc-date-and-time-variables" class="nav-link" data-scroll-target="#date-and-time-variables"><span class="header-section-number">2</span> Date and Time Variables</a>
-  <ul>
-<li><a href="#required-reading-r4ds-17-dates-and-times" id="toc-required-reading-r4ds-17-dates-and-times" class="nav-link" data-scroll-target="#required-reading-r4ds-17-dates-and-times">📖 Required Reading: R4DS 17: Dates and Times</a></li>
+<li><a href="#required-reading-r4ds-19.1-19.4-joins" id="toc-required-reading-r4ds-19.1-19.4-joins" class="nav-link" data-scroll-target="#required-reading-r4ds-19.1-19.4-joins">📖 Required Reading: R4DS 19.1-19.4: Joins</a></li>
   </ul>
 </li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Week 9: Special Variable Types</h1>
+<h1 class="title">Week 8 Part 1: Data Joins</h1>
 </div>
 
 
@@ -299,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header><div class="columns">
 <div class="column" style="width:48%;">
-<section id="readings-60-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
+<section id="readings-30-min" class="level4"><h4 class="anchored" data-anchor-id="readings-30-min">📖 Readings: 30 min</h4>
 </section><section id="activities-0-min" class="level4"><h4 class="anchored" data-anchor-id="activities-0-min">🏋🏾‍♂️ Activities: 0 min</h4>
 </section>
 </div><div class="column" style="width:4%;">
@@ -311,8 +305,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr>
-<section id="character-variables-and-strings" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="character-variables-and-strings">
-<span class="header-section-number">1</span> Character Variables and Strings</h2>
+<section id="data-joins" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="data-joins">
+<span class="header-section-number">1</span> Data Joins</h2>
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -324,47 +318,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Clean and extract information from character variables using stringr</li>
+<li>Use data joins to assemble data from multiple relational tables into a single table.</li>
 </ul>
 </div>
 </div>
-<section id="required-reading-r4ds-14.1-14.5-strings" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-14.1-14.5-strings">📖 Required Reading: <a href="https://r4ds.had.co.nz/strings.html#strings">R4DS 14.1-14.5: Strings</a>
+<section id="required-reading-r4ds-19.1-19.4-joins" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-19.1-19.4-joins">📖 Required Reading: <a href="https://r4ds.hadley.nz/joins.html">R4DS 19.1-19.4: Joins</a>
 </h3>
-<p>By the end of the reading, you should be able to answer the following questions:</p>
-<div class="callout callout-style-default callout-check-in callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Check-in</span>Check In
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>TO-DO</p>
-</div>
-</div>
-</section></section><section id="date-and-time-variables" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="date-and-time-variables">
-<span class="header-section-number">2</span> Date and Time Variables</h2>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">None</span>Learning Objectives
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <ul>
-<li>Work with date and time variables using lubridate</li>
-<li>Convert a string variable into a date / time variable</li>
-<li>Extract date / time information from a date / time variable (e.g.&nbsp;month, year, day of the week, etc)</li>
+<li>Note: don’t read 19.5! We will not cover non-equi joins in this course</li>
 </ul>
-</div>
-</div>
-<section id="required-reading-r4ds-17-dates-and-times" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-17-dates-and-times">📖 Required Reading: <a href="https://r4ds.hadley.nz/datetimes.html">R4DS 17: Dates and Times</a>
-</h3>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
