@@ -515,14 +515,14 @@
     "href": "practice-activities/main-version/pa1-tracing.html",
     "title": "Practice Activity 1: What is Code?",
     "section": "",
-    "text": "When we write code, we are giving our computer step-by-step instructions to complete a desired task. The computer will do exactly what we tell it to. Unfortunately, sometimes what we tell it to do isn’t exactly what we meant…\nLet’s practice giving specific instructions in a non-coding setting!"
+    "text": "When we write code, we are giving our computer step-by-step instructions to complete a desired task. The computer will do exactly what we tell it to. Unfortunately, sometimes what we tell it to do isn’t exactly what we meant…\nLet’s practice giving specific instructions in a non-coding setting!\n\n\nPair up with one other student\nDecide who will be Person A and who will be Person B.\nWrite explicit instructions for your assigned task, thinking carefully about how to get to the desired result.\n\n\nPerson A: Write step-by-step instructions for creating a paper airplane from a single sheet of paper.\n\nPerson B: Write step-by-step instructions for creating a cootie catcher from a single sheet of paper.\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nRemember! Your partner does not know the end goal and can only follow your exact instructions. Be careful and precise!\n\n\n\nNow, switch instructions with your partner and follow them exactly. Do not guess the end product and [do not]]{.underline} ask for clarification. You can only do exactly what is written in the code!\n\nLet’s see how good of a paper airplane you collectively made!\n\n\nPerson A: Take the final product from your partner (without making any changes!) and go to the flying area. How far does your paper airplane fly?\n\n\n\n\n\n\n\nTipPractice Activity Submission\n\n\n\nHow far did your airplane fly (in inches)?\n\n\n\n\nPerson B: Take the final product from your partner (without making any changes!) and play the game (pick an number and see what you get)!\n\n\n\n\n\n\n\nTipPractice Activity Submission\n\n\n\nWhat did you get in the cootie catcher?"
   },
   {
     "objectID": "practice-activities/main-version/pa1-tracing.html#code-tracing",
     "href": "practice-activities/main-version/pa1-tracing.html#code-tracing",
     "title": "Practice Activity 1: What is Code?",
     "section": "Code Tracing",
-    "text": "Code Tracing\nHere is a piece of R code where we define variables and do some basic arithmetic.\n\nx &lt;- 3\ny &lt;- 4\nx &lt;- x + y\nx &lt;- x + y\nz &lt;- x * y\ny &lt;- 10\nz &lt;- x * y\n\n\nFill out the Code Tracing Table for each line of code above.\n\n\nCode Tracing Table: Enter the value of each variable at each line of the above code.\n\nLine\nx\ny\nz\n\n\n\n1\n3\nDoes not exist.\nDoes not exist.\n\n\n2\n\n\n\n\n\n3\n\n\n\n\n\n4\n\n\n\n\n\n5\n\n\n\n\n\n6\n\n\n\n\n\n7\n\n\n\n\n\n\n\n\n\n\n\n\nTipPractice Activity Submission\n\n\n\nWhat are the values of x, y, and z at the end of the above code chunk?"
+    "text": "Code Tracing\nHere is a piece of R code where we define variables and do some basic arithmetic.\n\nx &lt;- 3\ny &lt;- 4\nx &lt;- x + y\nx &lt;- x + y\nz &lt;- x * y\ny &lt;- 10\nz &lt;- x * y\n\n\nFill out the Code Tracing Table for each line of code above.\n\n\n\nCode Tracing Table: Enter the value of each variable at each line of the above code.\n\nLine\nx\ny\nz\n\n\n\n1\n3\nDoes not exist.\nDoes not exist.\n\n\n2\n\n\n\n\n\n3\n\n\n\n\n\n4\n\n\n\n\n\n5\n\n\n\n\n\n6\n\n\n\n\n\n7\n\n\n\n\n\n\n\n\n\nCode Tracing Table: Enter the value of each variable at each line of the above code.\n\nLine\nx\ny\nz\n\n\n\n1\n3\nDoes not exist.\nDoes not exist.\n\n\n2\n3\n4\nDoes not exist.\n\n\n3\n7\n4\nDoes not exist.\n\n\n4\n11\n4\nDoes not exist.\n\n\n5\n11\n4\n44\n\n\n6\n11\n10\n44\n\n\n7\n11\n10\n110\n\n\n\n\n\n\n\n\n\n\nTipPractice Activity Submission\n\n\n\nWhat are the values of x, y, and z at the end of the above code chunk?\n\n\n\nx = 11 y = 10 z = 44"
   },
   {
     "objectID": "labs/solution/labX-funfunfun.html",
@@ -1398,5 +1398,19 @@
     "title": "Practice Activity 2: Working with R Objects",
     "section": "Part 3: The secret message!",
     "text": "Part 3: The secret message!\nUse your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:\n\nstringr::str_c(my_symbols$Symbol[top_secret], \n               collapse = \"\")\n\n\n\n\n\n\n\nTipPuzzle Answer\n\n\n\nGoogle the first line of this message to see what poem it is."
+  },
+  {
+    "objectID": "practice-activities/instructions/pa1-tracing.html",
+    "href": "practice-activities/instructions/pa1-tracing.html",
+    "title": "Practice Activity 1: What is Code?",
+    "section": "",
+    "text": "When we write code, we are giving our computer step-by-step instructions to complete a desired task. The computer will do exactly what we tell it to. Unfortunately, sometimes what we tell it to do isn’t exactly what we meant…\nLet’s practice giving specific instructions in a non-coding setting!"
+  },
+  {
+    "objectID": "practice-activities/instructions/pa1-tracing.html#code-tracing",
+    "href": "practice-activities/instructions/pa1-tracing.html#code-tracing",
+    "title": "Practice Activity 1: What is Code?",
+    "section": "Code Tracing",
+    "text": "Code Tracing\nHere is a piece of R code where we define variables and do some basic arithmetic.\n\nx &lt;- 3\ny &lt;- 4\nx &lt;- x + y\nx &lt;- x + y\nz &lt;- x * y\ny &lt;- 10\nz &lt;- x * y\n\n\nFill out the Code Tracing Table for each line of code above.\n\n\nCode Tracing Table: Enter the value of each variable at each line of the above code.\n\nLine\nx\ny\nz\n\n\n\n1\n3\nDoes not exist.\nDoes not exist.\n\n\n2\n\n\n\n\n\n3\n\n\n\n\n\n4\n\n\n\n\n\n5\n\n\n\n\n\n6\n\n\n\n\n\n7\n\n\n\n\n\n\n\n\n\n\n\n\nTipPractice Activity Submission\n\n\n\nWhat are the values of x, y, and z at the end of the above code chunk?"
   }
 ]

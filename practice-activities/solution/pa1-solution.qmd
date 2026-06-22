@@ -1,0 +1,50 @@
+---
+title: "Practice Activity 1: What is Code?"
+format: html
+execute:
+  echo: true
+  error: true
+
+author: SOLUTIONS
+eval: true
+---
+## Code Tracing
+
+Here is a piece of R code where we define variables and do some basic arithmetic.
+
+```{r}
+#| code-line-numbers: true
+#| eval: false
+
+x <- 3
+y <- 4
+x <- x + y
+x <- x + y
+z <- x * y
+y <- 10
+z <- x * y
+```
+
+5.  Fill out the Code Tracing Table for each line of code above.
+
+| Line | `x`  | `y`             | `z`             |
+|------|------|-----------------|-----------------|
+| 1    | 3    | Does not exist. | Does not exist. |
+| 2    | 3    |      4          | Does not exist. |
+| 3    | 7    |      4          | Does not exist. |
+| 4    | 11   |      4          | Does not exist. |
+| 5    | 11   |      4          |        44       |
+| 6    | 11   |      10         |        44       |
+| 7    | 11   |      10         |        110      |
+: Code Tracing Table: Enter the value of each variable at each line of the above code.
+
+::: callout-tip
+# Practice Activity Submission
+
+What are the values of `x`, `y`, and `z` at the end of the above code chunk?
+
+:::
+
+x = 11
+y = 10
+z = 44
