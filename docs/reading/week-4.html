@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
-
+<meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Week 4: Data is Friend – R is Your Friend</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -25,7 +19,6 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -34,19 +27,19 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -73,10 +66,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -242,9 +232,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">R is Your Friend</span>
@@ -256,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
@@ -265,46 +253,43 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rectangular-data" id="toc-rectangular-data" class="nav-link active" data-scroll-target="#rectangular-data"><span class="header-section-number">1</span> Rectangular Data</a>
+<li>
+<a href="#rectangular-data" id="toc-rectangular-data" class="nav-link active" data-scroll-target="#rectangular-data"><span class="header-section-number">1</span> Rectangular Data</a>
   <ul>
-  <li><a href="#required-reading-rectangular-data" id="toc-required-reading-rectangular-data" class="nav-link" data-scroll-target="#required-reading-rectangular-data">📖 Required Reading: Rectangular Data</a></li>
-  </ul></li>
-  <li><a href="#importing-data-into-r" id="toc-importing-data-into-r" class="nav-link" data-scroll-target="#importing-data-into-r"><span class="header-section-number">2</span> Importing Data into R</a>
+<li><a href="#required-reading-rectangular-data" id="toc-required-reading-rectangular-data" class="nav-link" data-scroll-target="#required-reading-rectangular-data">📖 Required Reading: Rectangular Data</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#importing-data-into-r" id="toc-importing-data-into-r" class="nav-link" data-scroll-target="#importing-data-into-r"><span class="header-section-number">2</span> Importing Data into R</a>
   <ul>
-  <li><a href="#required-reading-file-paths" id="toc-required-reading-file-paths" class="nav-link" data-scroll-target="#required-reading-file-paths">📖 Required Reading: File Paths</a></li>
+<li><a href="#required-reading-file-paths" id="toc-required-reading-file-paths" class="nav-link" data-scroll-target="#required-reading-file-paths">📖 Required Reading: File Paths</a></li>
   <li><a href="#required-reading-r4ds-7.1-7.3-about-reading-in-data-files" id="toc-required-reading-r4ds-7.1-7.3-about-reading-in-data-files" class="nav-link" data-scroll-target="#required-reading-r4ds-7.1-7.3-about-reading-in-data-files">📖 Required Reading: R4DS 7.1-7.3 about reading in data files</a></li>
   <li><a href="#required-reading-r4ds-7.5-about-saving-data-externally" id="toc-required-reading-r4ds-7.5-about-saving-data-externally" class="nav-link" data-scroll-target="#required-reading-r4ds-7.5-about-saving-data-externally">📖 Required Reading: R4DS 7.5 about saving data externally</a></li>
   <li><a href="#required-reading-r4ds-20-about-working-with-excel-files" id="toc-required-reading-r4ds-20-about-working-with-excel-files" class="nav-link" data-scroll-target="#required-reading-r4ds-20-about-working-with-excel-files">📖 Required Reading: R4DS 20 about working with Excel files</a></li>
-  </ul></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="header-section-number">3</span> Quarto</a>
-  <ul>
-  <li><a href="#required-reading-r4ds-28-about-quarto" id="toc-required-reading-r4ds-28-about-quarto" class="nav-link" data-scroll-target="#required-reading-r4ds-28-about-quarto">📖 Required Reading: R4DS 28 about Quarto</a></li>
-  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+</li>
+  <li>
+<a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="header-section-number">3</span> Quarto</a>
+  <ul>
+<li><a href="#required-reading-r4ds-28-about-quarto" id="toc-required-reading-r4ds-28-about-quarto" class="nav-link" data-scroll-target="#required-reading-r4ds-28-about-quarto">📖 Required Reading: R4DS 28 about Quarto</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Week 4: Data is Friend</h1>
 </div>
 
@@ -319,25 +304,16 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
-
-
-<div class="columns">
+</header><div class="columns">
 <div class="column" style="width:48%;">
-<section id="readings-60-min" class="level4">
-<h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
-</section>
-<section id="activities-0-min" class="level4">
-<h4 class="anchored" data-anchor-id="activities-0-min">🏋🏾‍♂️ Activities: 0 min</h4>
+<section id="readings-60-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
+</section><section id="activities-0-min" class="level4"><h4 class="anchored" data-anchor-id="activities-0-min">🏋🏾‍♂️ Activities: 0 min</h4>
 </section>
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:48%;">
-<section id="videos-0-min" class="level4">
-<h4 class="anchored" data-anchor-id="videos-0-min">📽 Videos: 0 min</h4>
-</section>
-<section id="tutorials-0-min" class="level4">
-<h4 class="anchored" data-anchor-id="tutorials-0-min">💻 Tutorials: 0 min</h4>
+<section id="videos-0-min" class="level4"><h4 class="anchored" data-anchor-id="videos-0-min">📽 Videos: 0 min</h4>
+</section><section id="tutorials-0-min" class="level4"><h4 class="anchored" data-anchor-id="tutorials-0-min">💻 Tutorials: 0 min</h4>
 </section>
 </div>
 </div>
@@ -362,10 +338,10 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </div>
 </div>
-<section id="rectangular-data" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="rectangular-data"><span class="header-section-number">1</span> Rectangular Data</h2>
-<section id="required-reading-rectangular-data" class="level3">
-<h3 class="anchored" data-anchor-id="required-reading-rectangular-data">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rectangular-data">Rectangular Data</a></h3>
+<section id="rectangular-data" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="rectangular-data">
+<span class="header-section-number">1</span> Rectangular Data</h2>
+<section id="required-reading-rectangular-data" class="level3"><h3 class="anchored" data-anchor-id="required-reading-rectangular-data">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rectangular-data">Rectangular Data</a>
+</h3>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -380,21 +356,13 @@ ul.task-list li input[type="checkbox"] {
 <p>TO-DO</p>
 </div>
 </div>
-</section>
-</section>
-<section id="importing-data-into-r" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="importing-data-into-r"><span class="header-section-number">2</span> Importing Data into R</h2>
-<section id="required-reading-file-paths" class="level3">
-<h3 class="anchored" data-anchor-id="required-reading-file-paths">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths">File Paths</a></h3>
-</section>
-<section id="required-reading-r4ds-7.1-7.3-about-reading-in-data-files" class="level3">
-<h3 class="anchored" data-anchor-id="required-reading-r4ds-7.1-7.3-about-reading-in-data-files">📖 Required Reading: <a href="https://r4ds.hadley.nz/data-import.html">R4DS 7.1-7.3</a> about reading in data files</h3>
-</section>
-<section id="required-reading-r4ds-7.5-about-saving-data-externally" class="level3">
-<h3 class="anchored" data-anchor-id="required-reading-r4ds-7.5-about-saving-data-externally">📖 Required Reading: <a href="https://r4ds.hadley.nz/data-import.html#sec-writing-to-a-file">R4DS 7.5</a> about saving data externally</h3>
-</section>
-<section id="required-reading-r4ds-20-about-working-with-excel-files" class="level3">
-<h3 class="anchored" data-anchor-id="required-reading-r4ds-20-about-working-with-excel-files">📖 Required Reading: <a href="https://r4ds.hadley.nz/spreadsheets.html">R4DS 20</a> about working with Excel files</h3>
+</section></section><section id="importing-data-into-r" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="importing-data-into-r">
+<span class="header-section-number">2</span> Importing Data into R</h2>
+<section id="required-reading-file-paths" class="level3"><h3 class="anchored" data-anchor-id="required-reading-file-paths">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths">File Paths</a>
+</h3>
+</section><section id="required-reading-r4ds-7.1-7.3-about-reading-in-data-files" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-7.1-7.3-about-reading-in-data-files">📖 Required Reading: <a href="https://r4ds.hadley.nz/data-import.html">R4DS 7.1-7.3</a> about reading in data files</h3>
+</section><section id="required-reading-r4ds-7.5-about-saving-data-externally" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-7.5-about-saving-data-externally">📖 Required Reading: <a href="https://r4ds.hadley.nz/data-import.html#sec-writing-to-a-file">R4DS 7.5</a> about saving data externally</h3>
+</section><section id="required-reading-r4ds-20-about-working-with-excel-files" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-20-about-working-with-excel-files">📖 Required Reading: <a href="https://r4ds.hadley.nz/spreadsheets.html">R4DS 20</a> about working with Excel files</h3>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -409,12 +377,9 @@ ul.task-list li input[type="checkbox"] {
 <p>TO-DO</p>
 </div>
 </div>
-</section>
-</section>
-<section id="quarto" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="quarto"><span class="header-section-number">3</span> Quarto</h2>
-<section id="required-reading-r4ds-28-about-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="required-reading-r4ds-28-about-quarto">📖 Required Reading: <a href="https://r4ds.hadley.nz/quarto.html">R4DS 28</a> about Quarto</h3>
+</section></section><section id="quarto" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="quarto">
+<span class="header-section-number">3</span> Quarto</h2>
+<section id="required-reading-r4ds-28-about-quarto" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-28-about-quarto">📖 Required Reading: <a href="https://r4ds.hadley.nz/quarto.html">R4DS 28</a> about Quarto</h3>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -431,11 +396,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -849,8 +810,7 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Built by Kelly Bodwin, Charlotte Mann, Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold.</p>
 </div>   
@@ -862,8 +822,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
-
+<meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="YOUR NAME">
-
 <title>Practice Activity 6: Mystery College – R is Your Friend</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -61,7 +55,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -70,19 +63,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -109,10 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -278,9 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">R is Your Friend</span>
@@ -292,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
@@ -301,33 +289,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#clean-data" id="toc-clean-data" class="nav-link active" data-scroll-target="#clean-data">Clean Data</a></li>
+<li><a href="#clean-data" id="toc-clean-data" class="nav-link active" data-scroll-target="#clean-data">Clean Data</a></li>
   <li><a href="#part-two-identify-the-mystery-college" id="toc-part-two-identify-the-mystery-college" class="nav-link" data-scroll-target="#part-two-identify-the-mystery-college">Part Two: Identify the Mystery College</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Practice Activity 6: Mystery College</h1>
 <p class="subtitle lead">Data Wrangling</p>
 </div>
@@ -349,10 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header>
-
-
-<div class="callout callout-style-default callout-tip callout-titled">
+</header><div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -371,7 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>Include a comment at the beginning of the code chunk that briefly states the purpose of the chunk. Comments in the code chunks come after <code>#</code> signs. These comments will remind later readers—which might be your future self!—what the desired output of the code chunk is.</p></li>
 <li><p>If you created a new object, take a look at it! You can inspect the object by either clicking its name in your <em>Environment</em> tab or by typing its name into the console. Make sure it looks about how you expect. <strong>Do not</strong> type code to inspect the object in your Quarto file, as that <strong>is not</strong> code that needs to be saved!</p></li>
-<li><p>If you created or updated a data frame, make sure your edits did what you hoped. Use the <em>Environment</em> or the <code>head()</code> function to investigate your changes.</p></li>
+<li><p>If you created or updated a data frame, make sure your edits did what you hoped. Use the <em>Environment</em> or the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function to investigate your changes.</p></li>
 </ul>
 <p><strong>Two heads are better than one!</strong></p>
 <p>It can be hard to spot bugs in code that you wrote.</p>
@@ -391,16 +367,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>First, we declare our package dependencies.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Next, we load in the data.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>colleges <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">colleges</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=1"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>What information does <code>read_csv()</code> output? Did an error occur?</p>
+<p>What information does <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> output? Did an error occur?</p>
 <p>Take a look at the variables in your downloaded data by running the following code. This code with the <code>str</code> (structure) function reports the data type for each column in the dataset.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(colleges, <span class="at">give.attr =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">colleges</span>, give.attr <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>spc_tbl_ [7,058 × 27] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ ...1                         : num [1:7058] 1 2 3 4 5 6 7 8 9 10 ...
@@ -436,20 +412,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>What does one row in the data represent? What are some of the available variables?</li>
 </ol>
-<section id="clean-data" class="level2">
-<h2 class="anchored" data-anchor-id="clean-data">Clean Data</h2>
+<section id="clean-data" class="level2"><h2 class="anchored" data-anchor-id="clean-data">Clean Data</h2>
 <p>Now we will clean the data. Alas, each of the R chunks in this section will cause an error and / or do the desired task incorrectly. Even the chunks that run without error <strong>are not</strong> correct! You will need to find the mistake and correct it to complete the intended action.</p>
 <p><strong>Step 1:</strong> There are too many variables in this data set. We don’t need all of them.</p>
 <p>We only need the following variables:</p>
 <ul>
-<li><code>INSTNM</code> name of the institution</li>
-<li><code>CITY</code> city, <code>STABBR</code> state, and <code>ZIP</code> ZIP code of the institution</li>
-<li><code>ADM_RATE</code> admissions rate</li>
-<li><code>SAT_AVG</code> average SAT score</li>
-<li><code>UGDS</code> number of undergraduate students</li>
-<li><code>TUITIONFEE_IN</code> in- and <code>TUITIONFEE_OUT</code> out-of-state tuition</li>
-<li><code>CONTROL</code> Whether the school is public or private</li>
-<li><code>REGION</code> region of the school.</li>
+<li>
+<code>INSTNM</code> name of the institution</li>
+<li>
+<code>CITY</code> city, <code>STABBR</code> state, and <code>ZIP</code> ZIP code of the institution</li>
+<li>
+<code>ADM_RATE</code> admissions rate</li>
+<li>
+<code>SAT_AVG</code> average SAT score</li>
+<li>
+<code>UGDS</code> number of undergraduate students</li>
+<li>
+<code>TUITIONFEE_IN</code> in- and <code>TUITIONFEE_OUT</code> out-of-state tuition</li>
+<li>
+<code>CONTROL</code> Whether the school is public or private</li>
+<li>
+<code>REGION</code> region of the school.</li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges <span class="sc">|</span> <span class="er">&gt;</span>  </span>
@@ -465,14 +448,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><strong>Step 2:</strong> Remove the schools that are for-profit (category 3), keeping public (category 1) and private schools (category 2).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CONTROL <span class="sc">==</span> <span class="dv">1</span>, CONTROL <span class="sc">==</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">colleges_clean</span> <span class="op">&lt;-</span> <span class="va">colleges_clean</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">CONTROL</span> <span class="op">==</span> <span class="fl">1</span>, <span class="va">CONTROL</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error:
 ! object 'colleges_clean' not found</code></pre>
 </div>
 </div>
-<p><strong>Step 3:</strong> Adjust the appropriate variables to be numeric, using <code>as.numeric()</code>.</p>
+<p><strong>Step 3:</strong> Adjust the appropriate variables to be numeric, using <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">as.numeric</span>(TUITIONFEE_IN)  <span class="ot">=</span> TUITIONFEE_IN,</span>
@@ -508,8 +491,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><strong>Step 6:</strong> Reaname <code>CONTROL</code> to <code>TYPE</code> and reorder the first variables so that they are in the following order: <code>INSTNM</code>, <code>CITY</code>, <code>STABBR</code>, <code>ZIP</code>, <code>REGION</code>, <code>TYPE</code>, <code>UGDS</code>, then everything else, I don’t care what order they are in.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(INSTNM<span class="sc">:</span>ZIP, REGION, TYPE, UGDS)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">colleges_clean</span> <span class="op">&lt;-</span> <span class="va">colleges_clean</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">INSTNM</span><span class="op">:</span><span class="va">ZIP</span>, <span class="va">REGION</span>, <span class="va">TYPE</span>, <span class="va">UGDS</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error:
 ! object 'colleges_clean' not found</code></pre>
@@ -533,11 +516,9 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code combining ALL of your previous steps into ONE pipeline</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Code combining ALL of your previous steps into ONE pipeline</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="part-two-identify-the-mystery-college" class="level1">
-<h1>Part Two: Identify the Mystery College</h1>
+</section><section id="part-two-identify-the-mystery-college" class="level1"><h1>Part Two: Identify the Mystery College</h1>
 <p>Wow! Your best friend Margaret has been accepted to her top choice college! Unfortunately, Margaret is a very mysterious person, and she won’t tell you directly which college this is. You’ll have to use her clues to figure out which school is her dream school.</p>
 <p>You should use the <strong>cleaned version</strong> of the data (<code>colleges_clean</code>) and these clues in order to find her dream school!</p>
 <p><strong>Clues:</strong></p>
@@ -551,7 +532,7 @@ Tip
 <li><p>Out of the two remaining colleges, this college has the <strong>least expensive</strong> tuition (both in and out of state). While you could just glance at the result to find this, practice using a dplyr verb to get down to one college.</p></li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code to solve for the mystery college using the 7 clues above.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Code to solve for the mystery college using the 7 clues above.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -568,10 +549,7 @@ Tip
 </div>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -985,8 +963,7 @@ Tip
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Built by Kelly Bodwin, Charlotte Mann, Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold.</p>
 </div>   
@@ -998,8 +975,6 @@ Tip
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
