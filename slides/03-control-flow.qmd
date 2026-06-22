@@ -9,8 +9,38 @@ editor: source
 
 <!-- [20 minutes] Activity: Give half the students one prompt and half another -- sketch diagram and trade for coding/implementation -->
 
-
 <!-- [20 minutes] Activity: Give half the students one prompt and half another -- sketch diagram and trade for coding/implementation -->
 
 <!-- Something like FizzBuzz -->
 
+<!-- - dim -->
+<!-- - nrow -->
+<!-- - ncol -->
+<!-- _ $ to grab columns -->
+<!-- - [] to grab elements -->
+
+
+<!-- base <- "" -->
+<!-- counter <- 0 -->
+<!-- while (base != "chai") { -->
+<!--   counter <- counter + 1 -->
+<!--   base <- coffee_orders$Base[counter] -->
+<!-- } -->
+
+<!-- for(i in 1:num_orders){ -->
+<!--   if (coffee_orders$Base[i] == "espresso") { -->
+<!--     num_espresso <- num_espresso + 1 -->
+<!--   } -->
+<!-- } -->
+
+<!-- ice <- 0 -->
+<!-- for (i in 1:num_orders) { -->
+<!--   if (coffee_orders$Temperature[i] == "iced") { -->
+<!--     if (coffee_orders$Size[i] == "medium") { -->
+<!--       ice <- ice + 4 -->
+<!--     } -->
+<!--     else { -->
+<!--       ice <- ice + 6 -->
+<!--     } -->
+<!--   } -->
+<!-- } -->
