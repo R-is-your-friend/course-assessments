@@ -330,7 +330,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p><a href="../student/lab9-murder.qmd">Download starter .qmd file</a></p>
+</header><div class="version-instructions">
+<p><a href="../student/lab9-murder.qmd">Download starter .qmd file</a></p>
+<p><a href="../../data/09-bCH_murder_data.Rdata">Download 09-bHC_muder_data.Rdata</a></p>
+</div>
 <p>For this lab, you will be joining and filtering related datasets to solve a murder mystery!</p>
 <section id="instructions" class="level2"><h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
 <p>Northwestern University’s Knight Lab wanted to help sharpen users’ database skills, so they created a murder mystery. Can you solve this crime in SQL City??</p>
@@ -353,57 +356,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>So far we have used data built into R (accessing using the <code><a href="https://rdrr.io/r/utils/data.html">data()</a></code> function), or from .csv or <code>.xlsx</code> filter (accessed using <code>readr</code> functions). There is a special data type that is only used with R with the suffix .Rdata, which we will use in this lab.</p>
 <p>The benefits of saving data that you are working with as .Rdata are:</p>
 <ol type="1">
-<li>You can save as many named objects as you want in one file! In this case, there are 8 data frames saved in <code>08-bCH_murder_data.Rdata</code>
+<li>You can save as many named objects as you want in one file! In this case, there are 8 data frames saved in <code>09-bCH_murder_data.Rdata</code>
 </li>
 <li>.Rdata files are much smaller (i.e.&nbsp;take up less space on your computer) than the same data saved as a .csv.</li>
 </ol>
 <p>You “load” .Rdata files into your Global Environment in R using the <code><a href="https://rdrr.io/r/base/load.html">load()</a></code> function. All objects included in the .Rdata file will be loaded with the name they were saved with.</p>
 </div>
 </div>
-<p>Save the <code>08-bCH_murder_data.Rdata</code> file to your course directory and edit the file path in the code chunk below as needed to load in the data.</p>
-<div class="main-version">
-<div class="cell">
+<p>Save the <code>09-bCH_murder_data.Rdata</code> file to your course directory and edit the file path in the code chunk below as needed to load in the data.</p>
+<div class="cell" data-version="[&quot;instructions&quot;,&quot;student&quot;]">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"08-bCH_murder_data.Rdata"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<div class="student-version">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"08-bCH_murder_data.Rdata"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"09-bCH_murder_data.Rdata"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in `readChar()`:
 ! cannot open the connection</code></pre>
 </div>
 </div>
+<div class="cell" data-version="solution">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"../../data/09-bCH_murder_data.Rdata"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You will notice that the 8 data frames shown in the schema above are now all in your Global Environment!</p>
 </section><section id="clean-and-combine-the-data" class="level2"><h2 class="anchored" data-anchor-id="clean-and-combine-the-data">Clean and Combine the Data</h2>
 <p>Let’s set ourselves up to solve this crime lickity-split!</p>
-<p><strong>0.1 Use a <code>stringr</code> function(s) and a regular expression(s) to create <code>address_number</code> and <code>address_street_name</code> columns in the <code>person</code> dataset. Convert the <code>address_number</code> variable to numeric.</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># code for Q0.1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><strong>0.2 Design and implement a check that you created the <code>address_number</code> and <code>address_street_name</code> columns correctly. Your output should prove that you completed it correctly (not print all of the rows of the data!)</strong></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Hint
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For example, if you re-combine the <code>address_number</code> and <code>address_street_name</code> columns, you should get the same value as original <code>address</code> column exactly.</p>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># code for Q0.2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><strong>0.3 Create two new datasets:</strong></p>
+<p><strong>0 Create two new datasets:</strong></p>
 <ul>
 <li>
 <code>get_fit_now_full</code>
@@ -418,7 +398,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>each row represents one person</li>
 <li>includes their address, driver’s licence information, income, and interview with the police, if they have one</li>
-<li>drop the <code>address</code> column</li>
 <li>should have 10,011 rows and 16 columns</li>
 </ul>
 </li>
@@ -437,10 +416,10 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># code to create get_fit_now_full</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># code to create get_fit_now_full</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># code to create suspects_all</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># code to create suspects_all</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="solve-the-crime" class="level2"><h2 class="anchored" data-anchor-id="solve-the-crime">Solve the Crime</h2>
 <section id="crime-scene-report" class="level3"><h3 class="anchored" data-anchor-id="crime-scene-report">Crime Scene Report</h3>
@@ -469,12 +448,12 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Use <code>kable()</code> to nicely output clues!</p>
+<p>Use <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> to nicely output clues!</p>
 </div>
 </div>
 <p><strong>Follow the evidence to the person responsible for the murder, building a report as you go.</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># code for looking at the relevant crime scene report.</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># code for looking at the relevant crime scene report.</span></span>
 <span></span>
 <span><span class="co"># you will want to use multiple chunks!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -974,199 +953,185 @@ Caution
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 9: Murder in SQL City"</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "`join` + `stringr` + `ludridate`"</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - versions</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="an">versions:</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - student:</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">      out-dir: ".."</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">      yaml:</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">        author: "Your Name"</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">        embed-resources: true</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">  - instructions:</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">      out-dir: ".."</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">      yaml:</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">        eval: false</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">  - solution:</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">      out-dir: ".."</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">      out-file: "lab9-solution.qmd"</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">      yaml:</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">        author: "SOLUTIONS"</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true      </span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co">  error: true</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download starter .qmd file</span><span class="co">](../student/lab9-murder.qmd)</span></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>For this lab, you will be joining and filtering related datasets to solve a murder mystery!</span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>Northwestern University's Knight Lab wanted to help sharpen users' database skills, so they created a murder mystery. Can you solve this crime in SQL City??</span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>The relational data you will be working with contains tables with different pieces of information pertinent to the crime - people, social media check-ins, driver's licenses, crime scene reports, police interviews, and more!</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="al">![Database schema](https://mystery.knightlab.com/schema.png)</span></span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Access the Data</span></span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>:::callout-important</span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## .Rdata, what's this?</span></span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>So far we have used data built into R (accessing using the <span class="in">`data()`</span> function), or from .csv or <span class="in">`.xlsx`</span> filter (accessed using <span class="in">`readr`</span> functions). There is a special data type that is only used with R with the suffix .Rdata, which we will use in this lab.</span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>The benefits of saving data that you are working with as .Rdata are:</span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>You can save as many named objects as you want in one file! In this case, there are 8 data frames saved in <span class="in">`08-bCH_murder_data.Rdata`</span></span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>.Rdata files are much smaller (i.e. take up less space on your computer) than the same data saved as a .csv.</span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>You "load" .Rdata files into your Global Environment in R using the <span class="in">`load()`</span> function. All objects included in the .Rdata file will be loaded with the name they were saved with.</span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>Save the <span class="in">`08-bCH_murder_data.Rdata`</span> file to your course directory and edit the file path in the code chunk below as needed to load in the data.</span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>::: main-version</span>
-<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"08-bCH_murder_data.Rdata"</span>)</span>
-<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>::: student-version</span>
-<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
-<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"08-bCH_murder_data.Rdata"</span>)</span>
-<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a>You will notice that the 8 data frames shown in the schema above are now all in your Global Environment!</span>
-<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clean and Combine the Data</span></span>
-<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>Let's set ourselves up to solve this crime lickity-split!</span>
-<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>**0.1 Use a `stringr` function(s) and a regular expression(s) to create `address_number` and `address_street_name` columns in the `person` dataset. Convert the `address_number` variable to numeric.**</span>
-<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a><span class="co"># code for Q0.1</span></span>
-<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>**0.2 Design and implement a check that you created the `address_number` and `address_street_name` columns correctly. Your output should prove that you completed it correctly (not print all of the rows of the data!)**</span>
-<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>:::callout-tip</span>
-<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a><span class="fu"># Hint</span></span>
-<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>For example, if you re-combine the <span class="in">`address_number`</span> and <span class="in">`address_street_name`</span> columns, you should get the same value as original <span class="in">`address`</span> column exactly.</span>
-<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a><span class="co"># code for Q0.2</span></span>
-<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a>**0.3 Create two new datasets:**</span>
-<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`get_fit_now_full`</span></span>
-<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>every row represents one visit to the "Get Fit Now" gym. </span>
-<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>all member information is included (e.g. check in times, names, and membership information)</span>
-<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>should have 2,703 rows and 8 columns</span>
-<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`suspects_all`</span></span>
-<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>each row represents one person</span>
-<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>includes their address, driver's licence information, income, and interview with the police, if they have one</span>
-<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>drop the <span class="in">`address`</span> column</span>
-<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>should have 10,011 rows and 16 columns</span>
-<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a>:::callout-tip</span>
-<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a>Don't worry about missing values! We are just gathering all of the information that we have about everyone.</span>
-<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a><span class="co"># code to create get_fit_now_full</span></span>
-<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a><span class="co"># code to create suspects_all</span></span>
-<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solve the Crime</span></span>
-<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a><span class="fu">### Crime Scene Report</span></span>
-<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a>Detective Wickham reaches out to you...</span>
-<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; A crime has taken place and I need your help! There was a murder in SQL City sometime on Jan. 15, 2018. Could you retrieve the crime scene report from the police department’s database and follow the clues to find the person responsible for the murder?!</span></span>
-<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a>Solve the murder mystery, showing **all of your work in this document**. Your document and code must be well organized, easy to follow, and reproducible.</span>
-<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Use headers and written descriptions to indicate what you are doing.</span>
-<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>You **must** use <span class="in">`dplyr`</span> verbs and <span class="in">`join`</span> functions rather than just looking through the tables manually.</span>
-<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>You should **never filter on a specific person id** -- rather use <span class="in">`join`</span> functions</span>
-<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>You should have a final output that just includes the murder's name as well as their interview transcript (**which is missing!**).</span>
-<span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Use the data frames you just created when helpful!</span>
-<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Use good code formatting practices.</span>
-<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Comment your code.</span>
-<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Cite any external sources you use to solve the mystery.</span>
-<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a>Use <span class="in">`kable()`</span> to nicely output clues!</span>
-<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a>**Follow the evidence to the person responsible for the murder, building a report as you go.**</span>
-<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a><span class="co"># code for looking at the relevant crime scene report.</span></span>
-<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a><span class="co"># you will want to use multiple chunks!</span></span>
-<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a>::: callout-caution</span>
-<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a>Make sure you check for interviews with any suspects and anyone mentioned!</span>
-<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a>**The murderer will have no interview** - don't stop until you find them!</span>
-<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a><span class="fu">## And the final suspect is...</span></span>
-<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a>*put the name of the person responsible for the murder here.*</span>
-<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a>**AGAIN THE MURDERER WILL HAVE NO INTERVIEW**</span>
-<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a>:::</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 9: Murder in SQL City"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "`join` + `stringr` + `ludridate`"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - versions</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="an">versions:</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - student:</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">      out-dir: ".."</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">      yaml:</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">        author: "Your Name"</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">        embed-resources: true</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">  - instructions:</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">      out-dir: ".."</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">      yaml:</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">        eval: false</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">  - solution:</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">      out-dir: ".."</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">      out-file: "lab9-solution.qmd"</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">      yaml:</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">        author: "SOLUTIONS"</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true      </span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">  error: true</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>:::{.version-instructions}</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download starter .qmd file</span><span class="co">](../student/lab9-murder.qmd)</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download 09-bHC_muder_data.Rdata</span><span class="co">](../../data/09-bCH_murder_data.Rdata)</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>For this lab, you will be joining and filtering related datasets to solve a murder mystery!</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Instructions</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>Northwestern University's Knight Lab wanted to help sharpen users' database skills, so they created a murder mystery. Can you solve this crime in SQL City??</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>The relational data you will be working with contains tables with different pieces of information pertinent to the crime - people, social media check-ins, driver's licenses, crime scene reports, police interviews, and more!</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="al">![Database schema](https://mystery.knightlab.com/schema.png)</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Access the Data</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>:::callout-important</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## .Rdata, what's this?</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>So far we have used data built into R (accessing using the <span class="in">`data()`</span> function), or from .csv or <span class="in">`.xlsx`</span> filter (accessed using <span class="in">`readr`</span> functions). There is a special data type that is only used with R with the suffix .Rdata, which we will use in this lab.</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>The benefits of saving data that you are working with as .Rdata are:</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>You can save as many named objects as you want in one file! In this case, there are 8 data frames saved in <span class="in">`09-bCH_murder_data.Rdata`</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>.Rdata files are much smaller (i.e. take up less space on your computer) than the same data saved as a .csv.</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>You "load" .Rdata files into your Global Environment in R using the <span class="in">`load()`</span> function. All objects included in the .Rdata file will be loaded with the name they were saved with.</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>Save the <span class="in">`09-bCH_murder_data.Rdata`</span> file to your course directory and edit the file path in the code chunk below as needed to load in the data.</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a><span class="co">#| version:</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a><span class="co">#| - instructions</span></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="co">#| - student</span></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"09-bCH_murder_data.Rdata"</span>)</span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="co">#| version: solution</span></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"../../data/09-bCH_murder_data.Rdata"</span>)</span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>You will notice that the 8 data frames shown in the schema above are now all in your Global Environment!</span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clean and Combine the Data</span></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>Let's set ourselves up to solve this crime lickity-split!</span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>**0 Create two new datasets:**</span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`get_fit_now_full`</span></span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>every row represents one visit to the "Get Fit Now" gym. </span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>all member information is included (e.g. check in times, names, and membership information)</span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>should have 2,703 rows and 8 columns</span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`suspects_all`</span></span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>each row represents one person</span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>includes their address, driver's licence information, income, and interview with the police, if they have one</span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>should have 10,011 rows and 16 columns</span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>:::callout-tip</span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>Don't worry about missing values! We are just gathering all of the information that we have about everyone.</span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a><span class="co"># code to create get_fit_now_full</span></span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a><span class="co"># code to create suspects_all</span></span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a><span class="fu">## Solve the Crime</span></span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### Crime Scene Report</span></span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a>Detective Wickham reaches out to you...</span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; A crime has taken place and I need your help! There was a murder in SQL City sometime on Jan. 15, 2018. Could you retrieve the crime scene report from the police department’s database and follow the clues to find the person responsible for the murder?!</span></span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a>Solve the murder mystery, showing **all of your work in this document**. Your document and code must be well organized, easy to follow, and reproducible.</span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Use headers and written descriptions to indicate what you are doing.</span>
+<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>You **must** use <span class="in">`dplyr`</span> verbs and <span class="in">`join`</span> functions rather than just looking through the tables manually.</span>
+<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>You should **never filter on a specific person id** -- rather use <span class="in">`join`</span> functions</span>
+<span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>You should have a final output that just includes the murder's name as well as their interview transcript (**which is missing!**).</span>
+<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Use the data frames you just created when helpful!</span>
+<span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Use good code formatting practices.</span>
+<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Comment your code.</span>
+<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a><span class="ss">+ </span>Cite any external sources you use to solve the mystery.</span>
+<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a>Use <span class="in">`kable()`</span> to nicely output clues!</span>
+<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-161"><a href="#cb7-161" aria-hidden="true" tabindex="-1"></a>**Follow the evidence to the person responsible for the murder, building a report as you go.**</span>
+<span id="cb7-162"><a href="#cb7-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-163"><a href="#cb7-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-166"><a href="#cb7-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-167"><a href="#cb7-167" aria-hidden="true" tabindex="-1"></a><span class="co"># code for looking at the relevant crime scene report.</span></span>
+<span id="cb7-168"><a href="#cb7-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-169"><a href="#cb7-169" aria-hidden="true" tabindex="-1"></a><span class="co"># you will want to use multiple chunks!</span></span>
+<span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-171"><a href="#cb7-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a>::: callout-caution</span>
+<span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a>Make sure you check for interviews with any suspects and anyone mentioned!</span>
+<span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-177"><a href="#cb7-177" aria-hidden="true" tabindex="-1"></a>**The murderer will have no interview** - don't stop until you find them!</span>
+<span id="cb7-178"><a href="#cb7-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-179"><a href="#cb7-179" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-180"><a href="#cb7-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-181"><a href="#cb7-181" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb7-182"><a href="#cb7-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-183"><a href="#cb7-183" aria-hidden="true" tabindex="-1"></a><span class="fu">## And the final suspect is...</span></span>
+<span id="cb7-184"><a href="#cb7-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-185"><a href="#cb7-185" aria-hidden="true" tabindex="-1"></a>*put the name of the person responsible for the murder here.*</span>
+<span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-187"><a href="#cb7-187" aria-hidden="true" tabindex="-1"></a>**AGAIN THE MURDERER WILL HAVE NO INTERVIEW**</span>
+<span id="cb7-188"><a href="#cb7-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-189"><a href="#cb7-189" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
