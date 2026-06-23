@@ -438,12 +438,158 @@ cereal_clean <- cereal |>
 :::
 :::
 
+
+# Pivots
+
+
+## Creating Tidy Data
+
+Let's say we want to look at `mean` **cereal nutrients** based on `shelf`.
+
+. . .
+
+-   The data are in a **wide** format -- a separate column for each nutrient.
+
+```{r}
+#| echo: true
+#| eval: false
+library(liver)
+data(cereal)
+head(cereal)
+```
+
+```{r}
+#| eval: true
+#| echo: false
+library(liver)
+data(cereal)
+head(cereal) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "210px") |> 
+  kableExtra::kable_styling(font_size = 30)
+```
+
+## Creating Tidy Data
+
+::: callout-note
+# Discussion
+
+How would we plot the mean cereal nutrients by shelf (as shown below) with the wide data using `ggplot2`?
+:::
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+
+cereal |> 
+  pivot_longer(cols = calories:vitamins,
+               names_to = "Nutrient",
+               values_to = "Amount") |> 
+  group_by(shelf, Nutrient) |> 
+  summarise(mean_amount = mean(Amount)) |> 
+  ggplot(aes(x = shelf, 
+             y = mean_amount, 
+             color = Nutrient)) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Shelf", y = "", subtitle = "Mean Amount")
+```
+
+. . .
+
+**Transforming** the data will make plotting **much** easier
+
+## Creating Tidy Data
+
+::: panel-tabset
+## Wide
+
+```{r}
+#| echo: true
+#| code-line-numbers: "2-3"
+#| code-fold: true
+cereal_wide <- cereal |> 
+  group_by(shelf) |> 
+  summarise(across(calories:vitamins, mean))
+```
+
+```{r}
+#| eval: true
+#| echo: false
+cereal_wide|> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "210px") |> 
+  kableExtra::kable_styling(font_size = 30)
+```
+
+## Wide Plot
+
+```{r}
+#| echo: true
+#| code-line-numbers: "5-8"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+#| code-fold: true
+my_colors <- c("calories_col" = "steelblue", "sugars_col" = "orange3")
+
+cereal_wide |> 
+  ggplot() +
+  geom_point(aes(x = shelf, y = calories, color = "calories_col")) +
+  geom_line(aes(x = shelf, y = calories, color = "calories_col")) + 
+  geom_point(aes(x = shelf, y = sugars, color = "sugars_col")) +
+  geom_line(aes(x = shelf, y = sugars, color = "sugars_col")) +
+  scale_color_manual(values = my_colors, labels = names(my_colors)) +
+  labs(x = "Shelf", y = "", subtitle = "Mean Amount", color = "Nutrient")
+```
+
+## Long
+
+```{r}
+#| echo: true
+#| code-line-numbers: "5-6"
+#| code-fold: true
+cereal_long<- cereal |> 
+  pivot_longer(cols = calories:vitamins,
+               names_to = "Nutrient",
+               values_to = "Amount") |> 
+  group_by(shelf, Nutrient) |> 
+  summarise(mean_amount = mean(Amount))
+```
+
+```{r}
+#| eval: true
+#| echo: false
+cereal_long |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px") |> 
+  kableExtra::kable_styling(font_size = 30)
+```
+
+## Long Plot
+
+```{r}
+#| echo: true
+#| code-line-numbers: "2-4"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+#| code-fold: true
+cereal_long |> 
+  ggplot(aes(x = shelf, 
+             y = mean_amount, 
+             color = Nutrient)) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Shelf", y = "", subtitle = "Mean Amount")
+```
+:::
+
+## Data Layouts
+
+
+![Kelsey Gonzalez](https://github.com/gadenbuie/tidyexplain/raw/main/images/static/png/original-dfs-tidy.png){width="60%"} 
+
 ## To do...
 
--   **Lab 3: Teacher Evaluations**
-    -   Due Sunday, 4/19 at 11:59pm
--   **Required [Reading](../../reading/week-3.2.qmd)**
--   Review all material from this week for the **group quiz on Monday**!
-    - Make sure that you can answer all of the questions in this week's notes!
-    - Group quiz at the **beginning** of class
-- Reminder: rescheduled office hours 12-1:30 pm tomorrow
+

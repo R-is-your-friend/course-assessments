@@ -1,0 +1,99 @@
+---
+title: "Handout 7: More Data Wrangling"
+format: html
+---
+
+
+```{r}
+#| label: setup
+
+library(tidyverse)
+library(liver)
+data(cereal)
+```
+
+## Extending dplyr verbs
+
+1. What is this code trying to do and why doesn't it work? How can we fix the code?
+
+```{r}
+cereal |> 
+  select(sugars) |> 
+  sd(na.rm = T)
+```
+
+2. SOMETHING ABOUT count
+
+3.  How do columns need to be input into the `across()` function?
+
+4. How do functions need to be input into the `across()` function?
+
+5. What does the `x` inside the lambda function represent?
+
+Remember, you got warnings in practice activity 6 when converting some columns to numeric? If you look at the original data, you can see this is because missing values were indicated with the string `"NULL"`.
+
+We could drop these rows before converting the columns to numeric if desired, using `if_any()`:
+
+```{r}
+#| echo: true
+#| eval: false
+
+colleges_clean <- colleges |> 
+  filter(
+    !if_any(.cols = ADM_RATE:TUITIONFEE_OUT, 
+            .fns = \(x) x == "NULL")
+    ) 
+```
+
+6. How would you describe what `\(x) x == "NULL"` is doing?
+
+7. What does the `!` in front of the `if_any()` do?
+
+
+## Reshaping Data
+
+The slides contain the first couple of rows of the cereal data. 
+
+1. Is the cereal data wide or long?
+
+
+I want to create the following plot: 
+
+```{r}
+#| echo: false
+
+cereal |> 
+  pivot_longer(cols = calories:vitamins,
+               names_to = "Nutrient",
+               values_to = "Amount") |> 
+  group_by(shelf, Nutrient) |> 
+  summarise(mean_amount = mean(Amount)) |> 
+  ggplot(aes(x = shelf, 
+             y = mean_amount, 
+             color = Nutrient)) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Shelf", y = "", subtitle = "Mean Amount")
+```
+
+
+
+2. With the original `cereal` data, how would I create this plot? What geometries and aesthetics would I use? You can write a couple of lines of code or sketch a game plan.
+
+
+3. Sketch the data that you would **want** to create this plot. What columns do you want and what rows?
+
+
+4. manually draw out converting data from wide to long
+
+5. Complete the following code to reshape the cereal data:
+
+```{r}
+#| eval: false
+
+cereal |> 
+  pivot_      (cols =                        ,
+               names_to =              
+               values_to =                  )
+```
+
