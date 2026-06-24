@@ -3,18 +3,26 @@ title: "Handout 7: More Data Wrangling"
 format: html
 ---
 
-
 ```{r}
 #| label: setup
+#| echo: false
 
 library(tidyverse)
 library(liver)
+library(knitr)
 data(cereal)
 ```
 
+:::callout-warning
+
+In progress! For class, I am imagining this would be rendered as a .docx and need some editing to be filled out by students.
+
+Also considering -- too long for finishing PA7 as well? Maybe students will need to finish this PA outside of class or on the second day of class this week?
+:::
+
 ## Extending dplyr verbs
 
-1. What is this code trying to do and why doesn't it work? How can we fix the code?
+1.  What is this code trying to do and why doesn't it work? How can we fix the code?
 
 ```{r}
 cereal |> 
@@ -22,13 +30,13 @@ cereal |>
   sd(na.rm = T)
 ```
 
-2. SOMETHING ABOUT count
+2.  When would I want to use `count()` versus `summarize(n = n())`?
 
 3.  How do columns need to be input into the `across()` function?
 
-4. How do functions need to be input into the `across()` function?
+4.  How do functions need to be input into the `across()` function?
 
-5. What does the `x` inside the lambda function represent?
+5.  What is the general structure of a lambda function? What does the `x` inside the lambda function represent?
 
 Remember, you got warnings in practice activity 6 when converting some columns to numeric? If you look at the original data, you can see this is because missing values were indicated with the string `"NULL"`.
 
@@ -45,19 +53,17 @@ colleges_clean <- colleges |>
     ) 
 ```
 
-6. How would you describe what `\(x) x == "NULL"` is doing?
+6.  How would you describe what `\(x) x == "NULL"` is doing?
 
-7. What does the `!` in front of the `if_any()` do?
-
+7.  What does the `!` in front of the `if_any()` do?
 
 ## Reshaping Data
 
-The slides contain the first couple of rows of the cereal data. 
+The slides contain the first couple of rows of the cereal data.
 
-1. Is the cereal data wide or long?
+1.  Is the cereal data wide or long?
 
-
-I want to create the following plot: 
+I want to create the following plot:
 
 ```{r}
 #| echo: false
@@ -76,17 +82,11 @@ cereal |>
   labs(x = "Shelf", y = "", subtitle = "Mean Amount")
 ```
 
+2.  With the original `cereal` data, how would I create this plot? What geometries and aesthetics would I use? You can write a couple of lines of code or sketch a game plan.
 
+3.  Sketch the data that you would **want** to create this plot. What columns do you want and what rows?
 
-2. With the original `cereal` data, how would I create this plot? What geometries and aesthetics would I use? You can write a couple of lines of code or sketch a game plan.
-
-
-3. Sketch the data that you would **want** to create this plot. What columns do you want and what rows?
-
-
-4. manually draw out converting data from wide to long
-
-5. Complete the following code to reshape the cereal data:
+4.  Complete the following code to reshape the cereal data for the plot:
 
 ```{r}
 #| eval: false
@@ -97,3 +97,31 @@ cereal |>
                values_to =                  )
 ```
 
+5.  Here are the first couple of rows of the cereal data with relevant variables:
+
+<!--I don't want students to get caught up in the extra variables -- weight, cups, and rating, but is this confusing?-->
+
+```{r}
+#| echo: false
+
+cereal |> 
+  relocate(shelf, .after = type) |> 
+  select(-weight, -cups, -rating) |> 
+  slice_head(n = 3) |> 
+  kable()
+```
+
+Fill in the table below with a couple of rows of the data if we reshape it using the code above!
+
+| name | manuf | type | shelf | ______  | _____ |
+|------|------|------|------|------|------|
+|      |      |      |      |      |      |
+|      |      |      |      |      |      |
+|      |      |      |      |      |      |
+|      |      |      |      |      |      |
+|      |      |      |      |      |      |
+|      |      |      |      |      |      |
+|      |      |      |      |      |      |
+|      |      |      |      |      |      |
+|      |      |      |      |      |      |
+|      |      |      |      |      |      |
