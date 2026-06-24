@@ -1,0 +1,78 @@
+---
+title: "Code-Along 7: More Data Wrangling"
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+
+author: Your Name
+embed-resources: true
+---
+```{r}
+#| label: setup
+#| echo: false
+
+library(tidyverse)
+library(liver)
+library(knitr)
+data(cereal)
+```
+
+## Revisit Plot
+
+Remember the plot we started working on this week? Let's actually create it! Follow the steps below to build up the code.
+
+```{r}
+cereal |> 
+  select(-weight, -cups, -rating) 
+
+```
+
+1. The first step is completed for you -- removing some columns we don't need.
+
+2. Reshape the data **longer**. You should have this code written down in handout 7!
+
+3. Check out the long data. Does it look how you expected? What does one row represent? Did you draw it correctly in handout 7?
+
+4. The plot shows the mean nutrient amount for each nutrient and shelf. Calculate these values using your dplyr skills.
+
+5. Create the plot! 
+
+## More Reshape
+
+Tables can be useful to communicate information from data as well! 
+
+Everyone is obsessed with protein and fiber these days! 
+
+**Goal**: A table of the number of cereals that are low/medium/or high protein and low or high fiber. 
+
+1. Create a variable called `protein_level` labeling each cereal as "low", "medium", or "high" protein, using the following categorizations:
+
+ - low: 0-1 g protein
+ - medium: 2-4 g protein
+ - high: more than 4 g protein
+ 
+2. Create a variable called `fiber_level` labeling each cereal as "low" or "high" fiber, using the following categorizations:
+
+ - low: 0-2 g fiber
+ - high: more than 2 g fiber
+  
+3. Find the number of cereals for each combination of protein and fiber level.
+
+4. Is this table easy to read? What might help?
+
+```{r}
+cereal |> 
+  
+```
+
+5. Reshape the data so that there is a column for each fiber level.
+
+6. What do you think now? What would help make this table more readable?
+
+7. One way to present rows of dataframes nicely when you render your Quarto is to use the `kable()` function in the knitr package. Format your output nicely with `kable()`.
