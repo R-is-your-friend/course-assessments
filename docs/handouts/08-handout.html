@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Data Referenced in Materials – R is Your Friend</title>
+<title>Handout 8: Relational Data and Joins – R is Your Friend</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,7 +21,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -45,8 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -73,10 +68,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -242,9 +234,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">R is Your Friend</span>
@@ -256,36 +246,29 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../data/data-index.html" aria-current="page"> 
+    <a class="nav-link" href="../data/data-index.html"> 
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Data Referenced in Materials</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Handout 8: Relational Data and Joins</h1>
 </div>
 
 
@@ -299,48 +282,23 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
-
-
-<p>Week 4:</p>
-<ul>
-<li><a href="04-magic-csv.csv">magic-csv.csv</a> (created by us!)</li>
-</ul>
-<p>Week 5:</p>
-<ul>
-<li><code>penguins</code>(<a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a> package)</li>
-<li><code>txhousing</code> (<a href="https://ggplot2.tidyverse.org/reference/txhousing.html">ggplot2</a> package)</li>
-</ul>
-<p>Week 6</p>
-<ul>
-<li><code>cereal</code> (<a href="https://cran.r-project.org/web/packages/liver/refman/liver.html#cereal">liver</a> package)</li>
-<li>colleges.csv (where the heck is this data from y’all????? there is just a dropbox link to it)</li>
-<li><a href="06-teacher-evals.csv">teacher_evals.csv</a> (<a href="https://www.openicpsr.org/openicpsr/project/149801/version/V1/view">source</a>) (<a href="https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab3-dplyr/teacher_evals_codebook.pdf">documentation</a>)</li>
-</ul>
-<p>Week 7</p>
-<ul>
-<li>more <code>cereal</code> :)</li>
-<li><a href="07-SIPRI-Milex-data-1949-2024.xlsx">SIPRI-Milex-data-1949-2024.xlsx</a> (<a href="https://www.sipri.org/databases/milex">source</a>) (downloaded 1/3/25)</li>
-</ul>
-<p>Week 8</p>
-<ul>
-<li><a href="08-TS_data.xlsx">TS_data.xlsx</a> (created by Dr.&nbsp;Rehnberg?)</li>
-<li><a href="">cities.csv</a> (<a href="">source</a>)</li>
-<li><a href="">links.csv</a> (<a href="">source</a>)</li>
-<li><a href="08-dists.csv">dists.csv</a> (calculated from cities.csv and links.csv. <a href="_source/08-twin_dist/prepare-data.qmd">script</a>)</li>
-<li><a href="https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-05-09/childcare_costs.csv">childcare_costs.csv</a> (<a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2023/2023-05-09/readme.md">source</a>)</li>
-<li><a href="https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-05-09/counties.csv">counties.csv</a> (<a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2023/2023-05-09/readme.md">source</a>)</li>
-<li><a href="08-ca_tax_revenue.csv">ca_tax_revenue.csv</a> (compiled from the <a href="https://counties.bythenumbers.sco.ca.gov/#!/year/default">California State Controller</a>. <a href="_source/08-ca_tax_revenue/prepare-data.qmd">script</a>)</li>
-</ul>
-<p>Week 9</p>
-<ul>
-<li><a href="09-bCH_murder_data.Rdata">bCH_murder_data.Rdata</a> (compiled from the <a href="https://mystery.knightlab.com/">knight lab</a> at Northwestern University)</li>
-</ul>
+</header><div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In progress! For class, I am imagining this would be rendered as a .docx and need some editing to be filled out by students.</p>
+</div>
+</div>
 
 
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -754,8 +712,7 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Built by Kelly Bodwin, Charlotte Mann, Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold.</p>
 </div>   
@@ -767,8 +724,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

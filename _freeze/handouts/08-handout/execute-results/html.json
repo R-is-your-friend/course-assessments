@@ -1,0 +1,15 @@
+{
+  "hash": "226c95da929306ad6b05d488d0e607ef",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Handout 8: Relational Data and Joins\"\nformat: html\n---\n\n\n::: {.cell}\n\n:::\n\n\n:::callout-warning\n\nIn progress! For class, I am imagining this would be rendered as a .docx and need some editing to be filled out by students.\n:::\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

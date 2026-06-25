@@ -20,21 +20,12 @@ library(readxl)
 library(tidyverse)
 ```
 
-The data come to us from [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-05-12/readme.md#data-dictionary) -- originally compiled by 
-[Ahmad Barclay](https://github.com/bothness/twin-cities) and further curated by [Nicola Rennie](https://github.com/nrennie) for TidyTuesday.
-
-We also created a dataset `dists` with the following columns:
-
-- `source`: same as in `links`
-- `target`: same as in `links`
-- `dist`: distance between paired cities in km
-
 ```{r}
 cities <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/cities.csv')
+
 links <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/links.csv')
 
-# NEED TO CHANGE THIS TO A LINK TO OUR GITHUB
-dists <- read_csv("../../data/08-dists.csv")
+dists <- read_csv('https://raw.githubusercontent.com/r-is-your-friend/course-assessments/main/data/08-dists.csv')
 ```
 
 1. Check out the data. What is one observation in the `cities` dataset and what kind of information do we get from this data? What is one observation in the `links` dataset and what kind of information do we get from this data?
@@ -66,7 +57,7 @@ linked_cities |>
   filter(is.na(source_name) | is.na(name))
 ```
 
-5. Q4 implies that we could have used which of the following joins (or all of them)? inner, left, right, and/or full?
+5. Q4 implies that we *could* have used which of the following joins (or all of them)? inner, left, right, and/or full?
 
 6.  Join the distances between cities on to your `linked_cities` data. Pay close attention: what identifies one observation in the `dists` data? Your `linked_cities` data should still have 10,596 observations.
 
@@ -91,3 +82,10 @@ linked_cities |>
   summarize(n = sum(n), .by = continent) |> 
   arrange(desc(n))
 ```
+
+:::callout-note
+## Canvas Submission
+
+Your answers to Q7-9 will be your answers to the Canvas Quiz!
+
+:::

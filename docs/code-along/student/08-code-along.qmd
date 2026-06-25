@@ -1,0 +1,188 @@
+---
+title: "Code-Along 8: Factor Variables"
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+
+author: Your Name
+embed-resources: true
+---
+```{r}
+#| label: setup
+
+library(tidyverse)
+library(readxl)
+
+eras_data <- read_xlsx("../../data/08-TS_data.xlsx")
+```
+
+<!--
+Note: edit path above to read straight from GitHub?
+-->
+
+Let's explore factor variables in R! Work through these questions, running or editing the code provided to help you answer them.
+
+1. What are the two general purposes for factor variables (in R)?
+
+### `fct()`
+
+2. The `fct()` function in **forcats** serves the same purpose as what function in base R?
+
+3. How are the levels automatically ordered with the `fct()` function? How is this different from base R?
+
+```{r}
+eras_data |> 
+  mutate(Album = fct(Album)) |> 
+  pull(Album)
+```
+
+4. Edit the code above to just output the **levels** of the `Album` variable.
+
+5. What does including the `levels = ` argument do in `fct()`?
+
+```{r}
+eras_data |> 
+  mutate(Album = fct(Album,
+                     levels = c("Fearless","Speak Now","Red",
+                                "1989", "Reputation","Lover",
+                                "Folklore", "Evermore","Midnights"))) |> 
+  pull(Album)
+```
+
+5. What happens if you forget to provide an album to `levels = ` that exists in the data in the code above?
+
+### `fct_recode()`
+
+6. What does this function do? When would you want to use it?
+
+7. What happens to non-specified levels in `fct_recode()`?
+
+8. Change the level "Red" to "Red!" and "Fearless" to "Fearless - Taylors Version" in the `Album` variable:
+
+```{r}
+```
+
+### `fct_collapse()`
+
+9. What does this function do?  When would you want to use it?
+
+```{r}
+eras_data |> 
+  mutate(Genre = fct_collapse(.f= Album,
+                       "country pop" = c("Fearless"),
+                       "pop rock" = c("Speak Now","Red"),
+                       "electropop" = c("1989","Reputation","Lover"),
+                       "folk pop" = c("Folklore","Evermore"),
+                       "alt-pop" = "Midnights"))
+```
+
+10. Why would you want to use `fct_collapse()` rather than `case_when()`? 
+
+11. What happens to levels of the variable `.f = ` that you do not include in `fct_collapse()`?
+ 
+```{r}
+eras_data |> 
+  mutate(genre = fct_collapse(.f= Album,
+                       "country pop" = c( "Fearless"),
+                       "pop rock" = c("Speak Now","Red"),
+                       "electropop" = c("1989","Reputation","Lover"),
+                       "folk pop" = c("Folklore","Evermore")
+                       )) |> 
+  pull(genre) |> 
+  levels()
+``` 
+ 
+12. Edit the code below to fix this, so that the Midnights album is categorized as "other" in the `genre` variable.
+
+```{r}
+eras_data |> 
+  mutate(genre = fct_collapse(.f= Album,
+                       "country pop" = c( "Fearless"),
+                       "pop rock" = c("Speak Now","Red"),
+                       "electropop" = c("1989","Reputation","Lover"),
+                       "folk pop" = c("Folklore","Evermore")
+                       )) |> 
+  pull(genre) |> 
+  levels()
+``` 
+ 
+### `fct_relevel()` 
+
+13. What does this function do?  When would you want to use it?
+
+```{r}
+eras_data |> 
+  mutate(Album = fct_relevel(.f = Album, 
+                             c("Fearless","1989","Taylor Swift",
+                               "Speak Now","Red","Midnights","Reputation"))) |>
+  pull(Album) |>
+  levels()
+```
+
+14. What happens with levels that are not specified?
+
+### `fct_infreq()`
+
+15. What does `fct_infreq()` do?  When would you want to use it?
+
+```{r}
+eras_data |> 
+  ggplot() +
+  geom_bar(aes(y = fct_infreq(Album)), 
+           fill = "#A5C9A5") +
+  theme_minimal() +
+  labs(x = "Number of Songs",
+       y = "",
+       subtitle = "Album",
+       title = "Songs Played on the Eras Tour")
+```
+
+### `fct_reorder()`
+
+16. What does `fct_reorder()` do?  In what setting would you use it?
+
+```{r}
+# you may need to install this package!
+library(ggridges)
+
+eras_data |> 
+  ggplot(aes(x = Length, 
+             y = fct_reorder(.f = Album,
+                             .x = Length,
+                             .fun = mean), 
+             fill = Album)) +
+  geom_density_ridges() +
+  theme_minimal() +
+  theme(legend.position = "none")+
+  labs(x = "Song Length (mins)",
+       y = "",
+       subtitle = "Album",
+       title = "Songs Played on the Eras Tour")
+```
+
+### `fct_reorder2()`
+
+17. What does `fct_reorder2()` do?  In what setting would you use it?
+
+18. What are the arguments to `fct_reorder2()`?
+
+19. Let's improve a plot of the number of listings over time for five cities in Texas. Use `fct_reorder2()` to reorder the legend below so that the legend aligns with the order of the lines in the plot.
+
+```{r}
+data(txhousing)
+
+txhousing |>
+  filter(city %in% c("Dallas","Fort Worth", "Austin",
+                     "Houston", "El Paso"),
+         !is.na(listings)) |> 
+  ggplot() +
+  geom_line(mapping = aes(x = date, 
+                          y = listings,
+                          color = city))
+```

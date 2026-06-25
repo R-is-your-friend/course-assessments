@@ -92,10 +92,16 @@ cereal |>
                                "high")) |> 
   count(protein_level, fiber_level) |> 
   pivot_wider(values_from = n,
-              names_from = fiber_level)
+              names_from = fiber_level,
+              names_prefix = "fiber_",
+              values_fill = 0)
 ```
 5. Reshape the data so that there is a column for each fiber level.
 
-6. What do you think now? What would help make this table more readable?
+6. Why are the names of the columns "low" and "high"? How could we make these clearer?
 
-7. One way to present rows of dataframes nicely when you render your Quarto is to use the `kable()` function in the knitr package. Format your output nicely with `kable()`.
+7. Why are there missing values in the resulting table? What do they represent? **In this case**, would it make sense to replace those missing values with something? 
+
+8. What do you think now? What would help make this table more readable?
+
+9. One way to present rows of dataframes nicely when you render your Quarto is to use the `kable()` function in the knitr package. Format your output nicely with `kable()`.

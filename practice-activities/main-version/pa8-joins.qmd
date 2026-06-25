@@ -36,6 +36,12 @@ library(readxl)
 library(tidyverse)
 ```
 
+:::{.version-instructions}
+
+[Download starter .qmd file](../student/pa8-joins.qmd)
+
+
+Today we will be exploring "twin towns" (also called sister cities). These are cities that have some sort of social or political relationship with each other, usually for the purpose of cultural exchange. A list of twin towns is kept up on Wikipedia, which is the source of our data today!
 
 The data come to us from [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-05-12/readme.md#data-dictionary) -- originally compiled by 
 [Ahmad Barclay](https://github.com/bothness/twin-cities) and further curated by [Nicola Rennie](https://github.com/nrennie) for TidyTuesday.
@@ -46,12 +52,14 @@ We also created a dataset `dists` with the following columns:
 - `target`: same as in `links`
 - `dist`: distance between paired cities in km
 
+:::
+
 ```{r}
 cities <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/cities.csv')
+
 links <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/links.csv')
 
-# NEED TO CHANGE THIS TO A LINK TO OUR GITHUB
-dists <- read_csv("../../data/08-dists.csv")
+dists <- read_csv('https://raw.githubusercontent.com/r-is-your-friend/course-assessments/main/data/08-dists.csv')
 ```
 
 1. Check out the data. What is one observation in the `cities` dataset and what kind of information do we get from this data? What is one observation in the `links` dataset and what kind of information do we get from this data?
@@ -73,6 +81,13 @@ As the data dictionary states, the order of "source" and "target" city is arbitr
 Note: This means you will have *two* name, latitude, longitude, etc. columns for each row. Think about how you might want to name columns to keep things from being confusing!
 
 ```{r}
+#| version: student
+
+# Q3 code
+```
+
+
+```{r}
 #| version: solution
 
 linked_cities <- links |> 
@@ -87,24 +102,71 @@ linked_cities <- links |>
 4. Are any of the twinned cities missing city information like their name?
 
 ```{r}
+#| version: student
+
+# Q4 code
+```
+
+
+```{r}
+#| version: solution
+
 linked_cities |> 
   filter(is.na(source_name) | is.na(name))
 ```
 
-5. Q4 implies that we could have used which of the following joins (or all of them)? inner, left, right, and/or full?
+5. Q4 implies that we *could* have used which of the following joins (or all of them)? inner, left, right, and/or full?
+
 
 
 6.  Join the distances between cities on to your `linked_cities` data. Pay close attention: what identifies one observation in the `dists` data? Your `linked_cities` data should still have 10,596 observations.
 
+```{r}
+#| version: student
+
+# Q6 code
+```
+
+
 7. Which two twin cities are the *farthest* apart?
+
+```{r}
+#| version: student
+
+# Q7 code
+```
+
 
 8. Which two twin cities are the *closest* together? Is this a mistake in the data!? Look up the two cities on a map.
 
+```{r}
+#| version: student
+
+# Q8 code
+```
+
+
 9. Which country has the most twinned cities within the same country?
+
+```{r}
+#| version: student
+
+# Q9 code
+```
+
 
 10. CHALLENGE: Which continent has the most twinned cities with North America?
 
 ```{r}
+#| version: student
+
+# Q10 code
+```
+
+
+```{r}
+#| version: solution
+
 linked_cities |> 
   filter(continent_1 == "North America"|
            continent_2 == "North America") |> 
@@ -118,3 +180,10 @@ linked_cities |>
   arrange(desc(n))
 ```
 
+
+:::callout-note
+## Canvas Submission
+
+Your answers to Q7-9 will be your answers to the Canvas Quiz!
+
+:::

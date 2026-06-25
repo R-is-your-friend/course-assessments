@@ -1,22 +1,5 @@
 ---
 title: "Lab 8: Childcare Costs in California"
-filters:
-  - versions
-versions:
-  - student:
-      out-dir: ".."
-      yaml:
-        author: "Your Name"
-        embed-resources: true
-  - instructions:
-      out-dir: ".."
-      yaml:
-        eval: false
-  - solution:
-      out-dir: ".."
-      out-file: "lab8-solution.qmd"
-      yaml:
-        author: "SOLUTIONS"
 format: 
   html:
     code-tools: true
@@ -26,40 +9,10 @@ execute:
   echo: true
   message: false
   warning: false
+
+author: Your Name
+embed-resources: true
 ---
-
-:::{.version-instructions}
-
-::: {.callout-tip collapse="true"}
-I advise you to focus particularly on:
-
--   Setting chunk options carefully.
-
--   Making sure you don't print out more output than you need.
-
--   Making sure you don't assign more objects than necessary. Avoid "object junk" in your environment.
-
--   Making your code readable and nicely formatted.
-
--   Thinking through your desired result **before** writing any code.
-:::
-
-[Download starter .qmd file](../student/lab8-childcare.qmd)
-
-
-## The Data
-
-In this lab we're going look at the median weekly cost of childcare in California. The data come to us from [TidyTuesday](https://github.com/rfordatascience/tidytuesday). A detailed description of the data can be found [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-05-09/readme.md). **You will need to use this data dictionary to complete the lab!**
-
-We also have information from the California State Controller on tax revenue for California counties from 2005 - 2018. We compiled the data from [this website](https://counties.bythenumbers.sco.ca.gov/#!/year/default) for you. Note that there is no data for San Francisco County. The variables included in the `ca_tax_revenue.csv` data file (read in below) include:
-
-- `entity_name`: County name
-- `year`: fiscal year
-- `total_property_taxes`: total revenue in $ from property taxes
-- `sales_and_use_taxes`: total revenue in $ from sales and use taxes
-
-:::
-
 **0. Load the appropriate libraries and the data.**
 
 ```{r}
@@ -80,16 +33,11 @@ tax_rev <- read_csv('https://raw.githubusercontent.com/r-is-your-friend/course-a
 
 1. Briefly describe the data (~ 3 sentences). What information does it contain?
 
-
-
-
 ## California Childcare Costs
 
 2. Let's focus only on California. Create a `ca_childcare` dataset containing (1) county information and (2) all information from the `childcare_costs` dataset.
 
 a. Sketch a plan for completing this task and include an image of the sketch or write out the steps of your plan in plain English (not with function names!). You should do all of this within one pipeline
-
-
 
 b. Implement/code your game plan to create the dataset of childcare costs in California. *Checkpoint: There are 58 counties in CA and 11 years in the dataset. Therefore, your new dataset should have 638 observations.*
 
@@ -97,13 +45,11 @@ b. Implement/code your game plan to create the dataset of childcare costs in Cal
 # code for Q2
 ```
 
-
 3. Now, let's add the tax revenue information to the `ca_childcare` dataset. Add the data from `tax_rev` for the counties and years that are already in the `ca_childcare` data. Overwrite the old `ca_childcare` data with this dataset. *Checkpoint: you are just adding columns here, so your new dataset should still have 638 observations*
 
 ```{r}
 # code for Q3
 ```
-
 
 4. Using a function from the `forcats` package, complete the code below to create a new variable where each county is categorized into one of the [10 Census regions](https://census.ca.gov/regions/) in California. Use the Region description (from the plot), not the Region number (e.g. "Superior California" not "1"). 
 
@@ -161,7 +107,6 @@ You will learn about the `str_remove()` function from the `stringr` package next
 
 :::
 
-
 5. Let's consider the median household income of each region, and how that income has changed over time. Create a table with ten rows, one for each region, and three columns, 2008 income, 2018  income, and region. The cells should contain the `median()` of the median household income (expressed in 2018 dollars) of the `region` and the `study_year`. Order the rows by 2018 values from highest income to lowest income.
 
 ::: callout-tip
@@ -174,7 +119,6 @@ This will require transforming your data! Sketch out what you want the data to l
 # code for Q5
 ```
 
-
 6. Which California `region` had the lowest `median` full-time median weekly price for center-based childcare for infants in 2018? Does this `region` correspond to the `region` with the lowest `median` income in 2018 that you found in Q5?
 
 ::: callout-warning
@@ -186,7 +130,6 @@ The code for the first question should give me the EXACT answer. This means havi
 ```{r}
 # code for Q6
 ```
-
 
 7. The following plot shows, for all ten regions, the change over time of the full-time median price for center-based childcare for infants, toddlers, and preschoolers.
 
@@ -209,12 +152,9 @@ Remember to avoid "object junk" in your environment!
 
 ![Plot to replicate.](../_images/08-fig-to-replicate.png)
 
-
-
 ```{r}
 # code for Q7
 ```
-
 
   b. Hmmm we can sort of see a pattern but it is a bit difficult with all of the different points for counties and colors for regions. Let's add a trend line to help! Since there is more than one data point per region, it doesn't make sense to use `geom_line()` to add a trend line. Instead, we can add a Loess smooth line for each region. You don't need to copy-and paste your code from part a, just add Loess smooth lines to the code for your plot above.
 

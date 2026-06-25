@@ -1,0 +1,48 @@
+---
+title: "Setup City Distance Data for PA 8"
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+R doesn't have any great built in functions for taking latitudes and longitudes and calculating distances between two points with a data frame... Therefore, I create a dataframe that can be joined with the `links` data from TidyTuesday that includes the distances between cities in meters.
+
+
+```{r}
+cities <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/cities.csv')
+links <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/links.csv')
+```
+
+
+```{r}
+cities1 <- links |> 
+  left_join(cities, 
+            by = join_by(source == id)) |> 
+  st_as_sf(coords = c("lng", "lat"),
+           crs = "+proj=longlat +datum=WGS84")
+
+cities2 <- links |> 
+  left_join(cities, 
+            by = join_by(target == id))|> 
+  st_as_sf(coords = c("lng", "lat") ,
+           crs = "+proj=longlat +datum=WGS84")
+```
+
+```{r}
+dist_vec <- st_distance(x = cities1, y = cities2, by_element = T) |> 
+  as.numeric()
+```
+
+```{r}
+dists <- links |> 
+  bind_cols(dist_vec) |> 
+  rename(dist = `...3`) |> 
+  mutate(dist = dist / 1000) 
+```
+
+```{r}
+write_csv(dists, "../../08-dists.csv")
+```
+

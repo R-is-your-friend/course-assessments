@@ -19,6 +19,10 @@ library(readxl)
 library(tidyverse)
 ```
 
+[Download starter .qmd file](../student/pa8-joins.qmd)
+
+Today we will be exploring "twin towns" (also called sister cities). These are cities that have some sort of social or political relationship with each other, usually for the purpose of cultural exchange. A list of twin towns is kept up on Wikipedia, which is the source of our data today!
+
 The data come to us from [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-05-12/readme.md#data-dictionary) -- originally compiled by 
 [Ahmad Barclay](https://github.com/bothness/twin-cities) and further curated by [Nicola Rennie](https://github.com/nrennie) for TidyTuesday.
 
@@ -30,10 +34,10 @@ We also created a dataset `dists` with the following columns:
 
 ```{r}
 cities <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/cities.csv')
+
 links <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-05-12/links.csv')
 
-# NEED TO CHANGE THIS TO A LINK TO OUR GITHUB
-dists <- read_csv("../../data/08-dists.csv")
+dists <- read_csv('https://raw.githubusercontent.com/r-is-your-friend/course-assessments/main/data/08-dists.csv')
 ```
 
 1. Check out the data. What is one observation in the `cities` dataset and what kind of information do we get from this data? What is one observation in the `links` dataset and what kind of information do we get from this data?
@@ -50,12 +54,7 @@ Note: This means you will have *two* name, latitude, longitude, etc. columns for
 
 4. Are any of the twinned cities missing city information like their name?
 
-```{r}
-linked_cities |> 
-  filter(is.na(source_name) | is.na(name))
-```
-
-5. Q4 implies that we could have used which of the following joins (or all of them)? inner, left, right, and/or full?
+5. Q4 implies that we *could* have used which of the following joins (or all of them)? inner, left, right, and/or full?
 
 6.  Join the distances between cities on to your `linked_cities` data. Pay close attention: what identifies one observation in the `dists` data? Your `linked_cities` data should still have 10,596 observations.
 
@@ -67,16 +66,9 @@ linked_cities |>
 
 10. CHALLENGE: Which continent has the most twinned cities with North America?
 
-```{r}
-linked_cities |> 
-  filter(continent_1 == "North America"|
-           continent_2 == "North America") |> 
-  group_by(continent_1, continent_2) |> 
-  count() |> 
-  pivot_longer(starts_with("continent"),
-               names_to = "order",
-               values_to = "continent") |> 
-  filter(continent != "North America") |> 
-  summarize(n = sum(n), .by = continent) |> 
-  arrange(desc(n))
-```
+:::callout-note
+## Canvas Submission
+
+Your answers to Q7-9 will be your answers to the Canvas Quiz!
+
+:::

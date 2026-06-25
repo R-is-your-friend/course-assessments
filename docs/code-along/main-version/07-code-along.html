@@ -563,18 +563,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                               <span class="st">"high"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">count</span><span class="op">(</span><span class="va">protein_level</span>, <span class="va">fiber_level</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">pivot_wider</span><span class="op">(</span>values_from <span class="op">=</span> <span class="va">n</span>,</span>
-<span>              names_from <span class="op">=</span> <span class="va">fiber_level</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span>              names_from <span class="op">=</span> <span class="va">fiber_level</span>,</span>
+<span>              names_prefix <span class="op">=</span> <span class="st">"fiber_"</span>,</span>
+<span>              values_fill <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
-  protein_level  high   low
-  &lt;chr&gt;         &lt;int&gt; &lt;int&gt;
-1 high              1     2
-2 low              NA    13
-3 medium           28    33</code></pre>
+  protein_level fiber_high fiber_low
+  &lt;chr&gt;              &lt;int&gt;     &lt;int&gt;
+1 high                   1         2
+2 low                    0        13
+3 medium                28        33</code></pre>
 </div>
 </div>
 <ol start="5" type="1">
 <li><p>Reshape the data so that there is a column for each fiber level.</p></li>
+<li><p>Why are the names of the columns “low” and “high”? How could we make these clearer?</p></li>
+<li><p>Why are there missing values in the resulting table? What do they represent? <strong>In this case</strong>, would it make sense to replace those missing values with something?</p></li>
 <li><p>What do you think now? What would help make this table more readable?</p></li>
 <li><p>One way to present rows of dataframes nicely when you render your Quarto is to use the <code>kable()</code> function in the knitr package. Format your output nicely with <code>kable()</code>.</p></li>
 </ol>
@@ -1179,15 +1183,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"high"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(protein_level, fiber_level) <span class="sc">|&gt;</span> </span>
 <span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">values_from =</span> n,</span>
-<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_from =</span> fiber_level)</span>
-<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Reshape the data so that there is a column for each fiber level.</span>
-<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>What do you think now? What would help make this table more readable?</span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_from =</span> fiber_level,</span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_prefix =</span> <span class="st">"fiber_"</span>,</span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_fill =</span> <span class="dv">0</span>)</span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Reshape the data so that there is a column for each fiber level.</span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>One way to present rows of dataframes nicely when you render your Quarto is to use the <span class="in">`kable()`</span> function in the knitr package. Format your output nicely with <span class="in">`kable()`</span>.</span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Why are the names of the columns "low" and "high"? How could we make these clearer?</span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Why are there missing values in the resulting table? What do they represent? **In this case**, would it make sense to replace those missing values with something? </span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>What do you think now? What would help make this table more readable?</span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>One way to present rows of dataframes nicely when you render your Quarto is to use the <span class="in">`kable()`</span> function in the knitr package. Format your output nicely with <span class="in">`kable()`</span>.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

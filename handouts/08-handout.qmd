@@ -1,0 +1,18 @@
+---
+title: "Handout 8: Relational Data and Joins"
+format: html
+---
+
+```{r}
+#| label: setup
+#| echo: false
+
+library(tidyverse)
+```
+
+:::callout-warning
+
+In progress! For class, I am imagining this would be rendered as a .docx and need some editing to be filled out by students.
+:::
+
+
