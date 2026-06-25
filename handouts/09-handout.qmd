@@ -1,0 +1,18 @@
+---
+title: "Handout 9: Character and Date Variables"
+format: html
+---
+
+```{r}
+#| label: setup
+#| echo: false
+
+library(tidyverse)
+```
+
+:::callout-warning
+
+In progress! For class, I am imagining this would be rendered as a .docx and need some editing to be filled out by students.
+:::
+
+

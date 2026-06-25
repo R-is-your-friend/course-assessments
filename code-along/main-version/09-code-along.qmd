@@ -1,0 +1,31 @@
+---
+title: "Code-Along 9: Strings and Dates"
+filters:
+  - versions
+versions:
+  - student:
+      out-dir: ".."
+      yaml:
+        author: "Your Name"
+        embed-resources: true
+  - solution:
+      out-dir: ".."
+      out-file: "09-code-along-solution.qmd"
+      yaml:
+        author: "SOLUTIONS"
+        embed-resources: true
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+- "clean up" the grant name by replacing words `str_replace_all()`
+- Calculate the total length of the grant in days
+- Calculate the number of days that had passed for the grant before it was terminated
+- Calculate the % of the grant time that was allowed
