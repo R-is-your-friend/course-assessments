@@ -1,0 +1,15 @@
+{
+  "hash": "dafbec0a0e9ae576436b6e2d680ae57a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Code-Along 9: Strings and Dates\"\nfilters:\n  - versions\nversions:\n  - student:\n      out-dir: \"..\"\n      yaml:\n        author: \"Your Name\"\n        embed-resources: true\n  - solution:\n      out-dir: \"..\"\n      out-file: \"09-code-along-solution.qmd\"\n      yaml:\n        author: \"SOLUTIONS\"\n        embed-resources: true\nformat: \n  html:\n    code-tools: true\n    toc: true      \nexecute: \n  error: true\n  echo: true\n  message: false\n  warning: false\n---\n\n\n::: {.cell}\n\n```{.r .cell-code}\nnsf_terminations <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-06/nsf_terminations.csv')\n```\n\n::: {.cell-output .cell-output-error}\n\n```\nError in `read_csv()`:\n! could not find function \"read_csv\"\n```\n\n\n:::\n:::\n\n\n## More Dates - Periods\n\n**Goal:** Calculate the percent of the time of the grant that was taken away by it being terminated.\n\n1. Calculate the intended total length of the grant in **days**. \n\n2. Calculate the number of days that should have remained of the grant after the termination letter was sent.\n\n3. Use these two variables to calculate the percent of days taken from the grant recipients. \n\n\n::: {.cell version='solution'}\n\n```{.r .cell-code}\nnsf_terminations <- nsf_terminations |> \n  mutate(intended_length = as.period(nsf_expected_end_date - \n                                       nsf_startdate),\n         missing_length = as.period(nsf_expected_end_date -\n                                      termination_letter_date),\n         lost_perc = missing_length / intended_length)\n```\n\n::: {.cell-output .cell-output-error}\n\n```\nError in `mutate()`:\n! could not find function \"mutate\"\n```\n\n\n:::\n:::\n\n\n4. What was the average and total amount of lost time by state in terms of years?\n\n\n::: {.cell version='solution'}\n\n```{.r .cell-code}\nnsf_terminations |> \n  group_by(org_state) |> \n  summarize(mean_years = mean(missing_length / years(1)),\n            total_years = sum(missing_length / years(1)),\n            n = n()) |> \n  arrange(desc(total_years))\n```\n\n::: {.cell-output .cell-output-error}\n\n```\nError in `arrange()`:\n! could not find function \"arrange\"\n```\n\n\n:::\n:::\n\n\n\n\n5. How many grants were complete before they were terminated?\n\n\n::: {.cell version='solution'}\n\n```{.r .cell-code}\nnsf_terminations |> \n  filter(lost_perc <= 0) |> \n  nrow()\n```\n\n::: {.cell-output .cell-output-error}\n\n```\nError:\n! object 'nsf_terminations' not found\n```\n\n\n:::\n:::\n\n\n\n## Strings - `str_replace()`\n\n6. \n\n- \"clean up\" the grant name by replacing words `str_replace_all()`\n- `str_extract()`\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -10,7 +10,7 @@ execute:
   message: false
   warning: false
 
-author: SOLUTIONS
+author: Your Name
 embed-resources: true
 ---
 [Download 04-magic-csv.csv](../../data/04-magic-csv.csv)

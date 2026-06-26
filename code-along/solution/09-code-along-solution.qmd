@@ -1,19 +1,5 @@
 ---
 title: "Code-Along 9: Strings and Dates"
-filters:
-  - versions
-versions:
-  - student:
-      out-dir: ".."
-      yaml:
-        author: "Your Name"
-        embed-resources: true
-  - solution:
-      out-dir: ".."
-      out-file: "09-code-along-solution.qmd"
-      yaml:
-        author: "SOLUTIONS"
-        embed-resources: true
 format: 
   html:
     code-tools: true
@@ -23,8 +9,10 @@ execute:
   echo: true
   message: false
   warning: false
----
 
+author: SOLUTIONS
+embed-resources: true
+---
 ```{r}
 nsf_terminations <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-06/nsf_terminations.csv')
 ```
@@ -40,8 +28,6 @@ nsf_terminations <- read_csv('https://raw.githubusercontent.com/rfordatascience/
 3. Use these two variables to calculate the percent of days taken from the grant recipients. 
 
 ```{r}
-#| version: solution
-
 nsf_terminations <- nsf_terminations |> 
   mutate(intended_length = as.period(nsf_expected_end_date - 
                                        nsf_startdate),
@@ -53,8 +39,6 @@ nsf_terminations <- nsf_terminations |>
 4. What was the average and total amount of lost time by state in terms of years?
 
 ```{r}
-#| version: solution
-
 nsf_terminations |> 
   group_by(org_state) |> 
   summarize(mean_years = mean(missing_length / years(1)),
@@ -63,18 +47,13 @@ nsf_terminations |>
   arrange(desc(total_years))
 ```
 
-
-
 5. How many grants were complete before they were terminated?
 
 ```{r}
-#| version: solution
-
 nsf_terminations |> 
   filter(lost_perc <= 0) |> 
   nrow()
 ```
-
 
 ## Strings - `str_replace()`
 
@@ -82,4 +61,3 @@ nsf_terminations |>
 
 - "clean up" the grant name by replacing words `str_replace_all()`
 - `str_extract()`
-

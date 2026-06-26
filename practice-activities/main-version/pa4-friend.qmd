@@ -1,9 +1,32 @@
 ---
 title: "Practice Activity 4: Emoji Riddles"
-format: html
-execute:
-  echo: true
+filters:
+  - versions
+versions:
+  - student:
+      out-dir: ".."
+      yaml:
+        author: "Your Name"
+        embed-resources: true
+  - instructions:
+      out-dir: ".."
+      yaml:
+        eval: false
+  - solution:
+      out-dir: ".."
+      out-file: "pa4-solution.qmd"
+      yaml:
+        author: "SOLUTIONS"
+        embed-resources: true
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
   error: true
+  echo: true
+  message: false
+  warning: false
 ---
 
 [Download 04-magic-csv.csv](../../data/04-magic-csv.csv)

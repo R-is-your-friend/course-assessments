@@ -1,24 +1,6 @@
 ---
 title: "PA 9: Cancel Culture"
 subtitle: "Strings and Date Variables"
-filters:
-  - versions
-versions:
-  - student:
-      out-dir: ".."
-      yaml:
-        author: "Your Name"
-        embed-resources: true
-  - instructions:
-      out-dir: ".."
-      yaml:
-        eval: false
-  - solution:
-      out-dir: ".."
-      out-file: "pa9-solution.qmd"
-      yaml:
-        author: "SOLUTIONS"
-        embed-resources: true
 format: 
   html:
     code-tools: true
@@ -28,8 +10,9 @@ execute:
   echo: true
   message: false
   warning: false
----
 
+eval: false
+---
 ```{r setup}
 # load packages
 library(tidyverse)
@@ -46,102 +29,29 @@ nsf_terminations <- read_csv('https://raw.githubusercontent.com/rfordatascience/
 
 ```
 
-
 Let's start with a bit of data cleaning
 
 1. The `org_city` is in all capital letters -- aggro! Edit the `org_city` variable so that cities are in title case instead. (e.g. "Santa Barbara" instead of "SANTA BARBARA")
 
-
-```{r}
-#| version: solution
-
-nsf_terminations <- nsf_terminations |> 
-  mutate(org_city = str_to_title(org_city))
-```
-
-
 2. Create a variable `title_length` that gives the number of characters in the grant title. 
-
-```{r}
-#| version: solution
-
-nsf_terminations <- nsf_terminations |> 
-  mutate(title_length = str_length(project_title))
-```
-
 
 3. Create `year_start` and `year_end` variables, which give the *year* that the grant began and the year of the *expected* end date from the original grant. 
 
-```{r}
-#| version: solution
-
-nsf_terminations <- nsf_terminations |> 
-  mutate(year_start = year(nsf_startdate),
-         year_end = year(nsf_expected_end_date))
-```
-
 4. Create a variable `diversity` that gives the number of times the strings "diversity" or "DEI" appear in the grant abstract. Make sure that this is not case sensitive!
-
-```{r}
-#| version: solution
-
-nsf_terminations <- nsf_terminations |> 
-  mutate(diversity = str_count(str_to_lower(abstract),
-                               "diversity|dei"))
-```
 
 Follow the clues below to find the XX grant.
 
-
 5. The grant began in 2022 or later. (875 grants remaining)
-
-```{r}
-#| version: solution
-
-clues <- nsf_terminations |> 
-  filter(year_start >= 2022)
-```
 
 6. The grant related to indigenous communities, so the word "indigenous" appears in the abstract. Again, pay attention to case! (93 grants remaining)
 
-```{r}
-#| version: solution
-
-clues <- clues |> 
-  filter(str_detect(str_to_lower(abstract), "indigenous"))
-```
-
 7. The title was not too long, with less than 100 characters. (Hint: use the `title_length` variable you already created!). (40 grants remaining)
-
-```{r}
-#| version: solution
-
-clues <- clues |> 
-  filter(title_length < 100)
-```
 
 8. The word diversity appears at most one time in the abstract. (35 grants remaining)
 
-```{r}
-#| version: solution
-
-clues <- clues |> 
-  filter(diversity <= 1)
-```
-
-
 9. The start date of a grant was a Wednesday. (2 grants remaining).
 
-```{r}
-#| version: solution
-
-clues <- clues |> 
-  filter(wday(nsf_startdate) == 4)
-```
-
 10 LAST CLUE to get to FIRE grant
-
-
 
 :::callout-note
 ## Canvas submission

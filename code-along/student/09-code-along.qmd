@@ -1,0 +1,39 @@
+---
+title: "Code-Along 9: Strings and Dates"
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+
+author: Your Name
+embed-resources: true
+---
+```{r}
+nsf_terminations <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-06/nsf_terminations.csv')
+```
+
+## More Dates - Periods
+
+**Goal:** Calculate the percent of the time of the grant that was taken away by it being terminated.
+
+1. Calculate the intended total length of the grant in **days**. 
+
+2. Calculate the number of days that should have remained of the grant after the termination letter was sent.
+
+3. Use these two variables to calculate the percent of days taken from the grant recipients. 
+
+4. What was the average and total amount of lost time by state in terms of years?
+
+5. How many grants were complete before they were terminated?
+
+## Strings - `str_replace()`
+
+6. 
+
+- "clean up" the grant name by replacing words `str_replace_all()`
+- `str_extract()`

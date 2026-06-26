@@ -1,24 +1,6 @@
 ---
 title: "Practice Activity 6: Mystery College"
 subtitle: "Data Wrangling"
-filters:
-  - versions
-versions:
-  - student:
-      out-dir: ".."
-      yaml:
-        author: "Your Name"
-        embed-resources: true
-  - instructions:
-      out-dir: ".."
-      yaml:
-        eval: false
-  - solution:
-      out-dir: ".."
-      out-file: "pa7-solution.qmd"
-      yaml:
-        author: "SOLUTIONS"
-        embed-resources: true
 format: 
   html:
     code-tools: true
@@ -28,8 +10,10 @@ execute:
   echo: true
   message: false
   warning: false
----
 
+author: Your Name
+embed-resources: true
+---
 ::: {.callout-tip collapse="true"}
 
 ## Dealing with Errors
@@ -91,7 +75,6 @@ colleges <- read_csv("https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=
 ```
 
 What information does `read_csv()` output? Did an error occur?
-
 
 Take a look at the variables in your downloaded data by running the following code. This code with the `str` (structure) function reports the data type for each column in the dataset.
 
@@ -199,7 +182,6 @@ Think about coding efficiency -- you **should not** have multiple calls to the *
 
 # Code combining ALL of your previous steps into ONE pipeline
 ```
-
 
 # Part Two: Identify the Mystery College
 
