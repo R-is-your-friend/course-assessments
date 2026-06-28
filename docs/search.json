@@ -697,21 +697,21 @@
     "href": "labs/main-version/lab1-hello-code.html#creating-objects",
     "title": "Lab 1: Hello Code",
     "section": "Creating Objects",
-    "text": "Creating Objects\nQuestion 1: Create three objects: x, y, z. Each object should have a different numerical value.\nQuestion 2: Create an object a, that contains the word \"hello\"."
+    "text": "Creating Objects\nQuestion 1: Create three objects: x, y, z. Each object should have a different numerical value.\n\n\nx &lt;- 67\ny &lt;- 13\nz &lt;- 1989\n\n\nQuestion 2: Create an object a, that contains the word \"hello\".\n\n\na &lt;- \"hello\""
   },
   {
     "objectID": "labs/main-version/lab1-hello-code.html#using-simple-functions",
     "href": "labs/main-version/lab1-hello-code.html#using-simple-functions",
     "title": "Lab 1: Hello Code",
     "section": "Using Simple Functions",
-    "text": "Using Simple Functions\nIn the coursework, we didn’t explore how we can use functions to calculate values from our data. Let’s give this a go!\nOne of the best things about R is the amazing documentation. You can look up the documentation page (i.e., help page) for any function by typing a ? in front of the function name in your console. For example, if I wanted to know how to use the sqrt() function (square root), I would type ?sqrt into my console. This would open up a page in the “Help” tab (in the lower right) that looks like this:\n\nThe “Description” line describes what the function does. The “Usage” line shows how the function can be used, including any arguments the function accepts. The “Arguments” line states what arguments (inputs) the function requires and if any arguments have default values.\nQuestion 3: Use the mean() function to find the average of x, y, and z.\n\nYou should look up the help file for the mean() function by typing ?mean into your console!\n\nQuestion 4: Use the seq() function to make a sequence of numbers from 1 to 10.\n\nYou should look up the help file for the seq() function by typing ?seq into your console!"
+    "text": "Using Simple Functions\nIn the coursework, we didn’t explore how we can use functions to calculate values from our data. Let’s give this a go!\nOne of the best things about R is the amazing documentation. You can look up the documentation page (i.e., help page) for any function by typing a ? in front of the function name in your console. For example, if I wanted to know how to use the sqrt() function (square root), I would type ?sqrt into my console. This would open up a page in the “Help” tab (in the lower right) that looks like this:\n\nThe “Description” line describes what the function does. The “Usage” line shows how the function can be used, including any arguments the function accepts. The “Arguments” line states what arguments (inputs) the function requires and if any arguments have default values.\nQuestion 3: Use the mean() function to find the average of x, y, and z.\n\n\nYou should look up the help file for the mean() function by typing ?mean into your console!\n\n\n\n\nmean(x, y, z)\n\n[1] 67\n\n\n\nQuestion 4: Use the seq() function to make a sequence of numbers from 1 to 10.\n\n\nYou should look up the help file for the seq() function by typing ?seq into your console!\n\n\n\n\n## Option 1\nseq(1, 10)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n## Option 2\nseq(from = 1, to = 10)\n\n [1]  1  2  3  4  5  6  7  8  9 10"
   },
   {
     "objectID": "labs/main-version/lab1-hello-code.html#combining-values",
     "href": "labs/main-version/lab1-hello-code.html#combining-values",
     "title": "Lab 1: Hello Code",
     "section": "Combining Values",
-    "text": "Combining Values\nThus far, we’ve only been working with objects that have a single value (e.g., x &lt;- 5). As we progress in our coding, we will almost always be working with vectors of values instead of single values. So, let’s explore how we can make vectors!\nQuestion 5: Use the c() function to combine x, y, and z into a single vector. Save the vector into a new object that has an intuitive name!\nQuestion 6: Use the c() function again to add a into the vector and display the result. You do not need to create an object here!\nQuestion 7: What happened when you combined a with the vector of values? Why do you think that happened?"
+    "text": "Combining Values\nThus far, we’ve only been working with objects that have a single value (e.g., x &lt;- 5). As we progress in our coding, we will almost always be working with vectors of values instead of single values. So, let’s explore how we can make vectors!\nQuestion 5: Use the c() function to combine x, y, and z into a single vector. Save the vector into a new object that has an intuitive name!\n\n\nnum_vec &lt;- c(x, y, z)\n\n\nQuestion 6: Use the c() function again to add a into the vector and display the result. You do not need to create an object here!\n\n\nc(num_vec, a)\n\n[1] \"67\"    \"13\"    \"1989\"  \"hello\"\n\n\n\nQuestion 7: What happened when you combined a with the vector of values? Why do you think that happened?\n\nWhen combining a with the vector num_vec the result was a vector of words. You can tell the values are words because each one has quotation marks around it (e.g., \"67\"). This happened because a vector can only have one type of data (e.g., numbers). The c() function coerced (changed) all the numbers to words because it doesn’t know how to change a word (\"hello\") into a number."
   },
   {
     "objectID": "labs/main-version/lab9-murder.html",
@@ -1433,5 +1433,40 @@
     "title": "Lab 2: R is Friend",
     "section": "Make Your Code Readable",
     "text": "Make Your Code Readable\n\nAdd comments throughout your script that describe what your code is doing."
+  },
+  {
+    "objectID": "labs/instructions/lab1-hello-code.html",
+    "href": "labs/instructions/lab1-hello-code.html",
+    "title": "Lab 1: Hello Code",
+    "section": "",
+    "text": "CautionSeeking Help\n\n\n\nPart of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and using their code to learn. Therefore, if you use external resources, I want to know about it. You can “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.\nAdditionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things."
+  },
+  {
+    "objectID": "labs/instructions/lab1-hello-code.html#accessing-the-lab",
+    "href": "labs/instructions/lab1-hello-code.html#accessing-the-lab",
+    "title": "Lab 1: Hello Code",
+    "section": "Accessing the Lab",
+    "text": "Accessing the Lab\nYou can download the R script for Lab 1 here: lab-1.R"
+  },
+  {
+    "objectID": "labs/instructions/lab1-hello-code.html#creating-objects",
+    "href": "labs/instructions/lab1-hello-code.html#creating-objects",
+    "title": "Lab 1: Hello Code",
+    "section": "Creating Objects",
+    "text": "Creating Objects\nQuestion 1: Create three objects: x, y, z. Each object should have a different numerical value.\nQuestion 2: Create an object a, that contains the word \"hello\"."
+  },
+  {
+    "objectID": "labs/instructions/lab1-hello-code.html#using-simple-functions",
+    "href": "labs/instructions/lab1-hello-code.html#using-simple-functions",
+    "title": "Lab 1: Hello Code",
+    "section": "Using Simple Functions",
+    "text": "Using Simple Functions\nIn the coursework, we didn’t explore how we can use functions to calculate values from our data. Let’s give this a go!\nOne of the best things about R is the amazing documentation. You can look up the documentation page (i.e., help page) for any function by typing a ? in front of the function name in your console. For example, if I wanted to know how to use the sqrt() function (square root), I would type ?sqrt into my console. This would open up a page in the “Help” tab (in the lower right) that looks like this:\n\nThe “Description” line describes what the function does. The “Usage” line shows how the function can be used, including any arguments the function accepts. The “Arguments” line states what arguments (inputs) the function requires and if any arguments have default values.\nQuestion 3: Use the mean() function to find the average of x, y, and z.\n\nYou should look up the help file for the mean() function by typing ?mean into your console!\n\nQuestion 4: Use the seq() function to make a sequence of numbers from 1 to 10.\n\nYou should look up the help file for the seq() function by typing ?seq into your console!"
+  },
+  {
+    "objectID": "labs/instructions/lab1-hello-code.html#combining-values",
+    "href": "labs/instructions/lab1-hello-code.html#combining-values",
+    "title": "Lab 1: Hello Code",
+    "section": "Combining Values",
+    "text": "Combining Values\nThus far, we’ve only been working with objects that have a single value (e.g., x &lt;- 5). As we progress in our coding, we will almost always be working with vectors of values instead of single values. So, let’s explore how we can make vectors!\nQuestion 5: Use the c() function to combine x, y, and z into a single vector. Save the vector into a new object that has an intuitive name!\nQuestion 6: Use the c() function again to add a into the vector and display the result. You do not need to create an object here!\nQuestion 7: What happened when you combined a with the vector of values? Why do you think that happened?"
   }
 ]

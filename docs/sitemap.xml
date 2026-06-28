@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/labs/main-version/lab1-hello-code.html</loc>
-    <lastmod>2026-06-28T14:09:50.079Z</lastmod>
+    <lastmod>2026-06-28T14:48:42.596Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/labs/main-version/lab3-functions-control-flow.html</loc>
@@ -219,5 +219,9 @@
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/labs/instructions/lab2-r-is-friend.html</loc>
     <lastmod>2026-06-28T14:35:02.773Z</lastmod>
+  </url>
+  <url>
+    <loc>https://R-is-your-friend.github.io/course-assessments/labs/instructions/lab1-hello-code.html</loc>
+    <lastmod>2026-06-28T14:48:48.138Z</lastmod>
   </url>
 </urlset>
