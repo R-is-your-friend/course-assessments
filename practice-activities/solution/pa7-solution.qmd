@@ -1,5 +1,6 @@
 ---
-title: "Practice Activity 4: Emoji Riddles"
+title: "PA 7: Military Spending"
+subtitle: "Tidy Data with `dplyr` and `tidyr`"
 format: 
   html:
     code-tools: true
@@ -13,118 +14,210 @@ execute:
 author: SOLUTIONS
 embed-resources: true
 ---
-[Download 04-magic-csv.csv](../../data/04-magic-csv.csv)
+```{r setup}
+# load packages
+library(readxl) 
+library(tidyverse)
+```
 
-## Intro to Quarto
+Today you will be tidying messy data to explore the relationship between countries of the world and military spending.
 
-### Create your PA 4 Quarto File
+## Data Description
 
-1.  In RStudio, go to `File` \> `New File` \> `Quarto Document...` and click on `Create Empty Document` in the bottom left corner of the dialog box **without changing anything**.
+We will be using data from the Stockholm International Peace Research Institute (SIPRI). [The SIPRI Military Expenditure Database](https://www.sipri.org/databases/milex) is an open source data set containing time series on the military spending of countries from 1949--2023. The database is updated annually, which may include updates to data from previous years.
 
-2. Save your new Quarto file in an appropriate directory inside your stat-1810 folder like "pas" or "week-4" and name the file something descriptive like "pa4.qmd".
+Military expenditure is presented in many ways:
 
-:::callout-tip
-# Good file naming
++ in local currency and in US \$ (both from 2022 and current);
++ in terms of financial years and calendar years;
++ as a share of GDP and per capita.
 
-You should name files to describe what the file is and without any spaces in the name!
+The availability of data varies considerably by country, but we note that data is available from at least the late 1950s for a majority of countries that were independent at the time. Estimates for regional military expenditure have been extended backwards depending on availability of data, but no estimates for total world military expenditure are available before 1988 due to the lack of data from the Soviet Union.
+
+SIPRI military expenditure data is based on open sources only.
+
+## Data Import
+
+First, you should notice that there are ten different sheets included in the dataset. We are interested in the sheet labeled *"Share of Govt. spending"*, which contains information about the share of all government spending that is allocated to the military.
+
+Next, you'll notice that there are notes about the data in the first several rows. **Ugh**!
+
+Rather than copying this one sheet into a new Excel file and deleting the first few rows, let's learn something new about the `read_xlsx()` function!
+
+::: callout-warning
+As much as you can, always try to **keep your raw data raw**! Rather than changing anything about the raw data file by hand - figure out different ways to import the data to fit your needs.
 :::
 
-3. Change the title of your document to be "PA 4: Emoji Riddles"
+::: callout-tip
+## Data Import with `read_xlsx()`
 
-4.  Add additional lines to your YAML header:
+The `read_xlsx()` function has several useful arguments:
 
--   add a line with `author: ` and your name.
--   add a line with `format: html`
--   add a line with `embed-resources: true`.
--   add a line with `code-tools: true`.
++ `sheet`: specify the name of the sheet that you want to use. The name must be passed in as a string (in quotations)!
++ `skip`: specify the number of rows you want to skip *before* reading in the data.
++ `na`: specify data values to interpret as missing values
+:::
 
-### Add Code and Text
+1. Modify the code below (potentially including the file path) to read the military expenditures data into your global environment.
 
-The beauty of Quarto is integrating code chunks along with nicely formatted text! 
+```{r}
+military <- read_xlsx("../../data/07-SIPRI-Milex-data-1949-2024.xlsx", 
+                      sheet = "Share of Govt. spending", 
+                      skip  = 7,
+                      na = c("...", "xxx"))
+```
 
-3. Insert a `R` code chunk at the beginning of the document.
+::: callout-warning
+If you have the Excel file open on your computer while trying to import the data, you may get an error. If you do, close the Excel file and try running your code again.
+:::
 
-:::callout-note
-## Creating a Code Chunk
-There are four different ways to do this:
+2. In addition to `NA`s, missing values were coded in two other ways in this data. Find these two methods. Edit your code in Q1, including the `na` argument to `read_xlsx()` so that these values are automatically coded as `NA`s when the data is read in.
 
-a. Recommended:  type <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>i</kbd> on Windows, or <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>i</kbd> on macOS,
+::: callout-tip
+The information in the top 6 rows of the excel sheet will help you answer this question.
+:::
 
-b.  Click on the ![](../_images/04-add-code-chunk.JPG) symbol. This should automatically default to R code, but if you have a Python compiler on your computer, you might need to select "R" from the options.
+Catching this when reading in the data saved us a lot of work later on!
 
-c.  If you are using the Visual editor, click on the "Insert" button, then select "Code Chunk", and finally select "R".
+## Data Cleaning
 
-d.  Manually add the code chunk by typing ```` ```{r} ````. Make sure to close your code chunk with ```` ``` ````.
+You will notice that there are a couple of columns that don't include spending data or are all missing (`Notes` and `Reporting year`). There is also an extra row that doesn't include information on a country (i.e. it doesn't include a country name!). 
+
+3. In one pipeline, drop those columns and that row. Save this dataset as a new object named `military_clean`.
+
+```{r}
+# code for Q3
+```
+
+If you give the `Country` column a look, you'll see there are names of **continents and regions** included. These names are only included to make it simpler to find countries, as they contain no data.
+
+Luckily for us, these region names were also stored in the *"Regional totals"* sheet. We can use the `Region` column of this dataset to filter out the names we don't want.
+
+**4a. Use `pull()` to create a vector called `cont_region_names` with the names provided in the `cont_region` data below.**
+
+```{r regional-totals}
+cont_region <- read_xlsx("../../data/07-SIPRI-Milex-data-1949-2024.xlsx", 
+                      sheet = "Regional totals", 
+                      skip = 13) |> 
+  filter(Region != "World total (including Iraq)", 
+         Region != "World total (excluding Iraq)") 
+```
+
+**4b. Remove the rows of `military_clean` representing regions/continents using the `cont_region_names` vector you created. Save these changes into an updated version of `military_clean`.**
+
+```{r}
+# code for Q4b
+```
+
+::: callout-note
+
+### Canvas Q1 & Q2
+
+5. How many *countries* have no spending information in this dataset? What are some of these countries (a list to choose from will be given in Canvas)?
+:::
+
+::: callout-tip
+Useful functions: `filter()`, `if_all()`, `is.na()`. You will also want to double check that any observations that are missing information aren't just a region/continent!
+:::
+
+::: callout-tip
+
+**Note:** When referring to one of the year variable names that start with a number **must** put tick marks (above the tab key) around the name. Starting the name of a variable with a number is not commonly read as a variable name. E.g., to read the 1988 column through the 2019 column, use ``` `1988.0`:`2019.0` ```. However, you don't *have* to refer to the variable names to complete this task - it might be most efficient to specify columns you **don't** want to mutate.
+:::
+
+```{r}
+# code for Q5
+```
+
+## Data Organization
+
+We are interested in comparing the military expenditures of countries in Eastern Europe. We want to look at trends over time and to visualize variability in expenditures within and between countries, like the following two plots:
+
+```{r}
+#| echo: false
+#| fig-cap: "Desired boxplot: Countries from Central Asia used for demonstration -- your plot will have different countries and spending values."
+#| out-width: 70%
+knitr::include_graphics("https://github.com/earobinson95/stat331-calpoly/blob/master/practice-activities/military-expenditure.png?raw=true")
+```
+
+```{r}
+#| echo: false
+#| fig-cap: "Desired line plot: Countries from North Africa used for demonstration -- your plot will have different countries and spending values."
+#| fig-alt: "Desired line plot. The x axis has the years 1990 through 2023 and is labelled with Year. There are four lines of different colors for four countries : Algeria, Libya, Morocco, and Tunisia with a legend indicating the colors labeled as Country. The y-axis is labeled with percentages 0% through 40%. There is a title Military Expenditures in North Africa and subtitle Spending (as % of Government Spending)."
+#| out-width: 70%
+knitr::include_graphics("../_images/07-military-expenditure-ex-line.png")
+```
+
+::: callout-warning
+Unfortunately, if we want a point in the graph representing the spending for every country and year (without some SERIOUS headache), we need every year to be a **single column**!
 
 :::
 
-4. Write code to your two favorite numbers in the code chunk and run your code. Practice the different ways you can run code in Quarto!
+To tidy a dataset like this, we need to pivot the columns of years from wide format to long format. To do this process we need three arguments:
 
-:::callout-note
-# Different ways to run code in R chunk
++ `cols`: The set of columns that represent values, not variables. In these data, those are all the columns from `1988.0` to `2023.0`.
 
-You can run code in Quarto the exact same way that you have in R scripts, with a couple more options!
++ `names_to`: The name of the variable that should be created to move these columns into. In these data, this could be `"year"`.
+
++ `values_to`: The name of the variable that should be created to move these column's values into. In these data, this could be labeled `"spending"`.
+
+These form the three required arguments for the `pivot_longer()` function.
+
+6. Pivot the cleaned up `military` data set to a "longer" orientation. Save this new "long" version as a new variable called `military_long`.
+
+::: callout-caution
+
+**Do not** overwrite your cleaned up dataset!
+:::
+
+```{r}
+# code for Q6
+```
+
+7. Notice that when you pivoted the data, the `year` variable is a character data type. Convert this to numeric.
+
+```{r}
+summary(military_long)
+```
+
+```{r}
+# code for Q7
+```
+
+## Data Visualization
+
+Now that we've transformed the data, let's create a plot to explore military spending across Eastern European countries.
+
+8. Create side-by-side boxplots to explore the military spending between Eastern European countries.
+
+::: callout-tip
+
+Make sure you change the plot title and axis labels to accurately represent the plot.
+
+You might also want to change the x-axis limits and the color of your plots.
+
+Place the `Country` variable on an axis that makes it easier to read the labels!
 
 :::
 
-5. Write a sentence in Markdown, below your code chunk explaining what the code does. Bold the first word of your sentence and italicize the last word!
+```{r}
+# I have provided a list of Eastern European countries (in these data) for you to use.
+eastern_europe <- c("Armenia", "Azerbaijan", "Belarus", 
+                    "Georgia", "Moldova", "Russia", "Ukraine")
 
-6. Add a level 2 heading *above* your code chunk called "First Quarto Code Chunk!"
+# code for Q8
+```
 
-7. Render your document! 
+9. Create a line plot to explore the military spending of Eastern European countries over time.
 
-:::callout-tip
-# Rendering options
+```{r}
+# code for Q10
+```
 
-Do you like viewing the rendered document in the Viewer pane or in a separate browser window? You can change this default using the options in the gear icon next to the Render button.
-:::
+::: callout-note
+### Canvas Q3 + Q4
 
-## Read in Puzzle Data
+10. Looking at the plots you created above, which Eastern European country had the *smallest* variability in military expenditures over time? Consider a measure of variability that is *robust* to outliers (like IQR).
 
-### Setup
-
-8. Download the 04-magic-data.csv and 04-clue-data.xlsx and save them in your an appropriate directory inside your stat-1810 directory. Think about where would be most reading the data into your pa4.qmd file!
-
-9. It is best practice to always have a code chunk at the beginning of your quarto document to load packages and read in data. Add a code chunk after the YAML header. Include a label for this chunk called "setup". Load the tidyverse package in this chunk.
-
-10. Create another level two header at the end of your document called "Crack the Code"
-
-### Read in Codes
-
-11. Below that header, create a new R code chunk. Use `read_csv()` to read in "04-magic-data.csv" save it as `emoji-codes`.
-
-12. Double click on `emoji-codes` in Environment to look a the dataset. 
-
-Look at the dataset that popped up in your source window.
-
-- what are the rows and columns?
-- what in the world is this data???
-
-Look down at your console 
-
-- what code was run?
-
-13. Print (i.e. return) the `emoji-codes` data in a new chunk. See what it looks like. We call this returning code "in-line". 
-
-14. To actually see our secret messages, you need to convert the tibble into a nice HTML table. Luckily there is a handy function to do that! `kable()` is part of the `knitr` package. Add knitr to your loaded packages in your setup chunk. Create a new code chunk with the following code: `kable(emoji-codes)`.
-
-Now you should see three emoji puzzles! 
-
-### Read in Clues
-
-To help you decipher the puzzles, we have also provided clues in the 04-clue-data.xlsx. 
-
-But being the devious folks that professors are, the clues are in a hidden sheet called "clues".
-
-15. Using `read_xlsx()`, read in hidden sheet called "clues" from the 04-clue-data.xlsx file and save it as an object called `emoji-clues`.. Don't forget to to load the `readxl` package in your startup chunk!
-
-16. Explore the `emoji-clues` data with `glimpse()` `str()` `head()`. 
-
-## Code Cracking
-
-17. Use the clues to help you decipher the each of the three emoji riddles!
-
-:::callout-tip
-# Canvas Submission
-What do all of the answers to the riddles have in common?
+11. Looking at the plots you created above, you can see that for one Eastern European country, their military spending (%) over doubled and then returned to previous levels by around 2015. What is the name of the war that would explain this trend?.
 :::

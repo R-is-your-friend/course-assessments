@@ -2,13 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Data Wrangling II – R is Your Friend</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -65,18 +62,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -321,6 +319,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#across-related-functions" id="toc-across-related-functions" class="nav-link" data-scroll-target="#across-related-functions"><code>across()</code>: Related Functions</a></li>
   <li><a href="#if_any-example" id="toc-if_any-example" class="nav-link" data-scroll-target="#if_any-example"><code>if_any()</code> Example</a></li>
   <li><a href="#using-kable-for-formatting-in-labs" id="toc-using-kable-for-formatting-in-labs" class="nav-link" data-scroll-target="#using-kable-for-formatting-in-labs">Using <code>kable()</code> for formatting in labs</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#pivots" id="toc-pivots" class="nav-link" data-scroll-target="#pivots">Pivots</a>
+  <ul>
+<li><a href="#creating-tidy-data" id="toc-creating-tidy-data" class="nav-link" data-scroll-target="#creating-tidy-data">Creating Tidy Data</a></li>
+  <li><a href="#creating-tidy-data-1" id="toc-creating-tidy-data-1" class="nav-link" data-scroll-target="#creating-tidy-data-1">Creating Tidy Data</a></li>
+  <li><a href="#creating-tidy-data-2" id="toc-creating-tidy-data-2" class="nav-link" data-scroll-target="#creating-tidy-data-2">Creating Tidy Data</a></li>
+  <li><a href="#data-layouts" id="toc-data-layouts" class="nav-link" data-scroll-target="#data-layouts">Data Layouts</a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do">To do…</a></li>
   </ul>
 </li>
@@ -713,23 +720,459 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section></section><section id="pivots" class="level1"><h1>Pivots</h1>
+<section id="creating-tidy-data" class="level2"><h2 class="anchored" data-anchor-id="creating-tidy-data">Creating Tidy Data</h2>
+<p>Let’s say we want to look at <code>mean</code> <strong>cereal nutrients</strong> based on <code>shelf</code>.</p>
+<p>. . .</p>
+<ul>
+<li>The data are in a <strong>wide</strong> format – a separate column for each nutrient.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://book-data-science-r.netlify.app">liver</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">cereal</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cereal</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:210px; ">
+<table class="table caption-top table-sm table-striped small">
+<thead><tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">name</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">manuf</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">type</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">calories</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">protein</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">fat</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">sodium</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">fiber</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">carbo</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">sugars</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">potass</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">vitamins</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">shelf</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">weight</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">cups</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">rating</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">100% Bran</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">cold</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">280</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">68.40297</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">100% Natural Bran</td>
+<td style="text-align: left;">Q</td>
+<td style="text-align: left;">cold</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">135</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">33.98368</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">All-Bran</td>
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">cold</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">260</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">7.0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">320</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: right;">59.42551</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">All-Bran with Extra Fiber</td>
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">cold</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">140</td>
+<td style="text-align: right;">14.0</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">330</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">93.70491</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Almond Delight</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">cold</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">14.0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">34.38484</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Apple Cinnamon Cheerios</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: left;">cold</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">10.5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">29.50954</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section><section id="creating-tidy-data-1" class="level2"><h2 class="anchored" data-anchor-id="creating-tidy-data-1">Creating Tidy Data</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Discussion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How would we plot the mean cereal nutrients by shelf (as shown below) with the wide data using <code>ggplot2</code>?</p>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="07.1-more-dplyr-pivot_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>. . .</p>
+<p><strong>Transforming</strong> the data will make plotting <strong>much</strong> easier</p>
+</section><section id="creating-tidy-data-2" class="level2"><h2 class="anchored" data-anchor-id="creating-tidy-data-2">Creating Tidy Data</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Wide</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Wide Plot</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Long</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Long Plot</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>cereal_wide <span class="ot">&lt;-</span> cereal <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">group_by</span>(shelf) <span class="sc">|&gt;</span> </span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(calories<span class="sc">:</span>vitamins, mean))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:210px; ">
+<table class="table caption-top table-sm table-striped small">
+<thead><tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">shelf</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">calories</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">protein</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">fat</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">sodium</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">fiber</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">carbo</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">sugars</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">potass</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">vitamins</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">102.5000</td>
+<td style="text-align: right;">2.650000</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">176.2500</td>
+<td style="text-align: right;">1.6850000</td>
+<td style="text-align: right;">15.80000</td>
+<td style="text-align: right;">4.800000</td>
+<td style="text-align: right;">75.50000</td>
+<td style="text-align: right;">20.00000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">109.5238</td>
+<td style="text-align: right;">1.904762</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">145.7143</td>
+<td style="text-align: right;">0.9047619</td>
+<td style="text-align: right;">13.61905</td>
+<td style="text-align: right;">9.619048</td>
+<td style="text-align: right;">57.80952</td>
+<td style="text-align: right;">23.80952</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">107.7778</td>
+<td style="text-align: right;">2.861111</td>
+<td style="text-align: right;">1.25</td>
+<td style="text-align: right;">158.6111</td>
+<td style="text-align: right;">3.1388889</td>
+<td style="text-align: right;">14.50000</td>
+<td style="text-align: right;">6.527778</td>
+<td style="text-align: right;">129.83333</td>
+<td style="text-align: right;">35.41667</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>my_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"calories_col"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"sugars_col"</span> <span class="ot">=</span> <span class="st">"orange3"</span>)</span>
+<span id="cb29-2"><a href="#cb29-2"></a></span>
+<span id="cb29-3"><a href="#cb29-3"></a>cereal_wide <span class="sc">|&gt;</span> </span>
+<span id="cb29-4"><a href="#cb29-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb29-5"><a href="#cb29-5"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> shelf, <span class="at">y =</span> calories, <span class="at">color =</span> <span class="st">"calories_col"</span>)) <span class="sc">+</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> shelf, <span class="at">y =</span> calories, <span class="at">color =</span> <span class="st">"calories_col"</span>)) <span class="sc">+</span> </span>
+<span id="cb29-7"><a href="#cb29-7"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> shelf, <span class="at">y =</span> sugars, <span class="at">color =</span> <span class="st">"sugars_col"</span>)) <span class="sc">+</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> shelf, <span class="at">y =</span> sugars, <span class="at">color =</span> <span class="st">"sugars_col"</span>)) <span class="sc">+</span></span>
+<span id="cb29-9"><a href="#cb29-9"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> my_colors, <span class="at">labels =</span> <span class="fu">names</span>(my_colors)) <span class="sc">+</span></span>
+<span id="cb29-10"><a href="#cb29-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Shelf"</span>, <span class="at">y =</span> <span class="st">""</span>, <span class="at">subtitle =</span> <span class="st">"Mean Amount"</span>, <span class="at">color =</span> <span class="st">"Nutrient"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="07.1-more-dplyr-pivot_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>cereal_long<span class="ot">&lt;-</span> cereal <span class="sc">|&gt;</span> </span>
+<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> calories<span class="sc">:</span>vitamins,</span>
+<span id="cb30-3"><a href="#cb30-3"></a>               <span class="at">names_to =</span> <span class="st">"Nutrient"</span>,</span>
+<span id="cb30-4"><a href="#cb30-4"></a>               <span class="at">values_to =</span> <span class="st">"Amount"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb30-5"><a href="#cb30-5"></a>  <span class="fu">group_by</span>(shelf, Nutrient) <span class="sc">|&gt;</span> </span>
+<span id="cb30-6"><a href="#cb30-6"></a>  <span class="fu">summarise</span>(<span class="at">mean_amount =</span> <span class="fu">mean</span>(Amount))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; ">
+<table class="table caption-top table-sm table-striped small">
+<thead><tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">shelf</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Nutrient</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">mean_amount</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">calories</td>
+<td style="text-align: right;">102.5000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">carbo</td>
+<td style="text-align: right;">15.8000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">fat</td>
+<td style="text-align: right;">0.6000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">fiber</td>
+<td style="text-align: right;">1.6850000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">potass</td>
+<td style="text-align: right;">75.5000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">protein</td>
+<td style="text-align: right;">2.6500000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">sodium</td>
+<td style="text-align: right;">176.2500000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">sugars</td>
+<td style="text-align: right;">4.8000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">vitamins</td>
+<td style="text-align: right;">20.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">calories</td>
+<td style="text-align: right;">109.5238095</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">carbo</td>
+<td style="text-align: right;">13.6190476</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">fat</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">fiber</td>
+<td style="text-align: right;">0.9047619</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">potass</td>
+<td style="text-align: right;">57.8095238</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">protein</td>
+<td style="text-align: right;">1.9047619</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">sodium</td>
+<td style="text-align: right;">145.7142857</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">sugars</td>
+<td style="text-align: right;">9.6190476</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">vitamins</td>
+<td style="text-align: right;">23.8095238</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">calories</td>
+<td style="text-align: right;">107.7777778</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">carbo</td>
+<td style="text-align: right;">14.5000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">fat</td>
+<td style="text-align: right;">1.2500000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">fiber</td>
+<td style="text-align: right;">3.1388889</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">potass</td>
+<td style="text-align: right;">129.8333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">protein</td>
+<td style="text-align: right;">2.8611111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">sodium</td>
+<td style="text-align: right;">158.6111111</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">sugars</td>
+<td style="text-align: right;">6.5277778</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">vitamins</td>
+<td style="text-align: right;">35.4166667</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>cereal_long <span class="sc">|&gt;</span> </span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> shelf, </span>
+<span id="cb31-3"><a href="#cb31-3"></a>             <span class="at">y =</span> mean_amount, </span>
+<span id="cb31-4"><a href="#cb31-4"></a>             <span class="at">color =</span> Nutrient)) <span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Shelf"</span>, <span class="at">y =</span> <span class="st">""</span>, <span class="at">subtitle =</span> <span class="st">"Mean Amount"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="07.1-more-dplyr-pivot_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="data-layouts" class="level2"><h2 class="anchored" data-anchor-id="data-layouts">Data Layouts</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://github.com/gadenbuie/tidyexplain/raw/main/images/static/png/original-dfs-tidy.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Kelsey Gonzalez</figcaption></figure>
+</div>
 </section><section id="to-do" class="level2"><h2 class="anchored" data-anchor-id="to-do">To do…</h2>
-<ul>
-<li>
-<strong>Lab 3: Teacher Evaluations</strong>
-<ul>
-<li>Due Sunday, 4/19 at 11:59pm</li>
-</ul>
-</li>
-<li><strong>Required <a href="../../reading/week-3.2.qmd">Reading</a></strong></li>
-<li>Review all material from this week for the <strong>group quiz on Monday</strong>!
-<ul>
-<li>Make sure that you can answer all of the questions in this week’s notes!</li>
-<li>Group quiz at the <strong>beginning</strong> of class</li>
-</ul>
-</li>
-<li>Reminder: rescheduled office hours 12-1:30 pm tomorrow</li>
-</ul>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

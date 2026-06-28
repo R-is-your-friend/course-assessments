@@ -19,9 +19,9 @@ embed-resources: true
 library(tidyverse)
 ```
 
-The data are compiled by Grant Witness, but curated for us by Tidy Tuesday.
+The data are compiled by Grant Witness.
 
-[[NEED TO ADD MORE CONTEXT]]
+There is both a Tidy Tuesday version, and an updated version I can download from Grant Witness... Maybe we stick with tidy tuesday since it has the cruz list column which is fun? There are 2000 observations in the updated data though. It also doesn't have a clean data dictionary.
 
 You can find the data dictionary [here](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md#data-dictionary)
 
@@ -30,80 +30,17 @@ nsf_terminations <- read_csv('https://raw.githubusercontent.com/rfordatascience/
 
 ```
 
-Let's start with a bit of data cleaning
+String things:
 
-1. The `org_city` is in all capital letters -- aggro! Edit the `org_city` variable so that cities are in title case instead. (e.g. "Santa Barbara" instead of "SANTA BARBARA")
+- org_city to title case `str_to_title()`
+- count number of times the string "diversity" (or something else) is in the abstract `str_count()`
+- "clean up" the grant name by replacing words `str_replace_all()`
+- `str_count()` on title
+- `str_detect()` to find certain types of grants
 
-```{r}
-nsf_terminations <- nsf_terminations |> 
-  mutate(org_city = str_to_title(org_city))
-```
-
-2. Create a variable `title_length` that gives the number of characters in the grant title. 
-
-```{r}
-nsf_terminations <- nsf_terminations |> 
-  mutate(title_length = str_length(project_title))
-```
-
-3. Create `year_start` and `year_end` variables, which give the *year* that the grant began and the year of the *expected* end date from the original grant. 
-
-```{r}
-nsf_terminations <- nsf_terminations |> 
-  mutate(year_start = year(nsf_startdate),
-         year_end = year(nsf_expected_end_date))
-```
-
-4. Create a variable `diversity` that gives the number of times the strings "diversity" or "DEI" appear in the grant abstract. Make sure that this is not case sensitive!
-
-```{r}
-nsf_terminations <- nsf_terminations |> 
-  mutate(diversity = str_count(str_to_lower(abstract),
-                               "diversity|dei"))
-```
-
-Follow the clues below to find the XX grant.
-
-5. The grant began in 2022 or later. (875 grants remaining)
-
-```{r}
-clues <- nsf_terminations |> 
-  filter(year_start >= 2022)
-```
-
-6. The grant related to indigenous communities, so the word "indigenous" appears in the abstract. Again, pay attention to case! (93 grants remaining)
-
-```{r}
-clues <- clues |> 
-  filter(str_detect(str_to_lower(abstract), "indigenous"))
-```
-
-7. The title was not too long, with less than 100 characters. (Hint: use the `title_length` variable you already created!). (40 grants remaining)
-
-```{r}
-clues <- clues |> 
-  filter(title_length < 100)
-```
-
-8. The word diversity appears at most one time in the abstract. (35 grants remaining)
-
-```{r}
-clues <- clues |> 
-  filter(diversity <= 1)
-```
-
-9. The start date of a grant was a Wednesday. (2 grants remaining).
-
-```{r}
-clues <- clues |> 
-  filter(wday(nsf_startdate) == 4)
-```
-
-10 LAST CLUE to get to FIRE grant
-
-:::callout-note
-## Canvas submission
-
-Submit the
-
-:::
+Date things:
+- Create year start and year end variables
+- Create a variable for the day of the week that termination letters were sent
+- Calculate the total length of the grant in days
+- Calculate the number of days that had passed for the grant before it was terminated
+- Calculate the % of the grant time that was allowed
