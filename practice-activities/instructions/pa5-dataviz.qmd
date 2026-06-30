@@ -1,0 +1,129 @@
+---
+title: "Practice Activity 5: Visualize the Tortoises"
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+
+eval: false
+---
+# Setup
+
+First, we declare our package dependencies.
+
+```{r}
+#| warning: false
+#| message: false
+#| label: setup
+
+library(readr)
+library(ggplot2)
+library(dplyr)
+```
+
+# Golem Grad Tortoise Data
+
+First, we load in the data. You will have to `install.packages("tidytuesdayR")`.
+
+```{r}
+#| label: load-data
+tuesdata <- tidytuesdayR::tt_load(2026, week = 9)
+tortoise_data <- tuesdata$tortoise_body_condition_cleaned
+```
+
+```{r}
+#| include: false
+# emily exploring...
+tortoise_data |>
+  ggplot(aes(x = body_mass_grams, y = straight_carapace_length_mm)) +
+  geom_point(aes(color = sex), alpha = 0.2)
+
+tortoise_data |>
+  ggplot(aes(x = body_condition_index, y = locality)) +
+  geom_boxplot(aes(color = sex), alpha = 0.2)
+
+tortoise_data |>
+  ggplot(aes(x = as.factor(year_recode), 
+             y = body_condition_index)
+         ) +
+  geom_boxplot()
+```
+
+Take a look at the variables in your downloaded data by running the following code. This code with the `glimpse` function reports the data type for each column in the dataset.
+
+```{r}
+#| label: preview-data
+glimpse(tortoise_data)
+```
+You should also take a peak at the dataset by double-clicking on it in the environment. 
+
+1. What does one row in the data represent? 
+
+2. What are the some of the other variables and their types? Use `unique()` and `summary()` in the console to explore the data further.
+
+# Select and create an appropriate graphic to answer the following questions:
+
+## "Does it seem easier to capture/recapture male or female tortoises?"
+
+::: tip
+How many captures are there for each sex? What variables do you need to answer this question?
+:::
+
+3. Use `ggplot2` to draw a barchart of the count of captures for each tortoise sex.
+
+```{r}
+tortoise_data |>
+  ggplot(aes(x = sex)) +
+  geom_bar()
+```
+
+## "What are the differences between male and female tortoises across the three locations (Beach Mainland Beach, Plateau Mainland, and Konjsko Island) in terms of body mass or carapace length?"
+
+4. Use `ggplot2` to create a scatterplot of the relationship between the body mass (`body_mass_grams`) and carapace length (`straight_carapace_length_mm`).
+
+::: tip
+That's a lot of data! Use `alpha = 0.1` in your scatterplot to create a transparency effect to help with overplotting.
+:::
+
+```{r}
+tortoise_data |>
+  ggplot(aes(x = body_mass_grams, y = straight_carapace_length_mm)) +
+  geom_point(alpha = 0.1)
+```
+
+5. Building off the previous graph, add an aesthetic to differentiate the location (`locality`) on your scatterplot by color.
+
+```{r}
+tortoise_data |>
+  ggplot(aes(x = body_mass_grams, 
+             y = straight_carapace_length_mm,
+             color = sex)
+         ) +
+  geom_point(alpha = 0.2)
+```
+
+5. Building off the same graph, incorporate location (`locality`). There may be more than one method to address this, however, one method will more easily address the questions below.
+
+```{r}
+tortoise_data |>
+  ggplot(aes(x = body_mass_grams, 
+             y = straight_carapace_length_mm,
+             color = sex)
+         ) +
+  geom_point(alpha = 0.2) +
+  facet_wrap(~ locality)
+```
+
+:::callout-tip
+# Canvas Submission
+xxx
+:::
+
+::: callout-note
+Note that this dataset comes from [TidyTuesday 2026 week 9](https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-03-03/readme.md). 
+:::
