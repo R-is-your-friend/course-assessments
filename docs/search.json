@@ -1468,5 +1468,271 @@
     "title": "Lab 1: Hello Code",
     "section": "Combining Values",
     "text": "Combining Values\nThus far, we’ve only been working with objects that have a single value (e.g., x &lt;- 5). As we progress in our coding, we will almost always be working with vectors of values instead of single values. So, let’s explore how we can make vectors!\nQuestion 5: Use the c() function to combine x, y, and z into a single vector. Save the vector into a new object that has an intuitive name!\nQuestion 6: Use the c() function again to add a into the vector and display the result. You do not need to create an object here!\nQuestion 7: What happened when you combined a with the vector of values? Why do you think that happened?"
+  },
+  {
+    "objectID": "slides/02-indexing.html#types-of-objects-in-r",
+    "href": "slides/02-indexing.html#types-of-objects-in-r",
+    "title": "Working with R Objects",
+    "section": "Types of Objects in R",
+    "text": "Types of Objects in R\nThis week you’ve learned how to make four different types of objects in R:\n\nvectors\nmatrices\nlists\ndataframes\n\nLet’s review each of these so they are fresh in our memory!"
+  },
+  {
+    "objectID": "slides/02-indexing.html#vectors",
+    "href": "slides/02-indexing.html#vectors",
+    "title": "Working with R Objects",
+    "section": "Vectors",
+    "text": "Vectors\nSuppose you want to create two vectors:\n\nThe days of the week\nThe temperature of the water at Pismo each day\n\nPencil out what code you would write to create these vectors."
+  },
+  {
+    "objectID": "slides/02-indexing.html#matrices",
+    "href": "slides/02-indexing.html#matrices",
+    "title": "Working with R Objects",
+    "section": "Matrices",
+    "text": "Matrices\nA matrix is a two dimensional vector! Let’s assess our understanding of how matrices are made.\nWhat would you expect this code to output?\n\nmatrix(temps, nrow = 2)\n\n\n\n\n\nWarning in matrix(temps, nrow = 2): data length [7] is not a sub-multiple or\nmultiple of the number of rows [2]\n\n\n     [,1] [,2] [,3] [,4]\n[1,] 60.1 60.8 60.1 59.7\n[2,] 59.4 61.0 62.1 60.1"
+  },
+  {
+    "objectID": "slides/02-indexing.html#lists",
+    "href": "slides/02-indexing.html#lists",
+    "title": "Working with R Objects",
+    "section": "Lists",
+    "text": "Lists\nUnlike matrices, lists allow the elements to have different data types and different sizes.\n\nHere are two ways to make a list:\n\n\n\nwatertemp_list &lt;- list(days, \n                       temps)\n\n\n\n\n\nwatertemp_list &lt;- list(days = days, \n                       temps = temps)\n\n\n\nHow are these lists different?"
+  },
+  {
+    "objectID": "slides/02-indexing.html#dataframes",
+    "href": "slides/02-indexing.html#dataframes",
+    "title": "Working with R Objects",
+    "section": "Dataframes",
+    "text": "Dataframes\nA dataframe is a special type of list—where every element (column) is the same size.\n\nDraw out how the watertemp_df would look:\n\nwatertemp_df &lt;- data.frame(days = days, \n                           temps = temps)"
+  },
+  {
+    "objectID": "slides/02-indexing.html#assessing-the-size-of-the-object",
+    "href": "slides/02-indexing.html#assessing-the-size-of-the-object",
+    "title": "Working with R Objects",
+    "section": "Assessing the Size of the Object",
+    "text": "Assessing the Size of the Object\nWe might want to know how big an object is.\nWhat would you expect these lines of code to output?\n\nlength(days)\n\n\n\nlength(watertemp_list)\n\n\n\nlength(watertemp_df)"
+  },
+  {
+    "objectID": "slides/02-indexing.html#accessing-the-elements-of-an-object",
+    "href": "slides/02-indexing.html#accessing-the-elements-of-an-object",
+    "title": "Working with R Objects",
+    "section": "Accessing the Elements of an Object",
+    "text": "Accessing the Elements of an Object\nWe might want to extract components of an object.\nPencil out how you would write code to do the following:\n\nExtract the first two days of the days vector.\nExtract the first element of the watertemps_list object.\nExtract the second row of the watertemps_df object."
+  },
+  {
+    "objectID": "slides/02-indexing.html#modifying-an-object",
+    "href": "slides/02-indexing.html#modifying-an-object",
+    "title": "Working with R Objects",
+    "section": "Modifying an Object",
+    "text": "Modifying an Object\nSuppose we wanted to add a column containing information on the air temperature to watertemp_df.\n\nHere are the air temperatures for each day: 67, 65, 67, 70, 69, 68, 68\n\nPencil out how you would add this information as a new column in watertemp_df."
+  },
+  {
+    "objectID": "slides/02-indexing.html#creating-vectors",
+    "href": "slides/02-indexing.html#creating-vectors",
+    "title": "Working with R Objects",
+    "section": "Creating Vectors",
+    "text": "Creating Vectors\n\n\n\ndays &lt;- c(\"Monday\", \n          \"Tuesday\", \n          \"Wednesday\", \n          \"Thursday\", \n          \"Friday\", \n          \"Saturday\", \n          \"Sunday\")\n\n\n\n\n\ntemps &lt;- c(60.1, \n           59.4, \n           60.8, \n           61, \n           60.1, \n           62.1, \n           59.7)\n\n\n\n\nWhat would you expect this code to output?\n\n\n\ntypeof(days)\n\n\n\n\n\ntypeof(temps)"
+  },
+  {
+    "objectID": "slides/02-indexing.html#assessing-the-size-of-a-dataframe-or-list",
+    "href": "slides/02-indexing.html#assessing-the-size-of-a-dataframe-or-list",
+    "title": "Working with R Objects",
+    "section": "Assessing the Size of a Dataframe or List",
+    "text": "Assessing the Size of a Dataframe or List\n\n\nLists\n\nlengths(watertemp_list)\n\n days temps \n    7     7 \n\n\n\n\n\nDataframes\n\ndim(watertemp_df)\n\n[1] 7 2\n\nnrow(watertemp_df)\n\n[1] 7\n\nncol(watertemp_df)\n\n[1] 2"
+  },
+  {
+    "objectID": "slides/02-indexing.html#assessing-the-size-of-a-list-or-dataframe",
+    "href": "slides/02-indexing.html#assessing-the-size-of-a-list-or-dataframe",
+    "title": "Working with R Objects",
+    "section": "Assessing the Size of a List or Dataframe",
+    "text": "Assessing the Size of a List or Dataframe\n\n\nLists\n\nlengths(watertemp_list)\n\n days temps \n    7     7 \n\n\nNotice we are using lengths here, not length!\n\n\n\n\nDataframes\n\ndim(watertemp_df)\n\n[1] 7 2\n\nnrow(watertemp_df)\n\n[1] 7\n\nncol(watertemp_df)\n\n[1] 2"
+  },
+  {
+    "objectID": "slides/02-indexing.html#accessing-the-elements-of-an-object-1",
+    "href": "slides/02-indexing.html#accessing-the-elements-of-an-object-1",
+    "title": "Working with R Objects",
+    "section": "Accessing the Elements of an Object",
+    "text": "Accessing the Elements of an Object\n\nExtract the first two days of the days vector.\n\n\ndays[1:2]\n\n[1] \"Monday\"  \"Tuesday\"\n\n\n\n\nExtract the first element of the watertemps_list object.\n\n\n\n\nwatertemp_list$days\n\n[1] \"Monday\"    \"Tuesday\"   \"Wednesday\" \"Thursday\"  \"Friday\"    \"Saturday\" \n[7] \"Sunday\"   \n\n\n\n\n\n\nwatertemp_list[[1]]\n\n\n\n\n\nExtract the second row of the watertemps_df object.\n\n\nwatertemp_df[2, ]\n\n     days temps\n2 Tuesday  59.4"
+  },
+  {
+    "objectID": "slides/02-indexing.html#accessing-the-elements-of-an-object---solution",
+    "href": "slides/02-indexing.html#accessing-the-elements-of-an-object---solution",
+    "title": "Working with R Objects",
+    "section": "Accessing the Elements of an Object - Solution",
+    "text": "Accessing the Elements of an Object - Solution\n\nExtract the first two days of the days vector.\n\n\n\n\ndays[1:2]\n\n[1] \"Monday\"  \"Tuesday\"\n\n\n\n\n\n\ndays[c(1, 2)]\n\n[1] \"Monday\"  \"Tuesday\"\n\n\n\n\n\nExtract the first element of the watertemps_list object.\n\n\n\n\nwatertemp_list$days\n\n[1] \"Monday\"    \"Tuesday\"   \"Wednesday\" \"Thursday\"  \"Friday\"    \"Saturday\" \n[7] \"Sunday\"   \n\n\n\n\n\n\nwatertemp_list[[1]]\n\n[1] \"Monday\"    \"Tuesday\"   \"Wednesday\" \"Thursday\"  \"Friday\"    \"Saturday\" \n[7] \"Sunday\""
+  },
+  {
+    "objectID": "slides/02-indexing.html#accessing-the-elements-of-an-object---solution-1",
+    "href": "slides/02-indexing.html#accessing-the-elements-of-an-object---solution-1",
+    "title": "Working with R Objects",
+    "section": "Accessing the Elements of an Object - Solution",
+    "text": "Accessing the Elements of an Object - Solution\n\nExtract the second row of the watertemps_df object.\n\n\nwatertemp_df[2, ]\n\n     days temps\n2 Tuesday  59.4"
+  },
+  {
+    "objectID": "slides/02-indexing.html#modifying-an-object-adding-a-column",
+    "href": "slides/02-indexing.html#modifying-an-object-adding-a-column",
+    "title": "Working with R Objects",
+    "section": "Modifying an Object – Adding a Column",
+    "text": "Modifying an Object – Adding a Column\n\nwatertemp_df$airtemp &lt;- c(67, 65, 67, 70, 69, 68, 68)\n\nwatertemp_df\n\n       days temps airtemp\n1    Monday  60.1      67\n2   Tuesday  59.4      65\n3 Wednesday  60.8      67\n4  Thursday  61.0      70\n5    Friday  60.1      69\n6  Saturday  62.1      68\n7    Sunday  59.7      68"
+  },
+  {
+    "objectID": "slides/02-indexing.html#modifying-an-object-1",
+    "href": "slides/02-indexing.html#modifying-an-object-1",
+    "title": "Working with R Objects",
+    "section": "Modifying an Object",
+    "text": "Modifying an Object\n\n\ngot the temp wrong on two days"
+  },
+  {
+    "objectID": "slides/02-indexing.html#assessing-values-of-an-object",
+    "href": "slides/02-indexing.html#assessing-values-of-an-object",
+    "title": "Working with R Objects",
+    "section": "Assessing Values of an Object",
+    "text": "Assessing Values of an Object\nPersonally, I won’t swim at Pismo if the temperature is below 16 degrees (Celsius). How many days in the last week would I have swam?\nPencil out the code you would write to answer this question.\n\nWhat relational comparison will you use?\nWhat output will this comparison give you?\nHow will you use this output to find the number of days I would have swam?"
+  },
+  {
+    "objectID": "slides/02-indexing.html#changing-column-names",
+    "href": "slides/02-indexing.html#changing-column-names",
+    "title": "Working with R Objects",
+    "section": "Changing Column Names",
+    "text": "Changing Column Names\nSince the dataframe now has information on two types of temperatures, it feels like our original column name (temps) is too vague.\nIf we wanted to change the name of the columns, there are two options:\n\nGo back and change the name when we originally made watertemp_df\nChange the names now\n\nOption 2 would look something like this:\n\nnames(watertemp_df) &lt;- c(\"days\", \"watertemp\", \"airtemp\")\nwatertemp_df\n\n       days watertemp airtemp\n1    Monday      60.1      67\n2   Tuesday      59.4      65\n3 Wednesday      60.8      67\n4  Thursday      61.0      70\n5    Friday      60.1      69\n6  Saturday      62.1      68\n7    Sunday      59.7      68"
+  },
+  {
+    "objectID": "slides/02-indexing.html#modifying-an-object-changing-values",
+    "href": "slides/02-indexing.html#modifying-an-object-changing-values",
+    "title": "Working with R Objects",
+    "section": "Modifying an Object – Changing Values",
+    "text": "Modifying an Object – Changing Values\nWe originally store the air and water temperatures in degrees Fahrenheit, but many people prefer degrees Celsius.\nThe formula for converting from Fahrenheit to Celsius is:\n\\[\\text{Celsius} = \\frac{5}{9}(\\text{Fahrenheit} - 32)\\]\nPencil out how you would convert the temps and airtemp columns to Celsius."
+  },
+  {
+    "objectID": "slides/02-indexing.html#modifying-an-object-changing-values-1",
+    "href": "slides/02-indexing.html#modifying-an-object-changing-values-1",
+    "title": "Working with R Objects",
+    "section": "Modifying an Object – Changing Values",
+    "text": "Modifying an Object – Changing Values\nWe also learned that we got the water temperature wrong on Thursday and Friday."
+  },
+  {
+    "objectID": "slides/02-indexing.html#modifying-an-object-changing-column-values",
+    "href": "slides/02-indexing.html#modifying-an-object-changing-column-values",
+    "title": "Working with R Objects",
+    "section": "Modifying an Object – Changing Column Values",
+    "text": "Modifying an Object – Changing Column Values\nWe originally store the air and water temperatures in degrees Fahrenheit, but many people prefer degrees Celsius.\nThe formula for converting from Fahrenheit to Celsius is:\n\\[\\text{Celsius} = \\frac{5}{9}(\\text{Fahrenheit} - 32)\\]\nPencil out how you would convert the temps and airtemp columns to Celsius."
+  },
+  {
+    "objectID": "slides/02-indexing.html#modifying-an-object-changing-specific-values",
+    "href": "slides/02-indexing.html#modifying-an-object-changing-specific-values",
+    "title": "Working with R Objects",
+    "section": "Modifying an Object – Changing Specific Values",
+    "text": "Modifying an Object – Changing Specific Values\nWe also learned that we got the water temperature wrong on Thursday and Friday.\nOn Thursday the water temperature was actually 60.8 and on Friday the temperature was actually 61.2.\n\nPencil out how you would adjust these water temperature values."
+  },
+  {
+    "objectID": "slides/02-indexing.html#modifying-an-object-changing-specific-values-1",
+    "href": "slides/02-indexing.html#modifying-an-object-changing-specific-values-1",
+    "title": "Working with R Objects",
+    "section": "Modifying an Object – Changing Specific Values",
+    "text": "Modifying an Object – Changing Specific Values\n\nThursday is row 4 and Friday is row 5\nwater temperature is column 2 (named temps)\n\nOption 1:\n\nwatertemp_df[4:5, 2] &lt;- c(60.8, 61.2)\n\nOption 2:\n\nwatertemp_df[4:5, \"temps\"] &lt;- c(60.8, 61.2)\n\nOption 3:\n\nwatertemp_df$temps[4:5] &lt;- c(60.8, 61.2)"
+  },
+  {
+    "objectID": "slides/02-indexing.html#modifying-an-object-changing-column-values-1",
+    "href": "slides/02-indexing.html#modifying-an-object-changing-column-values-1",
+    "title": "Working with R Objects",
+    "section": "Modifying an Object – Changing Column Values",
+    "text": "Modifying an Object – Changing Column Values\nOption 1: Adjust the temperatures and save them back in the original column\n\nwatertemp_df$temps &lt;- (5/9) * (watertemp_df$temps  - 32)\nwatertemp_df$airtemp &lt;- (5/9) * (watertemp_df$airtemp  - 32)\n\n\nOption 2: Make a new column with the Celsius temps\n\nwatertemp_df$temps_c &lt;- (5/9) * (watertemp_df$temps  - 32)\nwatertemp_df$airtemp_c &lt;- (5/9) * (watertemp_df$airtemp  - 32)"
+  },
+  {
+    "objectID": "slides/02-indexing.html#how-many-days-would-i-have-swam",
+    "href": "slides/02-indexing.html#how-many-days-would-i-have-swam",
+    "title": "Working with R Objects",
+    "section": "How many days would I have swam?",
+    "text": "How many days would I have swam?\n\nWhat relational comparison will you use?\n\n\nwatertemp_df$temps &gt;= 16\n\n\nWhat output will this comparison give you?\n\n\n\n[1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE\n\n\n\nHow will you use this output to find the number of days I would have swam?\n\n\nsum(watertemp_df$temps &gt;= 16)\n\n[1] 4"
+  },
+  {
+    "objectID": "handouts/02-handout.html",
+    "href": "handouts/02-handout.html",
+    "title": "Week 2: Working with R Objects",
+    "section": "",
+    "text": "Pencil out what code you would write to create two vectors:\n\nThe days of the week\nThe temperature of the water at Pismo each day"
+  },
+  {
+    "objectID": "handouts/02-handout.html#vectors",
+    "href": "handouts/02-handout.html#vectors",
+    "title": "Week 2: Working with R Objects",
+    "section": "",
+    "text": "Pencil out what code you would write to create two vectors:\n\nThe days of the week\nThe temperature of the water at Pismo each day"
+  },
+  {
+    "objectID": "handouts/02-handout.html#matrices",
+    "href": "handouts/02-handout.html#matrices",
+    "title": "Week 2: Working with R Objects",
+    "section": "Matrices",
+    "text": "Matrices\nWhat would you expect this code to output?\n\nmatrix(temps, nrow = 2)"
+  },
+  {
+    "objectID": "handouts/02-handout.html#lists",
+    "href": "handouts/02-handout.html#lists",
+    "title": "Week 2: Working with R Objects",
+    "section": "Lists",
+    "text": "Lists\nHere are two ways to make a list:\n\n\n\nlist(days, temps)\n\n\n\n\n\nlist(days = days, \n     temps = temps)\n\n\n\n\nHow are these lists different?"
+  },
+  {
+    "objectID": "handouts/02-handout.html#dataframes",
+    "href": "handouts/02-handout.html#dataframes",
+    "title": "Week 2: Working with R Objects",
+    "section": "Dataframes",
+    "text": "Dataframes\nDraw out what this code would output:\n\ndata.frame(days = days, \n           temps = temps)"
+  },
+  {
+    "objectID": "handouts/02-handout.html#assessing-the-size-of-the-object",
+    "href": "handouts/02-handout.html#assessing-the-size-of-the-object",
+    "title": "Week 2: Working with R Objects",
+    "section": "Assessing the Size of the Object",
+    "text": "Assessing the Size of the Object\nWhat would you expect these lines of code to output?\n\nlength(days)\n\n\n\nlength(watertemp_list)\n\n\n\nlength(watertemp_df)"
+  },
+  {
+    "objectID": "handouts/02-handout.html#assessing-the-size-of-a-list-or-dataframe",
+    "href": "handouts/02-handout.html#assessing-the-size-of-a-list-or-dataframe",
+    "title": "Week 2: Working with R Objects",
+    "section": "Assessing the Size of a List or Dataframe",
+    "text": "Assessing the Size of a List or Dataframe\nWhat are the functions that help you access information about a list or dataframe?"
+  },
+  {
+    "objectID": "handouts/02-handout.html#accessing-the-elements-of-an-object",
+    "href": "handouts/02-handout.html#accessing-the-elements-of-an-object",
+    "title": "Week 2: Working with R Objects",
+    "section": "Accessing the Elements of an Object",
+    "text": "Accessing the Elements of an Object\nWe might want to extract components of an object.\nPencil out how you would write code to do the following:\n\nExtract the first two days of the days vector.\n\n\n\nExtract the first element of the watertemps_list object.\n\n\n\nExtract the second row of the watertemps_df object."
+  },
+  {
+    "objectID": "handouts/02-handout.html#modifying-an-object-adding-a-column",
+    "href": "handouts/02-handout.html#modifying-an-object-adding-a-column",
+    "title": "Week 2: Working with R Objects",
+    "section": "Modifying an Object – Adding a Column",
+    "text": "Modifying an Object – Adding a Column\nSuppose we wanted to add a column containing information on the airtemperature to watertemp_df.\nHere are the air temperatures for each day: 67, 65, 67, 70, 69, 68, 68\nPencil out how you would add this information as a new column in watertemp_df."
+  },
+  {
+    "objectID": "handouts/02-handout.html#modifying-an-object-changing-specific-values",
+    "href": "handouts/02-handout.html#modifying-an-object-changing-specific-values",
+    "title": "Week 2: Working with R Objects",
+    "section": "Modifying an Object – Changing Specific Values",
+    "text": "Modifying an Object – Changing Specific Values\nWe also learned that we got the water temperature wrong on Thursday and Friday.\nOn Thursday the water temperature was actually 60.8 and on Friday the temperature was actually 61.2.\nPencil out how you would adjust these water temperature values in the watertemp_df dataframe."
+  },
+  {
+    "objectID": "handouts/02-handout.html#modifying-an-object-changing-column-values",
+    "href": "handouts/02-handout.html#modifying-an-object-changing-column-values",
+    "title": "Week 2: Working with R Objects",
+    "section": "Modifying an Object – Changing Column Values",
+    "text": "Modifying an Object – Changing Column Values\nWe originally store the air and water temperatures in degrees Fahrenheit, but many people prefer degrees Celsius.\nThe formula for converting from Fahrenheit to Celsius is:\n\\[\\text{Celsius} = \\frac{5}{9}(\\text{Fahrenheit} - 32)\\]\nPencil out how you would convert the temps and airtemp columns of the watertemp_df dataframe to Celsius."
+  },
+  {
+    "objectID": "handouts/02-handout.html#assessing-values-of-an-object",
+    "href": "handouts/02-handout.html#assessing-values-of-an-object",
+    "title": "Week 2: Working with R Objects",
+    "section": "Assessing Values of an Object",
+    "text": "Assessing Values of an Object\nPersonally, I won’t swim at Pismo if the temperature is below 17 degrees (Celsius). How many days in the last week would I have swam?\nPencil out the code you would write to answer this question.\n\nWhat relational comparison will you use?\nWhat output will this comparison give you?\nHow will you use this output to find the number of days I would have swam?"
+  },
+  {
+    "objectID": "handouts/01-handout.html",
+    "href": "handouts/01-handout.html",
+    "title": "Week 1: Creating Objects & Tracing Code",
+    "section": "",
+    "text": "Pencil out how you would write code to create…\n\n\nan object called year that contains the value 2020\n\nan object called name that contains the name of your high school\n\n  \n\nWrite down how you would expect to use the c() function to make a sequence of numbers from 2015 to 2025.\n\n\nc(\n  \n \n  \n   \n  \n)\n\n\n\n\nUsing the help file for seq(), pencil out how you would expect to use this function to make a sequence of numbers from 2015 to 2025.\n\n\n\n\n\n\n\n\nFill out the Code Tracing Table for each line of code in the slides.\n\n\n\nLine\nx\ny\nz\n\n\n\n1\n10\nDoes not exist.\nDoes not exist.\n\n\n2\n\n\n\n\n\n3\n\n\n\n\n\n4"
   }
 ]

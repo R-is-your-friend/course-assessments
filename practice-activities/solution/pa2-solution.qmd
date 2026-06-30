@@ -57,7 +57,8 @@ my_symbols <- c(lower_case, upper_case, punctuation)
 
 ```
 
-3.  Turn the `my_symbols` vector into a data frame, with one column named "Symbol".
+3.  Turn the `my_symbols` vector into a data frame, with one column named
+"Symbol".
 
 ```{r}
 #| label: question-3
