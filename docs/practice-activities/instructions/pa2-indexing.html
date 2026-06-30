@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="INSTRUCTIONS">
+
 <title>Practice Activity 2: Working with R Objects – R is Your Friend</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -55,6 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -63,19 +70,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -102,7 +109,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+
+
 </head>
+
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -268,7 +278,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">R is Your Friend</span>
@@ -280,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
@@ -289,26 +301,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
-</div> <!-- /navcollapse -->
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#part-zero-accessing-the-practice-activity" id="toc-part-zero-accessing-the-practice-activity" class="nav-link active" data-scroll-target="#part-zero-accessing-the-practice-activity">Part Zero: Accessing the Practice Activity</a></li>
+  <li><a href="#part-zero-accessing-the-practice-activity" id="toc-part-zero-accessing-the-practice-activity" class="nav-link active" data-scroll-target="#part-zero-accessing-the-practice-activity">Part Zero: Accessing the Practice Activity</a></li>
   <li><a href="#part-one-debugging" id="toc-part-one-debugging" class="nav-link" data-scroll-target="#part-one-debugging">Part One: Debugging</a></li>
   <li><a href="#part-two-decoding-the-secret-message" id="toc-part-two-decoding-the-secret-message" class="nav-link" data-scroll-target="#part-two-decoding-the-secret-message">Part Two: Decoding the Secret Message</a></li>
   <li><a href="#part-3-the-secret-message" id="toc-part-3-the-secret-message" class="nav-link" data-scroll-target="#part-3-the-secret-message">Part 3: The secret message!</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title">Practice Activity 2: Working with R Objects</h1>
 <p class="subtitle lead">Practice with Indexing</p>
 </div>
@@ -330,8 +351,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.</p>
-<section id="part-zero-accessing-the-practice-activity" class="level2"><h2 class="anchored" data-anchor-id="part-zero-accessing-the-practice-activity">Part Zero: Accessing the Practice Activity</h2>
+</header>
+
+
+<p>Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.</p>
+<section id="part-zero-accessing-the-practice-activity" class="level2">
+<h2 class="anchored" data-anchor-id="part-zero-accessing-the-practice-activity">Part Zero: Accessing the Practice Activity</h2>
 <p>Download the template Practice Activity R script here: <a href="../student-version/pa-2-indexing.R" download=""><code>pa-2-indexing.R</code></a></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -346,7 +371,9 @@ Important
 <p>Be sure to save the file inside your Week 2 folder of your STAT 1810 folder!</p>
 </div>
 </div>
-</section><section id="part-one-debugging" class="level2"><h2 class="anchored" data-anchor-id="part-one-debugging">Part One: Debugging</h2>
+</section>
+<section id="part-one-debugging" class="level2">
+<h2 class="anchored" data-anchor-id="part-one-debugging">Part One: Debugging</h2>
 <p>For each question below, you have been given faulty R code. Each code chunk will either cause an error or do the desired task incorrectly. Just because there is no error message doesn’t mean the code accomplished what it was intended to do! Use the <strong>console</strong> (lower left pane) to check each step and make sure you have accomplished what you wanted to accomplish.</p>
 <p><strong>Your task is to find the mistake, and correct it so the code completes the intended action.</strong></p>
 <ol type="1">
@@ -355,19 +382,22 @@ Important
 <li><p>Turn the <code>my_symbols</code> vector into a data frame, with one column named “Symbol”.</p></li>
 <li><p>Find the total number of symbols we have in our data frame.</p></li>
 <li><p>Create a new variable in your dataframe that assigns a number to each symbol.</p></li>
-</ol></section><section id="part-two-decoding-the-secret-message" class="level2"><h2 class="anchored" data-anchor-id="part-two-decoding-the-secret-message">Part Two: Decoding the Secret Message</h2>
+</ol>
+</section>
+<section id="part-two-decoding-the-secret-message" class="level2">
+<h2 class="anchored" data-anchor-id="part-two-decoding-the-secret-message">Part Two: Decoding the Secret Message</h2>
 <p>This chunk will load up the encoded secret message as a vector:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## we should put this dataset somewhere accessible for everyone (shared ownership)</span></span>
-<span><span class="va">top_secret</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1"</span>, </span>
-<span>                       col_names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">$</span><span class="va">X1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we should put this dataset somewhere accessible for everyone (shared ownership)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>top_secret <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1"</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">col_names =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>X1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>By altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, <strong>in the order given</strong> below.</p>
 <p>For each step, you need to <strong>update the vector after performing an operation.</strong> Meaning, you need to <em>overwrite</em> the existing object with its updated counterpart (e.g., <code>x &lt;- x + 12</code>).</p>
 <ol start="6" type="1">
 <li><p>Add 14 to every number.</p></li>
 <li><p>Multiply every number by 18, then subtract 257.</p></li>
-<li><p>Use the <code><a href="https://rdrr.io/r/base/Log.html">exp()</a></code> function to exponentiate every number.</p></li>
+<li><p>Use the <code>exp()</code> function to exponentiate every number.</p></li>
 <li><p>Square every number.</p></li>
 </ol>
 <p><strong>Checkpoint:</strong> Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your <code>top_secret</code> object!</p>
@@ -375,7 +405,7 @@ Important
 <p>Next, carry out the following steps:</p>
 <ol start="10" type="1">
 <li><p>Turn your vector of numbers into a matrix with 5 columns.</p></li>
-<li><p>Separately from your top secret numbers, use the <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function to create a vector of all the even numbers between 1 and 382. Name this vector <code>evens</code>. That is, <code>evens</code> should contain the numbers 2, 4, 6, 8 …, 382.</p></li>
+<li><p>Separately from your top secret numbers, use the <code>seq()</code> function to create a vector of all the even numbers between 1 and 382. Name this vector <code>evens</code>. That is, <code>evens</code> should contain the numbers 2, 4, 6, 8 …, 382.</p></li>
 <li><p>Subtract the <code>evens</code> vector from the first column of your secret message matrix. <em>Remember to save the updated column values in place of the old values!</em></p></li>
 <li><p>Subtract 100 from all numbers 18-24th rows of the 3rd column. <em>Remember to save the updated row values in place of the old values!</em></p></li>
 <li><p>Multiply all numbers in the 4th and 5th column by 2. <em>Remember to save the updated column values in place of the old values!</em></p></li>
@@ -385,15 +415,17 @@ Important
 <p><em>Hint:</em> Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector!</p>
 <ol start="16" type="1">
 <li><p>Take the square root of all numbers in indices 38 to 465. <em>Remember to save the updated values in place of the old values!</em></p></li>
-<li><p>Use the <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> function to round all numbers to the nearest whole number.</p></li>
+<li><p>Use the <code>round()</code> function to round all numbers to the nearest whole number.</p></li>
 <li><p>Replace all instances of the number 39 with 20. <em>This requires another relational comparison, but this time it is equality!</em></p></li>
 </ol>
 <p><strong>Checkpoint:</strong> Headquarters has informed you that your final message should have 344 even numbers. <em>Checking for divisibility uses the modulus operator (<code>%%</code>). Remember numbers that are divisible will have a remainder of 0!</em></p>
-</section><section id="part-3-the-secret-message" class="level2"><h2 class="anchored" data-anchor-id="part-3-the-secret-message">Part 3: The secret message!</h2>
+</section>
+<section id="part-3-the-secret-message" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-the-secret-message">Part 3: The secret message!</h2>
 <p>Use your final vector of numbers as indices for <code>my_symbols</code> to discover the final message, by running the following code:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="va">my_symbols</span><span class="op">$</span><span class="va">Symbol</span><span class="op">[</span><span class="va">top_secret</span><span class="op">]</span>, </span>
-<span>               collapse <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_c</span>(my_symbols<span class="sc">$</span>Symbol[top_secret], </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">collapse =</span> <span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -410,7 +442,10 @@ Important
 </div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -824,7 +859,8 @@ Important
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Built by Kelly Bodwin, Charlotte Mann, Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold.</p>
 </div>   
@@ -836,6 +872,8 @@ Important
 </div>
   </div>
 </footer>
+
+
 
 
 </body></html>
