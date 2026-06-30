@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Unit 1 Exam – R is Your Friend</title>
+<title>Week 1: Creating Objects &amp; Tracing Code – R is Your Friend</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,12 +67,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-86087b958fbc69f1b84c2689809146c1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/flourish-0.0.1/injectFlourishes.js"></script>
-<script src="../site_libs/quarto-contrib/flourish-0.0.1/flourish.js"></script><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -100,7 +102,169 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 </head>
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
@@ -126,6 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
@@ -136,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Unit 1 Exam</h1>
+<h1 class="title">Week 1: Creating Objects &amp; Tracing Code</h1>
 </div>
 
 
@@ -150,92 +315,93 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><!-- create a vector with c() --><!-- create a matrix, data frame, list --><!-- max, min, mean --><!-- indexing --><!-- relational comparisions --><!-- adding logical values --><p>Benito Antonio Martínez Ocasio, known professionally as Bad Bunny, is a Puerto Rican rapper, actor, singer-songwriter, and record producer. Bad Bunny has relased six studio albums since 2018 with multiple obtaining platnum status.</p>
-<p>We’ve obtained information on each album, specifically what year it was released, the top chart position it reached in the US, how many sales the album had, and the number of tracks in the album.</p>
+</header><ol type="1">
+<li>Pencil out how you would write code to create…</li>
+</ol>
+<ol type="a">
+<li>an object called <code>year</code> that contains the value <code>2020</code>
+</li>
+<li>an object called <code>name</code> that contains the name of your high school</li>
+</ol>
+<p>  </p>
+<ol start="2" type="1">
+<li>Write down how you would expect to use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function to make a sequence of numbers from <code>2015</code> to <code>2025</code>.</li>
+</ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">year_released</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2018</span>, <span class="fl">2020</span>,  <span class="fl">2020</span>, <span class="fl">2022</span>, <span class="fl">2023</span>, <span class="fl">2025</span><span class="op">)</span></span>
-<span><span class="va">top_us_chart_position</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">11</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">sales</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">66000</span>, <span class="fl">1444000</span>, <span class="fl">348000</span>, <span class="fl">3400000</span>, <span class="fl">184000</span>, <span class="fl">2833000</span><span class="op">)</span></span>
-<span><span class="va">no_tracks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">20</span>, <span class="fl">16</span>, <span class="fl">23</span>, <span class="fl">22</span>, <span class="fl">17</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><strong>1. We would like to combine these four pieces of information into a <em>single</em> object. Complete the code below to combine these vectors into a matrix.</strong></p>
-<div class="cell" data-flourish="[{&quot;target&quot;:[&quot;   ncol&quot;,{&quot;mask&quot;:true},{&quot;style&quot;:&quot;text-decoration: underline;&quot;}]}]">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">year_released</span>, <span class="va">top_us_chart_position</span>, <span class="va">sales</span>, <span class="va">no_tracks</span><span class="op">)</span>, </span>
-<span>     ncol <span class="op">=</span> <span class="fl">4</span></span>
-<span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><strong>2. Will this code result in any errors? If yes, what error would be printed? If no, why will there be no errors?</strong></p>
-<p><strong>3. Next we would like to add the album’s name and the top award it received. Can we add these vectors as columns in the matrix we made in #1? If yes, how would this be done? If no, why can this not be done?</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">albums</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"X 100pre"</span>, </span>
-<span>            <span class="st">"YHLQMDLG"</span>, </span>
-<span>            <span class="st">"El Último Tour Del Mundo"</span>,</span>
-<span>            <span class="st">"Un Verano Sin Ti"</span>, </span>
-<span>            <span class="st">"Nadie Sabe Lo Que Va a Pasar Mañana"</span>, </span>
-<span>            <span class="st">"Debí Tirar Más Fotos"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
 <span>  </span>
-<span><span class="va">awards</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, </span>
-<span>            <span class="st">"Best Música Urbana Album, Latin Grammys"</span>,</span>
-<span>            <span class="st">"Best Urban Music Album, Grammys"</span>, </span>
-<span>            <span class="st">"Top Latin Album, Billboard Music Awards"</span>,</span>
-<span>            <span class="st">"Top Latin Album, Billboard Music Awards"</span>,</span>
-<span>            <span class="st">"Album of the Year, Grammys"</span></span>
-<span>            <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span> </span>
+<span>  </span>
+<span>   </span>
+<span>  </span>
+<span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>4. Finally, we are interested in incorporating the tracklist for each album. What structure of object (i.e., vector, dataframe, list, matrix) would we need to use to incorporate this information into the existing album information?</strong></p>
 <div class="columns">
 <div class="column" style="width:48%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Ni Bien Ni Mal"</span>, </span>
-<span>       <span class="st">"200 MPH"</span>, </span>
-<span>       <span class="st">"¿Quién Tú Eres?"</span>, </span>
-<span>       <span class="st">"Caro"</span>, </span>
-<span>       <span class="st">"Tenemos Que Hablar"</span>, </span>
-<span>       <span class="st">"Otra Noche en Miami"</span>, </span>
-<span>       <span class="st">"Ser Bichote"</span>, </span>
-<span>       <span class="st">"Si Estuviésemos Juntos"</span>, </span>
-<span>       <span class="st">"Solo de Mí"</span>, </span>
-<span>       <span class="st">"Cuando Perriabas"</span>, </span>
-<span>       <span class="st">"La Romana"</span>, </span>
-<span>       <span class="st">"Como Antes"</span>, </span>
-<span>       <span class="st">"RLNDT"</span>, </span>
-<span>       <span class="st">"Estamos Bien"</span>, </span>
-<span>       <span class="st">"Mía"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<ol start="3" type="1">
+<li>Using the help file for <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>, pencil out how you would expect to use this function to make a sequence of numbers from <code>2015</code> to <code>2025</code>.</li>
+</ol>
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:48%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">YHLQMDLG</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Si Veo a Tu Mamá"</span>, </span>
-<span>              <span class="st">"La Difícil"</span>, </span>
-<span>              <span class="st">"Pero Ya No"</span>, </span>
-<span>              <span class="st">"La Santa"</span>,</span>
-<span>              <span class="st">"Yo Perreo Sola"</span>, </span>
-<span>              <span class="st">"Bichiyal"</span>, </span>
-<span>              <span class="st">"Soliá"</span>, </span>
-<span>              <span class="st">"La Zona"</span>, </span>
-<span>              <span class="st">"Que Malo"</span>, </span>
-<span>              <span class="st">"Vete"</span>, </span>
-<span>              <span class="st">"Ignorantes"</span>, </span>
-<span>              <span class="st">"A Tu Merced"</span>, </span>
-<span>              <span class="st">"Una Vez"</span>, </span>
-<span>              <span class="st">"Safaera"</span>, </span>
-<span>              <span class="st">"25/8"</span>, </span>
-<span>              <span class="st">"Está Cabrón Ser Yo"</span>,</span>
-<span>              <span class="st">"Puesto Pa' Guerrial"</span>, </span>
-<span>              <span class="st">"P FKN R"</span>, </span>
-<span>              <span class="st">"Hablamos Mañana"</span>, </span>
-<span>              <span class="st">"&lt;3"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><img src="../slides/images/01-seq-help-file.png" class="img-fluid" alt="A screenshot of the help file for the seq function, which appears in the Help tab when you type `?seq` in the Console. The title of the help file says 'Sequence Generation', followed by a description of what the function does, 'Generate regular sequences.' The next section says 'Usage' and provides examples of how the seq function and its relatives (seq.int, seq_along, seq_len) are used. The final section is titled 'Arguments' and provides descriptions of each argument to the seq function. The key arguments are from, to, and by. The from argument declares where the sequence should start from, the to argument declares what value the sequence should go up to, and the by argument declares what increment the numbers should go by."></p>
 </div>
 </div>
-</div>
-<!-- extension question: add a list element to a list -->
+<ol start="4" type="1">
+<li>Fill out the Code Tracing Table for each line of code in the slides.</li>
+</ol>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Line</th>
+<th><code>x</code></th>
+<th><code>y</code></th>
+<th><code>z</code></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>10</td>
+<td>Does not exist.</td>
+<td>Does not exist.</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 
 </main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
