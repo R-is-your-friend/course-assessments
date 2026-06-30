@@ -11,19 +11,11 @@ number-depth: 2
 library(tidyverse)
 ```
 
-
-## Learning Objectives
-
--   Describe charts using the grammar of graphics
--   Create layered graphics that highlight multiple aspects of the data
-
-In this week's reading, we have:
-
 ::: columns
 ::: {.column width="48%"}
 #### 📖 Readings: 60 min
 
-#### 🏋🏾‍♂️ Activities: 30 min
+#### 🏋🏾‍♂️ Activities: 0 min
 
 :::
 
@@ -39,30 +31,67 @@ In this week's reading, we have:
 
 ------------------------------------------------------------------------
 
-</br>
+::: callout
+## Learning Objectives
 
-## Building Graphics with `ggplot2`
+- Describe charts using the grammar of graphics
+- Create layered graphics that highlight multiple aspects of the data
+
+:::
+
+</br>
 
 ::: column-margin
 ![Building a masterpiece, by Allison Horst](https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_masterpiece.png)
 :::
 
+## Grammar of Graphics
 
+### 📖 Required Reading: [A Grammar of Graphics](https://srvanderplas.github.io/stat-computing-r-python/part-wrangling/02b-graphics.html)
+<!-- Emily note... want to repurpose for a short reading with gameplans for grammar of graphics. -->
 
-#### 📖 Required Reading: [R4DS Data Visualization 1.1 - 1.5](https://r4ds.hadley.nz/data-visualize.html#introduction).
+::: {.callout-check-in}
 
+TO-DO
 
-#### 💻 Suggested Tutorials
+:::
 
--   [Bar Charts](https://r-primers.andrewheiss.com/visualize-data/02-bar-charts/)
--   [Histograms](https://r-primers.andrewheiss.com/visualize-data/03-histograms/)
--   [Scatterplots](https://r-primers.andrewheiss.com/visualize-data/03-histograms/)
--   [Line Plots](https://r-primers.andrewheiss.com/visualize-data/06-line-graphs/)
+## Building a Graph with `ggplot2`
 
+### 📖 Required Reading: [R4DS Data Visualization 1.1 - 1.5](https://r4ds.hadley.nz/data-visualize.html#introduction)
 
-#### 📖 Required Reading: [R4DS Layers](https://r4ds.hadley.nz/layers.html).
+::: {.callout-check-in}
 
-## Optional Videos
+TO-DO
+
+:::
+
+### 💻 Suggested Tutorials
+
+- [Bar Charts](https://r-primers.andrewheiss.com/visualize-data/02-bar-charts/)
+- [Histograms](https://r-primers.andrewheiss.com/visualize-data/03-histograms/)
+- [Scatterplots](https://r-primers.andrewheiss.com/visualize-data/03-histograms/)
+- [Line Plots](https://r-primers.andrewheiss.com/visualize-data/06-line-graphs/)
+
+## Adding Layers to a Graph
+
+### 📖 Required Reading: [R4DS Layers](https://r4ds.hadley.nz/layers.html).
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
+### 📊 Additional Resources: A Parade of Chart Types
+
+Luckily, we have a Grammar of Graphics!
+
+- [From Data to Viz](https://www.data-to-viz.com/)
+- [DataViz Project](https://datavizproject.com/)
+- [The Data Visualisation Catalogue](https://datavizcatalogue.com/)
+
+## 📽 Optional Videos
 
 If you like learning and reviewing with videos, these videos created by Dr. Allison Theobold for STAT 331 will review what is covered in the required reading.
 
@@ -71,5 +100,4 @@ If you like learning and reviewing with videos, these videos created by Dr. Alli
 - [What is a geometric object?](https://www.youtube.com/watch?v=pMC2l2YhjMI)
 - [Global vs. local aesthetics](http://youtu.be/y3BWlYa7q-Q?hd=1)
 - [Adding a third variable with facets](http://somup.com/crffbHbH1h)
-- [What is being plotted?](http://somup.com/crffb8bH1x)
-[Positions](http://somup.com/crffFibH1R)
+- [What is being plotted?](http://somup.com/crffb8bH1x) [Positions](http://somup.com/crffFibH1R)
