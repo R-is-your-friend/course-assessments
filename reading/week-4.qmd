@@ -69,6 +69,12 @@ By the end of the reading, you should be able to answer the following questions:
 
 TO-DO
 
++ Show code for reading in the data -- read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)? 
+  + What if the data looks like xxxx.
++ How many dimensions is the data? -- use dim()
++ Screenshot of reflected file folder structure & Files tab in R.
++ match the View(), str(), glimpse()
+  + what sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?
 :::
 
 ## Quarto
