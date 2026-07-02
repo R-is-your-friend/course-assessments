@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Week 2: Control Flow – R is Your Friend</title>
+
+
+<title>Week 3 Part 1: Control Flow – R is Your Friend</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -54,6 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -62,19 +69,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -101,7 +108,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+
+
 </head>
+
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -267,7 +277,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">R is Your Friend</span>
@@ -279,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
@@ -288,30 +300,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
-</div> <!-- /navcollapse -->
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#problem-a---fizz-buzz" id="toc-problem-a---fizz-buzz" class="nav-link active" data-scroll-target="#problem-a---fizz-buzz">Problem A - Fizz Buzz</a></li>
+  <li><a href="#problem-a---fizz-buzz" id="toc-problem-a---fizz-buzz" class="nav-link active" data-scroll-target="#problem-a---fizz-buzz">Problem A - Fizz Buzz</a></li>
   <li><a href="#problem-b---dog-sitting" id="toc-problem-b---dog-sitting" class="nav-link" data-scroll-target="#problem-b---dog-sitting">Problem B - Dog Sitting</a></li>
   <li><a href="#work-session-1" id="toc-work-session-1" class="nav-link" data-scroll-target="#work-session-1">Work Session 1</a></li>
   <li><a href="#work-session-2" id="toc-work-session-2" class="nav-link" data-scroll-target="#work-session-2">Work Session 2</a></li>
   <li><a href="#how-would-i" id="toc-how-would-i" class="nav-link" data-scroll-target="#how-would-i">How would I…</a></li>
   <li><a href="#dataframe-review" id="toc-dataframe-review" class="nav-link" data-scroll-target="#dataframe-review">Dataframe Review</a></li>
   <li><a href="#grabbing-information" id="toc-grabbing-information" class="nav-link" data-scroll-target="#grabbing-information">Grabbing Information</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Week 2: Control Flow</h1>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 3 Part 1: Control Flow</h1>
 </div>
 
 
@@ -325,18 +346,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>This week’s practice activity combines <strong>conditional statements</strong> and <strong>iteration</strong>. Let’s start by practicing setting up a couple of</p>
-<section id="problem-a---fizz-buzz" class="level2"><h2 class="anchored" data-anchor-id="problem-a---fizz-buzz">Problem A - Fizz Buzz</h2>
+</header>
+
+
+<p>This week’s practice activity combines <strong>conditional statements</strong> and <strong>iteration</strong>. Let’s start by practicing setting up a couple of</p>
+<section id="problem-a---fizz-buzz" class="level2">
+<h2 class="anchored" data-anchor-id="problem-a---fizz-buzz">Problem A - Fizz Buzz</h2>
 <p>Suppose you have a <u>vector</u> of numbers (e.g., <code>1:100</code>). For each value, you want to print the following output:</p>
 <ul>
 <li>if a number is divisible by 3, print <code>"Fizz"</code>,</li>
 <li>if the number is divisible by 5, print <code>"Buzz"</code>,</li>
 <li>if the number is divisible by <strong>both</strong> 3 and 5, print <code>"FizzBuzz"</code>,</li>
 <li>if none of these are true then print the number.</li>
-</ul></section><section id="problem-b---dog-sitting" class="level2"><h2 class="anchored" data-anchor-id="problem-b---dog-sitting">Problem B - Dog Sitting</h2>
+</ul>
+</section>
+<section id="problem-b---dog-sitting" class="level2">
+<h2 class="anchored" data-anchor-id="problem-b---dog-sitting">Problem B - Dog Sitting</h2>
 <p>Suppose you have a <u>dataframe</u> with information about dogs you are currently pet sitting.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dogs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dogs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       dog   size age
 1    Annie  small   3
@@ -355,38 +383,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Large dogs: 4 cups (32 ounces)</li>
 </ul>
 <p>If the dog is older than 12, they need to eat the same portions, but in wet food (instead of dry food).</p>
-</section><section id="work-session-1" class="level2"><h2 class="anchored" data-anchor-id="work-session-1">Work Session 1</h2>
-<p>        </p>
-</section><section id="work-session-2" class="level2"><h2 class="anchored" data-anchor-id="work-session-2">Work Session 2</h2>
-<p>        </p>
-</section><section id="how-would-i" class="level2"><h2 class="anchored" data-anchor-id="how-would-i">How would I…</h2>
+</section>
+<section id="work-session-1" class="level2">
+<h2 class="anchored" data-anchor-id="work-session-1">Work Session 1</h2>
+<p><br> <br> <br> <br> <br> <br> <br> <br> <br></p>
+</section>
+<section id="work-session-2" class="level2">
+<h2 class="anchored" data-anchor-id="work-session-2">Work Session 2</h2>
+<p><br> <br> <br> <br> <br> <br> <br> <br> <br></p>
+</section>
+<section id="how-would-i" class="level2">
+<h2 class="anchored" data-anchor-id="how-would-i">How would I…</h2>
 <p>use a <code>while()</code>-loop to figure out the first dog that needed wet food?</p>
-<p>     </p>
-</section><section id="dataframe-review" class="level2"><h2 class="anchored" data-anchor-id="dataframe-review">Dataframe Review</h2>
+<p><br> <br> <br> <br> <br> <br></p>
+</section>
+<section id="dataframe-review" class="level2">
+<h2 class="anchored" data-anchor-id="dataframe-review">Dataframe Review</h2>
 <p>Suppose we have a dataframe about cars:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="va">mpg</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mpg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="spnrtjgsfu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#spnrtjgsfu table {
+<div id="tkmxnbmfxi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tkmxnbmfxi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#spnrtjgsfu thead, #spnrtjgsfu tbody, #spnrtjgsfu tfoot, #spnrtjgsfu tr, #spnrtjgsfu td, #spnrtjgsfu th {
+#tkmxnbmfxi thead, #tkmxnbmfxi tbody, #tkmxnbmfxi tfoot, #tkmxnbmfxi tr, #tkmxnbmfxi td, #tkmxnbmfxi th {
   border-style: none;
 }
 
-#spnrtjgsfu p {
+#tkmxnbmfxi p {
   margin: 0;
   padding: 0;
 }
 
-#spnrtjgsfu .gt_table {
+#tkmxnbmfxi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -412,12 +448,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#spnrtjgsfu .gt_caption {
+#tkmxnbmfxi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#spnrtjgsfu .gt_title {
+#tkmxnbmfxi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -429,7 +465,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#spnrtjgsfu .gt_subtitle {
+#tkmxnbmfxi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -441,7 +477,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#spnrtjgsfu .gt_heading {
+#tkmxnbmfxi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -453,13 +489,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#spnrtjgsfu .gt_bottom_border {
+#tkmxnbmfxi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#spnrtjgsfu .gt_col_headings {
+#tkmxnbmfxi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -474,7 +510,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#spnrtjgsfu .gt_col_heading {
+#tkmxnbmfxi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -494,7 +530,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#spnrtjgsfu .gt_column_spanner_outer {
+#tkmxnbmfxi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -506,15 +542,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#spnrtjgsfu .gt_column_spanner_outer:first-child {
+#tkmxnbmfxi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#spnrtjgsfu .gt_column_spanner_outer:last-child {
+#tkmxnbmfxi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#spnrtjgsfu .gt_column_spanner {
+#tkmxnbmfxi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -526,11 +562,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#spnrtjgsfu .gt_spanner_row {
+#tkmxnbmfxi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#spnrtjgsfu .gt_group_heading {
+#tkmxnbmfxi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -556,7 +592,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#spnrtjgsfu .gt_empty_group_heading {
+#tkmxnbmfxi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -571,15 +607,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#spnrtjgsfu .gt_from_md > :first-child {
+#tkmxnbmfxi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#spnrtjgsfu .gt_from_md > :last-child {
+#tkmxnbmfxi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#spnrtjgsfu .gt_row {
+#tkmxnbmfxi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -598,7 +634,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#spnrtjgsfu .gt_stub {
+#tkmxnbmfxi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -611,7 +647,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#spnrtjgsfu .gt_stub_row_group {
+#tkmxnbmfxi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -625,15 +661,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#spnrtjgsfu .gt_row_group_first td {
+#tkmxnbmfxi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#spnrtjgsfu .gt_row_group_first th {
+#tkmxnbmfxi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#spnrtjgsfu .gt_summary_row {
+#tkmxnbmfxi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -643,16 +679,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#spnrtjgsfu .gt_first_summary_row {
+#tkmxnbmfxi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#spnrtjgsfu .gt_first_summary_row.thick {
+#tkmxnbmfxi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#spnrtjgsfu .gt_last_summary_row {
+#tkmxnbmfxi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -662,7 +698,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#spnrtjgsfu .gt_grand_summary_row {
+#tkmxnbmfxi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -672,7 +708,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#spnrtjgsfu .gt_first_grand_summary_row {
+#tkmxnbmfxi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -682,7 +718,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#spnrtjgsfu .gt_last_grand_summary_row_top {
+#tkmxnbmfxi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -692,11 +728,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#spnrtjgsfu .gt_striped {
+#tkmxnbmfxi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#spnrtjgsfu .gt_table_body {
+#tkmxnbmfxi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -705,7 +741,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#spnrtjgsfu .gt_footnotes {
+#tkmxnbmfxi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -719,7 +755,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#spnrtjgsfu .gt_footnote {
+#tkmxnbmfxi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -728,7 +764,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#spnrtjgsfu .gt_sourcenotes {
+#tkmxnbmfxi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -742,7 +778,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#spnrtjgsfu .gt_sourcenote {
+#tkmxnbmfxi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -750,77 +786,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#spnrtjgsfu .gt_left {
+#tkmxnbmfxi .gt_left {
   text-align: left;
 }
 
-#spnrtjgsfu .gt_center {
+#tkmxnbmfxi .gt_center {
   text-align: center;
 }
 
-#spnrtjgsfu .gt_right {
+#tkmxnbmfxi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#spnrtjgsfu .gt_font_normal {
+#tkmxnbmfxi .gt_font_normal {
   font-weight: normal;
 }
 
-#spnrtjgsfu .gt_font_bold {
+#tkmxnbmfxi .gt_font_bold {
   font-weight: bold;
 }
 
-#spnrtjgsfu .gt_font_italic {
+#tkmxnbmfxi .gt_font_italic {
   font-style: italic;
 }
 
-#spnrtjgsfu .gt_super {
+#tkmxnbmfxi .gt_super {
   font-size: 65%;
 }
 
-#spnrtjgsfu .gt_footnote_marks {
+#tkmxnbmfxi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#spnrtjgsfu .gt_asterisk {
+#tkmxnbmfxi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#spnrtjgsfu .gt_indent_1 {
+#tkmxnbmfxi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#spnrtjgsfu .gt_indent_2 {
+#tkmxnbmfxi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#spnrtjgsfu .gt_indent_3 {
+#tkmxnbmfxi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#spnrtjgsfu .gt_indent_4 {
+#tkmxnbmfxi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#spnrtjgsfu .gt_indent_5 {
+#tkmxnbmfxi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#spnrtjgsfu .katex-display {
+#tkmxnbmfxi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#spnrtjgsfu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tkmxnbmfxi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
+
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<thead><tr class="gt_col_headings header">
+<thead>
+<tr class="gt_col_headings header">
 <th id="manufacturer" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">manufacturer</th>
 <th id="model" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">model</th>
 <th id="displ" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">displ</th>
@@ -832,38 +870,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th id="hwy" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">hwy</th>
 <th id="fl" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">fl</th>
 <th id="class" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="font-weight: bold" scope="col">class</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="manufacturer">toyota</td>
-<td class="gt_row gt_left" headers="model">land cruiser wagon 4wd</td>
-<td class="gt_row gt_right" headers="displ">5.7</td>
+<td class="gt_row gt_left" headers="manufacturer">hyundai</td>
+<td class="gt_row gt_left" headers="model">sonata</td>
+<td class="gt_row gt_right" headers="displ">2.4</td>
 <td class="gt_row gt_right" headers="year">2008</td>
-<td class="gt_row gt_right" headers="cyl">8</td>
-<td class="gt_row gt_left" headers="trans">auto(s6)</td>
-<td class="gt_row gt_left" headers="drv">4</td>
-<td class="gt_row gt_right" headers="cty">13</td>
-<td class="gt_row gt_right" headers="hwy">18</td>
+<td class="gt_row gt_right" headers="cyl">4</td>
+<td class="gt_row gt_left" headers="trans">manual(m5)</td>
+<td class="gt_row gt_left" headers="drv">f</td>
+<td class="gt_row gt_right" headers="cty">21</td>
+<td class="gt_row gt_right" headers="hwy">31</td>
 <td class="gt_row gt_left" headers="fl">r</td>
-<td class="gt_row gt_left" headers="class">suv</td>
+<td class="gt_row gt_left" headers="class">midsize</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="manufacturer">toyota</td>
-<td class="gt_row gt_left" headers="model">camry solara</td>
-<td class="gt_row gt_right" headers="displ">3.0</td>
-<td class="gt_row gt_right" headers="year">1999</td>
-<td class="gt_row gt_right" headers="cyl">6</td>
-<td class="gt_row gt_left" headers="trans">auto(l4)</td>
-<td class="gt_row gt_left" headers="drv">f</td>
-<td class="gt_row gt_right" headers="cty">18</td>
-<td class="gt_row gt_right" headers="hwy">26</td>
+<td class="gt_row gt_left" headers="manufacturer">dodge</td>
+<td class="gt_row gt_left" headers="model">dakota pickup 4wd</td>
+<td class="gt_row gt_right" headers="displ">4.7</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_right" headers="cyl">8</td>
+<td class="gt_row gt_left" headers="trans">auto(l5)</td>
+<td class="gt_row gt_left" headers="drv">4</td>
+<td class="gt_row gt_right" headers="cty">14</td>
+<td class="gt_row gt_right" headers="hwy">19</td>
 <td class="gt_row gt_left" headers="fl">r</td>
-<td class="gt_row gt_left" headers="class">compact</td>
+<td class="gt_row gt_left" headers="class">pickup</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="manufacturer">hyundai</td>
-<td class="gt_row gt_left" headers="model">tiburon</td>
-<td class="gt_row gt_right" headers="displ">2.7</td>
+<td class="gt_row gt_left" headers="manufacturer">dodge</td>
+<td class="gt_row gt_left" headers="model">caravan 2wd</td>
+<td class="gt_row gt_right" headers="displ">3.3</td>
 <td class="gt_row gt_right" headers="year">2008</td>
 <td class="gt_row gt_right" headers="cyl">6</td>
 <td class="gt_row gt_left" headers="trans">auto(l4)</td>
@@ -871,85 +910,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_right" headers="cty">17</td>
 <td class="gt_row gt_right" headers="hwy">24</td>
 <td class="gt_row gt_left" headers="fl">r</td>
-<td class="gt_row gt_left" headers="class">subcompact</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="manufacturer">nissan</td>
-<td class="gt_row gt_left" headers="model">altima</td>
-<td class="gt_row gt_right" headers="displ">2.5</td>
-<td class="gt_row gt_right" headers="year">2008</td>
-<td class="gt_row gt_right" headers="cyl">4</td>
-<td class="gt_row gt_left" headers="trans">auto(av)</td>
-<td class="gt_row gt_left" headers="drv">f</td>
-<td class="gt_row gt_right" headers="cty">23</td>
-<td class="gt_row gt_right" headers="hwy">31</td>
-<td class="gt_row gt_left" headers="fl">r</td>
-<td class="gt_row gt_left" headers="class">midsize</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="manufacturer">ford</td>
-<td class="gt_row gt_left" headers="model">mustang</td>
-<td class="gt_row gt_right" headers="displ">4.0</td>
-<td class="gt_row gt_right" headers="year">2008</td>
-<td class="gt_row gt_right" headers="cyl">6</td>
-<td class="gt_row gt_left" headers="trans">manual(m5)</td>
-<td class="gt_row gt_left" headers="drv">r</td>
-<td class="gt_row gt_right" headers="cty">17</td>
-<td class="gt_row gt_right" headers="hwy">26</td>
-<td class="gt_row gt_left" headers="fl">r</td>
-<td class="gt_row gt_left" headers="class">subcompact</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="manufacturer">chevrolet</td>
-<td class="gt_row gt_left" headers="model">corvette</td>
-<td class="gt_row gt_right" headers="displ">6.2</td>
-<td class="gt_row gt_right" headers="year">2008</td>
-<td class="gt_row gt_right" headers="cyl">8</td>
-<td class="gt_row gt_left" headers="trans">auto(s6)</td>
-<td class="gt_row gt_left" headers="drv">r</td>
-<td class="gt_row gt_right" headers="cty">15</td>
-<td class="gt_row gt_right" headers="hwy">25</td>
-<td class="gt_row gt_left" headers="fl">p</td>
-<td class="gt_row gt_left" headers="class">2seater</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="manufacturer">toyota</td>
-<td class="gt_row gt_left" headers="model">toyota tacoma 4wd</td>
-<td class="gt_row gt_right" headers="displ">2.7</td>
-<td class="gt_row gt_right" headers="year">2008</td>
-<td class="gt_row gt_right" headers="cyl">4</td>
-<td class="gt_row gt_left" headers="trans">manual(m5)</td>
-<td class="gt_row gt_left" headers="drv">4</td>
-<td class="gt_row gt_right" headers="cty">17</td>
-<td class="gt_row gt_right" headers="hwy">22</td>
-<td class="gt_row gt_left" headers="fl">r</td>
-<td class="gt_row gt_left" headers="class">pickup</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="manufacturer">mercury</td>
-<td class="gt_row gt_left" headers="model">mountaineer 4wd</td>
-<td class="gt_row gt_right" headers="displ">4.0</td>
-<td class="gt_row gt_right" headers="year">2008</td>
-<td class="gt_row gt_right" headers="cyl">6</td>
-<td class="gt_row gt_left" headers="trans">auto(l5)</td>
-<td class="gt_row gt_left" headers="drv">4</td>
-<td class="gt_row gt_right" headers="cty">13</td>
-<td class="gt_row gt_right" headers="hwy">19</td>
-<td class="gt_row gt_left" headers="fl">r</td>
-<td class="gt_row gt_left" headers="class">suv</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="manufacturer">dodge</td>
-<td class="gt_row gt_left" headers="model">dakota pickup 4wd</td>
-<td class="gt_row gt_right" headers="displ">5.2</td>
-<td class="gt_row gt_right" headers="year">1999</td>
-<td class="gt_row gt_right" headers="cyl">8</td>
-<td class="gt_row gt_left" headers="trans">auto(l4)</td>
-<td class="gt_row gt_left" headers="drv">4</td>
-<td class="gt_row gt_right" headers="cty">11</td>
-<td class="gt_row gt_right" headers="hwy">15</td>
-<td class="gt_row gt_left" headers="fl">r</td>
-<td class="gt_row gt_left" headers="class">pickup</td>
+<td class="gt_row gt_left" headers="class">minivan</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="manufacturer">audi</td>
@@ -965,46 +926,130 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="gt_row gt_left" headers="class">compact</td>
 </tr>
 <tr class="odd">
+<td class="gt_row gt_left" headers="manufacturer">audi</td>
+<td class="gt_row gt_left" headers="model">a4 quattro</td>
+<td class="gt_row gt_right" headers="displ">3.1</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_right" headers="cyl">6</td>
+<td class="gt_row gt_left" headers="trans">auto(s6)</td>
+<td class="gt_row gt_left" headers="drv">4</td>
+<td class="gt_row gt_right" headers="cty">17</td>
+<td class="gt_row gt_right" headers="hwy">25</td>
+<td class="gt_row gt_left" headers="fl">p</td>
+<td class="gt_row gt_left" headers="class">compact</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="manufacturer">dodge</td>
+<td class="gt_row gt_left" headers="model">caravan 2wd</td>
+<td class="gt_row gt_right" headers="displ">3.3</td>
+<td class="gt_row gt_right" headers="year">1999</td>
+<td class="gt_row gt_right" headers="cyl">6</td>
+<td class="gt_row gt_left" headers="trans">auto(l4)</td>
+<td class="gt_row gt_left" headers="drv">f</td>
+<td class="gt_row gt_right" headers="cty">16</td>
+<td class="gt_row gt_right" headers="hwy">22</td>
+<td class="gt_row gt_left" headers="fl">r</td>
+<td class="gt_row gt_left" headers="class">minivan</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="manufacturer">toyota</td>
+<td class="gt_row gt_left" headers="model">camry</td>
+<td class="gt_row gt_right" headers="displ">2.4</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_right" headers="cyl">4</td>
+<td class="gt_row gt_left" headers="trans">manual(m5)</td>
+<td class="gt_row gt_left" headers="drv">f</td>
+<td class="gt_row gt_right" headers="cty">21</td>
+<td class="gt_row gt_right" headers="hwy">31</td>
+<td class="gt_row gt_left" headers="fl">r</td>
+<td class="gt_row gt_left" headers="class">midsize</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="manufacturer">honda</td>
+<td class="gt_row gt_left" headers="model">civic</td>
+<td class="gt_row gt_right" headers="displ">2.0</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_right" headers="cyl">4</td>
+<td class="gt_row gt_left" headers="trans">manual(m6)</td>
+<td class="gt_row gt_left" headers="drv">f</td>
+<td class="gt_row gt_right" headers="cty">21</td>
+<td class="gt_row gt_right" headers="hwy">29</td>
+<td class="gt_row gt_left" headers="fl">p</td>
+<td class="gt_row gt_left" headers="class">subcompact</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="manufacturer">volkswagen</td>
+<td class="gt_row gt_left" headers="model">jetta</td>
+<td class="gt_row gt_right" headers="displ">2.0</td>
+<td class="gt_row gt_right" headers="year">1999</td>
+<td class="gt_row gt_right" headers="cyl">4</td>
+<td class="gt_row gt_left" headers="trans">manual(m5)</td>
+<td class="gt_row gt_left" headers="drv">f</td>
+<td class="gt_row gt_right" headers="cty">21</td>
+<td class="gt_row gt_right" headers="hwy">29</td>
+<td class="gt_row gt_left" headers="fl">r</td>
+<td class="gt_row gt_left" headers="class">compact</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="manufacturer">dodge</td>
+<td class="gt_row gt_left" headers="model">caravan 2wd</td>
+<td class="gt_row gt_right" headers="displ">4.0</td>
+<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_right" headers="cyl">6</td>
+<td class="gt_row gt_left" headers="trans">auto(l6)</td>
+<td class="gt_row gt_left" headers="drv">f</td>
+<td class="gt_row gt_right" headers="cty">16</td>
+<td class="gt_row gt_right" headers="hwy">23</td>
+<td class="gt_row gt_left" headers="fl">r</td>
+<td class="gt_row gt_left" headers="class">minivan</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="manufacturer">volkswagen</td>
+<td class="gt_row gt_left" headers="model">jetta</td>
+<td class="gt_row gt_right" headers="displ">1.9</td>
+<td class="gt_row gt_right" headers="year">1999</td>
+<td class="gt_row gt_right" headers="cyl">4</td>
+<td class="gt_row gt_left" headers="trans">manual(m5)</td>
+<td class="gt_row gt_left" headers="drv">f</td>
+<td class="gt_row gt_right" headers="cty">33</td>
+<td class="gt_row gt_right" headers="hwy">44</td>
+<td class="gt_row gt_left" headers="fl">d</td>
+<td class="gt_row gt_left" headers="class">compact</td>
+</tr>
+<tr class="even">
 <td class="gt_row gt_left" headers="manufacturer">ford</td>
 <td class="gt_row gt_left" headers="model">f150 pickup 4wd</td>
 <td class="gt_row gt_right" headers="displ">5.4</td>
-<td class="gt_row gt_right" headers="year">2008</td>
+<td class="gt_row gt_right" headers="year">1999</td>
 <td class="gt_row gt_right" headers="cyl">8</td>
 <td class="gt_row gt_left" headers="trans">auto(l4)</td>
 <td class="gt_row gt_left" headers="drv">4</td>
-<td class="gt_row gt_right" headers="cty">13</td>
-<td class="gt_row gt_right" headers="hwy">17</td>
+<td class="gt_row gt_right" headers="cty">11</td>
+<td class="gt_row gt_right" headers="hwy">15</td>
 <td class="gt_row gt_left" headers="fl">r</td>
 <td class="gt_row gt_left" headers="class">pickup</td>
 </tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="manufacturer">volkswagen</td>
-<td class="gt_row gt_left" headers="model">new beetle</td>
-<td class="gt_row gt_right" headers="displ">2.5</td>
-<td class="gt_row gt_right" headers="year">2008</td>
-<td class="gt_row gt_right" headers="cyl">5</td>
-<td class="gt_row gt_left" headers="trans">auto(s6)</td>
-<td class="gt_row gt_left" headers="drv">f</td>
-<td class="gt_row gt_right" headers="cty">20</td>
-<td class="gt_row gt_right" headers="hwy">29</td>
-<td class="gt_row gt_left" headers="fl">r</td>
-<td class="gt_row gt_left" headers="class">subcompact</td>
-</tr>
 </tbody>
 </table>
+
 </div>
 </div>
 </div>
-</section><section id="grabbing-information" class="level2"><h2 class="anchored" data-anchor-id="grabbing-information">Grabbing Information</h2>
+</section>
+<section id="grabbing-information" class="level2">
+<h2 class="anchored" data-anchor-id="grabbing-information">Grabbing Information</h2>
 <p>What code would I run to learn the number of rows the <code>mpg</code> dataframe has? What about the number of columns?</p>
-<p> </p>
+<p><br> <br></p>
 <p>What code would I write to grab the <code>model</code> column from the <code>mpg</code> dataframe?</p>
-<p> </p>
+<p><br> <br></p>
 <p>How would I modify this code to grab the model of the fourth car in the <code>mpg</code> dataframe?</p>
-<p> </p>
+<p><br> <br></p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1418,7 +1463,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Built by Kelly Bodwin, Charlotte Mann, Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold.</p>
 </div>   
@@ -1430,6 +1476,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
   </div>
 </footer>
+
+
 
 
 </body></html>

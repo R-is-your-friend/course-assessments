@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Handout 4: Data Is Friend – R is Your Friend</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -31,19 +69,18 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -281,7 +318,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#understanding-your-data-context" id="toc-understanding-your-data-context" class="nav-link active" data-scroll-target="#understanding-your-data-context">Understanding your data context</a></li>
   <li><a href="#reading-in-the-data-following-file-paths" id="toc-reading-in-the-data-following-file-paths" class="nav-link" data-scroll-target="#reading-in-the-data-following-file-paths">Reading in the data &amp; following file paths</a></li>
-  <li><a href="#exploring-the-data-structure" id="toc-exploring-the-data-structure" class="nav-link" data-scroll-target="#exploring-the-data-structure">Exploring the data structure</a></li>
+  <li><a href="#exploring-the-data-structure" id="toc-exploring-the-data-structure" class="nav-link" data-scroll-target="#exploring-the-data-structure">Exploring the data structure</a>
+  <ul>
+  <li><a href="#shape-shifting-data" id="toc-shape-shifting-data" class="nav-link" data-scroll-target="#shape-shifting-data">Shape-shifting data</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -310,31 +350,222 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="understanding-your-data-context" class="level2">
 <h2 class="anchored" data-anchor-id="understanding-your-data-context">Understanding your data context</h2>
-<p>Who is the data about</p>
-<p><insert calendar=""> – unstructured data?? Page of a survey (how data was collected) -&gt; converted to the rectangle!</insert></p>
-<p>Here is a spreadsheet – <insert calendar="" format=""> + what is a row – week of the year? A single day? + how many columns?</insert></p>
+<p>Today we’ll work with data from a community meal program. Volunteers record the number of meals served each day by writing the counts on a paper calendar. Later, someone enters those counts into a spreadsheet so they can summarize activity and report trends.</p>
+<p>Throughout this activity, you’ll follow the same data as it changes form from handwritten notes, to a wide spreadsheet (<code>calendar-data.xlsx</code>), to a long dataset (<code>clean-calendar-data.csv</code>) that is ready to visualize and analyze in R.</p>
+<p>Before we write code, pause and ask: <strong>data about whom, collected by whom, and for what purpose?</strong></p>
+<p>Look at the paper version of the meal counts for the month of January.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../data/04-january.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Fill in your first impressions:</p>
+<ul>
+<li>Who or what is this data about? ______________________________</li>
+<li>Who might have collected it? _________________________________</li>
+<li>What does one number seem to represent? ______________________</li>
+<li>What context would you want before analyzing it? ______________</li>
+</ul>
+<p>Now look at the spreadsheet version.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>meal_counts_original <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"&lt;PATH-TO-DATA&gt;/04-calendar-data.xlsx"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>meal_counts_original</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 8
+  week_start          Sunday Monday Tuesday Wednesday Thursday Friday Saturday
+  &lt;dttm&gt;               &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+1 2025-12-28 00:00:00     NA     NA      NA        NA       64     55       75
+2 2026-01-04 00:00:00     68     57      74        69       57     59       81
+3 2026-01-11 00:00:00     64     65      70        65       77     61       62
+4 2026-01-18 00:00:00     92     64      45        52       65     80       82
+5 2026-01-25 00:00:00     61     70      69        67       74     73       56</code></pre>
+</div>
+</div>
+<ul>
+<li>What does one row represent? _________________________________</li>
+<li>What does one column represent? ______________________________</li>
+</ul>
 </section>
 <section id="reading-in-the-data-following-file-paths" class="level2">
 <h2 class="anchored" data-anchor-id="reading-in-the-data-following-file-paths">Reading in the data &amp; following file paths</h2>
+<p>For each prompt below:</p>
 <ol type="1">
-<li></li>
-<li></li>
-<li></li>
+<li>Star the working directory folder, your “home base.”</li>
+<li>Draw the route from the desired data set to your home base.</li>
+<li>Match the correct code and file path you would use to read in the data.</li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>File Path Bank
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"../data-from-organization/original-data/calendar-data.xlsx"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"data-from-organization/original-data/calendar-data.xlsx"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">"calendar-data.xlsx"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"clean-calendar-data.csv"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"data-from-organization/original-data/clean-calendar-data.csv"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"../clean-calendar-data.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<p><strong>Prompt 1:</strong> You are working within <code>my-code.R</code> and want to read in <code>calendar-data.xlsx</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_images/04-data-is-friend-filepath.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Code I would use:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Prompt 2:</strong> You are working within <code>my-analysis.qmd</code> and want to read in <code>calendar-data.xlsx</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_images/04-data-is-friend-filepath.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Code I would use:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Prompt 3:</strong> You are working within <code>my-analysis.qmd</code> and want to read in <code>clean-calendar-data.csv</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_images/04-data-is-friend-filepath.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Code I would use:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="exploring-the-data-structure" class="level2">
 <h2 class="anchored" data-anchor-id="exploring-the-data-structure">Exploring the data structure</h2>
+<p>Here, we read in the longer version of the meal-count data (<code>clean-calendar-data.csv</code>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>meal_counts <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"&lt;PATH-TO-DATA&gt;/clean-calendar-data.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Use R to explore the data and answer each question:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(meal_counts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame" </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(meal_counts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "week_start"    "date"          "weekday"       "meal_count"   
+[5] "avg_temp_f"    "gas_price_usd"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meal_counts, <span class="at">n =</span> <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  week_start date   weekday  meal_count avg_temp_f gas_price_usd
+  &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;         &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+1 12/28/25   1/1/15 Thursday         64         58          3.45
+2 12/28/25   1/2/15 Friday           55         60          3.46
+3 12/28/25   1/3/15 Saturday         75         61          3.46
+4 1/4/26     1/4/15 Sunday           68         59          3.46
+5 1/4/26     1/5/15 Monday           57         57          3.47
+6 1/4/26     1/6/15 Tuesday          74         56          3.48</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(meal_counts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 31
+Columns: 6
+$ week_start    &lt;chr&gt; "12/28/25", "12/28/25", "12/28/25", "1/4/26", "1/4/26", …
+$ date          &lt;chr&gt; "1/1/15", "1/2/15", "1/3/15", "1/4/15", "1/5/15", "1/6/1…
+$ weekday       &lt;chr&gt; "Thursday", "Friday", "Saturday", "Sunday", "Monday", "T…
+$ meal_count    &lt;dbl&gt; 64, 55, 75, 68, 57, 74, 69, 57, 59, 81, 64, 65, 70, 65, …
+$ avg_temp_f    &lt;dbl&gt; 58, 60, 61, 59, 57, 56, 55, 58, 60, 62, 61, 59, 58, 57, …
+$ gas_price_usd &lt;dbl&gt; 3.450, 3.455, 3.460, 3.465, 3.470, 3.475, 3.480, 3.485, …</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(meal_counts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     week_start        date         weekday     meal_count      avg_temp_f  
+ Length   :31   Length   :31   Length   :31   Min.   :45.00   Min.   :55.0  
+ N.unique : 5   N.unique :31   N.unique : 7   1st Qu.:61.00   1st Qu.:58.0  
+ N.blank  : 0   N.blank  : 0   N.blank  : 0   Median :65.00   Median :60.0  
+ Min.nchar: 6   Min.nchar: 6   Min.nchar: 6   Mean   :66.87   Mean   :59.9  
+ Max.nchar: 8   Max.nchar: 7   Max.nchar: 9   3rd Qu.:73.50   3rd Qu.:61.5  
+                                              Max.   :92.00   Max.   :65.0  
+ gas_price_usd  
+ Min.   :3.450  
+ 1st Qu.:3.487  
+ Median :3.525  
+ Mean   :3.525  
+ 3rd Qu.:3.562  
+ Max.   :3.600  </code></pre>
+</div>
+</div>
 <ul>
-<li>What does the rectangle look like?
-<ul>
-<li>what is a row – week of the year? A single day?</li>
-<li>how many columns?</li>
-<li>the same data can look like different rectangles (8 can be 1x8 or a 2x4 or a 4x2) shape-shifting data.</li>
-</ul></li>
+<li>What is the name of the data set object in the R environment? _________________</li>
+<li>What kind of R object is <code>meal_counts</code>? _______________________</li>
+<li>How many rows are in the data? _______________________________</li>
+<li>How many columns are in the data? ____________________________</li>
+<li>What does one row represent now? _____________________________</li>
+<li>Which variables are numeric? _________________________________</li>
+<li>Which variables are categorical and give context? _________________________________</li>
 </ul>
-<p>Here is a spreadsheet – <long format=""></long></p>
+<section id="shape-shifting-data" class="level3">
+<h3 class="anchored" data-anchor-id="shape-shifting-data">Shape-shifting data</h3>
+<p>The same information can be shaped into different rectangles. Complete the comparisons:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>One row represents…</th>
+<th>One column represents…</th>
+<th>Best for…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paper calendar</td>
+<td>__________</td>
+<td>__________</td>
+<td>Recording meals</td>
+</tr>
+<tr class="even">
+<td>Spreadsheet/wide data</td>
+<td>__________</td>
+<td>__________</td>
+<td>Sharing with coworkers/storing virtually</td>
+</tr>
+<tr class="odd">
+<td>Longer data</td>
+<td>__________</td>
+<td>__________</td>
+<td><em>Certain</em> analysis in R</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

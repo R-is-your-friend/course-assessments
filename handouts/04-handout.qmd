@@ -17,7 +17,7 @@ Look at the paper version of the meal counts for the month of January.
 #| echo: false
 #| fig-align: center
 #| out-width: 70%
-knitr::include_graphics("images/data-is-friend/data-from-organization/paper-calendars/january.png")
+knitr::include_graphics("../data/04-january.png")
 ```
 
 Fill in your first impressions:
@@ -33,7 +33,8 @@ Now look at the spreadsheet version.
 #| echo: true
 #| eval: false
 library(readxl)
-meal_counts_original <- read_csv("<PATH-TO-DATA>/04-calendar-data.xlsx")
+meal_counts_original <- read_excel("<PATH-TO-DATA>/04-calendar-data.xlsx")
+meal_counts_original
 ```
 
 ```{r}
