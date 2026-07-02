@@ -2,13 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Week 3 Part 2: Writing Simple Functions in R – R is Your Friend</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -65,18 +62,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/flourish-0.0.1/injectFlourishes.js"></script>
+<script src="../site_libs/quarto-contrib/flourish-0.0.1/flourish.js"></script><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -331,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="columns">
 <div class="column" style="width:48%;">
 <section id="readings-60-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
-</section><section id="activities-30-min" class="level4"><h4 class="anchored" data-anchor-id="activities-30-min">🏋🏾‍♂️ Activities: 30 min</h4>
+</section><section id="activities-30-min" class="level4"><h4 class="anchored" data-anchor-id="activities-30-min">🏋🏽‍♀️ Activities: 30 min</h4>
 </section>
 </div><div class="column" style="width:4%;">
 
@@ -377,30 +377,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Suppose <code>divide()</code> is a function with three arguments:</p>
 <ol type="1">
-<li>Now that we have created the <code>rescale()</code> function, let’s check our intuition for what the function should output (return) for different inputs.</li>
+<li>
+<code>x</code>, a number</li>
+<li>
+<code>y</code>, a number</li>
+<li>
+<code>round</code>, a logical (<code>TRUE/FALSE</code>) value</li>
 </ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
-<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">10</span><span class="op">:</span><span class="fl">20</span></span>
-<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="st">"dog"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p>The function calculates <code>x/y</code> and then decides whether or not to round the result (depending on whether <code>round = TRUE</code> or <code>round = FALSE</code>). We want to calculate <code>17/3</code> and then round the result. For each of the <em>function calls</em> below, indicate if this would result in</p>
 <ol type="a">
-<li>What would you expect <code>rescale()</code> to output when <code>x</code> is input?</li>
-<li>What would you expect <code>rescale()</code> to output when <code>y</code> is input?</li>
-<li>What would you expect <code>rescale()</code> to output when <code>z</code> is input?</li>
+<li>An error</li>
+<li>No error, but an incorrect result</li>
+<li>The correct result</li>
 </ol>
-<p>We know <code>rescale()</code> works, so let’s test our intuition for what would happen for the following scenarios.</p>
-<ol start="2" type="1">
-<li><code>rescale(nums, method = "normalize")</code></li>
-<li><code>rescale(nums, method = "min-max")</code></li>
-<li><code>rescale(nums, na.rm = TRUE)</code></li>
+<ol type="1">
+<li><code>divide(17, 3, TRUE)</code></li>
+<li><code>divide(round = TRUE, y = 3, x = 17)</code></li>
+<li><code>divide(17, 3, round = TRUE)</code></li>
+<li><code>divide(round = TRUE, 3, 17)</code></li>
+<li><code>divide(TRUE, 17, 3)</code></li>
 </ol>
-<p>We’ve incorporated a input check for the size of <code>x</code>, but not for the size of <code>na.rm</code> or <code>method</code>.</p>
-<ol start="5" type="1">
-<li><p>What <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> should we expect <code>na.rm</code> to have?</p></li>
-<li><p>What <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> should we expect <code>method</code> to have?</p></li>
-<li><p>What should the final set of input checks be?</p></li>
+<p>Now that we have created the <code>rescale()</code> function, let’s check our intuition for what the function should output (return) for different inputs.</p>
+<ol start="6" type="1">
+<li>What would you expect <code>rescale()</code> to output when <code>test_single</code> is input?</li>
+<li>What would you expect <code>rescale()</code> to output when <code>test_missing</code> is input?</li>
+<li>What would you expect <code>rescale()</code> to output when <code>test_type</code> is input?</li>
+</ol>
+<p>Let’s think about what you would expect the <code>find_tax_rate()</code> function to do for different scenarios.</p>
+<ol start="9" type="1">
+<li>What would you expect <code>find_tax_rate()</code> to output when a <em>character</em> object is input? Why?</li>
+<li>What would you expect <code>find_tax_rate()</code> to output when no arguments are provided? Why?</li>
+<li>What would you expect <code>find_tax_rate()</code> to output when a numeric <strong>vector</strong> is input? Why?</li>
+</ol>
+<p>Suppose we want to use a <em>loop</em> to rescale the vectors <code>cpi</code>, <code>ppe</code>, and <code>pci</code>. What should go in the blanks below?</p>
+<div class="cell" data-flourish="[{&quot;target&quot;:[&quot;blah&quot;,{&quot;mask&quot;:true},{&quot;style&quot;:&quot;text-decoration: underline;&quot;}]},{&quot;target-rx&quot;:[&quot;blahblah&quot;,{&quot;mask&quot;:true},{&quot;style&quot;:&quot;text-decoration: underline;&quot;}]}]">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">economy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">cpi</span>, <span class="va">ppi</span>, <span class="va">pce</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">blah</span><span class="op">)</span> <span class="op">{</span>                                       </span>
+<span>  </span>
+<span>  <span class="va">economy_data</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">rescale</span><span class="op">(</span><span class="va">economy_data</span><span class="op">[</span><span class="va">blahblah</span><span class="op">]</span><span class="op">)</span>     </span>
+<span>  </span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p>Suppose we’ve created the following function:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">friend_or_foe</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="fu">if_else</span><span class="op">(</span><span class="va">pet</span> <span class="op">==</span> <span class="st">"cat"</span>, </span>
+<span>          <span class="st">"friend"</span>, </span>
+<span>          <span class="st">"foe"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:48%;">
+<p>And we have the following value in our global environment:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pet</span> <span class="op">&lt;-</span> <span class="st">"cat"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<ol start="13" type="1">
+<li><p>What would <code>friend_or_foe()</code> output?</p></li>
+<li><p>What if we ran the following code <code>pet &lt;- "parrot"</code>? What would <code>friend_or_foe()</code> output?</p></li>
+<li><p>What if there was no object named <code>pet</code> in the global environment? What would <code>friend_or_foe()</code> output?</p></li>
 </ol>
 </div>
 </div>
