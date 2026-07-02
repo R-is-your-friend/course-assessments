@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Handout 5: Data Visualization – R is Your Friend</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -19,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -31,19 +69,18 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -274,8 +311,27 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#meet-the-data" id="toc-meet-the-data" class="nav-link active" data-scroll-target="#meet-the-data">Meet the Data</a>
+  <ul>
+  <li><a href="#data-dictionary-palmtrees.csv" id="toc-data-dictionary-palmtrees.csv" class="nav-link" data-scroll-target="#data-dictionary-palmtrees.csv"><strong>Data Dictionary <code>palmtrees.csv</code></strong></a></li>
+  </ul></li>
+  <li><a href="#grammar-of-graphics" id="toc-grammar-of-graphics" class="nav-link" data-scroll-target="#grammar-of-graphics">Grammar of Graphics</a>
+  <ul>
+  <li><a href="#how-to-build-a-graphic-with-ggplot2" id="toc-how-to-build-a-graphic-with-ggplot2" class="nav-link" data-scroll-target="#how-to-build-a-graphic-with-ggplot2">How to Build a Graphic with <code>ggplot2</code></a></li>
+  <li><a href="#aesthetics-geometries" id="toc-aesthetics-geometries" class="nav-link" data-scroll-target="#aesthetics-geometries"><code>aes</code>thetics &amp; <code>geom</code>etries</a></li>
+  <li><a href="#practice-activity-warm-up" id="toc-practice-activity-warm-up" class="nav-link" data-scroll-target="#practice-activity-warm-up">Practice Activity Warm-up</a>
+  <ul class="collapse">
+  <li><a href="#create-a-plot-showing-the-number-of-palm-tree-species-with-each-fruit-shape-ovoid-globose-elongate-rounded-ellipsoid-pyramidal-fusiform." id="toc-create-a-plot-showing-the-number-of-palm-tree-species-with-each-fruit-shape-ovoid-globose-elongate-rounded-ellipsoid-pyramidal-fusiform." class="nav-link" data-scroll-target="#create-a-plot-showing-the-number-of-palm-tree-species-with-each-fruit-shape-ovoid-globose-elongate-rounded-ellipsoid-pyramidal-fusiform.">Create a plot showing the number of palm tree species with each fruit shape (ovoid, globose, elongate, rounded, ellipsoid, pyramidal, fusiform).</a></li>
+  <li><a href="#create-a-plot-showing-the-relationship-between-a-palm-tree-species-max-stem-height-m-and-max-stem-diameter-cm-differentiating-species-by-the-palm-subfamilies." id="toc-create-a-plot-showing-the-relationship-between-a-palm-tree-species-max-stem-height-m-and-max-stem-diameter-cm-differentiating-species-by-the-palm-subfamilies." class="nav-link" data-scroll-target="#create-a-plot-showing-the-relationship-between-a-palm-tree-species-max-stem-height-m-and-max-stem-diameter-cm-differentiating-species-by-the-palm-subfamilies.">Create a plot showing the relationship between a palm tree species max stem height (m) and max stem diameter (cm) differentiating species by the palm subfamilies.</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -300,8 +356,339 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="meet-the-data" class="level1">
+<h1>Meet the Data</h1>
+<p>Before creating graphs, lets take a few minutes to understand the dataset. The dataset comes from the <a href="https://www.nature.com/articles/s41597-019-0189-0">the PalmTraits 1.0 database</a> via the <a href="https://github.com/EmilHvitfeldt/palmtrees"><code>palmtrees</code></a> R package by <a href="https://github.com/EmilHvitfeldt">Emil Hvitfeldt</a>. The data set was curated by <a href="https://github.com/lgibson7">Lydia Gibson</a>.</p>
+<p>Kissling, W. D., Balslev, H., Baker, W. J., Dransfield, J., Göldel, B., Lim, J. Y., &amp; Svenning, J. C. (2019). PalmTraits 1.0, a species-level functional trait database of palms worldwide. <em>Scientific Data</em>, <em>6</em>(1), 178.</p>
+<blockquote class="blockquote">
+<p>Plant traits are critical to plant form and function —including growth, survival and reproduction— and therefore shape fundamental aspects of population and ecosystem dynamics as well as ecosystem services. Here, we present a global species-level compilation of key functional traits for palms (Arecaceae), a plant family with keystone importance in tropical and subtropical ecosystems.</p>
+</blockquote>
+<p>Before looking at the data dictionary…</p>
+<ol type="1">
+<li>Who or what do you think is represented in these data?</li>
+<li>Who might have collected these data, and what is one reason they would collect them?</li>
+<li>Do you think every palm species has complete information for every variables? Why or why not?</li>
+<li>Have you ever noticed different kinds of palm trees? Where?</li>
+</ol>
+<section id="data-dictionary-palmtrees.csv" class="level3">
+<h3 class="anchored" data-anchor-id="data-dictionary-palmtrees.csv"><strong>Data Dictionary <code>palmtrees.csv</code></strong></h3>
+<p>Answer the following questions using the data dictionary.</p>
+<ol start="5" type="1">
+<li>What does one row in this dataset represent? One palm tree? One palm species? One forest?</li>
+<li>Find two numerical variables and two categorical variables.</li>
+</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>variable</strong></th>
+<th><strong>class</strong></th>
+<th><strong>description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>spec_name</td>
+<td>character</td>
+<td>Taxonomic name of species (binomial nomenclature) following the World Checklist of palms.</td>
+</tr>
+<tr class="even">
+<td>acc_genus</td>
+<td>character</td>
+<td>Accepted genus name from the World Checklist of palms.</td>
+</tr>
+<tr class="odd">
+<td>acc_species</td>
+<td>character</td>
+<td>Accepted species name from the World Checklist of palms.</td>
+</tr>
+<tr class="even">
+<td>palm_tribe</td>
+<td>character</td>
+<td>Name of palm tribe from the World Checklist of palms.</td>
+</tr>
+<tr class="odd">
+<td>palm_subfamily</td>
+<td>character</td>
+<td>Name of palm subfamily from the World Checklist of palms.</td>
+</tr>
+<tr class="even">
+<td>climbing</td>
+<td>factor</td>
+<td>Whether palm species has climbing habit or not, or both if populations vary in this trait.</td>
+</tr>
+<tr class="odd">
+<td>acaulescent</td>
+<td>factor</td>
+<td>Whether palm species has an acaulescent growth form (leaves and inflorescence rise from the ground, i.e.&nbsp;lacking a visible aboveground stem) or not, or both if populations vary in this trait.</td>
+</tr>
+<tr class="even">
+<td>erect</td>
+<td>factor</td>
+<td>Whether palm species has an erect stem (rather than an acaulescent or climbing growth form) or not, or both if local populations vary in this trait.</td>
+</tr>
+<tr class="odd">
+<td>stem_solitary</td>
+<td>factor</td>
+<td>Whether stems are solitary (single-stemmed) or clustered (with several stems), or both if populations vary in this trait.</td>
+</tr>
+<tr class="even">
+<td>stem_armed</td>
+<td>factor</td>
+<td>Whether bearing some form of spines at the stem or not, or both if populations vary in this trait.</td>
+</tr>
+<tr class="odd">
+<td>leaves_armed</td>
+<td>factor</td>
+<td>Whether bearing some form of spines on the leaves or not, or both if populations vary in this trait.</td>
+</tr>
+<tr class="even">
+<td>max_stem_height_m</td>
+<td>double</td>
+<td>Maximum stem height.</td>
+</tr>
+<tr class="odd">
+<td>max_stem_dia_cm</td>
+<td>double</td>
+<td>Maximum stem diameter.</td>
+</tr>
+<tr class="even">
+<td>understorey_canopy</td>
+<td>factor&lt;27915&gt;</td>
+<td>Understory palms are defined as short-stemmed palms with a maximum stem height ≤5m or an acaulescent growth form, canopy palms with maximum stem height &gt;5m.</td>
+</tr>
+<tr class="odd">
+<td>max_leaf_number</td>
+<td>integer</td>
+<td>Maximum number of leaves.</td>
+</tr>
+<tr class="even">
+<td>max__blade__length_m</td>
+<td>double</td>
+<td>Maximum length of the blade (the flat expanded part of a leaf as distinguished from the petiole).</td>
+</tr>
+<tr class="odd">
+<td>max__rachis__length_m</td>
+<td>double</td>
+<td>Maximum length of the rachis (the axis of the leaf beyond the petiole).</td>
+</tr>
+<tr class="even">
+<td>max__petiole_length_m</td>
+<td>double</td>
+<td>Maximum length of the petiole (the stalk of the leave).</td>
+</tr>
+<tr class="odd">
+<td>average_fruit_length_cm</td>
+<td>double</td>
+<td>Average length of the fruit as provided in a monograph or species description.</td>
+</tr>
+<tr class="even">
+<td>min_fruit_length_cm</td>
+<td>double</td>
+<td>Minimum fruit length as provided in a monograph or species description.</td>
+</tr>
+<tr class="odd">
+<td>max_fruit_length_cm</td>
+<td>double</td>
+<td>Maximum fruit length as provided in a monograph or species description.</td>
+</tr>
+<tr class="even">
+<td>average_fruit_width_cm</td>
+<td>double</td>
+<td>Average width of the fruit as provided in a monograph or species description.</td>
+</tr>
+<tr class="odd">
+<td>min_fruit_width_cm</td>
+<td>double</td>
+<td>Minimum fruit width as provided in a monograph or species description.</td>
+</tr>
+<tr class="even">
+<td>max_fruit_width_cm</td>
+<td>double</td>
+<td>Maximum fruit width as provided in a monograph or species description.</td>
+</tr>
+<tr class="odd">
+<td>fruit_size_categorical</td>
+<td>factor</td>
+<td>Species classified into small-fruited palms (fruits &lt;4cm in length) and large-fruited palms (fruits ≥4cm in length).</td>
+</tr>
+<tr class="even">
+<td>fruit_shape</td>
+<td>factor</td>
+<td>Description of fruit shape as provided in a monograph or species description.</td>
+</tr>
+<tr class="odd">
+<td>fruit_color_description</td>
+<td>character</td>
+<td>Verbatim description of fruit color (e.g.&nbsp;red to dark purple, green to orange to red, purple-brown) as provided in a monograph or species description.</td>
+</tr>
+<tr class="even">
+<td>main_fruit_colors</td>
+<td>character</td>
+<td>Main fruit colors summarized from fruit color descriptions (black, yellow, orange, red, purple etc.).</td>
+</tr>
+<tr class="odd">
+<td>conspicuousness</td>
+<td>factor</td>
+<td>Main fruit colors classified into conspicuous colors (e.g.&nbsp;orange, red, yellow, pink, crimson, scarlet) vs.&nbsp;cryptic colors (brown, black, green, blue, cream, grey, ivory, straw-coloured, white, purple).</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="grammar-of-graphics" class="level1">
+<h1>Grammar of Graphics</h1>
+<p>Think of a graph or a data visualization as a mapping…</p>
+<p>…<strong>FROM variables</strong> in the data set (or statistics computed from the data)…</p>
+<p>…<strong>TO visual attributes</strong> (or “aesthetics”) <strong>of marks</strong> (or “geometric elements”) on the page/screen.</p>
+<section id="how-to-build-a-graphic-with-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-build-a-graphic-with-ggplot2">How to Build a Graphic with <code>ggplot2</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_images/05-sketch-the-ggplot2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li><strong>What do you expect to see after running the following code? Sketch it in the box above.</strong></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="4" type="1">
+<li><strong>What do you expect to see after running the following code? Add to your sketch in the box above.</strong></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> palm_subfamily, <span class="at">y =</span> max_stem_height_m)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="5" type="1">
+<li><strong>What do you expect to see after running the following code? Add to your sketch in the box above.</strong></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> palm_subfamily, <span class="at">y =</span> max_stem_height_m)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="6" type="1">
+<li><strong>What do you expect to see after running the following code? Add to your sketch in the box above.</strong></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> palm_subfamily, <span class="at">y =</span> max_stem_height_m)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `ggplot()`:
+! could not find function "ggplot"</code></pre>
+</div>
+</div>
+</section>
+<section id="aesthetics-geometries" class="level2">
+<h2 class="anchored" data-anchor-id="aesthetics-geometries"><code>aes</code>thetics &amp; <code>geom</code>etries</h2>
+<p><strong>Common aesthetics</strong></p>
+<ul>
+<li><p>x, y</p></li>
+<li><p>color, fill</p></li>
+<li><p>linetype</p></li>
+<li><p>shape</p></li>
+<li><p>size</p></li>
+</ul>
+<p><strong>Common geometries</strong></p>
+<ul>
+<li><p>geom_bar()</p></li>
+<li><p>geom_density()</p></li>
+<li><p>geom_histogram()</p></li>
+<li><p>geom_boxplot()</p></li>
+<li><p>geom_point()</p></li>
+<li><p>geom_line()</p></li>
+</ul>
+<p>We will explore:</p>
+<ul>
+<li><p>How does the sizes of the different species of palms vary across sub families?</p></li>
+<li><p>Which fruit colors occur most often?</p></li>
+</ul>
+</section>
+<section id="practice-activity-warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="practice-activity-warm-up">Practice Activity Warm-up</h2>
+<p>In the PA today, you will read in the data and create graphs to explore:</p>
+<ul>
+<li><p>Which fruit shapes occur most often?</p></li>
+<li><p>How does the sizes of the different species of palms vary across sub families?</p></li>
+</ul>
+<section id="create-a-plot-showing-the-number-of-palm-tree-species-with-each-fruit-shape-ovoid-globose-elongate-rounded-ellipsoid-pyramidal-fusiform." class="level3">
+<h3 class="anchored" data-anchor-id="create-a-plot-showing-the-number-of-palm-tree-species-with-each-fruit-shape-ovoid-globose-elongate-rounded-ellipsoid-pyramidal-fusiform.">Create a plot showing the number of palm tree species with each fruit shape (ovoid, globose, elongate, rounded, ellipsoid, pyramidal, fusiform).</h3>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output cell-output-error">
+<pre><code>Error in `select()`:
+! could not find function "select"</code></pre>
+</div>
+</div>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_images/05-sketch-the-ggplot2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Sketch an appropriate plot and map the variables from in the condensed dataset above. Carefully consider the following:</p>
+<ul>
+<li>What type of variable is <code>fruit_shape</code>?</li>
+<li>What type of plot would you make for this type of variable?</li>
+<li>What <code>geom</code> would you use?</li>
+</ul>
+</section>
+<section id="create-a-plot-showing-the-relationship-between-a-palm-tree-species-max-stem-height-m-and-max-stem-diameter-cm-differentiating-species-by-the-palm-subfamilies." class="level3">
+<h3 class="anchored" data-anchor-id="create-a-plot-showing-the-relationship-between-a-palm-tree-species-max-stem-height-m-and-max-stem-diameter-cm-differentiating-species-by-the-palm-subfamilies.">Create a plot showing the relationship between a palm tree species max stem height (m) and max stem diameter (cm) differentiating species by the palm subfamilies.</h3>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="cell-output cell-output-error">
+<pre><code>Error in `select()`:
+! could not find function "select"</code></pre>
+</div>
+</div>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_images/05-sketch-the-ggplot2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Sketch an appropriate plot and map the variables from in the condensed dataset above. Carefully consider the following:</p>
+<ul>
+<li>What type of variables are <code>max_stem_height_m</code> and <code>max_stem_dia_cm</code>?</li>
+<li>What type of plot would you make for this type of variable?</li>
+<li>What <code>geom</code> would you use?</li>
+<li>How would you incorporate the subfamily? What type of variable is <code>palm_subfamily</code>?</li>
+</ul>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -725,7 +1112,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with ❤️️ and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
