@@ -354,7 +354,7 @@
     "href": "reading/week-3b.html#writing-functions-in-r",
     "title": "Week 3 Part 2: Writing Simple Functions in R",
     "section": "\n1 Writing Functions in R",
-    "text": "1 Writing Functions in R\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nUnderstand the components of a function\nOutline how function arguments are used\nContrast arguments with and without default values\nIllustrate how control flow can be used inside the body of a function\nExplain the differences between explicit and implicit function returns\n\n\n\n📖 Required Reading: Writing Simple Functions in R\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\n\nNow that we have created the rescale() function, let’s check our intuition for what the function should output (return) for different inputs.\n\n\nx &lt;- 3\ny &lt;- 10:20\nz &lt;- c(1, 4, 5, 6, \"dog\")\n\n\nWhat would you expect rescale() to output when x is input?\nWhat would you expect rescale() to output when y is input?\nWhat would you expect rescale() to output when z is input?\n\nWe know rescale() works, so let’s test our intuition for what would happen for the following scenarios.\n\nrescale(nums, method = \"normalize\")\nrescale(nums, method = \"min-max\")\nrescale(nums, na.rm = TRUE)\n\nWe’ve incorporated a input check for the size of x, but not for the size of na.rm or method.\n\nWhat length() should we expect na.rm to have?\nWhat length() should we expect method to have?\nWhat should the final set of input checks be?"
+    "text": "1 Writing Functions in R\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nUnderstand the components of a function\nOutline how function arguments are used\nContrast arguments with and without default values\nIllustrate how control flow can be used inside the body of a function\nExplain the differences between explicit and implicit function returns\n\n\n\n📖 Required Reading: Writing Simple Functions in R\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nSuppose divide() is a function with three arguments:\n\n\nx, a number\n\ny, a number\n\nround, a logical (TRUE/FALSE) value\n\nThe function calculates x/y and then decides whether or not to round the result (depending on whether round = TRUE or round = FALSE). We want to calculate 17/3 and then round the result. For each of the function calls below, indicate if this would result in\n\nAn error\nNo error, but an incorrect result\nThe correct result\n\n\ndivide(17, 3, TRUE)\ndivide(round = TRUE, y = 3, x = 17)\ndivide(17, 3, round = TRUE)\ndivide(round = TRUE, 3, 17)\ndivide(TRUE, 17, 3)\n\nNow that we have created the rescale() function, let’s check our intuition for what the function should output (return) for different inputs.\n\nWhat would you expect rescale() to output when test_single is input?\nWhat would you expect rescale() to output when test_missing is input?\nWhat would you expect rescale() to output when test_type is input?\n\nLet’s think about what you would expect the find_tax_rate() function to do for different scenarios.\n\nWhat would you expect find_tax_rate() to output when a character object is input? Why?\nWhat would you expect find_tax_rate() to output when no arguments are provided? Why?\nWhat would you expect find_tax_rate() to output when a numeric vector is input? Why?\n\nSuppose we want to use a loop to rescale the vectors cpi, ppe, and pci. What should go in the blanks below?\n\neconomy_data &lt;- list(cpi, ppi, pce)\n\nfor(i in blah) {                                       \n  \n  economy_data[[i]] &lt;- rescale(economy_data[blahblah])     \n  \n}\n\n\n\nSuppose we’ve created the following function:\n\nfriend_or_foe &lt;- function(){\n  if_else(pet == \"cat\", \n          \"friend\", \n          \"foe\")\n}\n\n\n\n\nAnd we have the following value in our global environment:\n\npet &lt;- \"cat\"\n\n\n\n\nWhat would friend_or_foe() output?\nWhat if we ran the following code pet &lt;- \"parrot\"? What would friend_or_foe() output?\nWhat if there was no object named pet in the global environment? What would friend_or_foe() output?"
   },
   {
     "objectID": "reading/week-2.html",
@@ -669,7 +669,7 @@
     "href": "handouts/04-handout.html",
     "title": "Handout 4: Data Is Friend",
     "section": "",
-    "text": "Show code for reading in the data – read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)?\n\nWhat if the data looks like xxxx.\n\nHow many dimensions is the data? – use dim()\nScreenshot of reflected file folder structure & Files tab in R.\n\n\n\nImage of file folder structure – putting a pin/moving/trace the path to the data. Fill in the file folder structure.\n\nWhat if it is a .qmd file instead of a .R script (DUMB!)\nWhere is your “home base”?\nWould the code run? yes/no\n\nIf you have downloaded data, where should you save it on your computer to read it into your qmd? Sketch your folder project management gameplan!\n\n\n\nWhat does the rectangle look like?\n\nwhat is a row – week of the year? A single day?\nhow many columns?\nthe same data can look like different rectangles (8 can be 1x8 or a 2x4 or a 4x2) shape-shifting data.\nPage of a survey (how data was collected) -&gt; converted to the rectangle!!!\n\nmatch the View(), str(), glimpse()\n\nwhat sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?"
+    "text": "Who is the data about\n – unstructured data?? Page of a survey (how data was collected) -&gt; converted to the rectangle!\nHere is a spreadsheet –  + what is a row – week of the year? A single day? + how many columns?"
   },
   {
     "objectID": "index.html",
@@ -977,7 +977,7 @@
     "href": "reading/week-4.html#importing-data-into-r",
     "title": "Week 4: Data is Friend",
     "section": "\n3 Importing Data into R",
-    "text": "3 Importing Data into R\n📖 Required Reading: File Paths\n\n📖 Required Reading: R4DS 7.1-7.3 about reading in data files\n📖 Required Reading: R4DS 7.5 about saving data externally\n📖 Required Reading: R4DS 20 about working with Excel files\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "text": "3 Importing Data into R\n📖 Required Reading: File Paths\n\n📖 Required Reading: R4DS 7.1-7.3 about reading in data files\n📖 Required Reading: R4DS 7.5 about saving data externally\n📖 Required Reading: R4DS 20 about working with Excel files\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO\n\nShow code for reading in the data – read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)?\n\nWhat if the data looks like xxxx.\n\n\nHow many dimensions is the data? – use dim()\nScreenshot of reflected file folder structure & Files tab in R.\nmatch the View(), str(), glimpse()\n\nwhat sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?"
   },
   {
     "objectID": "reading/week-4.html#quarto",
@@ -1783,5 +1783,355 @@
     "title": "Week 4: Data is Friend",
     "section": "\n4 Data and Analysis Management",
     "text": "4 Data and Analysis Management\nR Projects Reading - add\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO\n\n\n📖 Required Reading: R4DS 28 about Quarto\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa10-communication.html",
+    "href": "practice-activities/main-version/pa10-communication.html",
+    "title": "Practice Activity 10: Communication",
+    "section": "",
+    "text": "Setup\n\n\n\n\n\n\nTipCanvas Submission\n\n\n\nxxx"
+  },
+  {
+    "objectID": "handouts/04-handout.html#understanding-your-data-context",
+    "href": "handouts/04-handout.html#understanding-your-data-context",
+    "title": "Handout 4: Data Is Friend",
+    "section": "",
+    "text": "Who is the data about\n – unstructured data?? Page of a survey (how data was collected) -&gt; converted to the rectangle!\nHere is a spreadsheet –  + what is a row – week of the year? A single day? + how many columns?"
+  },
+  {
+    "objectID": "handouts/04-handout.html#reading-in-the-data-following-file-paths",
+    "href": "handouts/04-handout.html#reading-in-the-data-following-file-paths",
+    "title": "Handout 4: Data Is Friend",
+    "section": "Reading in the data & following file paths",
+    "text": "Reading in the data & following file paths"
+  },
+  {
+    "objectID": "handouts/04-handout.html#exploring-the-data-structure",
+    "href": "handouts/04-handout.html#exploring-the-data-structure",
+    "title": "Handout 4: Data Is Friend",
+    "section": "Exploring the data structure",
+    "text": "Exploring the data structure\n\nWhat does the rectangle look like?\n\nwhat is a row – week of the year? A single day?\nhow many columns?\nthe same data can look like different rectangles (8 can be 1x8 or a 2x4 or a 4x2) shape-shifting data.\n\n\nHere is a spreadsheet –"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa5-dataviz.html",
+    "href": "practice-activities/main-version/pa5-dataviz.html",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "",
+    "text": "First, we declare our package dependencies.\n\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa5-dataviz.html#does-it-seem-easier-to-capturerecapture-male-or-female-tortoises",
+    "href": "practice-activities/main-version/pa5-dataviz.html#does-it-seem-easier-to-capturerecapture-male-or-female-tortoises",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "“Does it seem easier to capture/recapture male or female tortoises?”",
+    "text": "“Does it seem easier to capture/recapture male or female tortoises?”\n\nHow many captures are there for each sex? What variables do you need to answer this question?\n\n\nUse ggplot2 to draw a barchart of the count of captures for each tortoise sex.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = sex)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa5-dataviz.html#what-are-the-differences-between-male-and-female-tortoises-across-the-three-locations-beach-mainland-beach-plateau-mainland-and-konjsko-island-in-terms-of-body-mass-or-carapace-length",
+    "href": "practice-activities/main-version/pa5-dataviz.html#what-are-the-differences-between-male-and-female-tortoises-across-the-three-locations-beach-mainland-beach-plateau-mainland-and-konjsko-island-in-terms-of-body-mass-or-carapace-length",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "“What are the differences between male and female tortoises across the three locations (Beach Mainland Beach, Plateau Mainland, and Konjsko Island) in terms of body mass or carapace length?”",
+    "text": "“What are the differences between male and female tortoises across the three locations (Beach Mainland Beach, Plateau Mainland, and Konjsko Island) in terms of body mass or carapace length?”\n\nUse ggplot2 to create a scatterplot of the relationship between the body mass (body_mass_grams) and carapace length (straight_carapace_length_mm).\n\n\nThat’s a lot of data! Use alpha = 0.1 in your scatterplot to create a transparency effect to help with overplotting.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, y = straight_carapace_length_mm)) +\n  geom_point(alpha = 0.1)\n\n\n\n\n\n\n\n\nBuilding off the previous graph, add an aesthetic to differentiate the location (locality) on your scatterplot by color.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, \n             y = straight_carapace_length_mm,\n             color = sex)\n         ) +\n  geom_point(alpha = 0.2)\n\n\n\n\n\n\n\n\nBuilding off the same graph, incorporate location (locality). There may be more than one method to address this, however, one method will more easily address the questions below.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, \n             y = straight_carapace_length_mm,\n             color = sex)\n         ) +\n  geom_point(alpha = 0.2) +\n  facet_wrap(~ locality)\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipCanvas Submission\n\n\n\nxxx\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote that this dataset comes from TidyTuesday 2026 week 9."
+  },
+  {
+    "objectID": "reading/week-10.html",
+    "href": "reading/week-10.html",
+    "title": "Week 10: Communication",
+    "section": "",
+    "text": "Evaluate existing charts and develop new versions that improve accessibility and readability\nDesign and evaluate effective tables \n\n\nIn this week’s reading, we have:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimage…"
+  },
+  {
+    "objectID": "reading/week-10.html#learning-objectives",
+    "href": "reading/week-10.html#learning-objectives",
+    "title": "Week 10: Communication",
+    "section": "",
+    "text": "Evaluate existing charts and develop new versions that improve accessibility and readability\nDesign and evaluate effective tables \n\n\nIn this week’s reading, we have:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimage…"
+  },
+  {
+    "objectID": "reading/week-10.html#effective-data-visualizations",
+    "href": "reading/week-10.html#effective-data-visualizations",
+    "title": "Week 10: Communication",
+    "section": "\n2 Effective Data Visualizations",
+    "text": "2 Effective Data Visualizations\n📖 Required Reading: Creating Good Charts.\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "reading/week-10.html#table-design",
+    "href": "reading/week-10.html#table-design",
+    "title": "Week 10: Communication",
+    "section": "\n3 Table Design",
+    "text": "3 Table Design\nRequired Reading: []\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "practice-activities/instructions/pa5-dataviz.html",
+    "href": "practice-activities/instructions/pa5-dataviz.html",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "",
+    "text": "First, we declare our package dependencies.\n\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "practice-activities/instructions/pa5-dataviz.html#does-it-seem-easier-to-capturerecapture-male-or-female-tortoises",
+    "href": "practice-activities/instructions/pa5-dataviz.html#does-it-seem-easier-to-capturerecapture-male-or-female-tortoises",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "“Does it seem easier to capture/recapture male or female tortoises?”",
+    "text": "“Does it seem easier to capture/recapture male or female tortoises?”\n\nHow many captures are there for each sex? What variables do you need to answer this question?\n\n\nUse ggplot2 to draw a barchart of the count of captures for each tortoise sex.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = sex)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "practice-activities/instructions/pa5-dataviz.html#what-are-the-differences-between-male-and-female-tortoises-across-the-three-locations-beach-mainland-beach-plateau-mainland-and-konjsko-island-in-terms-of-body-mass-or-carapace-length",
+    "href": "practice-activities/instructions/pa5-dataviz.html#what-are-the-differences-between-male-and-female-tortoises-across-the-three-locations-beach-mainland-beach-plateau-mainland-and-konjsko-island-in-terms-of-body-mass-or-carapace-length",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "“What are the differences between male and female tortoises across the three locations (Beach Mainland Beach, Plateau Mainland, and Konjsko Island) in terms of body mass or carapace length?”",
+    "text": "“What are the differences between male and female tortoises across the three locations (Beach Mainland Beach, Plateau Mainland, and Konjsko Island) in terms of body mass or carapace length?”\n\nUse ggplot2 to create a scatterplot of the relationship between the body mass (body_mass_grams) and carapace length (straight_carapace_length_mm).\n\n\nThat’s a lot of data! Use alpha = 0.1 in your scatterplot to create a transparency effect to help with overplotting.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, y = straight_carapace_length_mm)) +\n  geom_point(alpha = 0.1)\n\n\nBuilding off the previous graph, add an aesthetic to differentiate the location (locality) on your scatterplot by color.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, \n             y = straight_carapace_length_mm,\n             color = sex)\n         ) +\n  geom_point(alpha = 0.2)\n\n\nBuilding off the same graph, incorporate location (locality). There may be more than one method to address this, however, one method will more easily address the questions below.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, \n             y = straight_carapace_length_mm,\n             color = sex)\n         ) +\n  geom_point(alpha = 0.2) +\n  facet_wrap(~ locality)\n\n\n\n\n\n\n\nTipCanvas Submission\n\n\n\nxxx\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote that this dataset comes from TidyTuesday 2026 week 9."
+  },
+  {
+    "objectID": "slides/03-control-flow.html#dataframe-review",
+    "href": "slides/03-control-flow.html#dataframe-review",
+    "title": "Control Flow",
+    "section": "Dataframe Review",
+    "text": "Dataframe Review\nSuppose we have a dataframe about cars:\n\nlibrary(ggplot2)\nmpg\n\n\n\n\n\n\n\n\n\nmanufacturer\nmodel\ndispl\nyear\ncyl\ntrans\ndrv\ncty\nhwy\nfl\nclass\n\n\n\n\nvolkswagen\njetta\n2.0\n1999\n4\nauto(l4)\nf\n19\n26\nr\ncompact\n\n\nchevrolet\nmalibu\n3.5\n2008\n6\nauto(l4)\nf\n18\n29\nr\nmidsize\n\n\ntoyota\ncamry solara\n2.4\n2008\n4\nauto(s5)\nf\n22\n31\nr\ncompact\n\n\npontiac\ngrand prix\n3.8\n1999\n6\nauto(l4)\nf\n17\n27\nr\nmidsize\n\n\ntoyota\ntoyota tacoma 4wd\n2.7\n2008\n4\nmanual(m5)\n4\n17\n22\nr\npickup\n\n\nford\nexplorer 4wd\n4.0\n2008\n6\nauto(l5)\n4\n13\n19\nr\nsuv\n\n\nsubaru\nforester awd\n2.5\n1999\n4\nauto(l4)\n4\n18\n24\nr\nsuv\n\n\njeep\ngrand cherokee 4wd\n4.7\n1999\n8\nauto(l4)\n4\n14\n17\nr\nsuv\n\n\ndodge\ndakota pickup 4wd\n4.7\n2008\n8\nauto(l5)\n4\n14\n19\nr\npickup\n\n\nland rover\nrange rover\n4.6\n1999\n8\nauto(l4)\n4\n11\n15\np\nsuv\n\n\ntoyota\n4runner 4wd\n3.4\n1999\n6\nmanual(m5)\n4\n15\n17\nr\nsuv\n\n\ntoyota\ncamry solara\n2.2\n1999\n4\nauto(l4)\nf\n21\n27\nr\ncompact"
+  },
+  {
+    "objectID": "slides/03-control-flow.html#getting-info-about-the-size",
+    "href": "slides/03-control-flow.html#getting-info-about-the-size",
+    "title": "Control Flow",
+    "section": "Getting Info About the Size",
+    "text": "Getting Info About the Size\nWhat code would I run to learn the number of rows the mpg dataframe has? What about the number of columns?\n\n\n\n\ndim(mpg)\n\n[1] 234  11\n\n\n\n\n\n\nnrow(mpg)\n\n[1] 234\n\n\n\n\n\n\nncol(mpg)\n\n[1] 11"
+  },
+  {
+    "objectID": "slides/03-control-flow.html#grabbing-infomation",
+    "href": "slides/03-control-flow.html#grabbing-infomation",
+    "title": "Control Flow",
+    "section": "Grabbing Infomation",
+    "text": "Grabbing Infomation\nWhat code would I run to learn the number of rows the mpg dataframe has? What about the number of columns?\n\n\n\n\ndim(mpg)\n\n[1] 234  11\n\n\n\n\n\n\nnrow(mpg)\n\n[1] 234\n\n\n\n\n\n\nncol(mpg)\n\n[1] 11\n\n\n\n\n\nWhat code would I write to grab the model column from the mpg dataframe?\n\n\n\n\n\nmpg$model\n\n\n\n\n\nmpg[[\"model\"]]\n\n\n\n\nHow would I modify this code to grab the model of the fourth car in the mpg dataframe?\n\n\n\n\n\nmpg$model[4]\n\n\n\n\n\nmpg[[\"model\"]][4]"
+  },
+  {
+    "objectID": "slides/03-control-flow.html#warming-up-for-the-practice-activity",
+    "href": "slides/03-control-flow.html#warming-up-for-the-practice-activity",
+    "title": "Control Flow",
+    "section": "Warming Up for the Practice Activity",
+    "text": "Warming Up for the Practice Activity\nThis week’s practice activity combines conditional statements and iteration. Let’s start by practicing setting up a couple of"
+  },
+  {
+    "objectID": "slides/03-control-flow.html#problem-a---fizz-buzz",
+    "href": "slides/03-control-flow.html#problem-a---fizz-buzz",
+    "title": "Control Flow",
+    "section": "Problem A - Fizz Buzz",
+    "text": "Problem A - Fizz Buzz\nSuppose you have a vector of numbers (e.g., 1:100). For each value, you want to print the following output:\n\nif a number is divisible by 3, print \"Fizz\",\nif the number is divisible by 5, print \"Buzz\",\nif the number is divisible by both 3 and 5, print \"FizzBuzz\",\nif none of these are true then print the number.\n\n\n\n\n\n\n\n\nPencil it Out\n\n\nBrainstorm how you would write R code to solve this problem. Your solution must use a for()-loop."
+  },
+  {
+    "objectID": "slides/03-control-flow.html#problem-b---pet-sitting",
+    "href": "slides/03-control-flow.html#problem-b---pet-sitting",
+    "title": "Control Flow",
+    "section": "Problem B - Pet Sitting",
+    "text": "Problem B - Pet Sitting\nSuppose you have a dataframe with information about dogs you have pet sitted for.\n\ndog_sitting\n\n       dog   size age\n1    Annie  small   3\n2    Shilo medium  11\n3    Buddy  large  15\n4   Pepper medium   5\n5     Ruby  small   7\n6   Wallie  small  10\n7 Chompers  large  12\n\n\nFor dog, you need to calculate the amount of food they need to eat:"
+  },
+  {
+    "objectID": "slides/03-control-flow.html#work-session-1",
+    "href": "slides/03-control-flow.html#work-session-1",
+    "title": "Control Flow",
+    "section": "Work Session 1",
+    "text": "Work Session 1\nWhen is your birthday?\n\nBefore July 1? Start with Problem A (FizzBuzz).\nOn or after July 1? Start with Problem B (Dog Sitter).\n\n\n\n\n\n\n\n\n\nStart with a Gameplan!\n\n\nBefore you start writing code, write down the steps you need to take to accomplish the task!\n\nWhat conditions do you need to check?\nWhat should happen if the condition is met?\nWhat order should the conditions be checked?"
+  },
+  {
+    "objectID": "slides/03-control-flow.html#work-session-2",
+    "href": "slides/03-control-flow.html#work-session-2",
+    "title": "Control Flow",
+    "section": "Work Session 2",
+    "text": "Work Session 2\nWork on the problem you were not initially assigned!\n\n\n\n\n\n\n\nStart with a Gameplan!\n\n\nBefore you start writing code, write down the steps you need to take to accomplish the task!\n\nWhat conditions do you need to check?\nWhat should happen if the condition is met?\nWhat order should the conditions be checked?"
+  },
+  {
+    "objectID": "slides/03-control-flow.html#fizz-buzz",
+    "href": "slides/03-control-flow.html#fizz-buzz",
+    "title": "Control Flow",
+    "section": "Fizz Buzz",
+    "text": "Fizz Buzz\n\n\n\nnum &lt;- 1:100\n\nfor(i in 1:length(num)){\n  # Numbers divisible by both 3 and 5\n  if(num[i] %% 3 == 0 & num[i] %% 5 == 0){\n    print(\"FizzBuzz\")\n    } \n  # Numbers divisible by 5\n  else if(num[i] %% 5 == 0){\n    print(\"Buzz\")\n    }\n  # Numbers divisible by 3\n  else if(num[i] %% 3 == 0){\n    print(\"Fizz\")\n    } \n  # Numbers not divisible by 3 or 5\n  else{\n    print(num[i])\n    }\n  }\n\n\n\n\n\n\n\n[1] 1\n[1] 2\n[1] \"Fizz\"\n[1] 4\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 7\n[1] 8\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 11\n[1] \"Fizz\"\n[1] 13\n[1] 14\n[1] \"FizzBuzz\"\n[1] 16\n[1] 17\n[1] \"Fizz\"\n[1] 19\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 22\n[1] 23\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 26\n[1] \"Fizz\"\n[1] 28\n[1] 29\n[1] \"FizzBuzz\"\n[1] 31\n[1] 32\n[1] \"Fizz\"\n[1] 34\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 37\n[1] 38\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 41\n[1] \"Fizz\"\n[1] 43\n[1] 44\n[1] \"FizzBuzz\"\n[1] 46\n[1] 47\n[1] \"Fizz\"\n[1] 49\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 52\n[1] 53\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 56\n[1] \"Fizz\"\n[1] 58\n[1] 59\n[1] \"FizzBuzz\"\n[1] 61\n[1] 62\n[1] \"Fizz\"\n[1] 64\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 67\n[1] 68\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 71\n[1] \"Fizz\"\n[1] 73\n[1] 74\n[1] \"FizzBuzz\"\n[1] 76\n[1] 77\n[1] \"Fizz\"\n[1] 79\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 82\n[1] 83\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 86\n[1] \"Fizz\"\n[1] 88\n[1] 89\n[1] \"FizzBuzz\"\n[1] 91\n[1] 92\n[1] \"Fizz\"\n[1] 94\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 97\n[1] 98\n[1] \"Fizz\"\n[1] \"Buzz\""
+  },
+  {
+    "objectID": "slides/03-control-flow.html#dog-sitter",
+    "href": "slides/03-control-flow.html#dog-sitter",
+    "title": "Control Flow",
+    "section": "Dog Sitter",
+    "text": "Dog Sitter\n\ntotal_wetfood &lt;- 0\ntotal_dryfood &lt;- 0\n\nfor(i in 1:nrow(dogs)){\n  # Small dogs\n  if(dogs$size[i] == \"small\"){\n    # Old dogs\n    if(dogs$age[i] &gt; 12){\n      total_wetfood &lt;- total_wetfood + 8\n    } \n    # Younger dogs\n    else{\n      total_dryfood &lt;- total_dryfood + 8\n    }\n  } \n  # Medium dogs\n  else if(dogs$size[i] == \"medium\"){\n    # Older dogs\n    if(dogs$age[i] &gt; 12){\n      total_wetfood &lt;- total_wetfood + 16\n    } \n    # Younger dogs\n    else{\n      total_dryfood &lt;- total_dryfood + 16\n      }\n  } \n  # Large dogs\n  else{\n    # Old dogs\n    if(dogs$age[i] &gt; 12){\n      total_wetfood &lt;- total_wetfood + 32\n    } \n    # Younger dogs\n    else{\n      total_dryfood &lt;- total_dryfood + 32\n      }\n    }\n}\n\n\n\n\n\ntotal_wetfood\n\n[1] 32\n\n\n\n\n\n\ntotal_dryfood\n\n[1] 88"
+  },
+  {
+    "objectID": "slides/03-control-flow.html#what-if",
+    "href": "slides/03-control-flow.html#what-if",
+    "title": "Control Flow",
+    "section": "What if",
+    "text": "What if"
+  },
+  {
+    "objectID": "slides/03-control-flow.html#compare-with-a-peer",
+    "href": "slides/03-control-flow.html#compare-with-a-peer",
+    "title": "Control Flow",
+    "section": "Compare with a Peer",
+    "text": "Compare with a Peer\nPair up with one person and compare your solution strategies for Problem A and Problem B."
+  },
+  {
+    "objectID": "slides/03-control-flow.html#problem-b---dog-sitting",
+    "href": "slides/03-control-flow.html#problem-b---dog-sitting",
+    "title": "Control Flow",
+    "section": "Problem B - Dog Sitting",
+    "text": "Problem B - Dog Sitting\nSuppose you have a dataframe with information about dogs you are currently pet sitting.\n\ndogs\n\n       dog   size age\n1    Annie  small   3\n2    Shilo medium  11\n3    Buddy  large  15\n4   Pepper medium   5\n5     Ruby  small   7\n6   Wallie  small  10\n7 Chompers  large  12\n\n\nYou need to know how much dog food you need to have this week to feed all these doggies!"
+  },
+  {
+    "objectID": "slides/03-control-flow.html#problem-b---dog-sitting-1",
+    "href": "slides/03-control-flow.html#problem-b---dog-sitting-1",
+    "title": "Control Flow",
+    "section": "Problem B - Dog Sitting",
+    "text": "Problem B - Dog Sitting\nHere are the food needs based on the dog’s size:\n\nSmall dogs: 1 cup (8 ounces)\nMedium dogs: 2 cups (16 ounces)\nLarge dogs: 4 cups (32 ounces)\n\nIf the dog is older than 12, they need to eat the same portions, but in wet food (instead of dry food).\n\n\n\n\n\n\n\nPencil it Out\n\n\nBrainstorm how you would write R code to figure out how much total dog food (both wet and dry) you need to have on hand. Your solution must use a for()-loop."
+  },
+  {
+    "objectID": "slides/03-control-flow.html#how-would-i",
+    "href": "slides/03-control-flow.html#how-would-i",
+    "title": "Control Flow",
+    "section": "How would I…",
+    "text": "How would I…\nuse a while()-loop to figure out the first dog that needed wet food?\n\n\n\n\nInitialize Values\n\nage &lt;- \"\"\ncounter &lt;- 0\n\n\nCreate the Loop\n\nwhile(age &lt; 12){\n  counter &lt;- counter + 1\n  age &lt;- dogs$age[counter]  \n}\n\n\n\n\n\n\nSee the Result\n\ndogs[counter,]\n\n    dog  size age\n3 Buddy large  15"
+  },
+  {
+    "objectID": "slides/03-control-flow.html#grabbing-information",
+    "href": "slides/03-control-flow.html#grabbing-information",
+    "title": "Control Flow",
+    "section": "Grabbing Information",
+    "text": "Grabbing Information\nWhat code would I run to learn the number of rows the mpg dataframe has? What about the number of columns?\n\n\n\n\ndim(mpg)\n\n[1] 234  11\n\n\n\n\n\n\nnrow(mpg)\n\n[1] 234\n\n\n\n\n\n\nncol(mpg)\n\n[1] 11\n\n\n\n\n\nWhat code would I write to grab the model column from the mpg dataframe?\n\n\n\n\n\nmpg$model\n\n\n\n\n\nmpg[[\"model\"]]\n\n\n\n\nHow would I modify this code to grab the model of the fourth car in the mpg dataframe?\n\n\n\n\n\nmpg$model[4]\n\n\n\n\n\nmpg[[\"model\"]][4]"
+  },
+  {
+    "objectID": "handouts/03a-handout.html",
+    "href": "handouts/03a-handout.html",
+    "title": "Week 2: Control Flow",
+    "section": "",
+    "text": "This week’s practice activity combines conditional statements and iteration. Let’s start by practicing setting up a couple of"
+  },
+  {
+    "objectID": "handouts/03a-handout.html#problem-a---fizz-buzz",
+    "href": "handouts/03a-handout.html#problem-a---fizz-buzz",
+    "title": "Week 2: Control Flow",
+    "section": "Problem A - Fizz Buzz",
+    "text": "Problem A - Fizz Buzz\nSuppose you have a vector of numbers (e.g., 1:100). For each value, you want to print the following output:\n\nif a number is divisible by 3, print \"Fizz\",\nif the number is divisible by 5, print \"Buzz\",\nif the number is divisible by both 3 and 5, print \"FizzBuzz\",\nif none of these are true then print the number."
+  },
+  {
+    "objectID": "handouts/03a-handout.html#problem-b---dog-sitting",
+    "href": "handouts/03a-handout.html#problem-b---dog-sitting",
+    "title": "Week 2: Control Flow",
+    "section": "Problem B - Dog Sitting",
+    "text": "Problem B - Dog Sitting\nSuppose you have a dataframe with information about dogs you are currently pet sitting.\n\ndogs\n\n       dog   size age\n1    Annie  small   3\n2    Shilo medium  11\n3    Buddy  large  15\n4   Pepper medium   5\n5     Ruby  small   7\n6   Wallie  small  10\n7 Chompers  large  12\n\n\nYou need to know how much dog food you need to have this week to feed all these doggies! Here are the food needs based on the dog’s size:\n\nSmall dogs: 1 cup (8 ounces)\nMedium dogs: 2 cups (16 ounces)\nLarge dogs: 4 cups (32 ounces)\n\nIf the dog is older than 12, they need to eat the same portions, but in wet food (instead of dry food)."
+  },
+  {
+    "objectID": "handouts/03a-handout.html#work-session-1",
+    "href": "handouts/03a-handout.html#work-session-1",
+    "title": "Week 2: Control Flow",
+    "section": "Work Session 1",
+    "text": "Work Session 1"
+  },
+  {
+    "objectID": "handouts/03a-handout.html#work-session-2",
+    "href": "handouts/03a-handout.html#work-session-2",
+    "title": "Week 2: Control Flow",
+    "section": "Work Session 2",
+    "text": "Work Session 2"
+  },
+  {
+    "objectID": "handouts/03a-handout.html#how-would-i",
+    "href": "handouts/03a-handout.html#how-would-i",
+    "title": "Week 2: Control Flow",
+    "section": "How would I…",
+    "text": "How would I…\nuse a while()-loop to figure out the first dog that needed wet food?"
+  },
+  {
+    "objectID": "handouts/03a-handout.html#dataframe-review",
+    "href": "handouts/03a-handout.html#dataframe-review",
+    "title": "Week 2: Control Flow",
+    "section": "Dataframe Review",
+    "text": "Dataframe Review\nSuppose we have a dataframe about cars:\n\nlibrary(ggplot2)\nmpg\n\n\n\n\n\n\n\nmanufacturer\nmodel\ndispl\nyear\ncyl\ntrans\ndrv\ncty\nhwy\nfl\nclass\n\n\n\ntoyota\nland cruiser wagon 4wd\n5.7\n2008\n8\nauto(s6)\n4\n13\n18\nr\nsuv\n\n\ntoyota\ncamry solara\n3.0\n1999\n6\nauto(l4)\nf\n18\n26\nr\ncompact\n\n\nhyundai\ntiburon\n2.7\n2008\n6\nauto(l4)\nf\n17\n24\nr\nsubcompact\n\n\nnissan\naltima\n2.5\n2008\n4\nauto(av)\nf\n23\n31\nr\nmidsize\n\n\nford\nmustang\n4.0\n2008\n6\nmanual(m5)\nr\n17\n26\nr\nsubcompact\n\n\nchevrolet\ncorvette\n6.2\n2008\n8\nauto(s6)\nr\n15\n25\np\n2seater\n\n\ntoyota\ntoyota tacoma 4wd\n2.7\n2008\n4\nmanual(m5)\n4\n17\n22\nr\npickup\n\n\nmercury\nmountaineer 4wd\n4.0\n2008\n6\nauto(l5)\n4\n13\n19\nr\nsuv\n\n\ndodge\ndakota pickup 4wd\n5.2\n1999\n8\nauto(l4)\n4\n11\n15\nr\npickup\n\n\naudi\na4 quattro\n2.0\n2008\n4\nmanual(m6)\n4\n20\n28\np\ncompact\n\n\nford\nf150 pickup 4wd\n5.4\n2008\n8\nauto(l4)\n4\n13\n17\nr\npickup\n\n\nvolkswagen\nnew beetle\n2.5\n2008\n5\nauto(s6)\nf\n20\n29\nr\nsubcompact"
+  },
+  {
+    "objectID": "handouts/03a-handout.html#grabbing-information",
+    "href": "handouts/03a-handout.html#grabbing-information",
+    "title": "Week 2: Control Flow",
+    "section": "Grabbing Information",
+    "text": "Grabbing Information\nWhat code would I run to learn the number of rows the mpg dataframe has? What about the number of columns?\n \nWhat code would I write to grab the model column from the mpg dataframe?\n \nHow would I modify this code to grab the model of the fourth car in the mpg dataframe?"
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#warming-up-for-the-practice-activity",
+    "href": "slides/03a-control-flow.html#warming-up-for-the-practice-activity",
+    "title": "Control Flow",
+    "section": "Warming Up for the Practice Activity",
+    "text": "Warming Up for the Practice Activity\nThis week’s practice activity combines conditional statements and iteration. Let’s start by practicing setting up a couple of"
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#problem-a---fizz-buzz",
+    "href": "slides/03a-control-flow.html#problem-a---fizz-buzz",
+    "title": "Control Flow",
+    "section": "Problem A - Fizz Buzz",
+    "text": "Problem A - Fizz Buzz\nSuppose you have a vector of numbers (e.g., 1:100). For each value, you want to print the following output:\n\nif a number is divisible by 3, print \"Fizz\",\nif the number is divisible by 5, print \"Buzz\",\nif the number is divisible by both 3 and 5, print \"FizzBuzz\",\nif none of these are true then print the number.\n\n\n\n\n\n\n\n\nPencil it Out\n\n\nBrainstorm how you would write R code to solve this problem. Your solution must use a for()-loop."
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#problem-b---dog-sitting",
+    "href": "slides/03a-control-flow.html#problem-b---dog-sitting",
+    "title": "Control Flow",
+    "section": "Problem B - Dog Sitting",
+    "text": "Problem B - Dog Sitting\nSuppose you have a dataframe with information about dogs you are currently pet sitting.\n\ndogs\n\n       dog   size age\n1    Annie  small   3\n2    Shilo medium  11\n3    Buddy  large  15\n4   Pepper medium   5\n5     Ruby  small   7\n6   Wallie  small  10\n7 Chompers  large  12\n\n\nYou need to know how much dog food you need to have this week to feed all these doggies!"
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#problem-b---dog-sitting-1",
+    "href": "slides/03a-control-flow.html#problem-b---dog-sitting-1",
+    "title": "Control Flow",
+    "section": "Problem B - Dog Sitting",
+    "text": "Problem B - Dog Sitting\nHere are the food needs based on the dog’s size:\n\nSmall dogs: 1 cup (8 ounces)\nMedium dogs: 2 cups (16 ounces)\nLarge dogs: 4 cups (32 ounces)\n\nIf the dog is older than 12, they need to eat the same portions, but in wet food (instead of dry food).\n\n\n\n\n\n\n\nPencil it Out\n\n\nBrainstorm how you would write R code to figure out how much total dog food (both wet and dry) you need to have on hand. Your solution must use a for()-loop."
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#work-session-1",
+    "href": "slides/03a-control-flow.html#work-session-1",
+    "title": "Control Flow",
+    "section": "Work Session 1",
+    "text": "Work Session 1\nWhen is your birthday?\n\nBefore July 1? Start with Problem A (FizzBuzz).\nOn or after July 1? Start with Problem B (Dog Sitter).\n\n\n\n\n\n\n\n\n\nStart with a Gameplan!\n\n\nBefore you start writing code, write down the steps you need to take to accomplish the task!\n\nWhat conditions do you need to check?\nWhat should happen if the condition is met?\nWhat order should the conditions be checked?"
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#work-session-2",
+    "href": "slides/03a-control-flow.html#work-session-2",
+    "title": "Control Flow",
+    "section": "Work Session 2",
+    "text": "Work Session 2\nWork on the problem you were not initially assigned!\n\n\n\n\n\n\n\nStart with a Gameplan!\n\n\nBefore you start writing code, write down the steps you need to take to accomplish the task!\n\nWhat conditions do you need to check?\nWhat should happen if the condition is met?\nWhat order should the conditions be checked?"
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#compare-with-a-peer",
+    "href": "slides/03a-control-flow.html#compare-with-a-peer",
+    "title": "Control Flow",
+    "section": "Compare with a Peer",
+    "text": "Compare with a Peer\nPair up with one person and compare your solution strategies for Problem A and Problem B."
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#fizz-buzz",
+    "href": "slides/03a-control-flow.html#fizz-buzz",
+    "title": "Control Flow",
+    "section": "Fizz Buzz",
+    "text": "Fizz Buzz\n\n\n\nnum &lt;- 1:100\n\nfor(i in 1:length(num)){\n  # Numbers divisible by both 3 and 5\n  if(num[i] %% 3 == 0 & num[i] %% 5 == 0){\n    print(\"FizzBuzz\")\n    } \n  # Numbers divisible by 5\n  else if(num[i] %% 5 == 0){\n    print(\"Buzz\")\n    }\n  # Numbers divisible by 3\n  else if(num[i] %% 3 == 0){\n    print(\"Fizz\")\n    } \n  # Numbers not divisible by 3 or 5\n  else{\n    print(num[i])\n    }\n  }\n\n\n\n\n\n\n\n[1] 1\n[1] 2\n[1] \"Fizz\"\n[1] 4\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 7\n[1] 8\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 11\n[1] \"Fizz\"\n[1] 13\n[1] 14\n[1] \"FizzBuzz\"\n[1] 16\n[1] 17\n[1] \"Fizz\"\n[1] 19\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 22\n[1] 23\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 26\n[1] \"Fizz\"\n[1] 28\n[1] 29\n[1] \"FizzBuzz\"\n[1] 31\n[1] 32\n[1] \"Fizz\"\n[1] 34\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 37\n[1] 38\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 41\n[1] \"Fizz\"\n[1] 43\n[1] 44\n[1] \"FizzBuzz\"\n[1] 46\n[1] 47\n[1] \"Fizz\"\n[1] 49\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 52\n[1] 53\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 56\n[1] \"Fizz\"\n[1] 58\n[1] 59\n[1] \"FizzBuzz\"\n[1] 61\n[1] 62\n[1] \"Fizz\"\n[1] 64\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 67\n[1] 68\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 71\n[1] \"Fizz\"\n[1] 73\n[1] 74\n[1] \"FizzBuzz\"\n[1] 76\n[1] 77\n[1] \"Fizz\"\n[1] 79\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 82\n[1] 83\n[1] \"Fizz\"\n[1] \"Buzz\"\n[1] 86\n[1] \"Fizz\"\n[1] 88\n[1] 89\n[1] \"FizzBuzz\"\n[1] 91\n[1] 92\n[1] \"Fizz\"\n[1] 94\n[1] \"Buzz\"\n[1] \"Fizz\"\n[1] 97\n[1] 98\n[1] \"Fizz\"\n[1] \"Buzz\""
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#dog-sitter",
+    "href": "slides/03a-control-flow.html#dog-sitter",
+    "title": "Control Flow",
+    "section": "Dog Sitter",
+    "text": "Dog Sitter\n\ntotal_wetfood &lt;- 0\ntotal_dryfood &lt;- 0\n\nfor(i in 1:nrow(dogs)){\n  # Small dogs\n  if(dogs$size[i] == \"small\"){\n    # Old dogs\n    if(dogs$age[i] &gt; 12){\n      total_wetfood &lt;- total_wetfood + 8\n    } \n    # Younger dogs\n    else{\n      total_dryfood &lt;- total_dryfood + 8\n    }\n  } \n  # Medium dogs\n  else if(dogs$size[i] == \"medium\"){\n    # Older dogs\n    if(dogs$age[i] &gt; 12){\n      total_wetfood &lt;- total_wetfood + 16\n    } \n    # Younger dogs\n    else{\n      total_dryfood &lt;- total_dryfood + 16\n      }\n  } \n  # Large dogs\n  else{\n    # Old dogs\n    if(dogs$age[i] &gt; 12){\n      total_wetfood &lt;- total_wetfood + 32\n    } \n    # Younger dogs\n    else{\n      total_dryfood &lt;- total_dryfood + 32\n      }\n    }\n}\n\n\n\n\n\ntotal_wetfood\n\n[1] 32\n\n\n\n\n\n\ntotal_dryfood\n\n[1] 88"
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#how-would-i",
+    "href": "slides/03a-control-flow.html#how-would-i",
+    "title": "Control Flow",
+    "section": "How would I…",
+    "text": "How would I…\nuse a while()-loop to figure out the first dog that needed wet food?\n\n\n\n\nInitialize Values\n\nage &lt;- \"\"\ncounter &lt;- 0\n\n\nCreate the Loop\n\nwhile(age &lt; 12){\n  counter &lt;- counter + 1\n  age &lt;- dogs$age[counter]  \n}\n\n\n\n\n\n\nSee the Result\n\ndogs[counter,]\n\n    dog  size age\n3 Buddy large  15"
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#dataframe-review",
+    "href": "slides/03a-control-flow.html#dataframe-review",
+    "title": "Control Flow",
+    "section": "Dataframe Review",
+    "text": "Dataframe Review\nSuppose we have a dataframe about cars:\n\nlibrary(ggplot2)\nmpg\n\n\n\n\n\n\n\n\n\nmanufacturer\nmodel\ndispl\nyear\ncyl\ntrans\ndrv\ncty\nhwy\nfl\nclass\n\n\n\n\nchevrolet\nmalibu\n2.4\n2008\n4\nauto(l4)\nf\n22\n30\nr\nmidsize\n\n\nchevrolet\nc1500 suburban 2wd\n6.0\n2008\n8\nauto(l4)\nr\n12\n17\nr\nsuv\n\n\nhonda\ncivic\n1.8\n2008\n4\nmanual(m5)\nf\n26\n34\nr\nsubcompact\n\n\naudi\na4 quattro\n2.0\n2008\n4\nmanual(m6)\n4\n20\n28\np\ncompact\n\n\ntoyota\ncamry\n2.2\n1999\n4\nmanual(m5)\nf\n21\n29\nr\nmidsize\n\n\ndodge\ndakota pickup 4wd\n4.7\n2008\n8\nauto(l5)\n4\n9\n12\ne\npickup\n\n\naudi\na4\n2.8\n1999\n6\nauto(l5)\nf\n16\n26\np\ncompact\n\n\nford\nmustang\n4.6\n1999\n8\nmanual(m5)\nr\n15\n22\nr\nsubcompact\n\n\nnissan\naltima\n3.5\n2008\n6\nauto(av)\nf\n19\n26\np\nmidsize\n\n\ndodge\ndurango 4wd\n4.7\n2008\n8\nauto(l5)\n4\n13\n17\nr\nsuv\n\n\naudi\na4\n3.1\n2008\n6\nauto(av)\nf\n18\n27\np\ncompact\n\n\nlincoln\nnavigator 2wd\n5.4\n1999\n8\nauto(l4)\nr\n11\n16\np\nsuv"
+  },
+  {
+    "objectID": "slides/03a-control-flow.html#grabbing-information",
+    "href": "slides/03a-control-flow.html#grabbing-information",
+    "title": "Control Flow",
+    "section": "Grabbing Information",
+    "text": "Grabbing Information\nWhat code would I run to learn the number of rows the mpg dataframe has? What about the number of columns?\n\n\n\n\ndim(mpg)\n\n[1] 234  11\n\n\n\n\n\n\nnrow(mpg)\n\n[1] 234\n\n\n\n\n\n\nncol(mpg)\n\n[1] 11\n\n\n\n\n\nWhat code would I write to grab the model column from the mpg dataframe?\n\n\n\n\n\nmpg$model\n\n\n\n\n\nmpg[[\"model\"]]\n\n\n\n\nHow would I modify this code to grab the model of the fourth car in the mpg dataframe?\n\n\n\n\n\nmpg$model[4]\n\n\n\n\n\nmpg[[\"model\"]][4]"
   }
 ]

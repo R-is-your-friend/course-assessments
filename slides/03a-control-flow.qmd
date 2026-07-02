@@ -1,0 +1,457 @@
+---
+title: "Control Flow"
+format: 
+  revealjs:
+      theme: [simple, style.scss]
+      auto-stretch: false
+editor: source
+---
+
+## Warming Up for the Practice Activity
+
+This week's practice activity combines **conditional statements** and 
+**iteration**. Let's start by practicing setting up a couple of 
+
+## Problem A - Fizz Buzz
+
+Suppose you have a [vector]{.underline} of numbers (e.g., `1:100`). For each
+value, you want to print the following output:
+
+::: {.incremental}
+- if a number is divisible by 3, print `"Fizz"`,
+- if the number is divisible by 5, print `"Buzz"`,
+- if the number is divisible by **both** 3 and 5, print `"FizzBuzz"`, 
+- if none of these are true then print the number.
+:::
+
+. . .
+
+::: {.callout-tip}
+# Pencil it Out
+
+Brainstorm how you would write R code to solve this problem. **Your solution 
+must use a `for()`-loop**.
+:::
+
+## Problem B - Dog Sitting
+
+Suppose you have a [dataframe]{.underline} with information about dogs you
+are currently pet sitting. 
+
+```{r}
+#| label: create-dataframe
+#| echo: false
+
+dogs <- data.frame(
+  dog = c("Annie", "Shilo", "Buddy", "Pepper", "Ruby", "Wallie", "Chompers"), 
+  size = c("small", "medium", "large", "medium", "small", "small", "large"), 
+  age = c(3, 11, 15, 5, 7, 10, 12)
+)
+```
+
+```{r}
+#| code-line-numbers: false
+
+dogs
+```
+
+You need to know how much dog food you need to have this week to feed all these 
+doggies!
+
+## Problem B - Dog Sitting
+
+Here are the food needs based on the dog's size: 
+
+- Small dogs: 1 cup (8 ounces)
+- Medium dogs: 2 cups (16 ounces)
+- Large dogs: 4 cups (32 ounces)
+
+If the dog is older than 12, they need to eat the same portions, but in wet food
+(instead of dry food). 
+
+</br>
+
+::: {.callout-tip}
+# Pencil it Out
+
+Brainstorm how you would write R code to figure out how much total dog food 
+(both wet and dry) you need to have on hand. **Your solution must use a `for()`-loop**.
+:::
+
+## Work Session 1 
+
+When is your birthday?
+
+- Before July 1? **Start with Problem A (FizzBuzz)**. 
+
+- On or after July 1? **Start with Problem B (Dog Sitter)**. 
+
+. . .
+
+</br>
+
+::: {.callout-tip}
+# Start with a Gameplan!
+
+Before you start writing code, write down the steps you need to take to 
+accomplish the task!
+
+- What conditions do you need to check?
+- What should happen if the condition is met?
+- What order should the conditions be checked?
+:::
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 15)
+```
+
+## Work Session 2
+
+Work on the problem you were not initially assigned!
+
+</br>
+
+::: {.callout-tip}
+# Start with a Gameplan!
+
+Before you start writing code, write down the steps you need to take to 
+accomplish the task!
+
+- What conditions do you need to check?
+- What should happen if the condition is met?
+- What order should the conditions be checked?
+:::
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 15)
+```
+
+## Compare with a Peer
+
+Pair up with **one** person and compare your solution strategies for Problem A
+and Problem B. 
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 10)
+```
+
+## Fizz Buzz
+
+::: columns
+::: {.column width="75%"}
+```{r}
+#| code-line-numbers: false
+#| eval: false
+#| label: code-fizzbuzz
+
+num <- 1:100
+
+for(i in 1:length(num)){
+  # Numbers divisible by both 3 and 5
+  if(num[i] %% 3 == 0 & num[i] %% 5 == 0){
+    print("FizzBuzz")
+    } 
+  # Numbers divisible by 5
+  else if(num[i] %% 5 == 0){
+    print("Buzz")
+    }
+  # Numbers divisible by 3
+  else if(num[i] %% 3 == 0){
+    print("Fizz")
+    } 
+  # Numbers not divisible by 3 or 5
+  else{
+    print(num[i])
+    }
+  }
+
+```
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="20%"}
+::: {.fragment}
+```{r}
+#| echo: false
+#| label: output-fizzbuzz
+
+num <- 1:100
+
+for(i in 1:length(num)){
+  # Numbers divisible by both 3 and 5
+  if(num[i] %% 3 == 0 & num[i] %% 5 == 0){
+    print("FizzBuzz")
+    } 
+  # Numbers divisible by 5
+  else if(num[i] %% 5 == 0){
+    print("Buzz")
+    }
+  # Numbers divisible by 3
+  else if(num[i] %% 3 == 0){
+    print("Fizz")
+    } 
+  # Numbers not divisible by 3 or 5
+  else{
+    print(num[i])
+    }
+  }
+
+```
+:::
+:::
+:::
+
+## Dog Sitter
+
+```{r}
+#| code-line-numbers: false
+#| label: code-dog-food
+
+total_wetfood <- 0
+total_dryfood <- 0
+
+for(i in 1:nrow(dogs)){
+  # Small dogs
+  if(dogs$size[i] == "small"){
+    # Old dogs
+    if(dogs$age[i] > 12){
+      total_wetfood <- total_wetfood + 8
+    } 
+    # Younger dogs
+    else{
+      total_dryfood <- total_dryfood + 8
+    }
+  } 
+  # Medium dogs
+  else if(dogs$size[i] == "medium"){
+    # Older dogs
+    if(dogs$age[i] > 12){
+      total_wetfood <- total_wetfood + 16
+    } 
+    # Younger dogs
+    else{
+      total_dryfood <- total_dryfood + 16
+      }
+  } 
+  # Large dogs
+  else{
+    # Old dogs
+    if(dogs$age[i] > 12){
+      total_wetfood <- total_wetfood + 32
+    } 
+    # Younger dogs
+    else{
+      total_dryfood <- total_dryfood + 32
+      }
+    }
+}
+```
+
+. . .
+
+::: columns
+::: {.column width="48%"}
+```{r}
+#| code-line-numbers: false
+
+total_wetfood
+```
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{r}
+#| code-line-numbers: false
+
+total_dryfood
+```
+
+:::
+:::
+
+
+## How would I...
+
+use a `while()`-loop to figure out the first dog that needed wet food?
+
+. . .
+
+</br>
+
+::: columns
+::: {.column width="48%"}
+**Initialize Values**
+```{r}
+#| code-line-numbers: false
+#| label: while-loop-initialize
+
+age <- ""
+counter <- 0
+```
+
+::: {.fragment}
+**Create the Loop**
+```{r}
+#| code-line-numbers: false
+#| label: while-loop
+
+while(age < 12){
+  counter <- counter + 1
+  age <- dogs$age[counter]  
+}
+```
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: {.fragment}
+**See the Result**
+```{r}
+#| label: while-loop-result
+#| code-line-numbers: false
+
+dogs[counter,]
+```
+:::
+:::
+:::
+
+## Dataframe Review
+
+Suppose we have a dataframe about cars:
+
+```{r}
+#| label: mpg-data
+#| code-line-numbers: false
+#| results: hide
+
+library(ggplot2)
+mpg
+```
+
+```{r}
+#| label: pretty-df
+#| echo: false
+
+mpg |> 
+  dplyr::slice_sample(n = 12) |> 
+  gt::gt() |> 
+  gt::tab_style(
+    style = gt::cell_text(weight = "bold"),
+    locations = gt::cells_column_labels(columns = everything())
+    )
+```
+
+## Grabbing Information
+
+What code would I run to learn the number of rows the `mpg` dataframe has?
+What about the number of columns?
+
+. . .
+
+::: columns
+::: {.column width="30%"}
+```{r}
+#| code-line-numbers: false
+
+dim(mpg)
+```
+
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="30%"}
+```{r}
+#| code-line-numbers: false
+
+nrow(mpg)
+```
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="30%"}
+```{r}
+#| code-line-numbers: false
+
+ncol(mpg)
+```
+:::
+:::
+
+. . .
+
+What code would I write to grab the `model` column from the `mpg` dataframe?
+
+. . .
+
+::: columns
+::: {.column width="48%"}
+```{r}
+#| code-line-numbers: false
+#| eval: false
+
+mpg$model
+```
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{r}
+#| code-line-numbers: false
+#| eval: false
+
+mpg[["model"]]
+```
+:::
+:::
+
+. . .
+
+How would I modify this code to grab the model of the fourth car in the `mpg`
+dataframe?
+
+. . .
+
+::: columns
+::: {.column width="48%"}
+```{r}
+#| code-line-numbers: false
+#| eval: false
+
+mpg$model[4]
+```
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{r}
+#| code-line-numbers: false
+#| eval: false
+
+mpg[["model"]][4]
+```
+:::
+:::
+
