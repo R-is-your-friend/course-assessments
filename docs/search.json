@@ -354,7 +354,7 @@
     "href": "reading/week-3b.html#writing-functions-in-r",
     "title": "Week 3 Part 2: Writing Simple Functions in R",
     "section": "\n1 Writing Functions in R",
-    "text": "1 Writing Functions in R\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nUnderstand the components of a function\nOutline how function arguments are used\nContrast arguments with and without default values\nIllustrate how control flow can be used inside the body of a function\nExplain the differences between explicit and implicit function returns\n\n\n\n📖 Required Reading: Writing Simple Functions in R\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\n\nNow that we have created the rescale() function, let’s check our intuition for what the function should output (return) for different inputs.\n\n\nx &lt;- 3\ny &lt;- 10:20\nz &lt;- c(1, 4, 5, 6, \"dog\")\n\n\nWhat would you expect rescale() to output when x is input?\nWhat would you expect rescale() to output when y is input?\nWhat would you expect rescale() to output when z is input?\n\nWe know rescale() works, so let’s test our intuition for what would happen for the following scenarios.\n\nrescale(nums, method = \"normalize\")\nrescale(nums, method = \"min-max\")\nrescale(nums, na.rm = TRUE)\n\nWe’ve incorporated a input check for the size of x, but not for the size of na.rm or method.\n\nWhat length() should we expect na.rm to have?\nWhat length() should we expect method to have?\nWhat should the final set of input checks be?"
+    "text": "1 Writing Functions in R\n\n\n\n\n\n\nNoneLearning Objectives\n\n\n\n\nUnderstand the components of a function\nOutline how function arguments are used\nContrast arguments with and without default values\nIllustrate how control flow can be used inside the body of a function\nExplain the differences between explicit and implicit function returns\n\n\n\n📖 Required Reading: Writing Simple Functions in R\n\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nSuppose divide() is a function with three arguments:\n\n\nx, a number\n\ny, a number\n\nround, a logical (TRUE/FALSE) value\n\nThe function calculates x/y and then decides whether or not to round the result (depending on whether round = TRUE or round = FALSE). We want to calculate 17/3 and then round the result. For each of the function calls below, indicate if this would result in\n\nAn error\nNo error, but an incorrect result\nThe correct result\n\n\ndivide(17, 3, TRUE)\ndivide(round = TRUE, y = 3, x = 17)\ndivide(17, 3, round = TRUE)\ndivide(round = TRUE, 3, 17)\ndivide(TRUE, 17, 3)\n\nNow that we have created the rescale() function, let’s check our intuition for what the function should output (return) for different inputs.\n\nWhat would you expect rescale() to output when test_single is input?\nWhat would you expect rescale() to output when test_missing is input?\nWhat would you expect rescale() to output when test_type is input?\n\nLet’s think about what you would expect the find_tax_rate() function to do for different scenarios.\n\nWhat would you expect find_tax_rate() to output when a character object is input? Why?\nWhat would you expect find_tax_rate() to output when no arguments are provided? Why?\nWhat would you expect find_tax_rate() to output when a numeric vector is input? Why?\n\nSuppose we want to use a loop to rescale the vectors cpi, ppe, and pci. What should go in the blanks below?\n\neconomy_data &lt;- list(cpi, ppi, pce)\n\nfor(i in blah) {                                       \n  \n  economy_data[[i]] &lt;- rescale(economy_data[blahblah])     \n  \n}\n\n\n\nSuppose we’ve created the following function:\n\nfriend_or_foe &lt;- function(){\n  if_else(pet == \"cat\", \n          \"friend\", \n          \"foe\")\n}\n\n\n\n\nAnd we have the following value in our global environment:\n\npet &lt;- \"cat\"\n\n\n\n\nWhat would friend_or_foe() output?\nWhat if we ran the following code pet &lt;- \"parrot\"? What would friend_or_foe() output?\nWhat if there was no object named pet in the global environment? What would friend_or_foe() output?"
   },
   {
     "objectID": "reading/week-2.html",
@@ -669,7 +669,7 @@
     "href": "handouts/04-handout.html",
     "title": "Handout 4: Data Is Friend",
     "section": "",
-    "text": "Show code for reading in the data – read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)?\n\nWhat if the data looks like xxxx.\n\nHow many dimensions is the data? – use dim()\nScreenshot of reflected file folder structure & Files tab in R.\n\n\n\nImage of file folder structure – putting a pin/moving/trace the path to the data. Fill in the file folder structure.\n\nWhat if it is a .qmd file instead of a .R script (DUMB!)\nWhere is your “home base”?\nWould the code run? yes/no\n\nIf you have downloaded data, where should you save it on your computer to read it into your qmd? Sketch your folder project management gameplan!\n\n\n\nWhat does the rectangle look like?\n\nwhat is a row – week of the year? A single day?\nhow many columns?\nthe same data can look like different rectangles (8 can be 1x8 or a 2x4 or a 4x2) shape-shifting data.\nPage of a survey (how data was collected) -&gt; converted to the rectangle!!!\n\nmatch the View(), str(), glimpse()\n\nwhat sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?"
+    "text": "Who is the data about\n – unstructured data?? Page of a survey (how data was collected) -&gt; converted to the rectangle!\nHere is a spreadsheet –  + what is a row – week of the year? A single day? + how many columns?"
   },
   {
     "objectID": "index.html",
@@ -977,7 +977,7 @@
     "href": "reading/week-4.html#importing-data-into-r",
     "title": "Week 4: Data is Friend",
     "section": "\n3 Importing Data into R",
-    "text": "3 Importing Data into R\n📖 Required Reading: File Paths\n\n📖 Required Reading: R4DS 7.1-7.3 about reading in data files\n📖 Required Reading: R4DS 7.5 about saving data externally\n📖 Required Reading: R4DS 20 about working with Excel files\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+    "text": "3 Importing Data into R\n📖 Required Reading: File Paths\n\n📖 Required Reading: R4DS 7.1-7.3 about reading in data files\n📖 Required Reading: R4DS 7.5 about saving data externally\n📖 Required Reading: R4DS 20 about working with Excel files\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO\n\nShow code for reading in the data – read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)?\n\nWhat if the data looks like xxxx.\n\n\nHow many dimensions is the data? – use dim()\nScreenshot of reflected file folder structure & Files tab in R.\nmatch the View(), str(), glimpse()\n\nwhat sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?"
   },
   {
     "objectID": "reading/week-4.html#quarto",
@@ -1783,5 +1783,103 @@
     "title": "Week 4: Data is Friend",
     "section": "\n4 Data and Analysis Management",
     "text": "4 Data and Analysis Management\nR Projects Reading - add\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO\n\n\n📖 Required Reading: R4DS 28 about Quarto\nBy the end of the reading, you should be able to answer the following questions:\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa10-communication.html",
+    "href": "practice-activities/main-version/pa10-communication.html",
+    "title": "Practice Activity 10: Communication",
+    "section": "",
+    "text": "Setup\n\n\n\n\n\n\nTipCanvas Submission\n\n\n\nxxx"
+  },
+  {
+    "objectID": "handouts/04-handout.html#understanding-your-data-context",
+    "href": "handouts/04-handout.html#understanding-your-data-context",
+    "title": "Handout 4: Data Is Friend",
+    "section": "",
+    "text": "Who is the data about\n – unstructured data?? Page of a survey (how data was collected) -&gt; converted to the rectangle!\nHere is a spreadsheet –  + what is a row – week of the year? A single day? + how many columns?"
+  },
+  {
+    "objectID": "handouts/04-handout.html#reading-in-the-data-following-file-paths",
+    "href": "handouts/04-handout.html#reading-in-the-data-following-file-paths",
+    "title": "Handout 4: Data Is Friend",
+    "section": "Reading in the data & following file paths",
+    "text": "Reading in the data & following file paths"
+  },
+  {
+    "objectID": "handouts/04-handout.html#exploring-the-data-structure",
+    "href": "handouts/04-handout.html#exploring-the-data-structure",
+    "title": "Handout 4: Data Is Friend",
+    "section": "Exploring the data structure",
+    "text": "Exploring the data structure\n\nWhat does the rectangle look like?\n\nwhat is a row – week of the year? A single day?\nhow many columns?\nthe same data can look like different rectangles (8 can be 1x8 or a 2x4 or a 4x2) shape-shifting data.\n\n\nHere is a spreadsheet –"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa5-dataviz.html",
+    "href": "practice-activities/main-version/pa5-dataviz.html",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "",
+    "text": "First, we declare our package dependencies.\n\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa5-dataviz.html#does-it-seem-easier-to-capturerecapture-male-or-female-tortoises",
+    "href": "practice-activities/main-version/pa5-dataviz.html#does-it-seem-easier-to-capturerecapture-male-or-female-tortoises",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "“Does it seem easier to capture/recapture male or female tortoises?”",
+    "text": "“Does it seem easier to capture/recapture male or female tortoises?”\n\nHow many captures are there for each sex? What variables do you need to answer this question?\n\n\nUse ggplot2 to draw a barchart of the count of captures for each tortoise sex.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = sex)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "practice-activities/main-version/pa5-dataviz.html#what-are-the-differences-between-male-and-female-tortoises-across-the-three-locations-beach-mainland-beach-plateau-mainland-and-konjsko-island-in-terms-of-body-mass-or-carapace-length",
+    "href": "practice-activities/main-version/pa5-dataviz.html#what-are-the-differences-between-male-and-female-tortoises-across-the-three-locations-beach-mainland-beach-plateau-mainland-and-konjsko-island-in-terms-of-body-mass-or-carapace-length",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "“What are the differences between male and female tortoises across the three locations (Beach Mainland Beach, Plateau Mainland, and Konjsko Island) in terms of body mass or carapace length?”",
+    "text": "“What are the differences between male and female tortoises across the three locations (Beach Mainland Beach, Plateau Mainland, and Konjsko Island) in terms of body mass or carapace length?”\n\nUse ggplot2 to create a scatterplot of the relationship between the body mass (body_mass_grams) and carapace length (straight_carapace_length_mm).\n\n\nThat’s a lot of data! Use alpha = 0.1 in your scatterplot to create a transparency effect to help with overplotting.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, y = straight_carapace_length_mm)) +\n  geom_point(alpha = 0.1)\n\n\n\n\n\n\n\n\nBuilding off the previous graph, add an aesthetic to differentiate the location (locality) on your scatterplot by color.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, \n             y = straight_carapace_length_mm,\n             color = sex)\n         ) +\n  geom_point(alpha = 0.2)\n\n\n\n\n\n\n\n\nBuilding off the same graph, incorporate location (locality). There may be more than one method to address this, however, one method will more easily address the questions below.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, \n             y = straight_carapace_length_mm,\n             color = sex)\n         ) +\n  geom_point(alpha = 0.2) +\n  facet_wrap(~ locality)\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipCanvas Submission\n\n\n\nxxx\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote that this dataset comes from TidyTuesday 2026 week 9."
+  },
+  {
+    "objectID": "reading/week-10.html",
+    "href": "reading/week-10.html",
+    "title": "Week 10: Communication",
+    "section": "",
+    "text": "Evaluate existing charts and develop new versions that improve accessibility and readability\nDesign and evaluate effective tables \n\n\nIn this week’s reading, we have:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimage…"
+  },
+  {
+    "objectID": "reading/week-10.html#learning-objectives",
+    "href": "reading/week-10.html#learning-objectives",
+    "title": "Week 10: Communication",
+    "section": "",
+    "text": "Evaluate existing charts and develop new versions that improve accessibility and readability\nDesign and evaluate effective tables \n\n\nIn this week’s reading, we have:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimage…"
+  },
+  {
+    "objectID": "reading/week-10.html#effective-data-visualizations",
+    "href": "reading/week-10.html#effective-data-visualizations",
+    "title": "Week 10: Communication",
+    "section": "\n2 Effective Data Visualizations",
+    "text": "2 Effective Data Visualizations\n📖 Required Reading: Creating Good Charts.\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "reading/week-10.html#table-design",
+    "href": "reading/week-10.html#table-design",
+    "title": "Week 10: Communication",
+    "section": "\n3 Table Design",
+    "text": "3 Table Design\nRequired Reading: []\n\n\n\n\n\n\nCheck-inCheck In\n\n\n\nTO-DO"
+  },
+  {
+    "objectID": "practice-activities/instructions/pa5-dataviz.html",
+    "href": "practice-activities/instructions/pa5-dataviz.html",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "",
+    "text": "First, we declare our package dependencies.\n\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "practice-activities/instructions/pa5-dataviz.html#does-it-seem-easier-to-capturerecapture-male-or-female-tortoises",
+    "href": "practice-activities/instructions/pa5-dataviz.html#does-it-seem-easier-to-capturerecapture-male-or-female-tortoises",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "“Does it seem easier to capture/recapture male or female tortoises?”",
+    "text": "“Does it seem easier to capture/recapture male or female tortoises?”\n\nHow many captures are there for each sex? What variables do you need to answer this question?\n\n\nUse ggplot2 to draw a barchart of the count of captures for each tortoise sex.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = sex)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "practice-activities/instructions/pa5-dataviz.html#what-are-the-differences-between-male-and-female-tortoises-across-the-three-locations-beach-mainland-beach-plateau-mainland-and-konjsko-island-in-terms-of-body-mass-or-carapace-length",
+    "href": "practice-activities/instructions/pa5-dataviz.html#what-are-the-differences-between-male-and-female-tortoises-across-the-three-locations-beach-mainland-beach-plateau-mainland-and-konjsko-island-in-terms-of-body-mass-or-carapace-length",
+    "title": "Practice Activity 5: Visualize the Tortoises",
+    "section": "“What are the differences between male and female tortoises across the three locations (Beach Mainland Beach, Plateau Mainland, and Konjsko Island) in terms of body mass or carapace length?”",
+    "text": "“What are the differences between male and female tortoises across the three locations (Beach Mainland Beach, Plateau Mainland, and Konjsko Island) in terms of body mass or carapace length?”\n\nUse ggplot2 to create a scatterplot of the relationship between the body mass (body_mass_grams) and carapace length (straight_carapace_length_mm).\n\n\nThat’s a lot of data! Use alpha = 0.1 in your scatterplot to create a transparency effect to help with overplotting.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, y = straight_carapace_length_mm)) +\n  geom_point(alpha = 0.1)\n\n\nBuilding off the previous graph, add an aesthetic to differentiate the location (locality) on your scatterplot by color.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, \n             y = straight_carapace_length_mm,\n             color = sex)\n         ) +\n  geom_point(alpha = 0.2)\n\n\nBuilding off the same graph, incorporate location (locality). There may be more than one method to address this, however, one method will more easily address the questions below.\n\n\ntortoise_data |&gt;\n  ggplot(aes(x = body_mass_grams, \n             y = straight_carapace_length_mm,\n             color = sex)\n         ) +\n  geom_point(alpha = 0.2) +\n  facet_wrap(~ locality)\n\n\n\n\n\n\n\nTipCanvas Submission\n\n\n\nxxx\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote that this dataset comes from TidyTuesday 2026 week 9."
   }
 ]

@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Handout 4: Data Is Friend – R is Your Friend</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -34,18 +31,19 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -276,8 +274,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#understanding-your-data-context" id="toc-understanding-your-data-context" class="nav-link active" data-scroll-target="#understanding-your-data-context">Understanding your data context</a></li>
+  <li><a href="#reading-in-the-data-following-file-paths" id="toc-reading-in-the-data-following-file-paths" class="nav-link" data-scroll-target="#reading-in-the-data-following-file-paths">Reading in the data &amp; following file paths</a></li>
+  <li><a href="#exploring-the-data-structure" id="toc-exploring-the-data-structure" class="nav-link" data-scroll-target="#exploring-the-data-structure">Exploring the data structure</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -302,41 +308,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- Check in? -->
-<ul>
-<li>Show code for reading in the data – read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)?
-<ul>
-<li>What if the data looks like xxxx.</li>
-</ul></li>
-<li>How many dimensions is the data? – use dim()</li>
-<li>Screenshot of reflected file folder structure &amp; Files tab in R.</li>
-</ul>
-<!-- File Folders -->
-<ul>
-<li>Image of file folder structure – putting a pin/moving/trace the path to the data. Fill in the file folder structure.
-<ul>
-<li>What if it is a .qmd file instead of a .R script (DUMB!)</li>
-<li>Where is your “home base”?</li>
-<li>Would the code run? yes/no</li>
-</ul></li>
-<li>If you have downloaded data, where should you save it on your computer to read it into your qmd? Sketch your folder project management gameplan!</li>
-</ul>
-<!-- Rectangles -->
+<section id="understanding-your-data-context" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-your-data-context">Understanding your data context</h2>
+<p>Who is the data about</p>
+<p><insert calendar=""> – unstructured data?? Page of a survey (how data was collected) -&gt; converted to the rectangle!</insert></p>
+<p>Here is a spreadsheet – <insert calendar="" format=""> + what is a row – week of the year? A single day? + how many columns?</insert></p>
+</section>
+<section id="reading-in-the-data-following-file-paths" class="level2">
+<h2 class="anchored" data-anchor-id="reading-in-the-data-following-file-paths">Reading in the data &amp; following file paths</h2>
+<ol type="1">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</section>
+<section id="exploring-the-data-structure" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-the-data-structure">Exploring the data structure</h2>
 <ul>
 <li>What does the rectangle look like?
 <ul>
 <li>what is a row – week of the year? A single day?</li>
 <li>how many columns?</li>
 <li>the same data can look like different rectangles (8 can be 1x8 or a 2x4 or a 4x2) shape-shifting data.</li>
-<li>Page of a survey (how data was collected) -&gt; converted to the rectangle!!!</li>
-</ul></li>
-<li>match the View(), str(), glimpse()
-<ul>
-<li>what sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?</li>
 </ul></li>
 </ul>
+<p>Here is a spreadsheet – <long format=""></long></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -760,7 +759,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with ❤️️ and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
