@@ -1,5 +1,6 @@
 ---
-title: "Practice Activity 5: Visualize the Tortoises"
+title: "PA 5: Palm Plots"
+subtitle: "Data Visualization" 
 filters:
   - versions
 versions:
@@ -29,11 +30,14 @@ execute:
   warning: false
 ---
 
-# Setup
+# Getting Set-up
 
 First, we declare our package dependencies.
 
 ```{r}
+#| version:
+#| - instructions
+#| - student
 #| warning: false
 #| message: false
 #| label: setup
@@ -43,105 +47,128 @@ library(ggplot2)
 library(dplyr)
 ```
 
-# Golem Grad Tortoise Data
+# Meet the Data 
 
 First, we load in the data. You will have to `install.packages("tidytuesdayR")`.
 
 ```{r}
 #| label: load-data
-tuesdata <- tidytuesdayR::tt_load(2026, week = 9)
-tortoise_data <- tuesdata$tortoise_body_condition_cleaned
+#| version:
+#| - instructions
+#| - student
+tuesdata  <- tidytuesdayR::tt_load('2025-03-18')
+palmtrees <- tuesdata$palmtrees
 ```
 
-
-```{r}
-#| include: false
-# emily exploring...
-tortoise_data |>
-  ggplot(aes(x = body_mass_grams, y = straight_carapace_length_mm)) +
-  geom_point(aes(color = sex), alpha = 0.2)
-
-tortoise_data |>
-  ggplot(aes(x = body_condition_index, y = locality)) +
-  geom_boxplot(aes(color = sex), alpha = 0.2)
-
-tortoise_data |>
-  ggplot(aes(x = as.factor(year_recode), 
-             y = body_condition_index)
-         ) +
-  geom_boxplot()
-```
-
-Take a look at the variables in your downloaded data by running the following code. This code with the `glimpse` function reports the data type for each column in the dataset.
+Take a look at the variables in the `palmtrees` data by running the following code. This code with the `glimpse` function reports the data type for each column in the dataset.
 
 ```{r}
 #| label: preview-data
-glimpse(tortoise_data)
+#| version:
+#| - instructions
+#| - student
+tibble::glimpse(palmtrees)
 ```
+
 You should also take a peak at the dataset by double-clicking on it in the environment. 
 
-1. What does one row in the data represent? 
+1. What does one row in the data represent?
 
 2. What are the some of the other variables and their types? Use `unique()` and `summary()` in the console to explore the data further.
 
-# Select and create an appropriate graphic to answer the following questions:
+### Part 1: Fruit Shapes
 
-## "Does it seem easier to capture/recapture male or female tortoises?"
+*Which fruit shapes occur most often?*
 
-::: tip
-How many captures are there for each sex? What variables do you need to answer this question?
-:::
-
-3. Use `ggplot2` to draw a barchart of the count of captures for each tortoise sex.
+3. Create a bar chart showing the number of palm species with each fruit shape. Add reader-friendly labels
 
 ```{r}
-tortoise_data |>
-  ggplot(aes(x = sex)) +
-  geom_bar()
+#| version: solution
+
+palmtrees |> 
+  ggplot(aes(x = fruit_shape)) +
+  geom_bar(stat = "count") +
+  labs(x = "Fruit Shape",
+       y = "",
+       subtitle = "Number of Palm Species")
 ```
 
-## "What are the differences between male and female tortoises across the three locations (Beach Mainland Beach, Plateau Mainland, and Konjsko Island) in terms of body mass or carapace length?"
+4. Which two fruit shapes appears most often?
 
-4. Use `ggplot2` to create a scatterplot of the relationship between the body mass (`body_mass_grams`) and carapace length (`straight_carapace_length_mm`).
+### Part 2: Palm Size
 
-::: tip
-That's a lot of data! Use `alpha = 0.1` in your scatterplot to create a transparency effect to help with overplotting.
-:::
+*How are maximum stem height and maximum stem diameter related?*
+
+5. Create a scatterplot showing the relationship between maximum stem height and maximum stem diameter. Add transparency with `alpha`. Add reader-friendly labels.
 
 ```{r}
-tortoise_data |>
-  ggplot(aes(x = body_mass_grams, y = straight_carapace_length_mm)) +
-  geom_point(alpha = 0.1)
+#| version: solution
+
+palmtrees |> 
+  ggplot(aes(x = max_stem_height_m, y = max_stem_dia_cm)) +
+  geom_point(alpha = 0.5) +
+  labs(x = "Maximum Stem Height (m)",
+       y = "",
+       subtitle = "Maximum Stem Diameter (cm)") +
+  scale_x_continuous(trans = "log10") +
+  scale_y_continuous(trans = "log10")
 ```
 
-5. Building off the previous graph, add an aesthetic to differentiate the location (`locality`) on your scatterplot by color.
+Notice that many palm species are compressed into the lower-left corner of the graph because a few species are much larger than the rest. In the Grammar of Graphics, scales control how data values are mapped onto the axes. 
+
+6. Add the following layers to display both axes on a base-10 logarithmic scale.
+
+```
+... +
+scale_x_continuous(trans = "log10") +
+scale_y_continuous(trans = "log10")
+```
+
+7. What differences do you notice? Why does the log scale make it easier to see the smaller palm species?
+
+### Part 3: Add Subfamily
+
+*Does the relationship between palm height and diameter look different across subfamilies?*
+
+Copy your scatterplot code (with log transformed scales) from above and edit to...
+
+9. Add color.
 
 ```{r}
-tortoise_data |>
-  ggplot(aes(x = body_mass_grams, 
-             y = straight_carapace_length_mm,
-             color = sex)
-         ) +
-  geom_point(alpha = 0.2)
+#| version: solution
+
+palmtrees |> 
+  ggplot(aes(x = max_stem_height_m, y = max_stem_dia_cm, color = palm_subfamily)) +
+  geom_point(alpha = 0.5) +
+  labs(x = "Maximum Stem Height (m)",
+       y = "",
+       subtitle = "Maximum Stem Diameter (cm)") +
+  scale_x_continuous(trans = "log10") +
+  scale_y_continuous(trans = "log10")
 ```
 
-5. Building off the same graph, incorporate location (`locality`). There may be more than one method to address this, however, one method will more easily address the questions below.
+10. Try faceting instead.
 
 ```{r}
-tortoise_data |>
-  ggplot(aes(x = body_mass_grams, 
-             y = straight_carapace_length_mm,
-             color = sex)
-         ) +
-  geom_point(alpha = 0.2) +
-  facet_wrap(~ locality)
+#| version: solution
+
+palmtrees |> 
+  ggplot(aes(x = max_stem_height_m, y = max_stem_dia_cm)) +
+  geom_point(alpha = 5) +
+  facet_wrap(~palm_subfamily) +
+  labs(x = "Maximum Stem Height (m)",
+       y = "",
+       subtitle = "Maximum Stem Diameter (cm)")+
+  scale_x_continuous(trans = "log10") +
+  scale_y_continuous(trans = "log10")
 ```
+
+11. Which version do you prefer to read - color or facets? Why? Does your answer differ based on what you are interested in understanding about the data?
 
 :::callout-tip
 # Canvas Submission
-xxx
-:::
-
-::: callout-note
-Note that this dataset comes from [TidyTuesday 2026 week 9](https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-03-03/readme.md). 
+1. Which **two** fruit shapes occur most often?
+2. Which palm subfamily appears to include the tallest species while also having relatively small stem diameters?
+3. Why don't palm species with a stem height or diameter of **0** appear 'nicely' on the log-transformed scatterplot? *(Hint: What is \(\log_{10}(0)\)?)*
+4. Which palm subfamily appears to contain only a single species?
 :::
