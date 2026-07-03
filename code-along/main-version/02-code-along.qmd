@@ -1,0 +1,57 @@
+---
+title: "Week 2 Code Along"
+format: html
+editor: source
+embed-resources: true
+---
+
+Let's consider the top five grossing movies in the first half of 2026. We'll create a dataset that contains...
+
+(a) the movie name,
+(b) the total amount grossed (in millions of dollars), and
+(c) whether or not the movie is part of a larger franchise.
+
+## Creating a Dataframe
+
+1. Open a new R script.
+
+2. Create a **dataframe** called `movie_info` that has 3 columns named `name`, `gross`, and `franchise`.
+
+```{r}
+movie_info <- data.frame(name = c("The Super Mario Galaxy Movie",
+                                  "Michael",
+                                  "The Devil Wears Prada 2",
+                                  "Project Hail Mary",
+                                  "Toy Story 5"),
+                         gross = c(1009, 978, 686, 682, 610),
+                         franchise = c(TRUE,FALSE,TRUE,FALSE,TRUE))
+```
+
+Let's **look at** the dataframe we just created!
+
+3. Go to your *Console*, type `movie_info`, and hit enter.
+
+4. Go to the *Environment* pane, find `movie_info`, and click on it.
+
+5. What code appears in the *Console*? This is another way to visualize your dataset!
+
+## Dataframe Indexing
+
+Often, we want to work with a **single column** (variable) or a **single row** (observation) in a dataframe. There are many ways to do this!
+
+6. Use `[ , ]` notation to pull out the vector of gross revenue.
+
+7. Use `$` notation to pull out the vector of gross revenue.
+
+8. Use `[ , ]` notation to pull out the data on *Project Hail Mary*.
+
+9. What proportion of the top five grossing movies are part of a larger franchise?
+
+## Data Types
+
+A benefit of dataframes, and why they are particularly useful in statistics, is that they can contain columns of different data types. Let's use the `typeof()` function to look at the data types we've been working with.
+
+10. What is the data type of `movie_info`?
+
+11. What about the data type of each column within `movie_info`? You'll have to pull out each column to check!
+
