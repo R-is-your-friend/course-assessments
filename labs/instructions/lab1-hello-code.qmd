@@ -18,7 +18,7 @@ Additionally, you are permitted and encouraged to work with your peers as you co
 
 ## Accessing the Lab
 
-You can download the R script for Lab 1 here: [lab-1.R](../student/lab-1.R)
+You can download the R script for Lab 1 here: <a href="../student/lab1-hello-code.R" download>`lab1-hello-code.R`</a>
 
 ## Creating Objects
 
