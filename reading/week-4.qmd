@@ -63,7 +63,7 @@ TO-DO
 
 ## Importing Data into R
 
-### 📖 Required Reading: [File Paths](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths-refresher)
+
 ### 📖 Required Reading: [R4DS 7.1-7.3](https://r4ds.hadley.nz/data-import.html) about reading in data files
 ### 📖 Required Reading: [R4DS 7.5](https://r4ds.hadley.nz/data-import.html#sec-writing-to-a-file) about saving data externally
 ### 📖 Required Reading: [R4DS 20](https://r4ds.hadley.nz/spreadsheets.html) about working with Excel files
@@ -82,18 +82,13 @@ TO-DO
   + what sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?
 :::
 
-## Data and Analysis Management
-
-### R Projects Reading - add
+## Project Management
 
 
-::: {.callout-check-in}
-
-TO-DO
-
-:::
 
 ### 📖 Required Reading: [R4DS 28](https://r4ds.hadley.nz/quarto.html) about Quarto
+
+- You can focus on 28.1-28.5 for now, but you will want to read the rest of the chapter eventually!
 
 By the end of the reading, you should be able to answer the following questions:
 
@@ -103,3 +98,19 @@ TO-DO
 
 :::
 
+### 📖 Required Reading: [RStudio Projects](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rstudio-projects)
+
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
+### 📖 Required Reading: [File Paths](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths-refresher)
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
