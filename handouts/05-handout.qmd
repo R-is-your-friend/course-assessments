@@ -2,6 +2,10 @@
 title: "Handout 5: Data Visualization"
 ---
 
+```{r}
+library(tidyverse)
+```
+
 # Meet the Data
 
 Before creating graphs, lets take a few minutes to understand the dataset. The dataset comes from the [the PalmTraits 1.0 database](https://www.nature.com/articles/s41597-019-0189-0) via the [`palmtrees`](https://github.com/EmilHvitfeldt/palmtrees) R package by [Emil Hvitfeldt](https://github.com/EmilHvitfeldt). The data set was curated by [Lydia Gibson](https://github.com/lgibson7).
@@ -77,6 +81,8 @@ knitr::include_graphics("_images/05-sketch-the-ggplot2.png")
 ```{r}
 #| eval: false
 #| echo: true
+library(ggplot2)
+
 ggplot(data = palmtrees)
 ```
 
@@ -113,6 +119,8 @@ ggplot(data = palmtrees,
 
 ## `aes`thetics & `geom`etries
 
+:::: columns
+::: column
 **Common aesthetics**
 
 - x, y
@@ -124,7 +132,8 @@ ggplot(data = palmtrees,
 - shape
 
 - size
-
+:::
+::: column
 **Common geometries**
 
 - geom_bar()
@@ -138,6 +147,8 @@ ggplot(data = palmtrees,
 - geom_point()
 
 - geom_line()
+:::
+::::
 
 We will explore:
 

@@ -1054,7 +1054,7 @@ scale_y_continuous(trans = "log10")</code></pre>
 <span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a><span class="fu"># Meet the Data </span></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a><span class="fu"># Meet the Data</span></span>
 <span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>First, we load in the data. You will have to <span class="in">`install.packages("tidytuesdayR")`</span>.</span>
 <span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a></span>
@@ -1077,17 +1077,17 @@ scale_y_continuous(trans = "log10")</code></pre>
 <span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(palmtrees)</span>
 <span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a>You should also take a peak at the dataset by double-clicking on it in the environment. </span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a>You should also take a peak at the dataset by double-clicking on it in the environment.</span>
 <span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>What does one row in the data represent?</span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>What does one row in the data represent?</span>
 <span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>What are the some of the other variables and their types? Use <span class="in">`unique()`</span> and <span class="in">`summary()`</span> in the console to explore the data further.</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>What are the some of the other variables and their types? Use <span class="in">`unique()`</span> and <span class="in">`summary()`</span> in the console to explore the data further.</span>
 <span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part 1: Fruit Shapes</span></span>
 <span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>*Which fruit shapes occur most often?*</span>
 <span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Create a bar chart showing the number of palm species with each fruit shape. Add reader-friendly labels</span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Create a bar chart showing the number of palm species with each fruit shape. Add reader-friendly labels</span>
 <span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a><span class="co">#| version: solution</span></span>
@@ -1100,13 +1100,13 @@ scale_y_continuous(trans = "log10")</code></pre>
 <span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Number of Palm Species"</span>)</span>
 <span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Which two fruit shapes appears most often?</span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Which two fruit shapes appears most often?</span>
 <span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part 2: Palm Size</span></span>
 <span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a>*How are maximum stem height and maximum stem diameter related?*</span>
 <span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Create a scatterplot showing the relationship between maximum stem height and maximum stem diameter. Add transparency with <span class="in">`alpha`</span>. Add reader-friendly labels.</span>
+<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Create a scatterplot showing the relationship between maximum stem height and maximum stem diameter. Add transparency with <span class="in">`alpha`</span>. Add reader-friendly labels.</span>
 <span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a><span class="co">#| version: solution</span></span>
@@ -1121,17 +1121,17 @@ scale_y_continuous(trans = "log10")</code></pre>
 <span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>)</span>
 <span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a>Notice that many palm species are compressed into the lower-left corner of the graph because a few species are much larger than the rest. In the Grammar of Graphics, scales control how data values are mapped onto the axes. </span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a>Notice that many palm species are compressed into the lower-left corner of the graph because a few species are much larger than the rest. In the Grammar of Graphics, scales control how data values are mapped onto the axes.</span>
 <span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Add the following layers to display both axes on a base-10 logarithmic scale.</span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Add the following layers to display both axes on a base-10 logarithmic scale.</span>
 <span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a><span class="in">```         </span></span>
 <span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a><span class="in">... +</span></span>
 <span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a><span class="in">scale_x_continuous(trans = "log10") +</span></span>
 <span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a><span class="in">scale_y_continuous(trans = "log10")</span></span>
 <span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>What differences do you notice? Why does the log scale make it easier to see the smaller palm species?</span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>What differences do you notice? Why does the log scale make it easier to see the smaller palm species?</span>
 <span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part 3: Add Subfamily</span></span>
 <span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a></span>
@@ -1139,7 +1139,7 @@ scale_y_continuous(trans = "log10")</code></pre>
 <span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a>Copy your scatterplot code (with log transformed scales) from above and edit to...</span>
 <span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Add color.</span>
+<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a><span class="ss">9.  </span>Add color.</span>
 <span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a><span class="co">#| version: solution</span></span>
@@ -1172,13 +1172,14 @@ scale_y_continuous(trans = "log10")</code></pre>
 <span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a><span class="ss">11. </span>Which version do you prefer to read - color or facets? Why? Does your answer differ based on what you are interested in understanding about the data?</span>
 <span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a>:::callout-tip</span>
+<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
 <span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a><span class="fu"># Canvas Submission</span></span>
-<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Which **two** fruit shapes occur most often?</span>
-<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Which palm subfamily appears to include the tallest species while also having relatively small stem diameters?</span>
-<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Why don't palm species with a stem height or diameter of **0** appear 'nicely' on the log-transformed scatterplot? *(Hint: What is \(\log_{10}(0)\)?)*</span>
-<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Which palm subfamily appears to contain only a single species?</span>
-<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Which **two** fruit shapes occur most often?</span>
+<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Which palm subfamily appears to include the tallest species while also having relatively small stem diameters?</span>
+<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Why don't palm species with a stem height or diameter of **0** appear 'nicely' on the log-transformed scatterplot? <span class="sc">\*</span>(Hint: What is (\log<span class="sc">\_</span>{10}(0))?)<span class="sc">\*</span></span>
+<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Which palm subfamily appears to contain only a single species?</span>
+<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
