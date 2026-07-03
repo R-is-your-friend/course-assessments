@@ -47,7 +47,7 @@ library(ggplot2)
 library(dplyr)
 ```
 
-# Meet the Data 
+# Meet the Data
 
 First, we load in the data. You will have to `install.packages("tidytuesdayR")`.
 
@@ -70,17 +70,17 @@ Take a look at the variables in the `palmtrees` data by running the following co
 tibble::glimpse(palmtrees)
 ```
 
-You should also take a peak at the dataset by double-clicking on it in the environment. 
+You should also take a peak at the dataset by double-clicking on it in the environment.
 
-1. What does one row in the data represent?
+1.  What does one row in the data represent?
 
-2. What are the some of the other variables and their types? Use `unique()` and `summary()` in the console to explore the data further.
+2.  What are the some of the other variables and their types? Use `unique()` and `summary()` in the console to explore the data further.
 
 ### Part 1: Fruit Shapes
 
 *Which fruit shapes occur most often?*
 
-3. Create a bar chart showing the number of palm species with each fruit shape. Add reader-friendly labels
+3.  Create a bar chart showing the number of palm species with each fruit shape. Add reader-friendly labels
 
 ```{r}
 #| version: solution
@@ -93,13 +93,13 @@ palmtrees |>
        subtitle = "Number of Palm Species")
 ```
 
-4. Which two fruit shapes appears most often?
+4.  Which two fruit shapes appears most often?
 
 ### Part 2: Palm Size
 
 *How are maximum stem height and maximum stem diameter related?*
 
-5. Create a scatterplot showing the relationship between maximum stem height and maximum stem diameter. Add transparency with `alpha`. Add reader-friendly labels.
+5.  Create a scatterplot showing the relationship between maximum stem height and maximum stem diameter. Add transparency with `alpha`. Add reader-friendly labels.
 
 ```{r}
 #| version: solution
@@ -114,17 +114,17 @@ palmtrees |>
   scale_y_continuous(trans = "log10")
 ```
 
-Notice that many palm species are compressed into the lower-left corner of the graph because a few species are much larger than the rest. In the Grammar of Graphics, scales control how data values are mapped onto the axes. 
+Notice that many palm species are compressed into the lower-left corner of the graph because a few species are much larger than the rest. In the Grammar of Graphics, scales control how data values are mapped onto the axes.
 
-6. Add the following layers to display both axes on a base-10 logarithmic scale.
+6.  Add the following layers to display both axes on a base-10 logarithmic scale.
 
-```
+```         
 ... +
 scale_x_continuous(trans = "log10") +
 scale_y_continuous(trans = "log10")
 ```
 
-7. What differences do you notice? Why does the log scale make it easier to see the smaller palm species?
+7.  What differences do you notice? Why does the log scale make it easier to see the smaller palm species?
 
 ### Part 3: Add Subfamily
 
@@ -132,7 +132,7 @@ scale_y_continuous(trans = "log10")
 
 Copy your scatterplot code (with log transformed scales) from above and edit to...
 
-9. Add color.
+9.  Add color.
 
 ```{r}
 #| version: solution
@@ -165,10 +165,11 @@ palmtrees |>
 
 11. Which version do you prefer to read - color or facets? Why? Does your answer differ based on what you are interested in understanding about the data?
 
-:::callout-tip
+::: callout-tip
 # Canvas Submission
-1. Which **two** fruit shapes occur most often?
-2. Which palm subfamily appears to include the tallest species while also having relatively small stem diameters?
-3. Why don't palm species with a stem height or diameter of **0** appear 'nicely' on the log-transformed scatterplot? *(Hint: What is \(\log_{10}(0)\)?)*
-4. Which palm subfamily appears to contain only a single species?
+
+1.  Which **two** fruit shapes occur most often?
+2.  Which palm subfamily appears to include the tallest species while also having relatively small stem diameters?
+3.  Why don't palm species with a stem height or diameter of **0** appear 'nicely' on the log-transformed scatterplot? \*(Hint: What is (\log\_{10}(0))?)\*
+4.  Which palm subfamily appears to contain only a single species?
 :::
