@@ -356,6 +356,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <section id="meet-the-data" class="level1">
 <h1>Meet the Data</h1>
 <p>Before creating graphs, lets take a few minutes to understand the dataset. The dataset comes from the <a href="https://www.nature.com/articles/s41597-019-0189-0">the PalmTraits 1.0 database</a> via the <a href="https://github.com/EmilHvitfeldt/palmtrees"><code>palmtrees</code></a> R package by <a href="https://github.com/EmilHvitfeldt">Emil Hvitfeldt</a>. The data set was curated by <a href="https://github.com/lgibson7">Lydia Gibson</a>.</p>
@@ -551,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="_images/05-sketch-the-ggplot2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="_images/05-sketch-the-ggplot2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="722"></p>
 </figure>
 </div>
 </div>
@@ -560,42 +563,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>What do you expect to see after running the following code? Sketch it in the box above.</strong></li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="1">
 <li><strong>What do you expect to see after running the following code? Add to your sketch in the box above.</strong></li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> palm_subfamily, <span class="at">y =</span> max_stem_height_m)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> palm_subfamily, <span class="at">y =</span> max_stem_height_m)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="5" type="1">
 <li><strong>What do you expect to see after running the following code? Add to your sketch in the box above.</strong></li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> palm_subfamily, <span class="at">y =</span> max_stem_height_m)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> palm_subfamily, <span class="at">y =</span> max_stem_height_m)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="6" type="1">
 <li><strong>What do you expect to see after running the following code? Add to your sketch in the box above.</strong></li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> palm_subfamily, <span class="at">y =</span> max_stem_height_m)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> palmtrees,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> palm_subfamily, <span class="at">y =</span> max_stem_height_m)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
+<pre><code>Error:
+! object 'palmtrees' not found</code></pre>
 </div>
 </div>
 </section>
 <section id="aesthetics-geometries" class="level2">
 <h2 class="anchored" data-anchor-id="aesthetics-geometries"><code>aes</code>thetics &amp; <code>geom</code>etries</h2>
+<div class="columns">
+<div class="column">
 <p><strong>Common aesthetics</strong></p>
 <ul>
 <li><p>x, y</p></li>
@@ -604,6 +611,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>shape</p></li>
 <li><p>size</p></li>
 </ul>
+</div><div class="column">
 <p><strong>Common geometries</strong></p>
 <ul>
 <li><p>geom_bar()</p></li>
@@ -613,6 +621,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>geom_point()</p></li>
 <li><p>geom_line()</p></li>
 </ul>
+</div>
+</div>
 <p>We will explore:</p>
 <ul>
 <li><p>How does the sizes of the different species of palms vary across sub families?</p></li>
@@ -632,8 +642,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="column">
 <div class="cell">
 <div class="cell-output cell-output-error">
-<pre><code>Error in `select()`:
-! could not find function "select"</code></pre>
+<pre><code>Error:
+! object 'palmtrees' not found</code></pre>
 </div>
 </div>
 </div><div class="column">
@@ -641,7 +651,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="_images/05-sketch-the-ggplot2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="_images/05-sketch-the-ggplot2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="722"></p>
 </figure>
 </div>
 </div>
@@ -661,8 +671,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="column">
 <div class="cell">
 <div class="cell-output cell-output-error">
-<pre><code>Error in `select()`:
-! could not find function "select"</code></pre>
+<pre><code>Error:
+! object 'palmtrees' not found</code></pre>
 </div>
 </div>
 </div><div class="column">
@@ -670,7 +680,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="_images/05-sketch-the-ggplot2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="_images/05-sketch-the-ggplot2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="722"></p>
 </figure>
 </div>
 </div>
