@@ -2231,5 +2231,26 @@
     "title": "Lab 3: Conditionals",
     "section": "Part 2: Find the Best Breakfast Burrito",
     "text": "Part 2: Find the Best Breakfast Burrito\n16. Once you have written your four functions correctly, run the following code:\n\nmy_vec &lt;- c(39, 1.87, 48, 11, 8, 45, 21, 5, 12, 33, 9, 11, 108,\n            4, 18, 5, 16, 17, 8, 48, 27, 24, 4, 22, 12, 27, 23,\n            46, 42, 35, 15, 34, 36, 26, 18, 10, 18.21, 72.04,\n            36.9, 41.81, 29, 89.75, 34.03, 20.18, 48.74, 15.76,\n            31.86, 83.6, 43.55, 39.99, 23.55, 8.54, 24.71, 22.02,\n            9.71, 62.14, 35.46, 16.61, 15.66, 21.29, 30.52,\n            201.07, 45.81, 7.85, 30.13, 21.02, 22.62, 10.2, 6.02,\n            30.12, 10.64, 31.72, 24.57, 14.43, 43.37, 89.93,\n            44.72, 34.14, 13.62, 45.56, 22.96, 7.05, 29.99, 41.38,\n            26.59, 23.04, 19.82, 50.73, 39.56, 8.88, 30.22, 85.85,\n            5.78, 78.85, 29.52, 66.27, 44.06, 39.57, 24.43, 64.32,\n            3.35, 67.45, 46.72, 48.44, 48.65, 49.1, 40.28, 19.04,\n            13.6, 74, 29, 42.4, 6, 4, 49, 16.17, 22.62, 9.31,\n            92.6, 9, 63.01, 30.12, 14, 31.72, 88.57, 15.3, 3.7,\n            89.93, 72.4, 33.1, 29, 44.39, 56.29, 23.04, 1.99,\n            51.15, 56.93, 13)\n # Has 138 elements! \n\nmy_vec &lt;- every_other_num(my_vec, start = 2)\n# Should have 69 elements!\n\nmy_vec &lt;- divide_and_round(my_vec)\n\nmy_vec &lt;- every_other_num(my_vec, start = 1)\n# Should have 35 elements!\n\nmy_vec &lt;- shorten(my_vec, 350)\n# Should have 20 elements!\n\nmy_vec &lt;- my_vec[no_fours_or_fourteens(my_vec)]\n# Should have 9 elements! \n\nmy_vec\n\n[1] 11 18  5 21 26  2  5 18  7\n\n\n\n\n\n\n\n\nTipAnd the winner is…\n\n\n\nIf you have done everything correctly, your final vector will be nine numbers long. To find the name of a SLO establishment, turn these numbers into letters (where 1 = A, 2 = B, etc.)."
+  },
+  {
+    "objectID": "practice-activities/main-version/pa4-friend.html#first-quarto-code-chunk",
+    "href": "practice-activities/main-version/pa4-friend.html#first-quarto-code-chunk",
+    "title": "Practice Activity 4: Emoji Riddles",
+    "section": "First Quarto Code Chunk!",
+    "text": "First Quarto Code Chunk!\n\n2 + 7\n\n[1] 9\n\n\nThis code chunk adds two to seven."
+  },
+  {
+    "objectID": "practice-activities/main-version/pa4-friend.html#crack-the-code",
+    "href": "practice-activities/main-version/pa4-friend.html#crack-the-code",
+    "title": "Practice Activity 4: Emoji Riddles",
+    "section": "Crack the Code",
+    "text": "Crack the Code\n\nemoji_codes &lt;- read_csv(\"../../data/04-magic-csv.csv\")\n\n\nkable(emoji_codes)\n\n\n\nphrase_id\norder_id\nemoji\n\n\n\n1\n1\n ☕ \n\n\n1\n2\n 💔 \n\n\n2\n1\n 🌟 \n\n\n2\n2\n 💵 \n\n\n3\n1\n 🌎 \n\n\n3\n2\n 🏃 \n\n\n3\n3\n 🔛 \n\n\n3\n4\n 🍩"
+  },
+  {
+    "objectID": "code-along/main-version/03-code-along.html",
+    "href": "code-along/main-version/03-code-along.html",
+    "title": "Week 3 Code Along",
+    "section": "",
+    "text": "You’re a new employee at a non-profit committed to sustainability. The company has recently pledged to plant trees to offset their paper use.\nSince the company places several paper orders throughout the year, you have been asked to write a function to calculate the number of trees to plant based on a given order. There are three types of paper used by the company, each of which requires a different number of trees. One carton (5000 sheets) of…\n\noffice paper uses 0.6 trees.\nnewsprint (for the newsletter) uses 0.3 trees.\nglossy paper (for the catalog) uses 0.4 trees.\n\nIn order to offset waste, the company wants to plant 125% of the trees that directly go into the paper they buy.\n\nWrite a function called trees_to_plant() that takes in two arguments: the number of cartons (cartons) and the material (material) that was ordered. The function should output the number of trees the company needs to plant.\n\n\ntrees_to_plant &lt;- function(cartons, material){\n  if(material == \"office\"){\n    num_trees &lt;- 0.6 * cartons\n  }\n  else if(material == \"newsprint\"){\n    num_trees &lt;- 0.3 * cartons\n  }\n  else {\n    num_trees &lt;- 0.4 * cartons\n  }\n  num_trees &lt;- num_trees * 1.25\n  return(num_trees)\n}\n\n\nRun the function. Does anything happen?\nTake a look at the Environment pane. Do you notice anything there?\n\nNothing really happens when you run the code that defines a function. The action happens when you call that function!\n\nThe non-profit places an order for 5 cartons of office paper. Run your function to find the number of trees to plant.\nHow many trees for 2 cartons of glossy paper?\n\nThe function is doing lots of work behind the scenes. But, what happens inside the function is not accessible outside the function!\n\nWhen we rannum_of_trees, the object num_trees was created. Can we see that object now? Try to print out num_trees in the Console.\nDefine num_trees &lt;- 7. Then run num_of_trees() for 1 carton of newsprint. What is the value of num_trees now?"
   }
 ]
