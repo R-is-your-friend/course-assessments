@@ -1,0 +1,83 @@
+---
+title: "Week 12: Leveling up functions and scripting"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+
+::: columns
+::: {.column width="48%"}
+#### 📖 Readings: 60 min
+
+#### 🏋🏾‍♂️ Activities: 0 min
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 0 min 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
+
+------------------------------------------------------------------------
+
+
+
+
+## Using .R Scripts
+
+::: callout
+## Learning Objectives
+
++ Manage a folder of R scripts to keep qmd source files clean
++ Use `source()` appropriately with file paths inside a notebook
++ Separate data processing pipelines from specific analyses
+
+:::
+
+### 📖 Required Reading: 
+
+### 📖 Required Reading: 
+
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
+## Writing more complicated functions
+
+::: callout
+## Learning Objectives
++ Write functions with multiple inputs or outputs
++ Debug functions with `print()`
++ Practice defensive programming and input validation
+:::
+
+
+### 📖 Required Reading: 
+
+#### 📽 Optional Video:
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
