@@ -47,8 +47,9 @@ library(tidyverse)
 
 ## Grammar of Graphics
 
-### 📖 Required Reading: [A Grammar of Graphics](https://srvanderplas.github.io/stat-computing-r-python/part-wrangling/02b-graphics.html)
-<!-- Emily note... want to repurpose for a short reading with gameplans for grammar of graphics. -->
+### 📖 Required Reading: [A Grammar of Graphics](https://r-is-your-friend.github.io/course-pack/05-data-visualizations.html)
+<!-- Emily note... draft repurpposed from https://srvanderplas.github.io/stat-computing-r-python/part-wrangling/02b-graphics.html. -->
+
 
 ::: {.callout-check-in}
 
@@ -59,6 +60,14 @@ TO-DO
 ## Building a Graph with `ggplot2`
 
 ### 📖 Required Reading: [R4DS Data Visualization 1.1 - 1.5](https://r4ds.hadley.nz/data-visualize.html#introduction)
+
+
+```{r}
+#| eval: false
+install.packages("ggplot2")
+```
+
+[Ggplot2 Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 
 ::: {.callout-check-in}
 
@@ -85,11 +94,13 @@ TO-DO
 
 ### 📊 Additional Resources: A Parade of Chart Types
 
-Luckily, we have a Grammar of Graphics!
+Graph galleries contain sample code to create many different types of charts. Luckily, we have a Grammar of Graphics!
 
-- [From Data to Viz](https://www.data-to-viz.com/)
-- [DataViz Project](https://datavizproject.com/)
-- [The Data Visualisation Catalogue](https://datavizcatalogue.com/)
+<!-- - [From Data to Viz](https://www.data-to-viz.com/) -->
+<!-- - [DataViz Project](https://datavizproject.com/) -->
+<!-- - [The Data Visualisation Catalogue](https://datavizcatalogue.com/) -->
+- [R Graphics Cookbook, 2nd edition](https://r-graphics.org/)
+- [R Graph Gallery](https://r-graph-gallery.com/)
 
 ## 📽 Optional Videos
 
