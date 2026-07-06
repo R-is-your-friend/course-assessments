@@ -16,7 +16,7 @@ library(tidyverse)
 ::: {.column width="48%"}
 #### 📖 Readings: 60 min
 
-#### 🏋🏾‍♂️ Activities: 0 min
+#### 🏋🏾‍♂️ Activities: 5 min
 
 :::
 
@@ -51,6 +51,8 @@ library(tidyverse)
 ## Rectangular Data
 
 ### 📖 Required Reading: [Getting Acquainted with our Data](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#getting-acquainted-with-our-data)
+
+- Don't continue reading the Project Management section yet!
 
 
 By the end of the reading, you should be able to answer the following questions:
@@ -90,8 +92,6 @@ TO-DO
 
 - You can focus on 28.1-28.5 for now, but you will want to read the rest of the chapter eventually!
 
-By the end of the reading, you should be able to answer the following questions:
-
 ::: {.callout-check-in}
 
 TO-DO
@@ -100,14 +100,19 @@ TO-DO
 
 ### 📖 Required Reading: [RStudio Projects](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rstudio-projects)
 
-
 ::: {.callout-check-in}
 
-TO-DO
+**Question XX** Follow the instructions to create your `stat-1810` RStudio project in `stat-1810` you have already been working with in class. 
+
+Submit a screenshot showing your `stat-1810` directory, making sure the `stat-1810.Rproj` file is visible like: ![](https://r-is-your-friend.github.io/course-pack/images/04-files-comp-1.png){width=40%}.
 
 :::
 
 ### 📖 Required Reading: [File Paths](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths-refresher)
+
+By the end of the reading, you should be able to answer the following questions:
+
+
 
 ::: {.callout-check-in}
 
