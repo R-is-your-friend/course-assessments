@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Instructions">
-<title>Lab 3: Functions and Conditionals – R is Your Friend</title>
+<title>Lab 3: Conditionals – R is Your Friend</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -326,7 +326,7 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#part-0-create-an-r-script" id="toc-part-0-create-an-r-script" class="nav-link active" data-scroll-target="#part-0-create-an-r-script">Part 0: Create an R Script</a></li>
+<li><a href="#part-0-accessing-the-lab" id="toc-part-0-accessing-the-lab" class="nav-link active" data-scroll-target="#part-0-accessing-the-lab">Part 0: Accessing the Lab</a></li>
   <li>
 <a href="#part-1-write-and-test-your-functions" id="toc-part-1-write-and-test-your-functions" class="nav-link" data-scroll-target="#part-1-write-and-test-your-functions">Part 1: Write and Test Your Functions</a>
   <ul>
@@ -341,7 +341,7 @@ window.Quarto = {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Lab 3: Functions and Conditionals</h1>
+<h1 class="title">Lab 3: Conditionals</h1>
 </div>
 
 
@@ -363,7 +363,6 @@ window.Quarto = {
 
 </header><p>It’s been hotly contested, but your R instructors have named the (controversial) <strong>best breakfast burrito in SLO</strong>! To discover the winner, decode their message.</p>
 <p>We will break this task down into several small steps and write a function for each.</p>
-<!-- We need to decide what our AI policy is! -->
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -381,16 +380,15 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<section id="part-0-create-an-r-script" class="level2"><h2 class="anchored" data-anchor-id="part-0-create-an-r-script">Part 0: Create an R Script</h2>
-<p>Create a new R script, give it a descriptive and appropriate file name, and save it in your Week 3 subfolder (of your STAT 1810 folder).</p>
-<p>In the newly created R script, add a comment to the top that describes the contents of this document. <em>Hint: it’s the code for Lab 3!</em></p>
+<section id="part-0-accessing-the-lab" class="level2"><h2 class="anchored" data-anchor-id="part-0-accessing-the-lab">Part 0: Accessing the Lab</h2>
+<p>You can download the R script for Lab 3 here: <a href="../student/lab3-functions-control-flow.R" download=""><code>lab3-functions-control-flow.R</code></a></p>
 </section><section id="part-1-write-and-test-your-functions" class="level2"><h2 class="anchored" data-anchor-id="part-1-write-and-test-your-functions">Part 1: Write and Test Your Functions</h2>
 <section id="function-1-divide_and_round" class="level3"><h3 class="anchored" data-anchor-id="function-1-divide_and_round">Function 1: <code>divide_and_round()</code>
 </h3>
-<p><strong>1. Write code to manipulate the vector of numbers <code>nums</code>. Your code should divide each element in the vector by the smallest element and then round the results to the nearest whole number.</strong> <em>This code should not be a function!</em></p>
+<p><strong>1. Write code to manipulate the vector of numbers <code>nums</code>. Your code should divide each element in the vector by the smallest element and then round the results to the nearest whole number.</strong> <em>This code should not be a function.</em></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Add your code below.</span></span>
-<span><span class="va">nums</span> <span class="op">&lt;-</span> <span class="fl">3</span><span class="op">:</span><span class="fl">12</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">nums</span> <span class="op">&lt;-</span> <span class="fl">3</span><span class="op">:</span><span class="fl">12</span></span>
+<span><span class="co"># Add your code below.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>2. Turn your code from Q1 into a function called <code>divide_and_round()</code>.</strong> <em>Fill in the skeleton below.</em></p>
 <div class="cell">
@@ -399,74 +397,33 @@ window.Quarto = {
 <span></span>
 <span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">divide_and_round</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">vec</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="va">min_elm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">vec</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span>  <span class="va">divided</span> <span class="op">&lt;-</span> <span class="va">vec</span><span class="op">/</span><span class="va">min_elm</span></span>
-<span>  <span class="va">rounded</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">divided</span><span class="op">)</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">rounded</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p><strong>3. Test your function by running the code below.</strong> Make sure the output is as expected. You may need to go back to Q2 and make changes to your function!</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Don't change this code!</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Don't change this code!</span></span>
 <span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">10</span>, <span class="cn">NA</span><span class="op">)</span></span>
 <span><span class="fu">divide_and_round</span><span class="op">(</span><span class="va">test</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  1  1  1  2  2  2 NA</code></pre>
+<pre><code>NULL</code></pre>
 </div>
 </div>
 <p><strong>4. Why is it important to test the functions that you write? Did the test in Q3 help you improve your function?</strong></p>
 </section><section id="function-2-no_fours_or_fourteens" class="level3"><h3 class="anchored" data-anchor-id="function-2-no_fours_or_fourteens">Function 2: <code>no_fours_or_fourteens()</code>
 </h3>
 <p><strong>5. Write code to manipulate the vector of numbers <code>nums</code>. Your code should return a vector of <code>TRUE</code> and <code>FALSE</code>. For each element, return <code>TRUE</code> if the number is NOT divisible by 4 or 14, and return <code>FALSE</code> otherwise.</strong> <em>This code should not be a function.</em></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Write your code for Q5 here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">!</span><span class="op">(</span><span class="va">nums</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">4</span> <span class="op">==</span> <span class="fl">0</span><span class="op">|</span> <span class="va">nums</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">14</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE</code></pre>
-</div>
-</div>
 <p><strong>6. Turn your code from Q5 into a function called <code>no_fours_or_fourteens()</code>.</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Write your code for Q6 here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">no_fours_or_fourteens</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">vec</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="va">check</span> <span class="op">&lt;-</span> <span class="op">!</span><span class="op">(</span><span class="va">vec</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">4</span> <span class="op">==</span> <span class="fl">0</span><span class="op">|</span> <span class="va">vec</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">14</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">check</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p><strong>7. Test your function by running the code below.</strong> Make sure the output is as expected. You may need to go back to Q6 and make changes to your function!</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Don't change this code!</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Don't change this code!</span></span>
 <span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span><span class="op">:</span><span class="fl">14</span><span class="op">*</span><span class="fl">5</span>, <span class="cn">NA</span><span class="op">)</span></span>
 <span><span class="fu">no_fours_or_fourteens</span><span class="op">(</span><span class="va">test</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE
-[13]    NA</code></pre>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `no_fours_or_fourteens()`:
+! could not find function "no_fours_or_fourteens"</code></pre>
 </div>
 </div>
 </section><section id="function-3-every_other_num" class="level3"><h3 class="anchored" data-anchor-id="function-3-every_other_num">Function 3: <code>every_other_num()</code>
 </h3>
 <p><strong>8. Write a line of code that returns <code>TRUE</code> if <code>value</code> is odd and <code>FALSE</code> is <code>value</code> is even. Test your code on <code>value &lt;- 3</code> and <code>value &lt;- 6</code>.</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Write your code for Q8 here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
-<span><span class="va">value</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">value</span> <span class="op">&lt;-</span> <span class="fl">6</span></span>
-<span><span class="va">value</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-</div>
 <p><strong>9. Write code to manipulate the vector of numbers <code>nums</code>. Your code should contain a <code>for()</code> loop that returns every other value in the vector, starting from the first element. That is, your code should return the 1st, 3rd, 5th, etc. values.</strong></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -481,40 +438,10 @@ Tip
 <p>You need to loop through the positions of <code>nums</code> (i.e., 1 through <code>length(nums)</code>) and find the odd positions. Use your ideas from Q8.</p>
 </div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Write your code for Q9 here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">every_other</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">nums</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">every_other</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">every_other</span>, <span class="va">nums</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="op">}</span></span>
-<span><span class="va">every_other</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  3  5  7  9 11</code></pre>
-</div>
-</div>
 <p><strong>10. Copy and edit your code from Q9. Your code should now return every other value in the vector, starting from the <em>second</em> element. That is, your code should return the 2nd, 4th, 6th, etc. values.</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Write your code for Q10 here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">every_other</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">nums</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">every_other</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">every_other</span>, <span class="va">nums</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="op">}</span></span>
-<span><span class="va">every_other</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  4  6  8 10 12</code></pre>
-</div>
-</div>
 <p><strong>11. Write a function called <code>every_other_num()</code>. This function should combine your code from Q9 and Q10 to return every other value in a vector. Include an argument called <code>start</code> that lets you choose whether you start from the first element (<code>start = 1</code>) or the second element (<code>start = 2</code>).</strong> <em>Fill in the skeleton below.</em></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Complete the code below.</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Complete the code below.</span></span>
 <span><span class="va">every_other_num</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span><span class="op">{</span></span>
 <span>  </span>
 <span>  <span class="kw">if</span><span class="op">(</span><span class="va">start</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">{</span></span>
@@ -527,42 +454,25 @@ Tip
 <span>  </span>
 <span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">every_other_num</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">vec</span>, <span class="va">start</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="va">every_other</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>  <span class="kw">if</span><span class="op">(</span><span class="va">start</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">{</span></span>
-<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vec</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span>        <span class="va">every_other</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">every_other</span>, <span class="va">vec</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
-<span>        <span class="op">}</span></span>
-<span>      <span class="op">}</span></span>
-<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span><span class="op">(</span><span class="va">start</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vec</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span>        <span class="va">every_other</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">every_other</span>, <span class="va">vec</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
-<span>        <span class="op">}</span></span>
-<span>      <span class="op">}</span></span>
-<span>  <span class="op">}</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">every_other</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p><strong>12. Test your function by running the code below.</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Don't change this code!</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Don't change this code!</span></span>
 <span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">every_other_num</span><span class="op">(</span><span class="va">test</span>, start <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 3 5 7 9</code></pre>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `every_other_num()`:
+! unused arguments (test, start = 1)</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">every_other_num</span><span class="op">(</span><span class="va">test</span>, start <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  2  4  6  8 10</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">every_other_num</span><span class="op">(</span><span class="va">test</span>, start <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `every_other_num()`:
+! unused arguments (test, start = 2)</code></pre>
 </div>
 </div>
 </section><section id="function-4-shorten" class="level3"><h3 class="anchored" data-anchor-id="function-4-shorten">Function 4: <code>shorten()</code>
 </h3>
-<p><strong>13. Write code to manipulate the vector of numbers <code>nums</code>. Your code should use a <code>while()</code> loop to find the first cumulative sum GREATER THAN 10..</strong></p>
+<p><strong>13. Write code to manipulate the vector of numbers <code>nums</code>. Your code should use a <code>while()</code> loop to find the first cumulative sum GREATER THAN 10.</strong></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -577,56 +487,26 @@ Tip
 <p>Consider the vector <span class="math inline">\((2,4,6,8,10)\)</span>. The first cumulative sum is <span class="math inline">\(2\)</span>; the second cumulative sum is <span class="math inline">\(2 + 4 = 6\)</span>; the third cumulative sum is <span class="math inline">\(2 + 4 + 6 = 12\)</span>, etc.</p>
 </div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Write your code for Q13 here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">total</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
-<span><span class="va">ind</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
-<span><span class="kw">while</span><span class="op">(</span><span class="va">total</span> <span class="op">&lt;=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">ind</span> <span class="op">&lt;-</span> <span class="va">ind</span> <span class="op">+</span> <span class="fl">1</span></span>
-<span>  <span class="va">total</span> <span class="op">&lt;-</span> <span class="va">total</span> <span class="op">+</span> <span class="va">nums</span><span class="op">[</span><span class="va">ind</span><span class="op">]</span></span>
-<span><span class="op">}</span></span>
-<span><span class="va">ind</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-</div>
 <p><strong>14. Write a function called <code>shorten()</code>. This function should take in a vector, drop all values BEFORE the cumulative sum is greater than a provided number, and return the remaining values from the original vector. Adapt your <code>while()</code> loop from Q13 to do this.</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Write your code for Q14 here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shorten</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">vec</span>, <span class="va">limit</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">total</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
-<span>  <span class="va">ind</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
-<span>  <span class="kw">while</span><span class="op">(</span><span class="va">total</span> <span class="op">&lt;=</span> <span class="va">limit</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">ind</span> <span class="op">&lt;-</span> <span class="va">ind</span> <span class="op">+</span> <span class="fl">1</span></span>
-<span>    <span class="va">total</span> <span class="op">&lt;-</span> <span class="va">total</span> <span class="op">+</span> <span class="va">vec</span><span class="op">[</span><span class="va">ind</span><span class="op">]</span></span>
-<span>  <span class="op">}</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">vec</span><span class="op">[</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">ind</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p><strong>15. Write code to test your function.</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Write code to test the shorten() function here.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Write code to test the shorten() function here.</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Write code to test the shorten() function here.</span></span>
 <span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
 <span><span class="fu">shorten</span><span class="op">(</span><span class="va">test</span>, <span class="fl">2</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `shorten()`:
+! could not find function "shorten"</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">shorten</span><span class="op">(</span><span class="va">test</span>, <span class="fl">20</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  6  7  8  9 10</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">shorten</span><span class="op">(</span><span class="va">test</span>, <span class="fl">20</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `shorten()`:
+! could not find function "shorten"</code></pre>
 </div>
 </div>
 </section></section><section id="part-2-find-the-best-breakfast-burrito" class="level2"><h2 class="anchored" data-anchor-id="part-2-find-the-best-breakfast-burrito">Part 2: Find the Best Breakfast Burrito</h2>
 <p><strong>16. Once you have written your four functions correctly, run the following code:</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">39</span>, <span class="fl">1.87</span>, <span class="fl">48</span>, <span class="fl">11</span>, <span class="fl">8</span>, <span class="fl">45</span>, <span class="fl">21</span>, <span class="fl">5</span>, <span class="fl">12</span>, <span class="fl">33</span>, <span class="fl">9</span>, <span class="fl">11</span>, <span class="fl">108</span>,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">39</span>, <span class="fl">1.87</span>, <span class="fl">48</span>, <span class="fl">11</span>, <span class="fl">8</span>, <span class="fl">45</span>, <span class="fl">21</span>, <span class="fl">5</span>, <span class="fl">12</span>, <span class="fl">33</span>, <span class="fl">9</span>, <span class="fl">11</span>, <span class="fl">108</span>,</span>
 <span>            <span class="fl">4</span>, <span class="fl">18</span>, <span class="fl">5</span>, <span class="fl">16</span>, <span class="fl">17</span>, <span class="fl">8</span>, <span class="fl">48</span>, <span class="fl">27</span>, <span class="fl">24</span>, <span class="fl">4</span>, <span class="fl">22</span>, <span class="fl">12</span>, <span class="fl">27</span>, <span class="fl">23</span>,</span>
 <span>            <span class="fl">46</span>, <span class="fl">42</span>, <span class="fl">35</span>, <span class="fl">15</span>, <span class="fl">34</span>, <span class="fl">36</span>, <span class="fl">26</span>, <span class="fl">18</span>, <span class="fl">10</span>, <span class="fl">18.21</span>, <span class="fl">72.04</span>,</span>
 <span>            <span class="fl">36.9</span>, <span class="fl">41.81</span>, <span class="fl">29</span>, <span class="fl">89.75</span>, <span class="fl">34.03</span>, <span class="fl">20.18</span>, <span class="fl">48.74</span>, <span class="fl">15.76</span>,</span>
@@ -644,23 +524,39 @@ Tip
 <span>            <span class="fl">51.15</span>, <span class="fl">56.93</span>, <span class="fl">13</span><span class="op">)</span></span>
 <span> <span class="co"># Has 138 elements! </span></span>
 <span></span>
-<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu">every_other_num</span><span class="op">(</span><span class="va">my_vec</span>, start <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="co"># Should have 69 elements!</span></span>
+<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu">every_other_num</span><span class="op">(</span><span class="va">my_vec</span>, start <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `every_other_num()`:
+! unused arguments (my_vec, start = 2)</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Should have 69 elements!</span></span>
 <span></span>
 <span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu">divide_and_round</span><span class="op">(</span><span class="va">my_vec</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu">every_other_num</span><span class="op">(</span><span class="va">my_vec</span>, start <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="co"># Should have 35 elements!</span></span>
+<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu">every_other_num</span><span class="op">(</span><span class="va">my_vec</span>, start <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `every_other_num()`:
+! unused arguments (my_vec, start = 1)</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Should have 35 elements!</span></span>
 <span></span>
-<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu">shorten</span><span class="op">(</span><span class="va">my_vec</span>, <span class="fl">350</span><span class="op">)</span></span>
-<span><span class="co"># Should have 20 elements!</span></span>
+<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu">shorten</span><span class="op">(</span><span class="va">my_vec</span>, <span class="fl">350</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `shorten()`:
+! could not find function "shorten"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Should have 20 elements!</span></span>
 <span></span>
-<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="va">my_vec</span><span class="op">[</span><span class="fu">no_fours_or_fourteens</span><span class="op">(</span><span class="va">my_vec</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="co"># Should have 9 elements! </span></span>
+<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="va">my_vec</span><span class="op">[</span><span class="fu">no_fours_or_fourteens</span><span class="op">(</span><span class="va">my_vec</span><span class="op">)</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `no_fours_or_fourteens()`:
+! could not find function "no_fours_or_fourteens"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Should have 9 elements! </span></span>
 <span></span>
 <span><span class="va">my_vec</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 11 18  5 21 26  2  5 18  7</code></pre>
+<pre><code>NULL</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
