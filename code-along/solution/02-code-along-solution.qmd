@@ -1,26 +1,12 @@
 ---
 title: "Week 2 Code Along"
-filters:
-  - versions
-versions:
-  - instructions:
-      out-dir: ".."
-      yaml:
-        eval: false
-        echo: true
-        author: "Instructions"
-  - solution:
-      out-dir: ".."
-      out-file: 02-code-along-solution.qmd
-      yaml:
-        author: "SOLUTIONS"
-        eval: 
-        error: true
 format: 
   html:
     toc: true      
----
 
+author: SOLUTIONS
+error: true
+---
 Let's consider the top five grossing movies in the first half of 2026. We'll create a dataset that contains...
 
 (a) the movie name,
@@ -64,11 +50,8 @@ Let's **look at** the dataframe we just created!
 to open the data viewer! 
 
 ```{r}
-#| version: solution
-
 View(movie_info)
 ```
-
 
 ## Dataframe Indexing
 
@@ -78,24 +61,18 @@ Often, we want to work with a **single column** (variable) or a **single row**
 6. Use `[ , ]` notation to pull out the vector of gross revenue.
 
 ```{r}
-#| version: solution
-
 movie_info[,2]
 ```
 
 7. Use `$` notation to pull out the vector of gross revenue.
 
 ```{r}
-#| version: solution
-
 movie_info$gross
 ```
 
 8. Use `[ , ]` notation to pull out the data on *Project Hail Mary*.
 
 ```{r}
-#| version: solution
-
 movie_info[4,]
 ```
 
@@ -103,8 +80,6 @@ movie_info[4,]
 franchise?
 
 ```{r}
-#| version: solution
-
 sum(movie_info$franchise) / nrow(movie_info)
 ```
 
@@ -119,38 +94,28 @@ of the `movie_info` object.
 Why do you get this output?
 
 ```{r}
-#| version: solution
-
 typeof(movie_info)
 ```
 
-::: {.version-solution}
 The `typeof()` function tells us how `movie_info` is stored. Although we created
 `movie_info` as a dataframe, behind the scenes a dataframe behaves the same as
 a list. 
-:::
 
 10. What does the `class()` function return when you input `movie_info`?
 Why do you get this output?
 
 ```{r}
-#| version: solution
-
 typeof(movie_info)
 ```
 
-::: {.version-solution}
 The `class()` function also tells us how `movie_info` is stored. However, the
 `class()` function is more specific. It tells us that `movie_info` is a 
 dataframe, a specific type of list. 
-:::
 
 12. Use `typeof()` to check the data type of each column within `movie_info`. 
 You'll have to pull out each column to check!
 
 ```{r}
-#| version: solution
-
 typeof(movie_info$name)
 typeof(movie_info$gross)
 typeof(movie_info$franchise)
@@ -161,18 +126,14 @@ typeof(movie_info$franchise)
 How do these outputs differ from the results you obtained from `typeof()`?
 
 ```{r}
-#| version: solution
-
 class(movie_info$name)
 class(movie_info$gross)
 class(movie_info$franchise)
 
 ```
 
-::: {.version-solution}
 The output is the same except for `class(movie_info$gross)`. For the `typeof()`
 function the output was `"double"` and for the `class()` function the output was 
 `"numeric"`. What we are seeing is the opposite of what we saw
 before---`typeof()` is giving us a more specific description (double) and
 `class()` is giving us a more general description (numeric).
-:::
