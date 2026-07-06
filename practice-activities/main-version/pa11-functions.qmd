@@ -1,19 +1,37 @@
 ---
 title: "PA 11: Writing Functions"
-author: "Your group's names here!"
+filters:
+  - versions
+versions:
+  - student:
+      out-dir: ".."
+      yaml:
+        author: "Your Name"
+        embed-resources: true
+  - instructions:
+      out-dir: ".."
+      yaml:
+        eval: false
+  - solution:
+      out-dir: ".."
+      out-file: "pa11-solution.qmd"
+      yaml:
+        author: "SOLUTIONS"
+        embed-resources: true
 format: 
   html:
-    embed-resources: true
     code-tools: true
-    toc: true
-editor: source
+    toc: true      
 execute: 
   error: true
   echo: true
+  message: false
+  warning: false
 ---
 
-You will write several small functions, then use them to unscramble a message. 
-Many of the functions have been started for you below, but **none** of them are
+In this activity, you will write several small functions, then use them to 
+unscramble a message. Many of the functions have been started for you below, but 
+**none** of them are
 complete as is.
 
 ***This task is complex. It requires many different types of abilities. Everyone will be good at some of these abilities but nobody will be good at all of them. In order to produce the best product possible, you will need to use the skills of each member of your group.***
@@ -189,4 +207,5 @@ my_vec
 
 ### Canvas Submission
 
-If you have done everything correctly, your final vector will be six numbers long. Google these six numbers to find a TV show as your final answer and submit to Canvas.
+If you have done everything correctly, your final vector will be six numbers long. 
+Google these six numbers to find a TV show as your final answer.
