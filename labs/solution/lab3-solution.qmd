@@ -1,5 +1,5 @@
 ---
-title: "Lab 3: Functions and Conditionals"
+title: "Lab 3: Conditionals"
 format: 
   html:
     toc: true      
@@ -8,39 +8,20 @@ author: SOLUTIONS
 error: true
 eval: true
 ---
-It's been hotly contested, but your R instructors have named the (controversial)
-**best breakfast burrito in SLO**! To discover the winner, decode their message.
+It's been hotly contested, but your R instructors have named the (controversial) **best breakfast burrito in SLO**! To discover the winner, decode their message.
 
 We will break this task down into several small steps and write a function for
 each.
-
-<!-- We need to decide what our AI policy is! -->
-
-## Part 0: Create an R Script
-
-Create a new R script, give it a descriptive and appropriate file name, and
-save it in your Week 3 subfolder (of your STAT 1810 folder). 
-
-In the newly created R script, add a comment to the top that describes the
-contents of this document. *Hint: it's the code for Lab 3!*
-
-The top of your R Script should have a code comment (marked by a `#`) followed
-by a few words describing the content of your script. Something like:
-
-```{r}
-# Code for Lab 3
-```
 
 ## Part 1: Write and Test Your Functions
 
 ### Function 1: `divide_and_round()`
 
-**1. Write code to manipulate the vector of numbers `nums`. Your code should divide each element in the vector by the smallest element and then round the results to the nearest whole number.** 
-*This code should not be a function!*
+**1. Write code to manipulate the vector of numbers `nums`. Your code should divide each element in the vector by the smallest element and then round the results to the nearest whole number.** *This code should not be a function.*
 
 ```{r}
-# Add your code below.
 nums <- 3:12
+# Add your code below.
 ```
 
 ```{r}
@@ -49,8 +30,7 @@ divided <- nums/min_elm
 round(divided)
 ```
 
-**2. Turn your code from Q1 into a function called `divide_and_round()`.** 
-*Fill in the skeleton below.*
+**2. Turn your code from Q1 into a function called `divide_and_round()`.** *Fill in the skeleton below.*
 
 ```{r}
 # Complete the function.
@@ -80,21 +60,14 @@ divide_and_round(test)
 
 ### Function 2: `no_fours_or_fourteens()`
 
-**5. Write code to manipulate the vector of numbers `nums`. Your code should return a vector of `TRUE` and `FALSE`. For each element, return `TRUE` if the number is NOT divisible by 4 or 14, and return `FALSE` otherwise.** *This code should not be a function.*
-
-```{r}
-# Write your code for Q5 here.
-```
+**5. Write code to manipulate the vector of numbers `nums`. Your code should return a vector of `TRUE` and `FALSE`. For each element, return `TRUE` if the number is NOT divisible by 4 or 14, and return `FALSE` otherwise.** 
+*This code should not be a function.*
 
 ```{r}
 !(nums %% 4 == 0| nums %% 14 == 0)
 ```
 
 **6. Turn your code from Q5 into a function called `no_fours_or_fourteens()`.**
-
-```{r}
-# Write your code for Q6 here.
-```
 
 ```{r}
 no_fours_or_fourteens <- function(vec){
@@ -116,10 +89,6 @@ no_fours_or_fourteens(test)
 **8. Write a line of code that returns `TRUE` if `value` is odd and `FALSE` is `value` is even. Test your code on `value <- 3` and `value <- 6`.**
 
 ```{r}
-# Write your code for Q8 here.
-```
-
-```{r}
 value <- 3
 value %% 2 == 1
 
@@ -134,10 +103,6 @@ You need to loop through the positions of `nums` (i.e., 1 through `length(nums)`
 :::
 
 ```{r}
-# Write your code for Q9 here.
-```
-
-```{r}
 every_other <- c()
 for (i in 1:length(nums)) {
   if (i %% 2 == 1) {
@@ -148,10 +113,6 @@ every_other
 ```
 
 **10. Copy and edit your code from Q9. Your code should now return every other value in the vector, starting from the *second* element. That is, your code should return the 2nd, 4th, 6th, etc. values.**
-
-```{r}
-# Write your code for Q10 here.
-```
 
 ```{r}
 every_other <- c()
@@ -212,17 +173,13 @@ every_other_num(test, start = 2)
 
 ### Function 4: `shorten()`
 
-**13. Write code to manipulate the vector of numbers `nums`. Your code should use a `while()` loop to find the first cumulative sum GREATER THAN 10..**
+**13. Write code to manipulate the vector of numbers `nums`. Your code should use a `while()` loop to find the first cumulative sum GREATER THAN 10.**
 
 ::: callout-tip
 The $i^{th}$ cumulative sum of a vector is the sum of element $1$ through element $i$.
 
 Consider the vector $(2,4,6,8,10)$. The first cumulative sum is $2$; the second cumulative sum is $2 + 4 = 6$; the third cumulative sum is $2 + 4 + 6 = 12$, etc.
 :::
-
-```{r}
-# Write your code for Q13 here.
-```
 
 ```{r}
 total <- 0
@@ -237,10 +194,6 @@ ind
 **14. Write a function called `shorten()`. This function should take in a vector, drop all values BEFORE the cumulative sum is greater than a provided number, and return the remaining values from the original vector. Adapt your `while()` loop from Q13 to do this.**
 
 ```{r}
-# Write your code for Q14 here.
-```
-
-```{r}
 shorten <- function(vec, limit) {
   total <- 0
   ind <- 0
@@ -253,10 +206,6 @@ shorten <- function(vec, limit) {
 ```
 
 **15. Write code to test your function.**
-
-```{r}
-# Write code to test the shorten() function here.
-```
 
 ```{r}
 # Write code to test the shorten() function here.
@@ -305,7 +254,4 @@ my_vec <- my_vec[no_fours_or_fourteens(my_vec)]
 my_vec
 ```
 
-::: callout-tip
-### And the winner is...
-If you have done everything correctly, your final vector will be nine numbers long. To find the name of a SLO establishment, turn these numbers into letters (where 1 = A, 2 = B, etc.).
-:::
+Kreuzberg!
