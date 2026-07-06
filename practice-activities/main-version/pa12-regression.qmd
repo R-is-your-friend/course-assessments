@@ -34,8 +34,14 @@ have performed an experiment: First, they recorded the weights of each individua
 animal in their sample.  Then, they fed the animals only roasted duck for one
 year, after which they recorded the new weights of the animals.
 
-The dataset "mystery_animal.csv" contains the weights *before* and *after* a year 
+The dataset below contains the weights *before* and *after* a year 
 of the roasted duck diet.
+
+:::{.version-instructions}
+[Download starter .qmd file](../student/pa12-regression.qmd)
+
+[Download data -- `12-mystery_animal.csv`](../../data/12-mystery_animal.csv)
+:::
 
 ```{r}
 #| versions: solution
