@@ -1,0 +1,172 @@
+---
+title: "PA 12: Find the mystery animal"
+filters:
+  - versions
+versions:
+  - student:
+      out-dir: ".."
+      yaml:
+        author: "Your Name"
+        embed-resources: true
+  - instructions:
+      out-dir: ".."
+      yaml:
+        eval: false
+  - solution:
+      out-dir: ".."
+      out-file: "pa12-solution.qmd"
+      yaml:
+        author: "SOLUTIONS"
+        embed-resources: true
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+A group of scientists is studying the diet of a particular mystery animal. They
+have performed an experiment: First, they recorded the weights of each individual
+animal in their sample.  Then, they fed the animals only roasted duck for one
+year, after which they recorded the new weights of the animals.
+
+The dataset "mystery_animal.csv" contains the weights *before* and *after* a year 
+of the roasted duck diet.
+
+```{r}
+#| versions: solution
+
+library(tidyverse)
+
+dat <- read_csv(here::here("data", "12-mystery_animal.csv"))
+```
+
+## Data Exploration
+
+1. Make a scatter plot of this data, with the `weight_before` measurements on the x-axis 
+and the `weight_after` measurements on the y-axis.  
+
+2. What appears to be the slope? Why does this make sense in the context of this data?
+
+::: {.versions-solution}
+
+Both smaller and bigger animals might gain some weight, but the overall weights
+don't change much - we expect `weight_after` to be very similar to `weight_before`.
+
+:::
+
+3. Why is it difficult to estimate the intercept from this data?
+
+::: {.versions-solution}
+
+The data starts at around 100, since the animals weigh between 100 and 400 pounds.
+So, we can't see what value the y-axis would have at x = 0.
+
+:::
+
+## Model calculation
+
+1. Write a function called `linear_model` that takes an `x` and `y` vectors as
+input, and returns the calculated slope and intercept.
+
+```{r}
+#| version: solution
+
+linear_model <- function(x, y) {
+  
+  slope <- cor(x, y)*sd(y)/sd(x)
+  
+  int <- mean(y) - slope*mean(x)
+  
+  return(list(slope = slope, intercept = int))
+  
+}
+```
+
+
+
+2. Use your new function to *fit* a linear model to this data, predicting the
+`after` weights from the `before` weights.
+
+```{r}
+#| version: solution
+
+mod <- linear_model(x = dat$weight_before, y = dat$weight_after)
+mod
+```
+
+
+2. What is the *slope* of this model?  Does that match what you predicted? Why
+do you think it's not *exactly* equal to 1?
+
+::: {.versions-solution}
+1.19.  Yes, this is close to 1.  But there is always some variability in how
+much weight the animals gain, so the relationship is not exact for this particular
+dataset.
+:::
+
+
+3. What is the *intercept* of this model?  What does that suggest to you about
+the Duck Diet?  Did the animals gain weight, lose weight, or neither?
+
+::: {.versions-solution}
+
+2.85.  This means they gained a little weight; about 3 pounds on average.
+
+:::
+
+## Predictions and residuals
+
+4. Add a column to the dataset named `pred_after`, which contains the *predicted*
+weight of the animals after a year of duck diet, based on this model.
+
+```{r}
+#| versions: solution
+
+dat <- dat |>
+  mutate(
+    pred_after = 1.19*weight_before + 2.85
+  )
+```
+
+
+
+5. Add a column to the dataset named `residual`, equal to the *predicted* value
+subtracted from each *actual observed* value.
+
+
+```{r}
+#| versions: solution
+
+dat <- dat |>
+  mutate(
+    resid = weight_after - pred_after
+  )
+```
+ 
+
+6. Make a scatterplot with the residuals on the y-axis and the predicted values
+on the x-axis.  
+
+```{r}
+#| versions: solution
+
+dat |>
+  ggplot() +
+  aes(x = pred_after, y = resid) +
+  geom_point()
+```
+
+
+
+7. What is the mystery animal that was fed the roasted duck diet?
+
+::: {.versions-solution}
+
+A Shark!
+
+:::
