@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Week 2: R is Friend – R is Your Friend</title>
+<meta name="author" content="Instructions">
+<title>Week 3 Code Along – R is Your Friend</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,27 +55,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -269,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">R is Your Friend</span>
     </a>
   </div>
@@ -280,11 +281,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
 <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data/data-index.html"> 
+    <a class="nav-link" href="../../data/data-index.html"> 
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
@@ -296,27 +297,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
-   
-  <ul>
-<li>
-<a href="#r-is-friend" id="toc-r-is-friend" class="nav-link active" data-scroll-target="#r-is-friend"><span class="header-section-number">1</span> R is Friend</a>
-  <ul>
-<li><a href="#required-reading-r-is-friend" id="toc-required-reading-r-is-friend" class="nav-link" data-scroll-target="#required-reading-r-is-friend">📖 Required Reading: R is Friend</a></li>
-  </ul>
-</li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Week 2: R is Friend</h1>
+<h1 class="title">Week 3 Code Along</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Instructions </p>
+          </div>
+  </div>
     
   
     
@@ -324,224 +322,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>This week we’re going to learn more about the building blocks of the R programming language.</p>
-<p>In this week’s reading, we have:</p>
-<div class="columns">
-<div class="column" style="width:48%;">
-<section id="readings-60-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
-</section><section id="activities-30-min" class="level4"><h4 class="anchored" data-anchor-id="activities-30-min">🏋🏽‍♀️️ Activities: 30 min</h4>
-</section>
-</div><div class="column" style="width:4%;">
-
-</div><div class="column" style="width:48%;">
-<section id="videos-0-min" class="level4"><h4 class="anchored" data-anchor-id="videos-0-min">📽 Videos: 0 min</h4>
-</section><section id="tutorials-0-min" class="level4"><h4 class="anchored" data-anchor-id="tutorials-0-min">💻 Tutorials: 0 min</h4>
-</section>
-</div>
-</div>
-<hr>
-<p></p>
-<section id="r-is-friend" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="r-is-friend">
-<span class="header-section-number">1</span> R is Friend</h2>
-<div class="callout callout-style-simple callout-none no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">None</span>Learning Objectives
-</div>
-</div>
-<div class="callout-body-container callout-body">
+</header><p>You’re a new employee at a non-profit committed to sustainability. The company has recently pledged to plant trees to offset their paper use.</p>
+<p>Since the company places several paper orders throughout the year, you have been asked to <strong>write a function</strong> to calculate the number of trees to plant based on a given order. There are three types of paper used by the company, each of which requires a different number of trees. One carton (5000 sheets) of…</p>
 <ul>
-<li>Identify three of the foundational data types in R</li>
-<li>Explain similarities and differences between different object types</li>
-<li>Use indexing to extract elements from different object types</li>
-<li>Use functions to calculate summary statistics</li>
-<li>Use logical values and indexing to calculate summary statistics</li>
+<li>office paper uses 0.6 trees.</li>
+<li>newsprint (for the newsletter) uses 0.3 trees.</li>
+<li>glossy paper (for the catalog) uses 0.4 trees.</li>
 </ul>
-</div>
-</div>
-<section id="required-reading-r-is-friend" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r-is-friend">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/02-r-is-friend.html">R is Friend</a>
-</h3>
-<p>There are <strong>a lot</strong> of check-in questions this week! Each section contains 1-3 questions targeting the ideas covered in that section. We encourage you to keep track of your answers as you progress!</p>
-<div class="callout callout-style-default callout-check-in callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Check-in</span>Check In
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For each of the examples below, identify what data type do you believe the vector will have.</p>
+<p>In order to offset waste, the company wants to plant 125% of the trees that directly go into the paper they buy.</p>
 <ol type="1">
-<li><p><code>c(67, 13, 1989, TRUE)</code></p></li>
-<li><p><code>c("hello", "goodbye", TRUE)</code></p></li>
-<li><p><code>c("TRUE", FALSE, TRUE, "FALSE")</code></p></li>
-<li><p>Draw out how this matrix will look:</p></li>
+<li>Write a function called <code>trees_to_plant()</code> that takes in two arguments: the number of cartons (<code>cartons</code>) and the material (<code>material</code>) that was ordered. The function should output the number of trees the company needs to plant.</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tale of a Thousand Stars"</span>, </span>
-<span>           <span class="st">"Bad Buddy"</span>, </span>
-<span>           <span class="st">"Moonlight Chicken"</span>, </span>
-<span>           <span class="st">"Not Me"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">shows</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">trees_to_plant</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">cartons</span>, <span class="va">material</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="kw">if</span><span class="op">(</span><span class="va">material</span> <span class="op">==</span> <span class="st">"office"</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="va">num_trees</span> <span class="op">&lt;-</span> <span class="fl">0.6</span> <span class="op">*</span> <span class="va">cartons</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="kw">else</span> <span class="kw">if</span><span class="op">(</span><span class="va">material</span> <span class="op">==</span> <span class="st">"newsprint"</span><span class="op">)</span><span class="op">{</span></span>
+<span>    <span class="va">num_trees</span> <span class="op">&lt;-</span> <span class="fl">0.3</span> <span class="op">*</span> <span class="va">cartons</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="kw">else</span> <span class="op">{</span></span>
+<span>    <span class="va">num_trees</span> <span class="op">&lt;-</span> <span class="fl">0.4</span> <span class="op">*</span> <span class="va">cartons</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="va">num_trees</span> <span class="op">&lt;-</span> <span class="va">num_trees</span> <span class="op">*</span> <span class="fl">1.25</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">num_trees</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<ol start="5" type="1">
-<li>What type of object is this?</li>
+<ol start="2" type="1">
+<li><p>Run the function. Does anything happen?</p></li>
+<li><p>Take a look at the <em>Environment</em> pane. Do you notice anything there?</p></li>
 </ol>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-[1] "Malus domestica"     "Citrus sinensis"     "Citrus limon"       
-[4] "Citrus aurantifolia" "Mangifera indica"    "Prunus persica"     
-
-[[2]]
-[1]  3  5 12 12  5  3</code></pre>
-</div>
-</div>
+<p>Nothing really happens when you <strong>run</strong> the code that defines a function. The action happens when you <strong>call</strong> that function!</p>
+<ol start="4" type="1">
+<li><p>The non-profit places an order for 5 cartons of office paper. Run your function to find the number of trees to plant.</p></li>
+<li><p>How many trees for 2 cartons of glossy paper?</p></li>
+</ol>
+<p>The function is doing lots of work behind the scenes. <strong>But, what happens inside the function is not accessible outside the function!</strong></p>
 <ol start="6" type="1">
-<li>What type of object is this?</li>
+<li><p>When we ran<code>num_of_trees</code>, the object <code>num_trees</code> was created. Can we see that object now? Try to print out <code>num_trees</code> in the <em>Console</em>.</p></li>
+<li><p>Define <code>num_trees &lt;- 7</code>. Then run <code>num_of_trees()</code> for 1 carton of newsprint. What is the value of <code>num_trees</code> now?</p></li>
 </ol>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2]
-[1,]    3   12
-[2,]    5    5
-[3,]   12    3</code></pre>
-</div>
-</div>
-<ol start="7" type="1">
-<li>What type of object is this?</li>
-</ol>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>  fruits               trees
-1  apple     Malus domestica
-2 orange     Citrus sinensis
-3  lemon        Citrus limon
-4   lime Citrus aurantifolia
-5  mango    Mangifera indica
-6  peach      Prunus persica</code></pre>
-</div>
-</div>
-<ol start="8" type="1">
-<li>What type of object is this?</li>
-</ol>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>$tree
-[1] "Malus domestica"     "Citrus sinensis"     "Citrus limon"       
-[4] "Citrus aurantifolia" "Mangifera indica"    "Prunus persica"     
-
-$harvest_window
-[1]  3  5 12 12  5  3</code></pre>
-</div>
-</div>
-<ol start="9" type="1">
-<li>What type of object is this?</li>
-</ol>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Malus domestica"     "Citrus sinensis"     "Citrus limon"       
-[4] "Citrus aurantifolia" "Mangifera indica"    "Prunus persica"     </code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>,</span>
-<span>            <span class="st">"orange"</span>, </span>
-<span>            <span class="st">"lemon"</span>, </span>
-<span>            <span class="st">"lime"</span>, </span>
-<span>            <span class="st">"mango"</span>, </span>
-<span>            <span class="st">"peach"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ol start="10" type="1">
-<li><p>Grab the first three elements of the vector named <code>fruits</code>.</p></li>
-<li><p>Grab the first, third, and fifth element of the vector named <code>fruits</code>.</p></li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Malus domestica"</span>, </span>
-<span>           <span class="st">"Citrus sinensis"</span>, </span>
-<span>           <span class="st">"Citrus limon"</span>, </span>
-<span>           <span class="st">"Citrus aurantifolia"</span>, </span>
-<span>           <span class="st">"Mangifera indica"</span>, </span>
-<span>           <span class="st">"Prunus persica"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">tree_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">trees</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">tree_matrix</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1]              [,2]                 
-[1,] "Malus domestica" "Citrus aurantifolia"
-[2,] "Citrus sinensis" "Mangifera indica"   
-[3,] "Citrus limon"    "Prunus persica"     </code></pre>
-</div>
-</div>
-<ol start="12" type="1">
-<li><p>Grab the tree in the second row, second column of the matrix named <code>tree_matrix</code>.</p></li>
-<li><p>Grab the trees in the first two rows of the matrix named <code>tree_matrix</code>.</p></li>
-<li><p>Grab the trees in the second column of the matrix named <code>tree_matrix</code>.</p></li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">harvest_window</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">12</span>, <span class="fl">12</span>, <span class="fl">5</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fruit_tree_harvest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>fruit <span class="op">=</span> <span class="va">fruits</span>, </span>
-<span>                           tree <span class="op">=</span> <span class="va">trees</span>, </span>
-<span>                           harvest_window <span class="op">=</span> <span class="va">harvest_window</span><span class="op">)</span></span>
-<span><span class="va">fruit_tree_harvest</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$fruit
-[1] "apple"  "orange" "lemon"  "lime"   "mango"  "peach" 
-
-$tree
-[1] "Malus domestica"     "Citrus sinensis"     "Citrus limon"       
-[4] "Citrus aurantifolia" "Mangifera indica"    "Prunus persica"     
-
-$harvest_window
-[1]  3  5 12 12  5  3</code></pre>
-</div>
-</div>
-<ol start="15" type="1">
-<li><p>Grab the first component (<code>fruit</code>) of the list named <code>fruit_tree_harvest</code>.</p></li>
-<li><p>Grab the third tree from the <code>tree</code> component of the list named<br><code>fruit_tree_harvest</code>.</p></li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fruit_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">fruits</span>, <span class="va">trees</span>, <span class="va">harvest_window</span><span class="op">)</span></span>
-<span><span class="va">fruit_trees</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  fruits               trees harvest_window
-1  apple     Malus domestica              3
-2 orange     Citrus sinensis              5
-3  lemon        Citrus limon             12
-4   lime Citrus aurantifolia             12
-5  mango    Mangifera indica              5
-6  peach      Prunus persica              3</code></pre>
-</div>
-</div>
-<ol start="17" type="1">
-<li><p>Grab the second column (<code>trees</code>) of the <code>fruit_trees</code> dataframe.</p></li>
-<li><p>Grab the second and third columns (<code>trees</code>, <code>harvest_window</code>) of the <code>fruit_trees</code> dataframe.</p></li>
-<li><p>Grab the second row of all three columns of the <code>fruit_trees</code> dataframe.</p></li>
-<li><p>What will be the output of the following operation?</p></li>
-</ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vec1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">vec2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">8</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">vec1</span> <span class="op">+</span> <span class="va">vec2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ol type="a">
-<li><code>1 2 3 4 5 6 7 8</code></li>
-<li><code>6 8 10 12</code></li>
-<li>this code will have an error</li>
-</ol>
-</div>
-</div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -961,7 +785,7 @@ $harvest_window
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with ❤️️ and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

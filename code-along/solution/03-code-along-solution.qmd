@@ -1,26 +1,12 @@
 ---
 title: "Week 3 Code Along"
-filters:
-  - versions
-versions:
-  - instructions:
-      out-dir: ".."
-      yaml:
-        eval: false
-        echo: true
-        author: "Instructions"
-  - solution:
-      out-dir: ".."
-      out-file: 03-code-along-solution.qmd
-      yaml:
-        author: "SOLUTIONS"
-        eval: 
-        error: true
 format: 
   html:
     toc: true      
----
 
+author: SOLUTIONS
+error: true
+---
 You're a new employee at a non-profit committed to sustainability. The company has recently pledged to plant trees to offset their paper use.
 
 Since the company places several paper orders throughout the year, you have been asked to **write a function** to calculate the number of trees to plant based on a given order. There are three types of paper used by the company, each of which requires a different number of trees. One carton (5000 sheets) of...
@@ -64,4 +50,3 @@ The function is doing lots of work behind the scenes. **But, what happens inside
 6. When we ran`num_of_trees`, the object `num_trees` was created. Can we see that object now? Try to print out `num_trees` in the *Console*.
 
 7. Define `num_trees <- 7`. Then run `num_of_trees()` for 1 carton of newsprint. What is the value of `num_trees` now?
-

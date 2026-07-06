@@ -6,7 +6,7 @@ format:
 
 author: Instructions
 echo: true
-eval: true
+eval: false
 ---
 It's been hotly contested, but your R instructors have named the (controversial) **best breakfast burrito in SLO**! To discover the winner, decode their message.
 

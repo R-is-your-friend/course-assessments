@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
-
+<meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Week 1: Computer is Friend &amp; What is Code – R is Your Friend</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -25,7 +19,6 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -34,19 +27,19 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -73,10 +66,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -242,9 +232,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">R is Your Friend</span>
@@ -256,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
@@ -265,39 +253,34 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#computer-is-friend" id="toc-computer-is-friend" class="nav-link active" data-scroll-target="#computer-is-friend"><span class="header-section-number">1</span> Computer is Friend</a>
+<li>
+<a href="#computer-is-friend" id="toc-computer-is-friend" class="nav-link active" data-scroll-target="#computer-is-friend"><span class="header-section-number">1</span> Computer is Friend</a>
   <ul>
-  <li><a href="#required-reading-computer-is-friend." id="toc-required-reading-computer-is-friend." class="nav-link" data-scroll-target="#required-reading-computer-is-friend.">📖 Required Reading: Computer is Friend.</a></li>
-  </ul></li>
-  <li><a href="#what-is-code" id="toc-what-is-code" class="nav-link" data-scroll-target="#what-is-code"><span class="header-section-number">2</span> What is Code?</a>
-  <ul>
-  <li><a href="#required-reading-computer-is-friend.-1" id="toc-required-reading-computer-is-friend.-1" class="nav-link" data-scroll-target="#required-reading-computer-is-friend.-1">📖 Required Reading: Computer is Friend.</a></li>
-  </ul></li>
+<li><a href="#required-reading-computer-is-friend." id="toc-required-reading-computer-is-friend." class="nav-link" data-scroll-target="#required-reading-computer-is-friend.">📖 Required Reading: Computer is Friend.</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+</li>
+  <li>
+<a href="#what-is-code" id="toc-what-is-code" class="nav-link" data-scroll-target="#what-is-code"><span class="header-section-number">2</span> What is Code?</a>
+  <ul>
+<li><a href="#required-reading-computer-is-friend.-1" id="toc-required-reading-computer-is-friend.-1" class="nav-link" data-scroll-target="#required-reading-computer-is-friend.-1">📖 Required Reading: Computer is Friend.</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Week 1: Computer is Friend &amp; What is Code</h1>
 </div>
 
@@ -312,34 +295,25 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
-
-
-<p>There are two sections to this week. First, we will learn about how things are stored on your computer, foundational ideas that will we draw on every week! Second, we will learn what makes code code, what makes R different from other coding languages, and how we will be interacting with R throughout the class.</p>
+</header><p>There are two sections to this week. First, we will learn about how things are stored on your computer, foundational ideas that will we draw on every week! Second, we will learn what makes code code, what makes R different from other coding languages, and how we will be interacting with R throughout the class.</p>
 <p>In this week’s reading, we have:</p>
 <div class="columns">
 <div class="column" style="width:48%;">
-<section id="readings-60-75-min" class="level4">
-<h4 class="anchored" data-anchor-id="readings-60-75-min">📖 Readings: 60-75 min</h4>
-</section>
-<section id="activities-30-min-section-1-30-min-section-2" class="level4">
-<h4 class="anchored" data-anchor-id="activities-30-min-section-1-30-min-section-2">🏋🏽‍♀️️ Activities: 30 min (Section 1) + 30 min (Section 2)</h4>
+<section id="readings-60-75-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-75-min">📖 Readings: 60-75 min</h4>
+</section><section id="activities-30-min-section-1-30-min-section-2" class="level4"><h4 class="anchored" data-anchor-id="activities-30-min-section-1-30-min-section-2">🏋🏽‍♀️️ Activities: 30 min (Section 1) + 30 min (Section 2)</h4>
 </section>
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:48%;">
-<section id="videos-20-min-all-in-section-1" class="level4">
-<h4 class="anchored" data-anchor-id="videos-20-min-all-in-section-1">📽 Videos: 20 min (all in Section 1)</h4>
-</section>
-<section id="tutorials-0-min" class="level4">
-<h4 class="anchored" data-anchor-id="tutorials-0-min">💻 Tutorials: 0 min</h4>
+<section id="videos-20-min-all-in-section-1" class="level4"><h4 class="anchored" data-anchor-id="videos-20-min-all-in-section-1">📽 Videos: 20 min (all in Section 1)</h4>
+</section><section id="tutorials-0-min" class="level4"><h4 class="anchored" data-anchor-id="tutorials-0-min">💻 Tutorials: 0 min</h4>
 </section>
 </div>
 </div>
 <hr>
-<p><br></p>
-<section id="computer-is-friend" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="computer-is-friend"><span class="header-section-number">1</span> Computer is Friend</h2>
+<p></p>
+<section id="computer-is-friend" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="computer-is-friend">
+<span class="header-section-number">1</span> Computer is Friend</h2>
 <p>First, let’s learn about our computer!</p>
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -362,8 +336,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </div>
 </div>
-<section id="required-reading-computer-is-friend." class="level3">
-<h3 class="anchored" data-anchor-id="required-reading-computer-is-friend.">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/00-setup.html">Computer is Friend</a>.</h3>
+<section id="required-reading-computer-is-friend." class="level3"><h3 class="anchored" data-anchor-id="required-reading-computer-is-friend.">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/00-setup.html">Computer is Friend</a>.</h3>
 <p>By the end of the reading, you should have answers to these questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -402,10 +375,8 @@ Type 'q()' to quit R.</code></pre>
 <p><strong>Take a screenshot of this message.</strong></p>
 </div>
 </div>
-</section>
-</section>
-<section id="what-is-code" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="what-is-code"><span class="header-section-number">2</span> What is Code?</h2>
+</section></section><section id="what-is-code" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="what-is-code">
+<span class="header-section-number">2</span> What is Code?</h2>
 <p>Now that we know how our computer functions, let’s learn about what makes code code.</p>
 <div class="callout callout-style-simple callout-none no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -431,8 +402,7 @@ Type 'q()' to quit R.</code></pre>
 </ul>
 </div>
 </div>
-<section id="required-reading-computer-is-friend.-1" class="level3">
-<h3 class="anchored" data-anchor-id="required-reading-computer-is-friend.-1">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/00-setup.html">Computer is Friend</a>.</h3>
+<section id="required-reading-computer-is-friend.-1" class="level3"><h3 class="anchored" data-anchor-id="required-reading-computer-is-friend.-1">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/00-setup.html">Computer is Friend</a>.</h3>
 <p>By the end of the reading, you should have generated a <code>week1.R</code> script.</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -449,11 +419,7 @@ Type 'q()' to quit R.</code></pre>
 </div>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -867,8 +833,7 @@ Type 'q()' to quit R.</code></pre>
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Built by Kelly Bodwin, Charlotte Mann, Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold.</p>
 </div>   
@@ -880,8 +845,6 @@ Type 'q()' to quit R.</code></pre>
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

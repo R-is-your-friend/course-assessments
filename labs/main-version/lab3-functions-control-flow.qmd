@@ -6,7 +6,7 @@ versions:
   - instructions:
       out-dir: ".."
       yaml:
-        eval: true
+        eval: false
         echo: true
         author: "Instructions"
   - solution:
@@ -184,8 +184,9 @@ every_other_num <- function(){
 }
 ```
 
-:::{.version-solution}
 ```{r}
+#| version: solution
+
 every_other_num <- function(vec, start){
   every_other <- c()
   if(start == 1){
@@ -204,7 +205,6 @@ every_other_num <- function(vec, start){
   return(every_other)
 }
 ```
-:::
 
 **12. Test your function by running the code below.**
 
