@@ -1,26 +1,13 @@
 ---
 title: "Week 1 Code Along"
-filters:
-  - versions
-versions:
-  - instructions:
-      out-dir: ".."
-      yaml:
-        eval: true
-        echo: true
-        author: "Instructions"
-  - solution:
-      out-dir: ".."
-      out-file: 01-code-along-solution.qmd
-      yaml:
-        author: "SOLUTIONS"
-        eval: 
-        error: true
 format: 
   html:
     toc: true      
----
 
+author: Instructions
+echo: true
+eval: true
+---
 ## Using the Console
 
 Bishop's Peak is 1,546 feet tall. Let's use `R` as a calculator to change the
@@ -29,23 +16,9 @@ units of measurement.
 1. Let's find the height in yards -- there are 3 feet in a yard. In the
 *Console*, type `1546/3` and press enter.
 
-::: {.version-solution}
-```{r}
-
-1546/3
-```
-:::
-
 2. **Oops!** It's actually more useful to consider height in meters 
 (#metricsystem) -- there are about 3.281 feet in a meter. With your cursor in
 the *Console*, press the up arrow and edit your code. Press enter.
-
-::: {.version-solution}
-```{r}
-
-1546/3.281
-```
-:::
 
 The *Console* is great for these types of simple calculations. However, we often
 want to do more complex tasks that involve multiple lines of code. To make this
@@ -60,14 +33,6 @@ blank page with a plus sign in a green circle. Select the first option,
 4. In the script, create two objects: `height_ft` is `1546` and `scale_m` is
 `3.281`. Divide `heigh_ft` by `scale_m`. You should have three lines of code in
 your R script.
-
-::: {.version-solution}
-```{r}
-
-height_ft <- 1546
-scale_m <- 3.281
-```
-:::
 
 When we write code in a script, there are two main ways of
 **running that code**.
@@ -84,24 +49,8 @@ A huge benefit of using an `R` script is that we can
 7. Let's add a descriptive *comment*. Remember, we use `#` to indicate a
 comment.
 
-::: {.version-solution}
-```{r}
-
-# Height of Bishop's Peak
-height_ft <- 1546
-
-# Feet to meters conversion rate
-scale_m <- 3.281
-```
-:::
-
 8. Use the methods from Steps 5 and 6 to run the line of code containing the
 comment. What happens?
-
-::: {.version-solution}
-The code is run but R immediately hops to the next line. This is because there
-is no code on that line to run! 
-:::
 
 ## Using the Help Pane
 
@@ -116,31 +65,5 @@ function called `round()`. Let's learn about how to use it!
 Arguments section for `round()`. Write a line of code in your script that does
 the desired rounding.
 
-::: {.version-solution}
-```{r}
-
-# Height of Bishop's Peak
-height_ft <- 1546
-
-# Feet to meters conversion rate
-scale_m <- 3.281
-
-round(height_ft/scale_m, digits = 2)
-```
-:::
-
 11. Cerro San Luis (also called Madonna) is 1,292 feet tall. Adapt your code to
 find the height of both peaks in meters, rounded to two decimal places.
-
-::: {.version-solution}
-```{r}
-
-# Height of Madonna Peak
-height_ft <- 1292
-
-# Feet to meters conversion rate
-scale_m <- 3.281
-
-round(height_ft / scale_m, digits = 2)
-```
-:::
