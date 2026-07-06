@@ -4,7 +4,7 @@ subtitle: "Data Joins"
 format: 
   html:
     code-tools: true
-    toc: true      
+    toc: true  
 execute: 
   error: true
   echo: true
@@ -14,10 +14,13 @@ execute:
 author: Your Name
 embed-resources: true
 ---
-```{r setup}
+```{r}
+#| label: setup
+
 # load packages
 library(readxl) 
 library(tidyverse)
+library(knitr)
 ```
 
 ```{r}
@@ -36,7 +39,7 @@ The `links` data contains all of the pairs of cities, but we can't learn anythin
 
 As the data dictionary states, the order of "source" and "target" city is arbitrary. 
 
-3. Created a new dataframe called  `linked_cities` that includes all of the information in the `cities` data for both cities in each pair of twinned cities.
+3. Created a new dataframe called  `linked_cities` that includes **all** of the information in the `cities` data for both cities in each pair of twinned cities.
 
 Note: This means you will have *two* name, latitude, longitude, etc. columns for each row. Think about how you might want to name columns to keep things from being confusing!
 
@@ -58,7 +61,7 @@ Note: This means you will have *two* name, latitude, longitude, etc. columns for
 # Q6 code
 ```
 
-7. Which two twin cities are the *farthest* apart?
+7. Which two twin cities are the *farthest* apart? Output one row with this answer, including the two cities names, countries, and the distance between them.
 
 ```{r}
 # Q7 code
@@ -70,13 +73,13 @@ Note: This means you will have *two* name, latitude, longitude, etc. columns for
 # Q8 code
 ```
 
-9. Which country has the most twinned cities within the same country?
+9. Which country has the most twinned cities *within* the same country?
 
 ```{r}
 # Q9 code
 ```
 
-10. CHALLENGE: Which continent has the most twinned cities with North America?
+10. CHALLENGE: Which continent has the most twinned cities with North America? Create a table that has each continent and the number of cities that they have that are twinned with a city in North America.
 
 ```{r}
 # Q10 code

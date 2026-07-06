@@ -22,7 +22,7 @@ versions:
 format: 
   html:
     code-tools: true
-    toc: true      
+    toc: true  
 execute: 
   error: true
   echo: true
@@ -30,10 +30,13 @@ execute:
   warning: false
 ---
 
-```{r setup}
+```{r}
+#| label: setup
+
 # load packages
 library(readxl) 
 library(tidyverse)
+library(knitr)
 ```
 
 :::{.version-instructions}
@@ -76,7 +79,7 @@ The `links` data contains all of the pairs of cities, but we can't learn anythin
 
 As the data dictionary states, the order of "source" and "target" city is arbitrary. 
 
-3. Created a new dataframe called  `linked_cities` that includes all of the information in the `cities` data for both cities in each pair of twinned cities.
+3. Created a new dataframe called  `linked_cities` that includes **all** of the information in the `cities` data for both cities in each pair of twinned cities.
 
 Note: This means you will have *two* name, latitude, longitude, etc. columns for each row. Think about how you might want to name columns to keep things from being confusing!
 
@@ -91,10 +94,10 @@ Note: This means you will have *two* name, latitude, longitude, etc. columns for
 #| version: solution
 
 linked_cities <- links |> 
-  inner_join(cities, join_by(source == id)) |> 
+  left_join(cities, join_by(source == id)) |> 
   rename_with(.fn = \(x) paste0(x, "_1"), 
               .cols = name:continent) |> 
-  inner_join(cities, join_by(target == id)) |> 
+  left_join(cities, join_by(target == id)) |> 
   rename_with(.fn = \(x) paste0(x, "_2"), 
               .cols = name:continent)
 ```
@@ -112,11 +115,16 @@ linked_cities <- links |>
 #| version: solution
 
 linked_cities |> 
-  filter(is.na(source_name) | is.na(name))
+  filter(is.na(name_1) | is.na(name_2))
 ```
 
 5. Q4 implies that we *could* have used which of the following joins (or all of them)? inner, left, right, and/or full?
 
+:::{.version-solution}
+
+We didn't find that any of the twinned cities were missing information from the `cities` data, keeping all of the `linked_cities` observations, so we definitely could have used inner or left join with the same outcome, (assuming `linked_cities` was the left dataset). If you did some more investigating, you would find that the `cities` data does not include any cities that are not in the `linked_cities` data as well. Since the same exact keys are present in both datasets, any of the joins would have resulted in the same outcome here!
+
+:::
 
 
 6.  Join the distances between cities on to your `linked_cities` data. Pay close attention: what identifies one observation in the `dists` data? Your `linked_cities` data should still have 10,596 observations.
@@ -127,13 +135,33 @@ linked_cities |>
 # Q6 code
 ```
 
+```{r}
+#| version: solution
 
-7. Which two twin cities are the *farthest* apart?
+linked_cities <- linked_cities |> 
+  left_join(dists, 
+            by = join_by(source, target))
+```
+
+
+7. Which two twin cities are the *farthest* apart? Output one row with this answer, including the two cities names, countries, and the distance between them.
 
 ```{r}
 #| version: student
 
 # Q7 code
+```
+
+```{r}
+#| version: solution
+
+linked_cities |> 
+  slice_max(order_by = dist,
+            n = 1) |> 
+  select(starts_with("name"),
+         starts_with("country_"),
+         dist) |> 
+  kable()
 ```
 
 
@@ -146,7 +174,19 @@ linked_cities |>
 ```
 
 
-9. Which country has the most twinned cities within the same country?
+```{r}
+#| version: solution
+
+linked_cities |> 
+  slice_min(order_by = dist,
+            n = 1) |> 
+  select(starts_with("name"),
+         starts_with("country_"),
+         dist) |> 
+  kable()
+```
+
+9. Which country has the most twinned cities *within* the same country?
 
 ```{r}
 #| version: student
@@ -155,7 +195,20 @@ linked_cities |>
 ```
 
 
-10. CHALLENGE: Which continent has the most twinned cities with North America?
+```{r}
+#| version: solution
+
+linked_cities |> 
+  filter(country_1 == country_2) |> 
+  group_by(country_1) |> 
+  count() |> 
+  ungroup() |> 
+  slice_max(order_by = n) |> 
+  kable()
+```
+
+
+10. CHALLENGE: Which continent has the most twinned cities with North America? Create a table that has each continent and the number of cities that they have that are twinned with a city in North America.
 
 ```{r}
 #| version: student
@@ -177,7 +230,8 @@ linked_cities |>
                values_to = "continent") |> 
   filter(continent != "North America") |> 
   summarize(n = sum(n), .by = continent) |> 
-  arrange(desc(n))
+  arrange(desc(n)) |> 
+  kable()
 ```
 
 
