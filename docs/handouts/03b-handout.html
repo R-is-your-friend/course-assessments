@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>03b-handout – R is Your Friend</title>
+<title>Week 3 Part 2: Writing Functions – R is Your Friend</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +18,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -43,8 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -71,10 +66,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -240,9 +232,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">R is Your Friend</span>
@@ -254,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
@@ -263,27 +253,24 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#function-practice" id="toc-function-practice" class="nav-link active" data-scroll-target="#function-practice">Function Practice</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">03b-handout</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Week 3 Part 2: Writing Functions</h1>
 </div>
 
 
@@ -297,14 +284,58 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
+</header><p><img src="../slides/images/03b-func-structure.png" class="img-fluid" alt="Illustration of R function syntax. The image explains the parts of a function in R using labeled arrows and colors. At the top, the name 'func_name' is assigned using '<-' to a function. An arrow points to 'func_name' with the label 'assign the function a NAME.' The keyword 'function' is highlighted, with an arrow labeled 'indicate we are creating a function.' The parentheses contain 'func_arg1, func_arg2,' which are labeled as 'specify ARGUMENTS of the function.' The body of the function is placed between curly brackets and labeled 'write the BODY of the function between curly brackets.' Finally, the 'return(func_value)' statement is labeled 'return a value as the OUTPUT of the function."></p>
+<ol type="1">
+<li>Write a function named <code>add_two()</code> that will add <code>2</code> to whatever number is input.</li>
+</ol>
+<ol start="2" type="1">
+<li>In your function what is the:</li>
+</ol>
+<ul>
+<li>Function Name:</li>
+<li>Function Argument(s):</li>
+<li>Function Body:</li>
+<li>Function Return:</li>
+</ul>
+<ol start="3" type="1">
+<li><p>What if we wanted to write a more general function, named <code>add_something()</code>. The function would take <strong>two</strong> inputs:</p></li>
+<li><p><code>x</code> the vector to add to</p></li>
+<li><p><code>something</code> the value to add to <code>x</code></p></li>
+</ol>
+<p>How would your function change?</p>
+<ol start="4" type="1">
+<li><p>Are your arguments <strong><em>optional</em></strong> or <strong><em>required</em></strong>?</p></li>
+<li><p>What is the difference?</p></li>
+<li><p>What are the two ways you can return a value in a function?</p></li>
+<li><p>Which method for returning a value makes more sense to you?</p></li>
+</ol>
+<section id="function-practice" class="level2"><h2 class="anchored" data-anchor-id="function-practice">Function Practice</h2>
+<p>You’re a new employee at a non-profit committed to sustainability. The company has recently pledged to plant trees to offset their paper use.</p>
+<p>Since the company places several paper orders throughout the year, you have been asked to <strong>write a function</strong> to calculate the number of trees to plant based on a given order. There are three types of paper used by the company, each of which requires a different number of trees. One carton (5000 sheets) of…</p>
+<ul>
+<li>office paper uses 0.6 trees.</li>
+<li>newsprint (for the newsletter) uses 0.3 trees.</li>
+<li>glossy paper (for the catalog) uses 0.4 trees.</li>
+</ul>
+<p>In order to offset waste, the company wants to plant 125% of the trees that directly go into the paper they buy.</p>
+<ol start="8" type="1">
+<li>Write a function called <code>trees_to_plant()</code> that takes in two arguments</li>
+</ol>
+<ul>
+<li>the number of cartons (<code>cartons</code>)</li>
+<li>the material (<code>material</code>) that was ordered</li>
+</ul>
+<p>The function should output the number of trees the company needs to plant.</p>
+<ol start="9" type="1">
+<li><p>What happens when you run the function in the R Script you made?</p></li>
+<li><p>The non-profit places an order for 5 cartons of office paper. What result do you expect your function to output?</p></li>
+<li><p>How many trees should be planted for 2 cartons of glossy paper?</p></li>
+<li><p>What happened when you typed <code>num_trees</code> into your <em>Console</em>?</p></li>
+<li><p>What happened when you created a <code>num_trees</code> object outside the function and then called the <code>trees_to_plant()</code> function? Did the <code>num_trees</code> object change?</p></li>
+</ol>
 
 
-
-
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -718,21 +749,18 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Built by Kelly Bodwin, Charlotte Mann, Zoe Rehnberg, Emily Robinson, Julia Schedler, and Allison Theobold.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with ❤️️ and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

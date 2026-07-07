@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/slides/03a-control-flow.html</loc>
-    <lastmod>2026-07-02T15:26:27.005Z</lastmod>
+    <lastmod>2026-07-07T13:50:07.079Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/slides/01-tracing.html</loc>
@@ -130,7 +130,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/code-along/main-version/03-code-along.html</loc>
-    <lastmod>2026-07-06T20:46:38.522Z</lastmod>
+    <lastmod>2026-07-07T14:53:07.131Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/code-along/main-version/01-code-along.html</loc>
@@ -146,7 +146,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/code-along/instructions/03-code-along.html</loc>
-    <lastmod>2026-07-06T22:08:55.680Z</lastmod>
+    <lastmod>2026-07-07T14:53:09.952Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/code-along/main-version/02-code-along.html</loc>
@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/handouts/03b-handout.html</loc>
-    <lastmod>2026-07-02T15:31:49.630Z</lastmod>
+    <lastmod>2026-07-07T14:45:09.403Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/handouts/05-handout.html</loc>
@@ -279,5 +279,9 @@
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/slides/07.1-more-dplyr-pivot.html</loc>
     <lastmod>2026-06-28T14:09:50.082Z</lastmod>
+  </url>
+  <url>
+    <loc>https://R-is-your-friend.github.io/course-assessments/slides/03b-functions.html</loc>
+    <lastmod>2026-07-07T14:44:03.916Z</lastmod>
   </url>
 </urlset>
