@@ -55,9 +55,10 @@ The `read_xlsx()` function has several useful arguments:
 
 + `sheet`: specify the name of the sheet that you want to use. The name must be passed in as a string (in quotations)!
 + `skip`: specify the number of rows you want to skip *before* reading in the data.
++ `na`: specify data values to interpret as missing values
 :::
 
-**1. Modify the code below (potentially including the file path) to read the military expenditures data into your global environment.**
+1. Modify the code below (potentially including the file path) to read the military expenditures data into your global environment.
 
 ```{r}
 military <- read_xlsx("SIPRI-Milex-data-1949-2024.xlsx", 
@@ -69,45 +70,29 @@ military <- read_xlsx("SIPRI-Milex-data-1949-2024.xlsx",
 If you have the Excel file open on your computer while trying to import the data, you may get an error. If you do, close the Excel file and try running your code again.
 :::
 
+2. In addition to `NA`s, missing values were coded in two other ways in this data. Find these two methods. Edit your code in Q1, including the `na` argument to `read_xlsx()` so that these values are automatically coded as `NA`s when the data is read in.
+
+::: callout-tip
+The information in the top 6 rows of the excel sheet will help you answer this question.
+:::
+
+Catching this when reading in the data saved us a lot of work later on!
+
 ## Data Cleaning
 
 You will notice that there are a couple of columns that don't include spending data or are all missing (`Notes` and `Reporting year`). There is also an extra row that doesn't include information on a country (i.e. it doesn't include a country name!). 
 
-**2. In one pipeline, drop those columns and that row. Save this dataset as a new object named `military_clean`.**
-
-```{r}
-# code for Q2
-```
-
-In addition to `NA`s, missing values were coded in two other ways.
-
-**3. Find these two methods and write code to replace these values with `NA`s.  Save these changes into an updated version of `military_clean`.**
-
-::: callout-tip
-The information in the top 6 rows of the excel sheet will help you answer this question.
-
-Helpful functions: `mutate()`, `across()` -- you will need two of these, `na_if()`
-
-**Note:** When referring to one of the year variable names that start with a number **must** put tick marks (above the tab key) around the name. Starting the name of a variable with a number is not commonly read as a variable name. E.g., to read the 1988 column through the 2019 column, use ``` `1988.0`:`2019.0` ```. However, you don't *have* to refer to the variable names to complete this task - it might be most efficient to specify columns you **don't** want to mutate.
-:::
+3. In one pipeline, drop those columns and that row. Save this dataset as a new object named `military_clean`.
 
 ```{r}
 # code for Q3
-```
-
-Because characters were used to indicate missing values, all of the columns 1988 through 2023 were read in as characters.
-
-**4. Change these columns to a numeric data type using `across()`. Save these changes into an updated version of `military_clean`.**
-
-```{r}
-# code for Q4
 ```
 
 If you give the `Country` column a look, you'll see there are names of **continents and regions** included. These names are only included to make it simpler to find countries, as they contain no data.
 
 Luckily for us, these region names were also stored in the *"Regional totals"* sheet. We can use the `Region` column of this dataset to filter out the names we don't want.
 
-**5a. Use `pull()` to create a vector called `cont_region_names` with the names provided in the `cont_region` data below.**
+**4a. Use `pull()` to create a vector called `cont_region_names` with the names provided in the `cont_region` data below.**
 
 ```{r regional-totals}
 cont_region <- read_xlsx("../../data/07-SIPRI-Milex-data-1949-2024.xlsx", 
@@ -117,25 +102,30 @@ cont_region <- read_xlsx("../../data/07-SIPRI-Milex-data-1949-2024.xlsx",
          Region != "World total (excluding Iraq)") 
 ```
 
-**5b. Remove the rows of `military_clean` representing regions/continents using the `cont_region_names` vector you created. Save these changes into an updated version of `military_clean`.**
+**4b. Remove the rows of `military_clean` representing regions/continents using the `cont_region_names` vector you created. Save these changes into an updated version of `military_clean`.**
 
 ```{r}
-# code for Q5b
+# code for Q4b
 ```
 
 ::: callout-note
 
 ### Canvas Q1 & Q2
 
-6. How many *countries* have no spending information in this dataset? What are some of these countries (a list to choose from will be given in Canvas)?
+5. How many *countries* have no spending information in this dataset? What are some of these countries (a list to choose from will be given in Canvas)?
 :::
 
 ::: callout-tip
-Useful functions: `filter()`, `if_all()`, `is.na()`. You will also want to double check that any observations that are missing information aren't just a region/continent1!
+Useful functions: `filter()`, `if_all()`, `is.na()`. You will also want to double check that any observations that are missing information aren't just a region/continent!
+:::
+
+::: callout-tip
+
+**Note:** When referring to one of the year variable names that start with a number **must** put tick marks (above the tab key) around the name. Starting the name of a variable with a number is not commonly read as a variable name. E.g., to read the 1988 column through the 2019 column, use ``` `1988.0`:`2019.0` ```. However, you don't *have* to refer to the variable names to complete this task - it might be most efficient to specify columns you **don't** want to mutate.
 :::
 
 ```{r}
-# code for Q6
+# code for Q5
 ```
 
 ## Data Organization
@@ -172,7 +162,7 @@ To tidy a dataset like this, we need to pivot the columns of years from wide for
 
 These form the three required arguments for the `pivot_longer()` function.
 
-**7. Pivot the cleaned up `military` data set to a "longer" orientation. Save this new "long" version as a new variable called `military_long`.**
+6. Pivot the cleaned up `military` data set to a "longer" orientation. Save this new "long" version as a new variable called `military_long`.
 
 ::: callout-caution
 
@@ -180,24 +170,24 @@ These form the three required arguments for the `pivot_longer()` function.
 :::
 
 ```{r}
-# code for Q7
+# code for Q6
 ```
 
-**8. Notice that when you pivoted the data, the `year` variable is a character data type. Convert this to numeric.**
+7. Notice that when you pivoted the data, the `year` variable is a character data type. Convert this to numeric.
 
 ```{r}
 summary(military_long)
 ```
 
 ```{r}
-# code for Q8
+# code for Q7
 ```
 
 ## Data Visualization
 
 Now that we've transformed the data, let's create a plot to explore military spending across Eastern European countries.
 
-**9. Create side-by-side boxplots to explore the military spending between Eastern European countries.**
+8. Create side-by-side boxplots to explore the military spending between Eastern European countries.
 
 ::: callout-tip
 
@@ -214,10 +204,10 @@ Place the `Country` variable on an axis that makes it easier to read the labels!
 eastern_europe <- c("Armenia", "Azerbaijan", "Belarus", 
                     "Georgia", "Moldova", "Russia", "Ukraine")
 
-# code for Q9
+# code for Q8
 ```
 
-**10. Create a line plot to explore the military spending of Eastern European countries over time.**
+9. Create a line plot to explore the military spending of Eastern European countries over time.
 
 ```{r}
 # code for Q10
@@ -226,7 +216,7 @@ eastern_europe <- c("Armenia", "Azerbaijan", "Belarus",
 ::: callout-note
 ### Canvas Q3 + Q4
 
-11. Looking at the plots you created above, which Eastern European country had the *smallest* variability in military expenditures over time? Consider a measure of variability that is *robust* to outliers (like IQR).
+10. Looking at the plots you created above, which Eastern European country had the *smallest* variability in military expenditures over time? Consider a measure of variability that is *robust* to outliers (like IQR).
 
-12. Looking at the plots you created above, you can see that for one Eastern European country, their miliary spending (%) over doubled and then returned to previous levels by around 2015. What is the name of the war that would explain this trend?.
+11. Looking at the plots you created above, you can see that for one Eastern European country, their military spending (%) over doubled and then returned to previous levels by around 2015. What is the name of the war that would explain this trend?.
 :::

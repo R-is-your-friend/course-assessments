@@ -2,13 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Week 9: Special Variable Types – R is Your Friend</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,18 +27,19 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -271,18 +269,12 @@ ul.task-list li input[type="checkbox"] {
 <a href="#character-variables-and-strings" id="toc-character-variables-and-strings" class="nav-link active" data-scroll-target="#character-variables-and-strings"><span class="header-section-number">1</span> Character Variables and Strings</a>
   <ul>
 <li><a href="#required-reading-r4ds-14.1-14.5-strings" id="toc-required-reading-r4ds-14.1-14.5-strings" class="nav-link" data-scroll-target="#required-reading-r4ds-14.1-14.5-strings">📖 Required Reading: R4DS 14.1-14.5: Strings</a></li>
-  <li><a href="#required-reading-r4ds-15.1-15.4-strings" id="toc-required-reading-r4ds-15.1-15.4-strings" class="nav-link" data-scroll-target="#required-reading-r4ds-15.1-15.4-strings">📖 Required Reading: R4DS 15.1-15.4: Strings</a></li>
   </ul>
 </li>
   <li>
 <a href="#date-and-time-variables" id="toc-date-and-time-variables" class="nav-link" data-scroll-target="#date-and-time-variables"><span class="header-section-number">2</span> Date and Time Variables</a>
   <ul>
-<li>
-<a href="#required-reading-r4ds-17-dates-and-times" id="toc-required-reading-r4ds-17-dates-and-times" class="nav-link" data-scroll-target="#required-reading-r4ds-17-dates-and-times">📖 Required Reading: R4DS 17: Dates and Times</a>
-  <ul class="collapse">
-<li><a href="#optional-video-working-wtih-dates" id="toc-optional-video-working-wtih-dates" class="nav-link" data-scroll-target="#optional-video-working-wtih-dates">📽 Optional Video: Working wtih Dates</a></li>
-  </ul>
-</li>
+<li><a href="#required-reading-r4ds-17-dates-and-times" id="toc-required-reading-r4ds-17-dates-and-times" class="nav-link" data-scroll-target="#required-reading-r4ds-17-dates-and-times">📖 Required Reading: R4DS 17: Dates and Times</a></li>
   </ul>
 </li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -331,13 +323,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="callout-body-container callout-body">
 <ul>
 <li>Clean and extract information from character variables using stringr</li>
-<li>Recognize what a basic regular expression will match</li>
 </ul>
 </div>
 </div>
 <section id="required-reading-r4ds-14.1-14.5-strings" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-14.1-14.5-strings">📖 Required Reading: <a href="https://r4ds.had.co.nz/strings.html#strings">R4DS 14.1-14.5: Strings</a>
-</h3>
-</section><section id="required-reading-r4ds-15.1-15.4-strings" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-15.1-15.4-strings">📖 Required Reading: <a href="https://r4ds.hadley.nz/regexps.html">R4DS 15.1-15.4: Strings</a>
 </h3>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
@@ -369,14 +358,11 @@ ul.task-list li input[type="checkbox"] {
 <li>Work with date and time variables using lubridate</li>
 <li>Convert a string variable into a date / time variable</li>
 <li>Extract date / time information from a date / time variable (e.g.&nbsp;month, year, day of the week, etc)</li>
-<li>Convert between time zones</li>
 </ul>
 </div>
 </div>
 <section id="required-reading-r4ds-17-dates-and-times" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-17-dates-and-times">📖 Required Reading: <a href="https://r4ds.hadley.nz/datetimes.html">R4DS 17: Dates and Times</a>
 </h3>
-<section id="optional-video-working-wtih-dates" class="level4"><h4 class="anchored" data-anchor-id="optional-video-working-wtih-dates">📽 Optional Video: <a href="https://www.youtube.com/watch?v=SEPjN2AJqbo">Working wtih Dates</a>
-</h4>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -393,7 +379,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

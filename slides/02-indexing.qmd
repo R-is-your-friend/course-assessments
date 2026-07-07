@@ -1,4 +1,508 @@
 ---
-title: "Untitled"
+title: "Working with R Objects"
+format: 
+  revealjs:
+      theme: [simple, style.scss]
+      auto-stretch: false
+editor: source
 ---
 
+## Types of Objects in R
+
+This week you've learned how to make four different types of objects in R:
+
+- vectors
+- matrices
+- lists
+- dataframes
+
+Let's review each of these so they are fresh in our memory!
+
+## Vectors
+
+Suppose you want to create two vectors:
+
+1. The days of the week
+2. The temperature of the water at Pismo each day
+
+Pencil out what code you would write to create these vectors. 
+
+## Creating Vectors
+
+::: columns
+::: {.column width="48%"}
+```{r}
+#| label: create-vector-days
+#| echo: true
+#| code-line-numbers: false
+
+days <- c("Monday", 
+          "Tuesday", 
+          "Wednesday", 
+          "Thursday", 
+          "Friday", 
+          "Saturday", 
+          "Sunday")
+```
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{r}
+#| label: create-vector-temps
+#| echo: true
+#| code-line-numbers: false
+
+temps <- c(60.1, 
+           59.4, 
+           60.8, 
+           61, 
+           60.1, 
+           62.1, 
+           59.7)
+```
+:::
+:::
+
+. . .
+
+</br>
+
+What would you expect this code to output?
+
+::: columns
+::: {.column width="48%"}
+```{r}
+#| label: check-data-type-days
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+
+typeof(days)
+```
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{r}
+#| label: check-data-type-temps
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+
+typeof(temps)
+```
+
+:::
+:::
+
+## Matrices
+
+A matrix is a two dimensional vector! Let's assess our understanding of how 
+matrices are made. 
+
+What would you expect this code to output?
+
+```{r}
+#| echo: true
+#| eval: false
+#| label: matrix-wrong-length
+#| code-line-numbers: false
+
+matrix(temps, nrow = 2)
+```
+
+. . .
+
+</br>
+
+```{r}
+#| error: true
+#| warning: true
+#| echo: false
+
+matrix(temps, nrow = 2)
+```
+
+## Lists
+
+Unlike matrices, lists allow the elements to have different data types **and**
+different sizes. 
+
+</br>
+
+Here are two ways to make a list:
+
+::: columns
+::: {.column width="48%"}
+```{r}
+#| label: create-unnamed-list
+#| echo: true
+#| code-line-numbers: false
+
+watertemp_list <- list(days, 
+                       temps)
+```
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{r}
+#| label: create-named-list
+#| echo: true
+#| code-line-numbers: false
+
+watertemp_list <- list(days = days, 
+                       temps = temps)
+```
+:::
+:::
+
+</br>
+
+**How are these lists different?**
+
+## Dataframes
+
+A dataframe is a special type of list---where every element (column) is the
+same size. 
+
+</br>
+
+Draw out how the `watertemp_df` would look:
+
+```{r}
+#| label: make-dataframe
+#| echo: true
+#| code-line-numbers: false
+
+watertemp_df <- data.frame(days = days, 
+                           temps = temps)
+```
+
+## Assessing the Size of the Object
+
+We might want to know how big an object is. 
+
+What would you expect these lines of code to output?
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+
+length(days)
+```
+
+</br>
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+
+length(watertemp_list)
+```
+
+</br>
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+
+length(watertemp_df)
+```
+
+## Assessing the Size of a List or Dataframe
+
+::: columns
+::: {.column width="48%"}
+**Lists**
+
+```{r}
+#| code-line-numbers: false
+
+lengths(watertemp_list)
+```
+
+Notice we are using `length`[`s`]{.underline} here, not `length`!
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: {.fragment}
+**Dataframes**
+
+```{r}
+#| label: dimensions-of-df
+#| code-line-numbers: false
+
+dim(watertemp_df)
+
+nrow(watertemp_df)
+
+ncol(watertemp_df)
+```
+:::
+:::
+:::
+
+## Accessing the Elements of an Object
+
+We might want to extract components of an object. 
+
+Pencil out how you would write code to do the following:
+
+- Extract the first two days of the `days` vector.
+- Extract the first element of the `watertemps_list` object.
+- Extract the second row of the `watertemps_df` object.
+
+## Accessing the Elements of an Object - Solution
+
+- Extract the first two days of the `days` vector.
+
+::: columns
+::: {.column width="48%"}
+```{r}
+#| label: extract-vector-option1
+#| code-line-numbers: false
+
+days[1:2]
+
+```
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{r}
+#| label: extract-vector-option2
+#| code-line-numbers: false
+
+days[c(1, 2)]
+
+```
+:::
+:::
+
+. . .
+
+- Extract the first element of the `watertemps_list` object.
+
+::: columns
+::: {.column width="48%"}
+```{r}
+#| label: extract-list-option1
+#| code-line-numbers: false
+
+watertemp_list$days
+```
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{r}
+#| label: extract-list-option2
+#| code-line-numbers: false
+
+watertemp_list[[1]]
+```
+
+:::
+:::
+
+## Accessing the Elements of an Object - Solution
+
+- Extract the second row of the `watertemps_df` object.
+
+```{r}
+#| label: extract-df
+#| code-line-numbers: false
+
+watertemp_df[2, ]
+```
+
+
+## Modifying an Object
+
+Suppose we wanted to add a column containing information on the air temperature 
+to `watertemp_df`. 
+
+</br>
+
+Here are the air temperatures for each day: 67, 65, 67, 70, 69, 68, 68
+
+</br>
+
+Pencil out how you would add this information as a new column in `watertemp_df`.
+
+## Modifying an Object -- Adding a Column
+
+```{r}
+#| echo: true
+#| label: add-airtemp-column
+#| code-line-numbers: false
+
+watertemp_df$airtemp <- c(67, 65, 67, 70, 69, 68, 68)
+
+watertemp_df
+```
+
+<!-- Allison: I thought this might be of interest, but also might be too much -->
+<!-- ## Changing Column Names -->
+
+<!-- Since the dataframe now has information on **two** types of temperatures, it -->
+<!-- feels like our original column name (`temps`) is too vague.  -->
+
+<!-- If we wanted to change the name of the columns, there are two options: -->
+
+<!-- 1. Go back and change the name when we originally made `watertemp_df` -->
+
+<!-- 2. Change the names now -->
+
+<!-- Option 2 would look something like this: -->
+
+<!-- ```{r} -->
+<!-- #| code-line-numbers: false -->
+
+<!-- names(watertemp_df) <- c("days", "watertemp", "airtemp") -->
+<!-- watertemp_df -->
+<!-- ``` -->
+
+## Modifying an Object -- Changing Specific Values
+
+We also learned that we got the water temperature wrong on Thursday and 
+Friday. 
+
+On Thursday the water temperature was actually 60.8 and on Friday the
+temperature was actually 61.2. 
+
+</br>
+
+Pencil out how you would adjust these water temperature values. 
+
+## Modifying an Object -- Changing Specific Values
+
+- Thursday is row 4 and Friday is row 5
+- water temperature is column 2 (named `temps`)
+
+**Option 1:** 
+
+```{r}
+#| label: change-temps-option1
+#| code-line-numbers: false
+
+watertemp_df[4:5, 2] <- c(60.8, 61.2)
+```
+
+**Option 2:** 
+
+```{r}
+#| label: change-temps-option2
+#| code-line-numbers: false
+
+watertemp_df[4:5, "temps"] <- c(60.8, 61.2)
+```
+
+**Option 3:** 
+
+```{r}
+#| label: change-temps-option3
+#| code-line-numbers: false
+
+watertemp_df$temps[4:5] <- c(60.8, 61.2)
+```
+
+
+## Modifying an Object -- Changing Column Values
+
+We originally store the air and water temperatures in degrees Fahrenheit, but
+many people prefer degrees Celsius. 
+
+The formula for converting from Fahrenheit to Celsius is:
+
+$$\text{Celsius} = \frac{5}{9}(\text{Fahrenheit} - 32)$$
+
+Pencil out how you would convert the `temps` and `airtemp` columns to Celsius.
+
+## Modifying an Object -- Changing Column Values
+
+**Option 1:** Adjust the temperatures and save them back in the original column
+
+```{r}
+#| label: changing-column-values
+#| code-line-numbers: false
+
+watertemp_df$temps <- (5/9) * (watertemp_df$temps  - 32)
+watertemp_df$airtemp <- (5/9) * (watertemp_df$airtemp  - 32)
+```
+
+</br>
+
+**Option 2:** Make a new column with the Celsius temps
+
+```{r}
+#| label: creating-new-column-values
+#| code-line-numbers: false
+#| eval: false
+
+watertemp_df$temps_c <- (5/9) * (watertemp_df$temps  - 32)
+watertemp_df$airtemp_c <- (5/9) * (watertemp_df$airtemp  - 32)
+```
+
+## Assessing Values of an Object
+
+Personally, I won't swim at Pismo if the temperature is below 16 degrees 
+(Celsius). How many days in the last week would I have swam?
+
+Pencil out the code you would write to answer this question.
+
+1. What relational comparison will you use?
+2. What output will this comparison give you?
+2. How will you use this output to find the number of days I would have swam?
+
+## How many days would I have swam?
+
+1. What relational comparison will you use?
+
+```{r}
+#| label: relational-comparison
+#| code-line-numbers: false
+#| eval: false
+
+watertemp_df$temps >= 16
+```
+
+2. What output will this comparison give you?
+
+```{r}
+#| label: logical-values
+#| code-line-numbers: false
+#| echo: false
+
+watertemp_df$temps >= 16
+```
+
+3. How will you use this output to find the number of days I would have swam?
+
+```{r}
+#| label: sum-logical-values
+#| code-line-numbers: false
+
+sum(watertemp_df$temps >= 16)
+```

@@ -1,0 +1,15 @@
+{
+  "hash": "60c6853e0526950fa420c7bfc039f6c2",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Week 8 Part 2: Factors\"\nnumber-sections: true\nnumber-depth: 2\n---\n\n\n\n\n::: columns\n::: {.column width=\"48%\"}\n#### 📖 Readings: 60 min\n\n#### 🏋🏾‍♂️ Activities: 0 min\n\n:::\n\n::: {.column width=\"4%\"}\n:::\n\n::: {.column width=\"48%\"}\n#### 📽 Videos: 0 min \n\n#### 💻 Tutorials: 0 min\n:::\n:::\n\n------------------------------------------------------------------------\n\n\n## Factor Variables\n\n::: callout\n## Learning Objectives\n+ Reorder and relabel factor variables in data cleaning steps and data visualizations using forcats \n+ Design and implement more advanced plots\n:::\n\n### 📖 Required Reading: [R4DS 16: Factors](https://r4ds.hadley.nz/factors.html)\n\n#### 📽 Optional Video: [forcats](https://www.youtube.com/embed/dAiSYli7tVg)\n\nBy the end of the reading, you should be able to answer the following questions:\n\n::: {.callout-check-in}\n\nTO-DO\n\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,60 @@
+---
+title: "Week 8 Part 1: Data Joins"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+
+::: columns
+::: {.column width="48%"}
+#### 📖 Readings: 30 min
+
+#### 🏋🏾‍♂️ Activities: 0 min
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 0 min 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
+
+------------------------------------------------------------------------
+
+
+
+
+## Data Joins
+
+::: callout
+## Learning Objectives
+
++ Use data joins to assemble data from multiple relational tables into a single table.
+
+:::
+
+### 📖 Required Reading: [R4DS 19.1-19.4: Joins](https://r4ds.hadley.nz/joins.html)
+
+- Note: don't read 19.5! We will not cover non-equi joins in this course
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
+
+

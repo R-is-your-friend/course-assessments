@@ -42,7 +42,8 @@ some punctuation marks.
 
 2.  Make **one** long **vector** containing all the symbols.
 
-3.  Turn the `my_symbols` vector into a data frame, with one column named "Symbol".
+3.  Turn the `my_symbols` vector into a data frame, with one column named
+"Symbol".
 
 4.  Find the total number of symbols we have in our data frame.
 

@@ -1,0 +1,69 @@
+---
+title: "Week 1 Code Along"
+format: 
+  html:
+    toc: true      
+
+author: Instructions
+echo: true
+eval: true
+---
+## Using the Console
+
+Bishop's Peak is 1,546 feet tall. Let's use `R` as a calculator to change the
+units of measurement.
+
+1. Let's find the height in yards -- there are 3 feet in a yard. In the
+*Console*, type `1546/3` and press enter.
+
+2. **Oops!** It's actually more useful to consider height in meters 
+(#metricsystem) -- there are about 3.281 feet in a meter. With your cursor in
+the *Console*, press the up arrow and edit your code. Press enter.
+
+The *Console* is great for these types of simple calculations. However, we often
+want to do more complex tasks that involve multiple lines of code. To make this
+work easier, as well as **documented** and **reproducible**, we use `R` scripts.
+
+## Using a Script
+
+3. Let's open a new script. In the upper left corner, click the symbol of a
+blank page with a plus sign in a green circle. Select the first option,
+*R Script*.
+
+4. In the script, create two objects: `height_ft` is `1546` and `scale_m` is
+`3.281`. Divide `heigh_ft` by `scale_m`. You should have three lines of code in
+your R script.
+
+When we write code in a script, there are two main ways of
+**running that code**.
+
+5.  Highlight the three lines of code. Copy / paste them into the *Console* and
+hit enter.
+
+6. Put your cursor on the first line of code. Hit `Ctrl + Enter` on a PC or
+`Command + Return` on a Mac. Do the same for the remaining two lines.
+
+A huge benefit of using an `R` script is that we can
+**add descriptive statements** to help us remember what our code is doing.
+
+7. Let's add a descriptive *comment*. Remember, we use `#` to indicate a
+comment.
+
+8. Use the methods from Steps 5 and 6 to run the line of code containing the
+comment. What happens?
+
+## Using the Help Pane
+
+We have now seen that `1546/3.281 = 471.1978`. What if we want to report this
+value with just two decimal places? Fortunately, there is a built-in `R`
+function called `round()`. Let's learn about how to use it!
+
+9. In the *Console*, type `?round`. You can also search for `round` in the
+*Help* pane.
+
+10. Read the fourth paragraph under Description. Next, read the Usage and
+Arguments section for `round()`. Write a line of code in your script that does
+the desired rounding.
+
+11. Cerro San Luis (also called Madonna) is 1,292 feet tall. Adapt your code to
+find the height of both peaks in meters, rounded to two decimal places.

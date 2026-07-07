@@ -1,0 +1,94 @@
+---
+title: "Week 3 Code Along"
+format: 
+  html:
+    toc: true      
+
+author: SOLUTIONS
+error: true
+---
+You're a new employee at a non-profit committed to sustainability. The company
+has recently pledged to plant trees to offset their paper use.
+
+Since the company places several paper orders throughout the year, you have been
+asked to **write a function** to calculate the number of trees to plant based on
+a given order. There are three types of paper used by the company, each of which
+requires a different number of trees. One carton (5000 sheets) of...
+
+- office paper uses 0.6 trees.
+- newsprint (for the newsletter) uses 0.3 trees.
+- glossy paper (for the catalog) uses 0.4 trees.
+
+In order to offset waste, the company wants to plant 125% of the trees that
+directly go into the paper they buy.
+
+1. Write a function named `trees_to_plant()` that takes in two arguments
+
+- the number of cartons (`cartons`)
+- the material (`material`) that was ordered
+
+The function should output the number of trees the company needs to plant.
+
+```{r}
+trees_to_plant <- function(cartons, material){
+  if(material == "office"){
+    num_trees <- 0.6 * cartons
+  }
+  else if(material == "newsprint"){
+    num_trees <- 0.3 * cartons
+  }
+  else {
+    num_trees <- 0.4 * cartons
+  }
+  num_trees <- num_trees * 1.25
+  return(num_trees)
+}
+```
+
+2. Run the function. Does anything happen?
+
+Nothing happens when you run the function!
+
+3. Take a look at the *Environment* pane. Do you notice anything there?
+
+Although nothing is output when you run the function, the `trees_to_plant()`
+function appears in the Environment. `trees_to_plant()` is listed under the 
+"Functions" objects that have been created and the Environment shows that the 
+function takes two inputs `(cartons, material)`.
+
+Nothing really happens when you **run** the code that defines a function. The
+action happens when you **call** that function!
+
+4. The non-profit places an order for 5 cartons of office paper. Run your
+function to find the number of trees to plant.
+
+```{r}
+trees_to_plant(cartons = 5, material = "office")
+```
+
+5. How many trees for 2 cartons of glossy paper?
+
+```{r}
+trees_to_plant(cartons = 2, material = "gloss")
+```
+
+The function is doing lots of work behind the scenes. **But, what happens inside
+the function is not accessible outside the function!**
+
+6. Inside our function, the object `num_trees` was created. Can we see 
+that object now? Try to print out `num_trees` in the *Console*.
+
+```{r}
+#| error: true
+
+num_trees
+```
+
+7. Define `num_trees <- 7`. Then run `trees_to_plant()` for 1 carton of 
+newsprint. What is the value of `num_trees` now?
+
+```{r}
+num_trees <- 7
+
+trees_to_plant(carton = 1, material = "newsprint")
+```

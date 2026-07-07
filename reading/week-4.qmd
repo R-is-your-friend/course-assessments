@@ -16,7 +16,7 @@ library(tidyverse)
 ::: {.column width="48%"}
 #### 📖 Readings: 60 min
 
-#### 🏋🏾‍♂️ Activities: 0 min
+#### 🏋🏾‍♂️ Activities: 5 min
 
 :::
 
@@ -36,17 +36,24 @@ library(tidyverse)
 ::: callout
 ## Learning Objectives
 
-+ Define the observational unit (rows) and variables (columns) of rectangular data
-+ Identify variable types given rectangular data
++ Consider context of data and describe data based on a data dictionary.
 + Explore rectangular data quickly in R (with code and with RStudio visually)
 + Read rectangular data with various delimiters into R using an appropriate `readr` or `readxl` function
 + Define relative versus absolute file paths
 + Integrate R code and Markdown text in **Quarto** documents
 :::
 
+## Welcome to the tidyverse
+
+### 📖 Required Reading: [Welcome to the Tidyverse](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#welcome-to-the-tidyverse)
+
+
 ## Rectangular Data
 
-### 📖 Required Reading: [Rectangular Data](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rectangular-data)
+### 📖 Required Reading: [Getting Acquainted with our Data](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#getting-acquainted-with-our-data)
+
+- Don't continue reading the Project Management section yet!
+
 
 By the end of the reading, you should be able to answer the following questions:
 
@@ -58,7 +65,7 @@ TO-DO
 
 ## Importing Data into R
 
-### 📖 Required Reading: [File Paths](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths)
+
 ### 📖 Required Reading: [R4DS 7.1-7.3](https://r4ds.hadley.nz/data-import.html) about reading in data files
 ### 📖 Required Reading: [R4DS 7.5](https://r4ds.hadley.nz/data-import.html#sec-writing-to-a-file) about saving data externally
 ### 📖 Required Reading: [R4DS 20](https://r4ds.hadley.nz/spreadsheets.html) about working with Excel files
@@ -69,13 +76,21 @@ By the end of the reading, you should be able to answer the following questions:
 
 TO-DO
 
++ Show code for reading in the data -- read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)? 
+  + What if the data looks like xxxx.
++ How many dimensions is the data? -- use dim()
++ Screenshot of reflected file folder structure & Files tab in R.
++ match the View(), str(), glimpse()
+  + what sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?
 :::
 
-## Quarto
+## Project Management
+
+
 
 ### 📖 Required Reading: [R4DS 28](https://r4ds.hadley.nz/quarto.html) about Quarto
 
-By the end of the reading, you should be able to answer the following questions:
+- You can focus on 28.1-28.5 for now, but you will want to read the rest of the chapter eventually!
 
 ::: {.callout-check-in}
 
@@ -83,3 +98,24 @@ TO-DO
 
 :::
 
+### 📖 Required Reading: [RStudio Projects](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rstudio-projects)
+
+::: {.callout-check-in}
+
+**Question XX** Follow the instructions to create your `stat-1810` RStudio project in `stat-1810` you have already been working with in class. 
+
+Submit a screenshot showing your `stat-1810` directory, making sure the `stat-1810.Rproj` file is visible like: ![](https://r-is-your-friend.github.io/course-pack/images/04-files-comp-1.png){width=40%}.
+
+:::
+
+### 📖 Required Reading: [File Paths](https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths-refresher)
+
+By the end of the reading, you should be able to answer the following questions:
+
+
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::

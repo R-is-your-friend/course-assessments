@@ -1,0 +1,37 @@
+---
+title: "Practice Activity 10: Communication"
+filters:
+  - versions
+versions:
+  - student:
+      out-dir: ".."
+      yaml:
+        author: "Your Name"
+        embed-resources: true
+  - instructions:
+      out-dir: ".."
+      yaml:
+        eval: false
+  - solution:
+      out-dir: ".."
+      out-file: "pa10-solution.qmd"
+      yaml:
+        author: "SOLUTIONS"
+        embed-resources: true
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+# Setup
+
+:::callout-tip
+# Canvas Submission
+xxx
+:::

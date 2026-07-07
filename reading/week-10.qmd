@@ -1,0 +1,83 @@
+---
+title: "Week 10: Communication"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+
+## Learning Objectives
+
++ Evaluate existing charts and develop new versions that improve accessibility and readability
++ Design and evaluate effective tables
+<!-- Note: revisit this LO -->
+
+In this week's reading, we have:
+
+::: columns
+::: {.column width="48%"}
+#### 📖 Readings: xx min
+
+#### 🏋🏾♂️ Activities: xx min
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 0 min 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
+
+------------------------------------------------------------------------
+
+</br>
+
+::: column-margin
+![image...]()
+:::
+
+<!-- Note from Emily.. want to read through and write some of this up later with what I want but here are some resources. -->
+
+## Effective Data Visualizations
+
+### 📖 Required Reading: [Creating Good Charts](https://srvanderplas.github.io/stat-computing-r-python/part-wrangling/02c-good-graphics.html).
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
+## Table Design
+
+### Required Reading: []
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
+<!-- ## Professional Communication -- move later with project?-->
+
+<!-- ### 📖 Required Reading: [Revealjs](https://srvanderplas.github.io/stat-computing-r-python/part-tools/06-documents.html#html-slides) -->
+
+<!-- ### 📖 Required Reading: [Project Management](https://hellodata.science/chapters/chapter-10#project-folder-content) -->
+
+<!-- + source()??? helper functions, data cleaning -->
+
+<!-- ::: {.callout-check-in} -->
+
+<!-- TO-DO -->
+
+<!-- ::: -->

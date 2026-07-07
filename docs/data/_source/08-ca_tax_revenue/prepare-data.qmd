@@ -1,0 +1,89 @@
+---
+title: "Prepare County Data Lab 8"
+execute: 
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r, setup}
+library(tidyverse)
+library(readxl)
+library(janitor)
+```
+
+
+## County Revenue Data
+
+Data collected from the [California State Controller](https://counties.bythenumbers.sco.ca.gov/#!/year/default). San Francisco County is excluded.
+
+### 2003 - 2016 data
+
+```{r}
+dat_03_16 <- read_excel("CountiesRawData_20180613.xlsx",
+                        sheet = "CO_REV_PROP_OTHR_TAXES") |> 
+  clean_names() |> 
+  select(entity_name, year = fiscal_year,
+         total_property_taxes, sales_and_use_taxes)
+```
+
+### 2017 data
+
+```{r}
+dat_17 <- read_excel("CountiesRawData_20181228.xlsx",
+                        sheet = "CO_REV_PROP_OTHR_TAX",
+                     na = c("", "NULL")) |> 
+  clean_names() |> 
+  select(entity_name, year = fiscal_year,
+         sales_and_use_taxes = sales_and_use_taxes_total_governmental_funds_taxes_other,
+         total_property_taxes = total_property_taxes_total_governmental_funds_property_taxes) 
+```
+
+### 2018 data
+
+```{r}
+dat_18 <- read_excel("CountiesRawData_FY2018-2020_20210926_V4.xlsx",
+                        sheet = "CO_REV_PROP_OTHR_TAXES") |> 
+  clean_names() |> 
+  select(entity_name, year = fiscal_year,
+         sales_and_use_taxes = sales_and_use_taxes_total_governmental_funds_taxes_other,
+         total_property_taxes = total_property_taxes_total_governmental_funds)
+```
+
+### Append and clean
+
+```{r}
+tax_dat <- dat_03_16 |> 
+  rows_append(dat_17) |> 
+  rows_append(dat_18) |> 
+  arrange(entity_name, year) |> 
+  filter(year %in% 2005:2018) |> 
+  mutate(entity_name = str_c(entity_name, " County"))
+```
+
+
+
+## Check that county names align with other lab data
+
+```{r}
+counties <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')
+```
+
+```{r}
+tax_counties <- tax_dat |> 
+  group_by(entity_name) |> 
+  summarize(mean_tax = mean(total_property_taxes))
+```
+
+```{r}
+ca_counties <- counties |> 
+  filter(state_abbreviation == "CA") |> 
+  left_join(tax_counties, by = join_by(county_name == entity_name))
+```
+
+## Save data
+
+```{r}
+write_csv(tax_dat, 
+          file = "../../08-ca_tax_revenue.csv")
+```

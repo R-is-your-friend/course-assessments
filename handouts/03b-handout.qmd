@@ -1,0 +1,87 @@
+---
+title: "Week 3 Part 2: Writing Functions"
+format: html
+---
+
+![](../slides/images/03b-func-structure.png){fig-alt="Illustration of R function syntax. The image explains the parts of a function in R using labeled arrows and colors. At the top, the name 'func_name' is assigned using '<-' to a function. An arrow points to 'func_name' with the label 'assign the function a NAME.' The keyword 'function' is highlighted, with an arrow labeled 'indicate we are creating a function.' The parentheses contain 'func_arg1, func_arg2,' which are labeled as 'specify ARGUMENTS of the function.' The body of the function is placed between curly brackets and labeled 'write the BODY of the function between curly brackets.' Finally, the 'return(func_value)' statement is labeled 'return a value as the OUTPUT of the function."}
+
+
+1. Write a function named `add_two()` that will add `2` to whatever number is
+input. 
+
+```{r}
+
+
+
+
+```
+
+
+2. In your function what is the:
+
+- Function Name:
+- Function Argument(s):
+- Function Body:
+- Function Return:
+
+
+3. What if we wanted to write a more general function, named `add_something()`. 
+The function would take **two** inputs: 
+
+1. `x` the vector to add to
+2. `something` the value to add to `x`
+
+How would your function change?
+
+
+4. Are your arguments ***optional*** or ***required***?
+
+5. What is the difference? 
+
+6. What are the two ways you can return a value in a function?
+
+7. Which method for returning a value makes more sense to you?
+
+## Function Practice
+
+You're a new employee at a non-profit committed to sustainability. The company
+has recently pledged to plant trees to offset their paper use.
+
+Since the company places several paper orders throughout the year, you have been
+asked to **write a function** to calculate the number of trees to plant based on
+a given order. There are three types of paper used by the company, each of which
+requires a different number of trees. One carton (5000 sheets) of...
+
+- office paper uses 0.6 trees.
+- newsprint (for the newsletter) uses 0.3 trees.
+- glossy paper (for the catalog) uses 0.4 trees.
+
+In order to offset waste, the company wants to plant 125% of the trees that
+directly go into the paper they buy.
+
+8. Write a function called `trees_to_plant()` that takes in two arguments
+
+- the number of cartons (`cartons`)
+- the material (`material`) that was ordered
+
+The function should output the number of trees the company needs to plant.
+
+```{r}
+
+
+
+
+```
+
+9. What happens when you run the function in the R Script you made?
+
+10. The non-profit places an order for 5 cartons of office paper. What result
+do you expect your function to output?
+
+11. How many trees should be planted for 2 cartons of glossy paper?
+
+12. What happened when you typed `num_trees` into your *Console*?
+
+13. What happened when you created a `num_trees` object outside the function 
+and then called the `trees_to_plant()` function? Did the `num_trees` object 
+change?

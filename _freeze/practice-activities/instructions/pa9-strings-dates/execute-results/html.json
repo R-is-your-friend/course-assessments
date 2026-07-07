@@ -1,0 +1,17 @@
+{
+  "hash": "991772150bd5ddc7317643f057a267c0",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"PA 9: Cancel Culture\"\nsubtitle: \"Strings and Date Variables\"\nformat: \n  html:\n    code-tools: true\n    toc: true      \nexecute: \n  error: true\n  echo: true\n  message: false\n  warning: false\n\neval: false\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n# load packages\nlibrary(tidyverse)\n```\n:::\n\n\nThe data are compiled by Grant Witness.\n\nThere is both a Tidy Tuesday version, and an updated version I can download from Grant Witness... Maybe we stick with tidy tuesday since it has the cruz list column which is fun? There are 2000 observations in the updated data though. It also doesn't have a clean data dictionary.\n\nYou can find the data dictionary [here](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md#data-dictionary)\n\n\n::: {.cell}\n\n```{.r .cell-code}\nnsf_terminations <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-06/nsf_terminations.csv')\n```\n:::\n\n\nString things:\n\n- org_city to title case `str_to_title()`\n- count number of times the string \"diversity\" (or something else) is in the abstract `str_count()`\n- \"clean up\" the grant name by replacing words `str_replace_all()`\n- `str_count()` on title\n- `str_detect()` to find certain types of grants\n\nDate things:\n- Create year start and year end variables\n- Create a variable for the day of the week that termination letters were sent\n- Calculate the total length of the grant in days\n- Calculate the number of days that had passed for the grant before it was terminated\n- Calculate the % of the grant time that was allowed\n",
+    "supporting": [
+      "pa9-strings-dates_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

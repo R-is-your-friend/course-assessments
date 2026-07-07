@@ -30,9 +30,14 @@ Week 7
 
 Week 8
 
+
+- [TS_data.xlsx](08-TS_data.xlsx) (created by Dr. Rehnberg?)
+- [cities.csv]() ([source]())
+- [links.csv]() ([source]())
+- [dists.csv](08-dists.csv) (calculated from cities.csv and links.csv. [script](_source/08-twin_dist/prepare-data.qmd))
 - [childcare_costs.csv](https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-05-09/childcare_costs.csv) ([source](https://github.com/rfordatascience/tidytuesday/blob/main/data/2023/2023-05-09/readme.md))
 - [counties.csv](https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2023/2023-05-09/counties.csv) ([source](https://github.com/rfordatascience/tidytuesday/blob/main/data/2023/2023-05-09/readme.md))
-- [ca_tax_revenue.csv](08-ca_tax_revenue.csv) (compiled from the [California State Controller](https://counties.bythenumbers.sco.ca.gov/#!/year/default))
+- [ca_tax_revenue.csv](08-ca_tax_revenue.csv) (compiled from the [California State Controller](https://counties.bythenumbers.sco.ca.gov/#!/year/default). [script](_source/08-ca_tax_revenue/prepare-data.qmd))
 
 Week 9
 

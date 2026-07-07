@@ -1,0 +1,205 @@
+---
+title: "Week 2: Working with R Objects"
+format: html
+execute: 
+  eval: false
+---
+
+## Vectors
+
+Pencil out what code you would write to create two vectors:
+
+1. The days of the week
+2. The temperature of the water at Pismo each day
+
+
+</br>
+</br>
+</br>
+
+## Matrices
+
+What would you expect this code to output?
+
+```{r}
+#| echo: true
+#| eval: false
+#| label: matrix-wrong-length
+
+matrix(temps, nrow = 2)
+```
+
+
+## Lists
+
+Here are two ways to make a list:
+
+::: columns
+::: {.column width="48%"}
+```{r}
+#| label: create-unnamed-list
+#| echo: true
+#| code-line-numbers: false
+#| eval: false
+
+list(days, temps)
+```
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+```{r}
+#| label: create-named-list
+#| echo: true
+#| code-line-numbers: false
+#| eval: false
+
+list(days = days, 
+     temps = temps)
+```
+:::
+:::
+
+</br>
+
+**How are these lists different?**
+
+</br>
+</br>
+
+
+## Dataframes
+
+Draw out what this code would output:
+
+```{r}
+#| label: make-dataframe
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+
+data.frame(days = days, 
+           temps = temps)
+```
+
+</br>
+</br>
+</br>
+
+## Assessing the Size of the Object
+
+What would you expect these lines of code to output?
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+
+length(days)
+```
+
+</br>
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+
+length(watertemp_list)
+```
+
+</br>
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+
+length(watertemp_df)
+```
+
+## Assessing the Size of a List or Dataframe
+
+What are the functions that help you access information about a list or 
+dataframe?
+
+</br>
+</br>
+
+## Accessing the Elements of an Object
+
+We might want to extract components of an object. 
+
+Pencil out how you would write code to do the following:
+
+- Extract the first two days of the `days` vector.
+
+</br>
+
+- Extract the first element of the `watertemps_list` object.
+
+</br>
+
+- Extract the second row of the `watertemps_df` object.
+
+</br>
+
+## Modifying an Object -- Adding a Column
+
+Suppose we wanted to add a column containing information on the airtemperature 
+to `watertemp_df`. 
+
+Here are the air temperatures for each day: 67, 65, 67, 70, 69, 68, 68
+
+Pencil out how you would add this information as a new column in `watertemp_df`.
+
+</br>
+</br>
+
+## Modifying an Object -- Changing Specific Values
+
+We also learned that we got the water temperature wrong on Thursday and 
+Friday. 
+
+On Thursday the water temperature was actually 60.8 and on Friday the
+temperature was actually 61.2. 
+
+Pencil out how you would adjust these water temperature values in the 
+`watertemp_df` dataframe.
+
+</br>
+</br>
+
+## Modifying an Object -- Changing Column Values
+
+We originally store the air and water temperatures in degrees Fahrenheit, but
+many people prefer degrees Celsius. 
+
+The formula for converting from Fahrenheit to Celsius is:
+
+$$\text{Celsius} = \frac{5}{9}(\text{Fahrenheit} - 32)$$
+
+Pencil out how you would convert the `temps` and `airtemp` columns of the
+`watertemp_df` dataframe to Celsius.
+
+</br>
+</br>
+</br>
+</br>
+
+## Assessing Values of an Object
+
+Personally, I won't swim at Pismo if the temperature is below 17 degrees 
+(Celsius). How many days in the last week would I have swam?
+
+Pencil out the code you would write to answer this question.
+
+1. What relational comparison will you use?
+2. What output will this comparison give you?
+2. How will you use this output to find the number of days I would have swam?
+
+</br>
+</br>

@@ -1,0 +1,131 @@
+---
+title: "Week 3 Part 1: Control Flow"
+format: html
+---
+
+This week's practice activity combines **conditional statements** and 
+**iteration**. Let's start by practicing setting up a couple of 
+
+## Problem A - Fizz Buzz
+
+Suppose you have a [vector]{.underline} of numbers (e.g., `1:100`). For each
+value, you want to print the following output:
+
+- if a number is divisible by 3, print `"Fizz"`,
+- if the number is divisible by 5, print `"Buzz"`,
+- if the number is divisible by **both** 3 and 5, print `"FizzBuzz"`, 
+- if none of these are true then print the number.
+
+## Problem B - Dog Sitting
+
+Suppose you have a [dataframe]{.underline} with information about dogs you
+are currently pet sitting. 
+
+```{r}
+#| label: create-dataframe
+#| echo: false
+
+dogs <- data.frame(
+  dog = c("Annie", "Shilo", "Buddy", "Pepper", "Ruby", "Wallie", "Chompers"), 
+  size = c("small", "medium", "large", "medium", "small", "small", "large"), 
+  age = c(3, 11, 15, 5, 7, 10, 12)
+)
+```
+
+```{r}
+#| label: dog-preview
+
+dogs
+```
+
+You need to know how much dog food you need to have this week to feed all these 
+doggies! Here are the food needs based on the dog's size: 
+
+- Small dogs: 1 cup (8 ounces)
+- Medium dogs: 2 cups (16 ounces)
+- Large dogs: 4 cups (32 ounces)
+
+If the dog is older than 12, they need to eat the same portions, but in wet food
+(instead of dry food). 
+
+
+## Work Session 1 
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+## Work Session 2
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+## How would I...
+
+use a `while()`-loop to figure out the first dog that needed wet food?
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+
+## Dataframe Review
+
+Suppose we have a dataframe about cars:
+
+```{r}
+#| label: mpg-data
+#| code-line-numbers: false
+#| results: hide
+
+library(ggplot2)
+mpg
+```
+
+```{r}
+#| label: pretty-df
+#| echo: false
+
+mpg |> 
+  dplyr::slice_sample(n = 12) |> 
+  gt::gt() |> 
+  gt::tab_style(
+    style = gt::cell_text(weight = "bold"),
+    locations = gt::cells_column_labels(columns = everything())
+    )
+```
+
+## Grabbing Information
+
+What code would I run to learn the number of rows the `mpg` dataframe has?
+What about the number of columns?
+
+</br>
+</br>
+
+What code would I write to grab the `model` column from the `mpg` dataframe?
+
+</br>
+</br>
+
+How would I modify this code to grab the model of the fourth car in the `mpg`
+dataframe?
+
+</br>
+</br>

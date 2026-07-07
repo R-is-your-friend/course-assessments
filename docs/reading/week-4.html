@@ -2,13 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Week 4: Data is Friend – R is Your Friend</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,18 +27,19 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -268,24 +266,31 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
 <li>
-<a href="#rectangular-data" id="toc-rectangular-data" class="nav-link active" data-scroll-target="#rectangular-data"><span class="header-section-number">1</span> Rectangular Data</a>
+<a href="#welcome-to-the-tidyverse" id="toc-welcome-to-the-tidyverse" class="nav-link active" data-scroll-target="#welcome-to-the-tidyverse"><span class="header-section-number">1</span> Welcome to the tidyverse</a>
   <ul>
-<li><a href="#required-reading-rectangular-data" id="toc-required-reading-rectangular-data" class="nav-link" data-scroll-target="#required-reading-rectangular-data">📖 Required Reading: Rectangular Data</a></li>
+<li><a href="#required-reading-welcome-to-the-tidyverse" id="toc-required-reading-welcome-to-the-tidyverse" class="nav-link" data-scroll-target="#required-reading-welcome-to-the-tidyverse">📖 Required Reading: Welcome to the Tidyverse</a></li>
   </ul>
 </li>
   <li>
-<a href="#importing-data-into-r" id="toc-importing-data-into-r" class="nav-link" data-scroll-target="#importing-data-into-r"><span class="header-section-number">2</span> Importing Data into R</a>
+<a href="#rectangular-data" id="toc-rectangular-data" class="nav-link" data-scroll-target="#rectangular-data"><span class="header-section-number">2</span> Rectangular Data</a>
   <ul>
-<li><a href="#required-reading-file-paths" id="toc-required-reading-file-paths" class="nav-link" data-scroll-target="#required-reading-file-paths">📖 Required Reading: File Paths</a></li>
-  <li><a href="#required-reading-r4ds-7.1-7.3-about-reading-in-data-files" id="toc-required-reading-r4ds-7.1-7.3-about-reading-in-data-files" class="nav-link" data-scroll-target="#required-reading-r4ds-7.1-7.3-about-reading-in-data-files">📖 Required Reading: R4DS 7.1-7.3 about reading in data files</a></li>
+<li><a href="#required-reading-getting-acquainted-with-our-data" id="toc-required-reading-getting-acquainted-with-our-data" class="nav-link" data-scroll-target="#required-reading-getting-acquainted-with-our-data">📖 Required Reading: Getting Acquainted with our Data</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#importing-data-into-r" id="toc-importing-data-into-r" class="nav-link" data-scroll-target="#importing-data-into-r"><span class="header-section-number">3</span> Importing Data into R</a>
+  <ul>
+<li><a href="#required-reading-r4ds-7.1-7.3-about-reading-in-data-files" id="toc-required-reading-r4ds-7.1-7.3-about-reading-in-data-files" class="nav-link" data-scroll-target="#required-reading-r4ds-7.1-7.3-about-reading-in-data-files">📖 Required Reading: R4DS 7.1-7.3 about reading in data files</a></li>
   <li><a href="#required-reading-r4ds-7.5-about-saving-data-externally" id="toc-required-reading-r4ds-7.5-about-saving-data-externally" class="nav-link" data-scroll-target="#required-reading-r4ds-7.5-about-saving-data-externally">📖 Required Reading: R4DS 7.5 about saving data externally</a></li>
   <li><a href="#required-reading-r4ds-20-about-working-with-excel-files" id="toc-required-reading-r4ds-20-about-working-with-excel-files" class="nav-link" data-scroll-target="#required-reading-r4ds-20-about-working-with-excel-files">📖 Required Reading: R4DS 20 about working with Excel files</a></li>
   </ul>
 </li>
   <li>
-<a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="header-section-number">3</span> Quarto</a>
+<a href="#project-management" id="toc-project-management" class="nav-link" data-scroll-target="#project-management"><span class="header-section-number">4</span> Project Management</a>
   <ul>
 <li><a href="#required-reading-r4ds-28-about-quarto" id="toc-required-reading-r4ds-28-about-quarto" class="nav-link" data-scroll-target="#required-reading-r4ds-28-about-quarto">📖 Required Reading: R4DS 28 about Quarto</a></li>
+  <li><a href="#required-reading-rstudio-projects" id="toc-required-reading-rstudio-projects" class="nav-link" data-scroll-target="#required-reading-rstudio-projects">📖 Required Reading: RStudio Projects</a></li>
+  <li><a href="#required-reading-file-paths" id="toc-required-reading-file-paths" class="nav-link" data-scroll-target="#required-reading-file-paths">📖 Required Reading: File Paths</a></li>
   </ul>
 </li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -309,7 +314,7 @@ ul.task-list li input[type="checkbox"] {
 </header><div class="columns">
 <div class="column" style="width:48%;">
 <section id="readings-60-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
-</section><section id="activities-0-min" class="level4"><h4 class="anchored" data-anchor-id="activities-0-min">🏋🏾‍♂️ Activities: 0 min</h4>
+</section><section id="activities-5-min" class="level4"><h4 class="anchored" data-anchor-id="activities-5-min">🏋🏾‍♂️ Activities: 5 min</h4>
 </section>
 </div><div class="column" style="width:4%;">
 
@@ -331,8 +336,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Define the observational unit (rows) and variables (columns) of rectangular data</li>
-<li>Identify variable types given rectangular data</li>
+<li>Consider context of data and describe data based on a data dictionary.</li>
 <li>Explore rectangular data quickly in R (with code and with RStudio visually)</li>
 <li>Read rectangular data with various delimiters into R using an appropriate <code>readr</code> or <code>readxl</code> function</li>
 <li>Define relative versus absolute file paths</li>
@@ -340,10 +344,17 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </div>
 </div>
-<section id="rectangular-data" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="rectangular-data">
-<span class="header-section-number">1</span> Rectangular Data</h2>
-<section id="required-reading-rectangular-data" class="level3"><h3 class="anchored" data-anchor-id="required-reading-rectangular-data">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rectangular-data">Rectangular Data</a>
+<section id="welcome-to-the-tidyverse" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="welcome-to-the-tidyverse">
+<span class="header-section-number">1</span> Welcome to the tidyverse</h2>
+<section id="required-reading-welcome-to-the-tidyverse" class="level3"><h3 class="anchored" data-anchor-id="required-reading-welcome-to-the-tidyverse">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#welcome-to-the-tidyverse">Welcome to the Tidyverse</a>
 </h3>
+</section></section><section id="rectangular-data" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="rectangular-data">
+<span class="header-section-number">2</span> Rectangular Data</h2>
+<section id="required-reading-getting-acquainted-with-our-data" class="level3"><h3 class="anchored" data-anchor-id="required-reading-getting-acquainted-with-our-data">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#getting-acquainted-with-our-data">Getting Acquainted with our Data</a>
+</h3>
+<ul>
+<li>Don’t continue reading the Project Management section yet!</li>
+</ul>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -358,11 +369,9 @@ ul.task-list li input[type="checkbox"] {
 <p>TO-DO</p>
 </div>
 </div>
-</section></section><section id="importing-data-into-r" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="importing-data-into-r">
-<span class="header-section-number">2</span> Importing Data into R</h2>
-<section id="required-reading-file-paths" class="level3"><h3 class="anchored" data-anchor-id="required-reading-file-paths">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths">File Paths</a>
-</h3>
-</section><section id="required-reading-r4ds-7.1-7.3-about-reading-in-data-files" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-7.1-7.3-about-reading-in-data-files">📖 Required Reading: <a href="https://r4ds.hadley.nz/data-import.html">R4DS 7.1-7.3</a> about reading in data files</h3>
+</section></section><section id="importing-data-into-r" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="importing-data-into-r">
+<span class="header-section-number">3</span> Importing Data into R</h2>
+<section id="required-reading-r4ds-7.1-7.3-about-reading-in-data-files" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-7.1-7.3-about-reading-in-data-files">📖 Required Reading: <a href="https://r4ds.hadley.nz/data-import.html">R4DS 7.1-7.3</a> about reading in data files</h3>
 </section><section id="required-reading-r4ds-7.5-about-saving-data-externally" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-7.5-about-saving-data-externally">📖 Required Reading: <a href="https://r4ds.hadley.nz/data-import.html#sec-writing-to-a-file">R4DS 7.5</a> about saving data externally</h3>
 </section><section id="required-reading-r4ds-20-about-working-with-excel-files" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-20-about-working-with-excel-files">📖 Required Reading: <a href="https://r4ds.hadley.nz/spreadsheets.html">R4DS 20</a> about working with Excel files</h3>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
@@ -377,11 +386,59 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container callout-body">
 <p>TO-DO</p>
+<ul>
+<li>Show code for reading in the data – read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)?
+<ul>
+<li>What if the data looks like xxxx.</li>
+</ul>
+</li>
+<li>How many dimensions is the data? – use dim()</li>
+<li>Screenshot of reflected file folder structure &amp; Files tab in R.</li>
+<li>match the View(), str(), glimpse()
+<ul>
+<li>what sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
-</section></section><section id="quarto" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="quarto">
-<span class="header-section-number">3</span> Quarto</h2>
+</section></section><section id="project-management" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="project-management">
+<span class="header-section-number">4</span> Project Management</h2>
 <section id="required-reading-r4ds-28-about-quarto" class="level3"><h3 class="anchored" data-anchor-id="required-reading-r4ds-28-about-quarto">📖 Required Reading: <a href="https://r4ds.hadley.nz/quarto.html">R4DS 28</a> about Quarto</h3>
+<ul>
+<li>You can focus on 28.1-28.5 for now, but you will want to read the rest of the chapter eventually!</li>
+</ul>
+<div class="callout callout-style-default callout-check-in callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Check-in</span>Check In
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>TO-DO</p>
+</div>
+</div>
+</section><section id="required-reading-rstudio-projects" class="level3"><h3 class="anchored" data-anchor-id="required-reading-rstudio-projects">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rstudio-projects">RStudio Projects</a>
+</h3>
+<div class="callout callout-style-default callout-check-in callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Check-in</span>Check In
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Question XX</strong> Follow the instructions to create your <code>stat-1810</code> RStudio project in <code>stat-1810</code> you have already been working with in class.</p>
+<p>Submit a screenshot showing your <code>stat-1810</code> directory, making sure the <code>stat-1810.Rproj</code> file is visible like: <img src="https://r-is-your-friend.github.io/course-pack/images/04-files-comp-1.png" class="img-fluid" style="width:40.0%">.</p>
+</div>
+</div>
+</section><section id="required-reading-file-paths" class="level3"><h3 class="anchored" data-anchor-id="required-reading-file-paths">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#file-paths-refresher">File Paths</a>
+</h3>
 <p>By the end of the reading, you should be able to answer the following questions:</p>
 <div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">

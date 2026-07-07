@@ -2,13 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Lab 2: R is Friend – R is Your Friend</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -65,18 +62,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -312,7 +310,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Lab 2: R is Friend</h1>
-<p class="subtitle lead">Instructions</p>
 </div>
 
 
@@ -326,18 +323,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><!-- We need to decide what our AI policy is! --><div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
+</header><!-- We need to decide what our AI policy is! --><div class="version-instructions">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Seeking Help
+<span class="screen-reader-only">Tip</span>Seeking Help
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and <em>using their code to learn</em>. Therefore, if you use external resources, I want to know about it. You can “inform” me of any resources you used by <strong>pasting the link to the resource in a code comment next to where you used that resource</strong>.</p>
 <p>Additionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but <strong>you are expected to do your own work</strong>. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.</p>
+</div>
+</div>
 </div>
 </div>
 <section id="create-an-r-script" class="level2"><h2 class="anchored" data-anchor-id="create-an-r-script">Create an R Script</h2>
@@ -346,17 +348,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Create a new R script, give it a descriptive and appropriate file name, and save it in your Week 2 subfolder (of your STAT 1810 folder).</p></li>
 <li><p>In the newly created R script, add a comment to the top that describes the contents of this document. <em>Hint: it’s the code for Lab 2!</em></p></li>
 </ol>
+<div class="version-solution">
+<p>The top of your R Script should have a code comment (marked by a <code>#</code>) followed by a few words describing the content of your script. Something like:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Code for Lab 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </section><section id="pismo-beach-water-temperature" class="level2"><h2 class="anchored" data-anchor-id="pismo-beach-water-temperature">Pismo Beach Water Temperature</h2>
 <p>It’s Saturday, you have some free time, and you’re trying to decide if it’s warm enough to go swimming at Pismo Beach! You look up the water temperature at Pismo Pier on a surf watch website, but the temperature is only listed in degrees Celsius! What does that even mean???</p>
 <ol start="3" type="1">
 <li>Create a new object to hold to current water temperature in degrees Celsius – it’s listed as 11 degrees. Make sure you use a <strong>descriptive</strong> name for the object!</li>
 </ol>
+<div class="version-solution">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">temp_C</span> <span class="op">&lt;-</span> <span class="fl">11</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 <ol start="4" type="1">
 <li>Write one line of code to turn degrees Celsius into degrees Fahrenheit, incorporating the variable you create in #3. What is the water temperature?</li>
 </ol>
+<div class="version-instructions">
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -370,10 +381,13 @@ Tip
 <p>Find the appropriate formula on Google for converting Celsius into degrees Fahrenheit. Pay attention to the order of operations! Parentheses are your friend!</p>
 </div>
 </div>
+</div>
+<div class="version-solution">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">temp_C</span> <span class="op">*</span> <span class="op">(</span><span class="fl">9</span><span class="op">/</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fl">32</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">temp_C</span> <span class="op">*</span> <span class="op">(</span><span class="fl">9</span><span class="op">/</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fl">32</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 51.8</code></pre>
+</div>
 </div>
 </div>
 <p>Since it was too cold to swim on Saturday, you decided to keep track of the water temperature to see what days might have temperatures warm enough for swimming. You observed the following temperatures:</p>
@@ -389,6 +403,7 @@ Tip
 <ol start="5" type="1">
 <li>Create an object to store these seven temperatures. Make sure you use a <strong>descriptive</strong> name for the object!</li>
 </ol>
+<div class="version-instructions">
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -402,20 +417,64 @@ Tip
 <p>Remember to use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function and to separate values with a <code>,</code>.</p>
 </div>
 </div>
+</div>
+<div class="version-solution">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">temperatures</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, </span>
+<span>                  <span class="fl">13</span>, </span>
+<span>                  <span class="fl">16</span>, </span>
+<span>                  <span class="fl">14</span>, </span>
+<span>                  <span class="fl">17</span>, </span>
+<span>                  <span class="fl">16</span>, </span>
+<span>                  <span class="fl">18</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 <ol start="6" type="1">
 <li>Create an object to store the seven days these temperatures are associated with. Make sure you use a <strong>descriptive</strong> name for the object!</li>
 </ol>
+<div class="version-solution">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">days</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sunday"</span>, </span>
+<span>          <span class="st">"Monday"</span>, </span>
+<span>          <span class="st">"Tuesday"</span>, </span>
+<span>          <span class="st">"Wednesday"</span>, </span>
+<span>          <span class="st">"Thursday"</span>, </span>
+<span>          <span class="st">"Friday"</span>, </span>
+<span>          <span class="st">"Saturday"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 <ol start="7" type="1">
 <li>Now that we have temperatures <strong>and</strong> their associated days of the week, let’s combine these into <strong>one</strong> object. Create an object that stores <em>both</em> the temperatures you made in #5 <strong>and</strong> the days you made in #6.</li>
 </ol>
+<div class="version-solution">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">days_temps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>days <span class="op">=</span> <span class="va">days</span>, </span>
+<span>                         temps <span class="op">=</span> <span class="va">temperatures</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 <ol start="8" type="1">
 <li>Now, let’s change the temperature values from Celsius into Fahrenheit. Be sure to save the updated values back into the original object (like you did in the Practice Activity)! <em>Hint: You should borrow the mathematical steps you used in #4!</em>
 </li>
 </ol>
+<div class="version-solution">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">days_temps</span><span class="op">$</span><span class="va">temps</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">days_temps</span><span class="op">$</span><span class="va">temps</span> <span class="op">*</span> <span class="op">(</span><span class="fl">9</span><span class="op">/</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fl">32</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 <ol start="9" type="1">
 <li>If 60 degrees Fahrenheit is your threshold for swimming in the ocean, how many days had “swimable” temperatures?</li>
-</ol></section><section id="do-other-people-like-your-favorite-movies" class="level2"><h2 class="anchored" data-anchor-id="do-other-people-like-your-favorite-movies">Do Other People Like Your Favorite Movies?</h2>
+</ol>
+<div class="version-solution">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">days_temps</span><span class="op">$</span><span class="va">temps</span> <span class="op">&gt;=</span> <span class="fl">60</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+</div>
+</section><section id="do-other-people-like-your-favorite-movies" class="level2"><h2 class="anchored" data-anchor-id="do-other-people-like-your-favorite-movies">Do Other People Like Your Favorite Movies?</h2>
 <p>Let’s use <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a> to find the average rating for five of your favorite movies. Do other people like them as much as you do?</p>
+<div class="version-instructions">
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -434,38 +493,89 @@ Tip
 <p>For both, make a decision and be consistent!</p>
 </div>
 </div>
+</div>
 <ol start="10" type="1">
 <li>Create a variable that contains the Rotten Tomatoes ratings for your five favorite movies. Make sure you use a <strong>descriptive</strong> variable name.</li>
 </ol>
+<div class="version-solution">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">top5_ratings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">86</span>, </span>
+<span>                  <span class="fl">44</span>, </span>
+<span>                  <span class="fl">94</span>, </span>
+<span>                  <span class="fl">70</span>, </span>
+<span>                  <span class="fl">91</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 <ol start="11" type="1">
 <li>Create a variable that contains the names of your five favorite movies. Remember the names should go in the same order as the ratings! Make sure you use a <strong>descriptive</strong> variable name.</li>
 </ol>
-<!-- give a vector of movies that are the 1810 professor's favorite movies --><!-- check if any of the movies are in the list of your favorite movie  --><!-- introduce %in%  --><ol start="12" type="1">
+<div class="version-solution">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">top5_movies</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Never Been Kissed"</span>,</span>
+<span>                 <span class="st">"Fire Island"</span>,</span>
+<span>                 <span class="st">"Singing in the Rain"</span>, </span>
+<span>                 <span class="st">"In the Mood for Love"</span>, </span>
+<span>                 <span class="st">"Sound of Music"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<ol start="12" type="1">
 <li>Write a line of code to find the maximum rating for your top five movies. Write a second line of code to find the minimum rating.</li>
 </ol>
+<div class="version-solution">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">top5_ratings</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 44</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">top5_ratings</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 94</code></pre>
+</div>
+</div>
+</div>
 <ol start="13" type="1">
 <li>Write a line of code to find the average rating for your top five movies.</li>
 </ol>
-<p>We’ve asked some of the statistics faculty what their favorite movie is and assembled them into a vector.</p>
+<div class="version-solution">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">stats_prof_movies</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"10 Things I Hate About You"</span>, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">top5_ratings</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 77</code></pre>
+</div>
+</div>
+</div>
+<p>We’ve asked some of the statistics faculty what their favorite movie is and assembled them into a vector.</p>
+<div class="version-solution">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">stats_prof_movies</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"10 Things I Hate About You"</span>, </span>
 <span>                       <span class="st">"The Notebook"</span>, </span>
 <span>                       <span class="st">"Legally Blonde"</span>, </span>
 <span>                       <span class="st">"Eternal Sunshine of the Spotless Mind"</span>, </span>
 <span>                       <span class="st">"Mean Girls"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</div>
 <ol start="14" type="1">
 <li>Use the <code>%in%</code> operator to check if any of these movies are included in the top five movies you made in #11. Here is an example of how to use the <code>%in%</code> operator:</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"bananna"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"kiwi"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"bananna"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"kiwi"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
 </div>
-<!-- 15. What type of output does the `%in%` operator give you? What do these  -->
-<!-- values represent? -->
+</div>
+<div class="version-solution">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">stats_prof_movies</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">top5_movies</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+</div>
+</div>
 </section><section id="reviewing-your-work" class="level2"><h2 class="anchored" data-anchor-id="reviewing-your-work">Reviewing Your Work</h2>
 <ol start="15" type="1">
 <li>What variables have you created during this lab? Using a code comment, list all of the variable names.</li>
 </ol>
+<div class="version-instructions">
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -479,8 +589,12 @@ Tip
 <p>The Environment pane in the top right corner will show you all the objects you’ve created.</p>
 </div>
 </div>
+</div>
+<div class="version-solution">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># I've created 6 variables: temp_C, temperatures, days, days_temps, top5_ratings, and top5_movies</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># I've created 7 variables: </span></span>
+<span><span class="co"># temp_C, temperatures, days, days_temps, top5_ratings, top5_movies, stats_prof_movies</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </section><section id="make-your-code-readable" class="level2"><h2 class="anchored" data-anchor-id="make-your-code-readable">Make Your Code Readable</h2>
 <ol start="16" type="1">

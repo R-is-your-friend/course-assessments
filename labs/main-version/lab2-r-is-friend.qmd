@@ -1,23 +1,37 @@
 ---
 title: "Lab 2: R is Friend"
-subtitle: "Instructions"
-toc: true
-format: html
-execute:
-  echo: true
-  message: false
-  warning: false
-  error: true
+filters:
+  - versions
+versions:
+  - instructions:
+      out-dir: ".."
+      yaml:
+        eval: true
+        echo: true
+        author: "Instructions"
+  - solution:
+      out-dir: ".."
+      out-file: "lab2-solution.qmd"
+      yaml:
+        author: "SOLUTIONS"
+        eval: true
+        error: true
+format: 
+  html:
+    toc: true      
 ---
-
+  
 <!-- We need to decide what our AI policy is! -->
 
-::: callout-caution
+:::{.version-instructions}
+
+::: {.callout-tip collapse="true"}
 ## Seeking Help
 
 Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else's code and *using their code to learn*. Therefore, if you use external resources, I want to know about it. You can "inform" me of any resources you used by **pasting the link to the resource in a code comment next to where you used that resource**.
 
 Additionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but **you are expected to do your own work**. Copying from each other is cheating, and letting people copy from you is also cheating. Please don't do either of those things.
+:::
 :::
 
 ## Create an R Script
@@ -32,9 +46,15 @@ save it in your Week 2 subfolder (of your STAT 1810 folder).
 2. In the newly created R script, add a comment to the top that describes the
 contents of this document. *Hint: it's the code for Lab 2!*
 
+::: {.version-solution}
+
+The top of your R Script should have a code comment (marked by a `#`) followed
+by a few words describing the content of your script. Something like:
+
 ```{r}
 # Code for Lab 2
 ```
+:::
 
 ## Pismo Beach Water Temperature
 
@@ -47,25 +67,28 @@ Celsius! What does that even mean???
 Celsius -- it's listed as 11 degrees. Make sure you use a **descriptive** 
 name for the object!
 
+::: {.version-solution}
 ```{r}
-#| echo: false
 temp_C <- 11
 ```
+:::
 
 4. Write one line of code to turn degrees Celsius into degrees Fahrenheit,
 incorporating the variable you create in #3. What is the water temperature?
 
+::: {.version-instructions}
 ::: {.callout-tip}
 Find the appropriate formula on Google for converting Celsius into degrees
 Fahrenheit. Pay attention to the order of operations! Parentheses are your
 friend!
 :::
+:::
 
+::: {.version-solution}
 ```{r}
 (temp_C * (9/5)) + 32
 ```
-
-
+:::
 
 Since it was too cold to swim on Saturday, you decided to keep track of the
 water temperature to see what days might have temperatures warm enough for 
@@ -82,12 +105,14 @@ swimming. You observed the following temperatures:
 5. Create an object to store these seven temperatures.  Make sure you use a
 **descriptive** name for the object!
 
+::: {.version-instructions}
 ::: {.callout-tip}
 Remember to use the `c()` function and to separate values with a `,`.
 :::
+:::
 
+::: {.version-solution}
 ```{r}
-#| echo: false
 
 temperatures <- c(12, 
                   13, 
@@ -97,12 +122,13 @@ temperatures <- c(12,
                   16, 
                   18)
 ```
+:::
 
 6. Create an object to store the seven days these temperatures are associated 
 with.  Make sure you use a **descriptive** name for the object!
 
+::: {.version-solution}
 ```{r}
-#| echo: false
 
 days <- c("Sunday", 
           "Monday", 
@@ -112,37 +138,40 @@ days <- c("Sunday",
           "Friday", 
           "Saturday")
 ```
+:::
 
 7. Now that we have temperatures **and** their associated days of the week, 
 let's combine these into **one** object. Create an object that stores *both* the
 temperatures you made in #5 **and** the days you made in #6. 
 
+::: {.version-solution}
 ```{r}
-#| echo: false
 
 days_temps <- data.frame(days = days, 
                          temps = temperatures)
 ```
+:::
 
 8. Now, let's change the temperature values from Celsius into Fahrenheit. Be
 sure to save the updated values back into the original object (like you did 
 in the Practice Activity)! *Hint: You should borrow the mathematical steps you used in #4!*
 
+::: {.version-solution}
 ```{r}
-#| echo: false
 
 days_temps$temps <- (days_temps$temps * (9/5)) + 32
 ```
+:::
 
 9. If 60 degrees Fahrenheit is your threshold for swimming in the ocean, how
 many days had "swimable" temperatures?
 
+::: {.version-solution}
 ```{r}
-#| echo: false
-#| eval: false
 
 sum(days_temps$temps >= 60)
 ```
+:::
 
 ## Do Other People Like Your Favorite Movies?
 
@@ -150,6 +179,7 @@ Let's use [Rotten Tomatoes](https://www.rottentomatoes.com/) to find the average
 rating for five of your favorite movies. Do other people like them as much as
 you do?
 
+::: {.version-instructions}
 ::: {.callout-tip}
 When looking up your favorite movies, you can...
 
@@ -158,12 +188,13 @@ When looking up your favorite movies, you can...
 
 For both, make a decision and be consistent!
 :::
+:::
 
 10. Create a variable that contains the Rotten Tomatoes ratings for your five
 favorite movies. Make sure you use a **descriptive** variable name.
 
+::: {.version-solution}
 ```{r}
-#| echo: false
 
 top5_ratings <- c(86, 
                   44, 
@@ -171,13 +202,14 @@ top5_ratings <- c(86,
                   70, 
                   91)
 ```
+:::
 
 11. Create a variable that contains the names of your five favorite movies. 
 Remember the names should go in the same order as the ratings! Make sure you
 use a **descriptive** variable name.
 
+::: {.version-solution}
 ```{r}
-#| echo: false
 
 top5_movies <- c("Never Been Kissed",
                  "Fire Island",
@@ -185,36 +217,33 @@ top5_movies <- c("Never Been Kissed",
                  "In the Mood for Love", 
                  "Sound of Music")
 ```
-
-<!-- give a vector of movies that are the 1810 professor's favorite movies -->
-<!-- check if any of the movies are in the list of your favorite movie  -->
-<!-- introduce %in%  -->
+:::
 
 12. Write a line of code to find the maximum rating for your top five movies. 
 Write a second line of code to find the minimum rating.
 
+::: {.version-solution}
 ```{r}
-#| eval: false
-#| echo: false
 
 min(top5_ratings)
 max(top5_ratings)
 ```
+:::
 
 13. Write a line of code to find the average rating for your top five movies.
 
+::: {.version-solution}
 ```{r}
-#| eval: false
-#| echo: false
 
 mean(top5_ratings)
 ```
+:::
 
 We've asked some of the statistics faculty what their favorite movie is and
 assembled them into a vector. 
 
+::: {.version-solution}
 ```{r}
-#| echo: true
 
 stats_prof_movies <- c("10 Things I Hate About You", 
                        "The Notebook", 
@@ -222,33 +251,41 @@ stats_prof_movies <- c("10 Things I Hate About You",
                        "Eternal Sunshine of the Spotless Mind", 
                        "Mean Girls")
 ```
+:::
 
 14. Use the `%in%` operator to check if any of these movies are included in 
 the top five movies you made in #11. Here is an example of how to use the
 `%in%` operator:
 
 ```{r}
-#| eval: false
 
 "bananna" %in% c("apple", "kiwi", "banana", "orange")
 ```
 
-<!-- 15. What type of output does the `%in%` operator give you? What do these  -->
-<!-- values represent? -->
+::: {.version-solution}
+```{r}
+stats_prof_movies %in% top5_movies
+```
+:::
 
 ## Reviewing Your Work
 
 15. What variables have you created during this lab? Using a code comment, list
 all of the variable names.
 
+::: {.version-instructions}
 ::: {.callout-tip}
 The Environment pane in the top right corner will show you all the objects 
 you've created.
 :::
+:::
 
+::: {.version-solution}
 ```{r}
-# I've created 6 variables: temp_C, temperatures, days, days_temps, top5_ratings, and top5_movies
+# I've created 7 variables: 
+# temp_C, temperatures, days, days_temps, top5_ratings, top5_movies, stats_prof_movies
 ```
+:::
 
 ## Make Your Code Readable
 

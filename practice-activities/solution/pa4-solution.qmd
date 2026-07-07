@@ -1,0 +1,71 @@
+---
+title: "Practice Activity 4: Emoji Riddles"
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+
+author: SOLUTIONS
+embed-resources: true
+---
+```{r}
+#| label: setup
+
+library(tidyverse)
+library(knitr)
+library(readxl)
+```
+
+## First Quarto Code Chunk!
+
+```{r}
+2 + 7
+```
+
+**This** code chunk adds two to *seven*.
+
+## Crack the Code
+
+```{r}
+#| label: read-emojis
+
+emoji_codes <- read_csv("../../data/04-magic-csv.csv")
+```
+
+```{r}
+#| label: read-codes
+
+kable(emoji_codes)
+```
+
+```{r}
+emoji_clues <- read_xlsx("../../data/04-clue-data.xlsx",
+                         sheet = "clues")
+```
+
+```{r}
+str(emoji_clues)
+```
+
+```{r}
+glimpse(emoji_clues)
+```
+```{r}
+head(emoji_clues, n = 1)
+```
+
+```{r}
+kable(emoji_clues)
+```
+
+:::callout-tip
+# Canvas Submission
+What do all of the answers to the riddles have in common?
+
+☕️*COFFEE*☕️
+:::

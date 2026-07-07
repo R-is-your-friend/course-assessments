@@ -1,0 +1,21 @@
+---
+title: "Practice Activity 10: Communication"
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+
+author: Your Name
+embed-resources: true
+---
+# Setup
+
+:::callout-tip
+# Canvas Submission
+xxx
+:::
