@@ -1,0 +1,84 @@
+---
+title: "Week 14: Bootstrapping and Simulation"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+
+::: columns
+::: {.column width="48%"}
+#### 📖 Readings: 60 min
+
+#### 🏋🏾‍♂️ Activities: 0 min
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 0 min 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
+
+------------------------------------------------------------------------
+
+
+
+
+## Bootstrapping
+
+::: callout
+## Learning Objectives
+
++ Write functions to repeat an analysis
++ Use loops to repeat process over bootstrapped samples
++ Visualize and interpret results of a bootstrapping procedure
+
+:::
+
+### 📖 Required Reading: 
+
+### 📖 Required Reading: 
+
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
+## Simulation
+
+::: callout
+## Learning Objectives
++ Simulate random processes with the `r,p,q` set of distribution functions.
++ Write functions to simulate complex random processes.
++ Use loops to repeat simulations.
++ Visualize and interpret results of simulations.
+:::
+
+
+### 📖 Required Reading: 
+
+#### 📽 Optional Video:
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
