@@ -17,11 +17,12 @@ embed-resources: true
 ```{r setup}
 # load packages
 library(tidyverse)
+library(knitr)
 ```
 
-The data are compiled by Grant Witness.
+[[NEED MORE PREAMBLE]]
 
-There is both a Tidy Tuesday version, and an updated version I can download from Grant Witness... Maybe we stick with tidy tuesday since it has the cruz list column which is fun? There are 2000 observations in the updated data though. It also doesn't have a clean data dictionary.
+The data are compiled by Grant Witness.
 
 You can find the data dictionary [here](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md#data-dictionary)
 
@@ -30,17 +31,113 @@ nsf_terminations <- read_csv('https://raw.githubusercontent.com/rfordatascience/
 
 ```
 
-String things:
+## Data Context
 
-- org_city to title case `str_to_title()`
-- count number of times the string "diversity" (or something else) is in the abstract `str_count()`
-- "clean up" the grant name by replacing words `str_replace_all()`
-- `str_count()` on title
-- `str_detect()` to find certain types of grants
+First, as always, let's spend some time getting acquainted with the data. 
 
-Date things:
-- Create year start and year end variables
-- Create a variable for the day of the week that termination letters were sent
-- Calculate the total length of the grant in days
-- Calculate the number of days that had passed for the grant before it was terminated
-- Calculate the % of the grant time that was allowed
+1. How does this data relate to you and your life? What are your impressions of the social and political context of this data? What questions might you want to answer using this data?
+
+*TBD*
+
+2. Looking at the data and the data dictionary together, do you have any questions about what any of the columns represent? 
+
+*Answers will vary -- I was somewhat unsure of what the `usaspending_obligated` variable meant at first.*
+
+3. What does one row of the data represent? What is included in the sample -- are any possible observations in a full population left out?
+
+*Each row represents a grant that was terminated between April 8, 2025 and May 6th, 2025 (when the data was posted). The data is curated by "crowd-sourcing from researchers and program administrators," so it is possible that it is not a complete set. In addition, as of July 2026, these issues are ongoing, so this data does not include all grants that were terminated after May 6th 2025, nor information on grants that were reinstated out of this list.*
+
+4. Which variables in the data represent dates? Are they stored as dates in the `nsf_terminations` data, or do we need to convert them to dates? What is the format? If you need to convert them, do that.
+
+*`termination_letter_date`, `nsf_startdate` and `nsf_expected_end_date` are all dates in the form "YYYY-MM-DD" (or "ymd"). They are already read in as dates, so we don't need to do anything!*
+
+## Data Cleaning
+
+Next, let's clean up the data a little bit and adding some variables that we will use later.
+
+Implement the following in one dplyr pipeline. But go one step at a time to catch any bugs as you go!
+
+5. The city name is annoyingly mostly in all caps but sometimes in title case -- edit the `org_city` variable so that it is all in title case.
+
+6. Create two new variables that give the year that the grant started and the intended end year of the grant. Call these variables `start_year` and `expected_end_year`.
+
+7. Create a variable called `diversity` that gives the *number of times* that the word "diversity" or "equity" appears in the grant abstract. Be careful - make sure this does not depend on case!
+
+```{r}
+nsf_terminations <- nsf_terminations |> 
+  mutate(org_city = str_to_title(org_city),
+         start_year = year(nsf_startdate),
+         expected_end_year = year(nsf_expected_end_date),
+         diversity = str_count(str_to_lower(abstract), 
+                               "diversity|equity"),
+         title_len = str_length(project_title))
+```
+
+## Find that Grant
+
+Later this week, we will explore general trends in the cancelled grants more. However, each grant tells a whole story and represents many people and resources that were impacted by the termination.
+
+Follow the clues below to narrow our investigation down to one grant.
+
+8. The grant number starts with "23". Filter to these grants using one function from `stringr`. (Hint: do you need to change the variable type to do this?). 
+
+```{r}
+grant_search <- nsf_terminations |> 
+  filter(str_starts(as.character(grant_number), "23"))
+```
+
+9. The grant was intended to span four years or more. (For example, a grant that started in the year 2021 and was expected to end in 2025 spanned 5 years.)
+
+```{r}
+grant_search <- grant_search |> 
+  filter(expected_end_year - start_year + 1 >= 4)
+```
+
+10. The grant we are looking for involves indigenous communities, so the word "indigenous" appears in the abstract. Be careful to make this search not case-sensitive!
+
+```{r}
+grant_search <- grant_search |> 
+   filter(str_detect(str_to_lower(abstract), "indigenous"))
+```
+
+11. The title of the grant isn't tooooo long - it is  not more than 120 characters.
+
+```{r}
+grant_search <- grant_search |> 
+  filter(str_length(project_title) <= 120)
+```
+
+12. The start date of the grant was a Friday.
+
+```{r}
+grant_search <- grant_search |> 
+  filter(wday(nsf_startdate, label = T) == "Fri")
+```
+
+13. Finally, the word "diversity" does appear in the abstract, but even so this grant was not on Ted Cruz's infamous list.
+
+```{r}
+grant_search <- grant_search |> 
+  filter(diversity > 0,
+         !in_cruz_list) 
+
+
+grant_search |> 
+  select(grant_number, project_title,
+         org_name:org_state,
+         usaspending_obligated) |> 
+  kable()
+```
+
+14. Take a look at this grant -- is our data out of date and it was actually reinstated?
+(Hint: you can try searching the title or NSF grant number in a search engine, or you can look for it on the updated [Grant Witness page](https://grant-witness.us/nsf-data.html).)
+
+*According to Grant Witness, as of July 2026, "Kaulele (To Take Flight) - Creating a Native Hawaiian Pacific Islander Indigenous-led Design Framework for STEM Exhibits" is still terminated, even though it was supposed to support that work through February 2029. *
+
+:::callout-note
+## Canvas Submission
+
+Submit the amount of money that was still obligated to the grantees when the grant was terminated and the organizations city and state as they appear in your cleaned data. 
+
+\$1,440,795 was obligated to the "Kaulele (To Take Flight) - Creating a Native Hawaiian Pacific Islander Indigenous-led Design Framework for STEM Exhibits" project in Kapolei, HI.
+:::
