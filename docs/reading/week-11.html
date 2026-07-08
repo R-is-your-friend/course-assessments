@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Writing Functions – R is Your Friend</title>
+<title>Week 12: Leveling up functions and scripting – R is Your Friend</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -102,8 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link href="../site_libs/countdown-0.6.0/countdown.css" rel="stylesheet">
-<script src="../site_libs/countdown-0.6.0/countdown.js"></script>
+}</script>
 </head>
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
@@ -303,42 +267,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#why-write-functions" id="toc-why-write-functions" class="nav-link active" data-scroll-target="#why-write-functions">Why write functions?</a></li>
-  <li>
-<a href="#function-basics" id="toc-function-basics" class="nav-link" data-scroll-target="#function-basics">Function Basics</a>
+<li>
+<a href="#using-.r-scripts" id="toc-using-.r-scripts" class="nav-link active" data-scroll-target="#using-.r-scripts"><span class="header-section-number">1</span> Using .R Scripts</a>
   <ul>
-<li><a href="#function-syntax" id="toc-function-syntax" class="nav-link" data-scroll-target="#function-syntax">Function Syntax</a></li>
-  <li><a href="#function-syntax-1" id="toc-function-syntax-1" class="nav-link" data-scroll-target="#function-syntax-1">Function Syntax</a></li>
-  <li><a href="#a-very-simple-function" id="toc-a-very-simple-function" class="nav-link" data-scroll-target="#a-very-simple-function">A (Very) Simple Function</a></li>
-  <li><a href="#function-names" id="toc-function-names" class="nav-link" data-scroll-target="#function-names">Function Names</a></li>
-  <li><a href="#function-arguments" id="toc-function-arguments" class="nav-link" data-scroll-target="#function-arguments">Function Arguments</a></li>
-  <li><a href="#function-arguments-1" id="toc-function-arguments-1" class="nav-link" data-scroll-target="#function-arguments-1">Function Arguments</a></li>
-  <li><a href="#function-arguments-2" id="toc-function-arguments-2" class="nav-link" data-scroll-target="#function-arguments-2">Function Arguments</a></li>
-  <li><a href="#optional-arguments-1" id="toc-optional-arguments-1" class="nav-link" data-scroll-target="#optional-arguments-1">Optional Arguments</a></li>
-  <li><a href="#body" id="toc-body" class="nav-link" data-scroll-target="#body">Body: <code>{  }</code></a></li>
-  <li><a href="#output-last-value" id="toc-output-last-value" class="nav-link" data-scroll-target="#output-last-value">Output: Last Value</a></li>
-  <li><a href="#output-return" id="toc-output-return" class="nav-link" data-scroll-target="#output-return">Output: <code>return()</code></a></li>
-  <li><a href="#general-function-writing-advice" id="toc-general-function-writing-advice" class="nav-link" data-scroll-target="#general-function-writing-advice">General Function Writing Advice</a></li>
+<li><a href="#required-reading" id="toc-required-reading" class="nav-link" data-scroll-target="#required-reading">📖 Required Reading:</a></li>
+  <li><a href="#required-reading-1" id="toc-required-reading-1" class="nav-link" data-scroll-target="#required-reading-1">📖 Required Reading:</a></li>
   </ul>
 </li>
   <li>
-<a href="#lets-practice" id="toc-lets-practice" class="nav-link" data-scroll-target="#lets-practice">Let’s Practice</a>
+<a href="#writing-more-complicated-functions" id="toc-writing-more-complicated-functions" class="nav-link" data-scroll-target="#writing-more-complicated-functions"><span class="header-section-number">2</span> Writing more complicated functions</a>
   <ul>
-<li><a href="#scenario" id="toc-scenario" class="nav-link" data-scroll-target="#scenario">Scenario</a></li>
-  <li><a href="#function-design" id="toc-function-design" class="nav-link" data-scroll-target="#function-design">Function Design</a></li>
-  <li><a href="#making-a-gameplan" id="toc-making-a-gameplan" class="nav-link" data-scroll-target="#making-a-gameplan">Making a Gameplan</a></li>
-  <li><a href="#implementing-your-gameplan" id="toc-implementing-your-gameplan" class="nav-link" data-scroll-target="#implementing-your-gameplan">Implementing Your Gameplan</a></li>
-  <li><a href="#running-the-function" id="toc-running-the-function" class="nav-link" data-scroll-target="#running-the-function">Running the Function</a></li>
-  <li><a href="#implementing-your-function" id="toc-implementing-your-function" class="nav-link" data-scroll-target="#implementing-your-function">Implementing Your Function</a></li>
-  <li><a href="#function-scope" id="toc-function-scope" class="nav-link" data-scroll-target="#function-scope">Function Scope</a></li>
-  <li><a href="#name-masking" id="toc-name-masking" class="nav-link" data-scroll-target="#name-masking">Name Masking</a></li>
+<li>
+<a href="#required-reading-2" id="toc-required-reading-2" class="nav-link" data-scroll-target="#required-reading-2">📖 Required Reading:</a>
+  <ul class="collapse">
+<li><a href="#optional-video" id="toc-optional-video" class="nav-link" data-scroll-target="#optional-video">📽 Optional Video:</a></li>
   </ul>
 </li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="03b-functions.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Writing Functions</h1>
+<h1 class="title">Week 12: Leveling up functions and scripting</h1>
 </div>
 
 
@@ -352,383 +303,94 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="why-write-functions" class="level2"><h2 class="anchored" data-anchor-id="why-write-functions">Why write functions?</h2>
-<p>Functions allow you to automate common tasks!</p>
-<p></p>
-<p><strong>Writing functions has three big advantages over copy-paste:</strong></p>
-<ol type="1">
-<li>Your code is easier to read.</li>
-<li>To change your analysis, simply change one function.</li>
-<li>You avoid mistakes.</li>
-</ol></section><section id="function-basics" class="level1"><h1>Function Basics</h1>
-<section id="function-syntax" class="level2"><h2 class="anchored" data-anchor-id="function-syntax">Function Syntax</h2>
-<p><br></p>
-<p><img src="images/03b-syntax.png" class="img-fluid" style="width:90.0%" alt="Basic syntax of a function in R. The function 'func_name' is assigned using '<-' to 'function(func_arg1, func_arg2)'. The body of the function is enclosed in curly brackets. Inside the brackets, there is a placeholder comment labeled '# FUNCTION_BODY' and a 'return(func_value)' statement indicating the output of the function."></p>
-</section><section id="function-syntax-1" class="level2"><h2 class="anchored" data-anchor-id="function-syntax-1">Function Syntax</h2>
-<p><img src="images/03b-func-structure.png" class="img-fluid" alt="Illustration of R function syntax. The image explains the parts of a function in R using labeled arrows and colors. At the top, the name 'func_name' is assigned using '<-' to a function. An arrow points to 'func_name' with the label 'assign the function a NAME.' The keyword 'function' is highlighted, with an arrow labeled 'indicate we are creating a function.' The parentheses contain 'func_arg1, func_arg2,' which are labeled as 'specify ARGUMENTS of the function.' The body of the function is placed between curly brackets and labeled 'write the BODY of the function between curly brackets.' Finally, the 'return(func_value)' statement is labeled 'return a value as the OUTPUT of the function."></p>
-</section><section id="a-very-simple-function" class="level2"><h2 class="anchored" data-anchor-id="a-very-simple-function">A (Very) Simple Function</h2>
-<p> </p>
-<div class="large">
-<p>Write a function named <code>add_two()</code> that will add <code>2</code> to whatever number is input.</p>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_14c8bff6" minutes="3" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</header><div class="columns">
+<div class="column" style="width:48%;">
+<section id="readings-60-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
+</section><section id="activities-0-min" class="level4"><h4 class="anchored" data-anchor-id="activities-0-min">🏋🏾‍♂️ Activities: 0 min</h4>
+</section>
+</div><div class="column" style="width:4%;">
+
+</div><div class="column" style="width:48%;">
+<section id="videos-0-min" class="level4"><h4 class="anchored" data-anchor-id="videos-0-min">📽 Videos: 0 min</h4>
+</section><section id="tutorials-0-min" class="level4"><h4 class="anchored" data-anchor-id="tutorials-0-min">💻 Tutorials: 0 min</h4>
+</section>
 </div>
 </div>
-<p>. . .</p>
-<p></p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<hr>
+<section id="using-.r-scripts" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="using-.r-scripts">
+<span class="header-section-number">1</span> Using .R Scripts</h2>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Manage a folder of R scripts to keep qmd source files clean</li>
+<li>Use <code><a href="https://rdrr.io/r/base/source.html">source()</a></code> appropriately with file paths inside a notebook</li>
+<li>Separate data processing pipelines from specific analyses</li>
+</ul>
+</div>
+</div>
+<section id="required-reading" class="level3"><h3 class="anchored" data-anchor-id="required-reading">📖 Required Reading:</h3>
+</section><section id="required-reading-1" class="level3"><h3 class="anchored" data-anchor-id="required-reading-1">📖 Required Reading:</h3>
+<p>By the end of the reading, you should be able to answer the following questions:</p>
+<div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Compare Your Function with Your Neighbor
+<span class="screen-reader-only">Check-in</span>Check In
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In what ways are your functions the same? In what ways do they differ?</p>
+<p>TO-DO</p>
 </div>
 </div>
-</section><section id="function-names" class="level2"><h2 class="anchored" data-anchor-id="function-names">Function Names</h2>
-<p>The <strong>name</strong> of the function is chosen by the author.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add_two</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section></section><section id="writing-more-complicated-functions" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="writing-more-complicated-functions">
+<span class="header-section-number">2</span> Writing more complicated functions</h2>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<p>. . .</p>
-<p></p>
-<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Write functions with multiple inputs or outputs</li>
+<li>Debug functions with <code><a href="https://rdrr.io/r/base/print.html">print()</a></code>
+</li>
+<li>Practice defensive programming and input validation</li>
+</ul>
+</div>
+</div>
+<section id="required-reading-2" class="level3"><h3 class="anchored" data-anchor-id="required-reading-2">📖 Required Reading:</h3>
+<section id="optional-video" class="level4"><h4 class="anchored" data-anchor-id="optional-video">📽 Optional Video:</h4>
+<p>By the end of the reading, you should be able to answer the following questions:</p>
+<div class="callout callout-style-default callout-check-in callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Function names have no inherent meaning.
+<span class="screen-reader-only">Check-in</span>Check In
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The name you give to a function does not affect what the function does.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add_three</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="fl">7</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>TO-DO</p>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">add_three</span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
-</div>
-</div>
-</div>
-</div>
-</section><section id="function-arguments" class="level2"><h2 class="anchored" data-anchor-id="function-arguments">Function Arguments</h2>
-<p>The <strong>argument(s)</strong> of the function are chosen by the author.</p>
-<ul>
-<li>Arguments are how we pass external values into the function.</li>
-<li>They are temporary variables that only exist inside the function body.</li>
-</ul>
-<p>. . .</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="midi">
-<ul>
-<li>We give them general names:
-<ul>
-<li>
-<code>x</code>, <code>y</code>, <code>z</code> – vectors</li>
-<li>
-<code>df</code> – data frame</li>
-<li>
-<code>i</code>, <code>j</code> – indices</li>
-</ul>
-</li>
-</ul>
-</div>
-</div><div class="column" style="width:50%;">
-<p><br></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add_two</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</section><section id="function-arguments-1" class="level2"><h2 class="anchored" data-anchor-id="function-arguments-1">Function Arguments</h2>
-<p>What if we wanted to write a more general function, named <code>add_something()</code>. The function would take <strong>two</strong> inputs:</p>
-<ol type="1">
-<li>
-<code>x</code> the vector to add to</li>
-<li>
-<code>something</code> the value to add to <code>x</code>
-</li>
-</ol>
-<p>How would your function change?</p>
-<div class="cell">
-<div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_b1dd9098" minutes="2" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
-</div>
-</div>
-</section><section id="function-arguments-2" class="level2"><h2 class="anchored" data-anchor-id="function-arguments-2">Function Arguments</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Required Arguments</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Optional Arguments</a></li>
-</ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>If we <strong>do not</strong> supply a default value when <em>defining</em> the function, the argument is <strong>required</strong> when <em>calling</em> the function.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add_something</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">something</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="va">x</span> <span class="op">+</span> <span class="va">something</span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">add_something</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">2</span>, </span>
-<span>              something <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">add_something</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in `add_something()`:
-! argument "something" is missing, with no default</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>If we supply a <strong>default</strong> value when <em>defining</em> the function, the argument is <strong>optional</strong> when <em>calling</em> the function.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add_something</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">something</span> <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span> <span class="op">+</span> <span class="va">something</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">add_something</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">5</span>, </span>
-<span>              something <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 11</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<p>If a value is not supplied, <code>something</code> defaults to 2.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">add_something</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section><section id="optional-arguments-1" class="level2"><h2 class="anchored" data-anchor-id="optional-arguments-1">Optional Arguments</h2>
-<p>A lot of the functions we’ve been working with so far have optional arguments:</p>
-<p></p>
-<pre><code>mean(x, 
-     trim = 0, 
-     na.rm = FALSE, ...)</code></pre>
-<pre><code>max(..., na.rm = FALSE)
-min(..., na.rm = FALSE)</code></pre>
-</section><section id="body" class="level2"><h2 class="anchored" data-anchor-id="body">Body: <code>{  }</code>
-</h2>
-<p>The <strong>body</strong> of the function is where the action happens.</p>
-<ul>
-<li>The body must be specified within a set of curly brackets.</li>
-<li>The code in the body will be executed (in order) whenever the function is called.</li>
-</ul>
-<p></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>add_something <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">something =</span> <span class="dv">2</span>){</span>
-<span id="cb18-2"><a href="#cb18-2"></a>  x <span class="sc">+</span> something</span>
-<span id="cb18-3"><a href="#cb18-3"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section><section id="output-last-value" class="level2"><h2 class="anchored" data-anchor-id="output-last-value">Output: Last Value</h2>
-<p>Your function will <em>give back</em> what would normally <em>print out</em>…</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add_something</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">something</span> <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="va">x</span> <span class="op">+</span> <span class="va">something</span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><br></p>
-<div class="columns">
-<div class="column">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">7</span> <span class="op">+</span> <span class="fl">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 9</code></pre>
-</div>
-</div>
-</div><div class="column">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">add_something</span><span class="op">(</span><span class="fl">7</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 9</code></pre>
-</div>
-</div>
-</div>
-</div>
-<p>. . .</p>
-<p></p>
-<p>…but some of us might prefer an explicit <code><a href="https://rdrr.io/r/base/function.html">return()</a></code>.</p>
-</section><section id="output-return" class="level2"><h2 class="anchored" data-anchor-id="output-return">Output: <code>return()</code>
-</h2>
-<p>An explicit return specifically states what you want your function to return, which might feel more natural to some people.</p>
-<p></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>add_something <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">something =</span> <span class="dv">2</span>){</span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">return</span>(x <span class="sc">+</span> something)</span>
-<span id="cb24-3"><a href="#cb24-3"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section><section id="general-function-writing-advice" class="level2"><h2 class="anchored" data-anchor-id="general-function-writing-advice">General Function Writing Advice</h2>
-<p>When you have a concept that you want to turn into a function…</p>
-<div class="incremental">
-<ol class="incremental" type="1">
-<li><p>Write a simple <strong>example</strong> of the code without the function framework.</p></li>
-<li><p><strong>Generalize</strong> the example by assigning variables.</p></li>
-<li><p><strong>Write</strong> the code into a function.</p></li>
-<li><p><strong>Call</strong> the function on the desired arguments</p></li>
-</ol>
-</div>
-<p>. . .</p>
-<p><strong>This structure allows you to address issues as you go.</strong></p>
-</section></section><section id="lets-practice" class="level1"><h1>Let’s Practice</h1>
-<!-- make sure seq_along() is included -->
-<!-- do a refresher of [] for vectors  -->
-<!-- - using logical values  -->
-<!-- - using indices -->
-<!-- refresher on if() and else if() -->
-<!-- include optional versus required arguments -->
-<section id="scenario" class="level2"><h2 class="anchored" data-anchor-id="scenario">Scenario</h2>
-<p>You’re a new employee at a non-profit committed to sustainability. The company has recently pledged to plant trees to offset their paper use.</p>
-<p>You have been asked to <strong>write a function</strong> to calculate the number of trees to plant based on a given order.</p>
-</section><section id="function-design" class="level2"><h2 class="anchored" data-anchor-id="function-design">Function Design</h2>
-<p>One carton (5000 sheets) of…</p>
-<ul>
-<li>office paper uses 0.6 trees.</li>
-<li>newsprint (for the newsletter) uses 0.3 trees.</li>
-<li>glossy paper (for the catalog) uses 0.4 trees.</li>
-</ul>
-<p>In order to offset waste, the company wants to plant 125% of the trees that directly go into the paper they buy.</p>
-</section><section id="making-a-gameplan" class="level2"><h2 class="anchored" data-anchor-id="making-a-gameplan">Making a Gameplan</h2>
-<p>Pencil out how you would write a function named <code>trees_to_plant()</code> that takes in two arguments:</p>
-<ul>
-<li>the number of cartons (<code>cartons</code>)</li>
-<li>the material (<code>material</code>) that was ordered</li>
-</ul>
-<p>The function should output the number of trees the company needs to plant.</p>
-<div class="cell">
-<div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_5d9801df" minutes="7" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
-</div>
-</div>
-</section><section id="implementing-your-gameplan" class="level2"><h2 class="anchored" data-anchor-id="implementing-your-gameplan">Implementing Your Gameplan</h2>
-<div class="incremental">
-<ul class="incremental">
-<li><p>Open RStudio and create a new R Script.</p></li>
-<li><p>Save the R Script as <code>week-3-code-along.R</code> and save it in your <code>STAT-1810</code> folder.</p></li>
-<li><p>Type out your function in your R script.</p></li>
-</ul>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_f36a2fa8" minutes="5" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
-</div>
-</div>
-</section><section id="running-the-function" class="level2"><h2 class="anchored" data-anchor-id="running-the-function">Running the Function</h2>
-<ul>
-<li>Run the function. Does anything happen?</li>
-</ul>
-<p>. . .</p>
-<ul>
-<li>Take a look at the <em>Environment</em> pane. Do you notice anything there?</li>
-</ul>
-<p>. . .</p>
-<p>Nothing really happens when you <strong>run</strong> the code that defines a function. The action happens when you <strong>call</strong> that function!</p>
-</section><section id="implementing-your-function" class="level2"><h2 class="anchored" data-anchor-id="implementing-your-function">Implementing Your Function</h2>
-<ul>
-<li>The non-profit places an order for 5 cartons of office paper.
-<ul>
-<li>What result do you expect your function to output?</li>
-<li>Run your function to see if you get the correct result!</li>
-</ul>
-</li>
-</ul>
-<p>. . .</p>
-<ul>
-<li>How many trees should be planted for 2 cartons of glossy paper?
-<ul>
-<li>What result do you expect your function to output?</li>
-<li>Run your function to see if you get the correct result!</li>
-</ul>
-</li>
-</ul></section><section id="function-scope" class="level2"><h2 class="anchored" data-anchor-id="function-scope">Function Scope</h2>
-<p>The function is doing lots of work behind the scenes. <strong>But, what happens inside the function is not accessible outside the function!</strong></p>
-<p>. . .</p>
-<p></p>
-<p>Inside our function, the object <code>num_trees</code> was created. Can we see that object now? Try to print out <code>num_trees</code> in the <em>Console</em>.</p>
-</section><section id="name-masking" class="level2"><h2 class="anchored" data-anchor-id="name-masking">Name Masking</h2>
-<div class="incremental">
-<ul class="incremental">
-<li>In your <em>Console</em> type <code>num_trees &lt;- 7</code>.</li>
-<li>Run <code>num_of_trees()</code> for 1 carton of newsprint.</li>
-<li>In your <em>Console</em> type <code>num_trees</code>.</li>
-</ul>
 </div>
 
 
-</section></section></main><!-- /main --><script>
-  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-  // slide changes (different for each slide format).
-  (function () {
-    // dispatch for htmlwidgets
-    function fireSlideEnter() {
-      const event = window.document.createEvent("Event");
-      event.initEvent("slideenter", true, true);
-      window.document.dispatchEvent(event);
-    }
-
-    function fireSlideChanged(previousSlide, currentSlide) {
-      fireSlideEnter();
-
-      // dispatch for shiny
-      if (window.jQuery) {
-        if (previousSlide) {
-          window.jQuery(previousSlide).trigger("hidden");
-        }
-        if (currentSlide) {
-          window.jQuery(currentSlide).trigger("shown");
-        }
-      }
-    }
-
-    // hookup for slidy
-    if (window.w3c_slidy) {
-      window.w3c_slidy.add_observer(function (slide_num) {
-        // slide_num starts at position 1
-        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-      });
-    }
-
-  })();
-</script><script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="author" content="Instructions">
-<title>Lab 3: Conditionals – R is Your Friend</title>
+<title>PA 12: Find the mystery animal – R is Your Friend</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -103,32 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
+}</script>
 </head>
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
@@ -328,34 +302,20 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#part-0-accessing-the-lab" id="toc-part-0-accessing-the-lab" class="nav-link active" data-scroll-target="#part-0-accessing-the-lab">Part 0: Accessing the Lab</a></li>
-  <li>
-<a href="#part-1-write-and-test-your-functions" id="toc-part-1-write-and-test-your-functions" class="nav-link" data-scroll-target="#part-1-write-and-test-your-functions">Part 1: Write and Test Your Functions</a>
-  <ul>
-<li><a href="#function-1-divide_and_round" id="toc-function-1-divide_and_round" class="nav-link" data-scroll-target="#function-1-divide_and_round">Function 1: <code>divide_and_round()</code></a></li>
-  <li><a href="#function-2-no_fours_or_fourteens" id="toc-function-2-no_fours_or_fourteens" class="nav-link" data-scroll-target="#function-2-no_fours_or_fourteens">Function 2: <code>no_fours_or_fourteens()</code></a></li>
-  <li><a href="#function-3-every_other_num" id="toc-function-3-every_other_num" class="nav-link" data-scroll-target="#function-3-every_other_num">Function 3: <code>every_other_num()</code></a></li>
-  <li><a href="#function-4-shorten" id="toc-function-4-shorten" class="nav-link" data-scroll-target="#function-4-shorten">Function 4: <code>shorten()</code></a></li>
-  </ul>
-</li>
-  <li><a href="#part-2-find-the-best-breakfast-burrito" id="toc-part-2-find-the-best-breakfast-burrito" class="nav-link" data-scroll-target="#part-2-find-the-best-breakfast-burrito">Part 2: Find the Best Breakfast Burrito</a></li>
+<li><a href="#data-exploration" id="toc-data-exploration" class="nav-link active" data-scroll-target="#data-exploration">Data Exploration</a></li>
+  <li><a href="#model-calculation" id="toc-model-calculation" class="nav-link" data-scroll-target="#model-calculation">Model calculation</a></li>
+  <li><a href="#predictions-and-residuals" id="toc-predictions-and-residuals" class="nav-link" data-scroll-target="#predictions-and-residuals">Predictions and residuals</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/R-is-your-friend/course-assessments/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Lab 3: Conditionals</h1>
+<div class="quarto-title-block"><div><h1 class="title">PA 12: Find the mystery animal</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Instructions </p>
-          </div>
-  </div>
     
   
     
@@ -363,176 +323,81 @@ window.Quarto = {
   
 
 
-</header><p>It’s been hotly contested, but your R instructors have named the (controversial) <strong>best breakfast burrito in SLO</strong>! To discover the winner, decode their message.</p>
-<p>We will break this task down into several small steps and write a function for each.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Seeking Help
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources that you find on the internet. There is, however, an important balance between copying someone else’s code and <em>using their code to learn</em>. Therefore, if you use external resources, I want to know about it. You can “inform” me of any resources you used by <strong>pasting the link to the resource in a code comment next to where you used that resource</strong>.</p>
-<p>Additionally, you are permitted and encouraged to work with your peers as you complete lab assignments, but <strong>you are expected to do your own work</strong>. Copying from each other is cheating, and letting people copy from you is also cheating. Please don’t do either of those things.</p>
-</div>
-</div>
-</div>
-<section id="part-0-accessing-the-lab" class="level2"><h2 class="anchored" data-anchor-id="part-0-accessing-the-lab">Part 0: Accessing the Lab</h2>
-<p>You can download the R script for Lab 3 here: <a href="../student/lab3-functions-control-flow.R" download=""><code>lab3-functions-control-flow.R</code></a></p>
-</section><section id="part-1-write-and-test-your-functions" class="level2"><h2 class="anchored" data-anchor-id="part-1-write-and-test-your-functions">Part 1: Write and Test Your Functions</h2>
-<section id="function-1-divide_and_round" class="level3"><h3 class="anchored" data-anchor-id="function-1-divide_and_round">Function 1: <code>divide_and_round()</code>
-</h3>
-<p><strong>1. Write code to manipulate the vector of numbers <code>nums</code>. Your code should divide each element in the vector by the smallest element and then round the results to the nearest whole number.</strong> <em>This code should not be a function.</em></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">nums</span> <span class="op">&lt;-</span> <span class="fl">3</span><span class="op">:</span><span class="fl">12</span></span>
-<span><span class="co"># Add your code below.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><strong>2. Turn your code from Q1 into a function called <code>divide_and_round()</code>.</strong> <em>Fill in the skeleton below.</em></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Complete the function.</span></span>
-<span><span class="va">divide_and_round</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">vec</span><span class="op">)</span><span class="op">{</span></span>
+</header><p>A group of scientists is studying the diet of a particular mystery animal. They have performed an experiment: First, they recorded the weights of each individual animal in their sample. Then, they fed the animals only roasted duck for one year, after which they recorded the new weights of the animals.</p>
+<p>The dataset below contains the weights <em>before</em> and <em>after</em> a year of the roasted duck diet.</p>
+<p><a href="../student/pa12-regression.qmd">Download starter .qmd file</a></p>
+<p><a href="../../data/12-mystery_animal.csv">Download data – <code>12-mystery_animal.csv</code></a></p>
+<div class="cell" data-versions="solution">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu">here</span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"12-mystery_animal.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>3. Test your function by running the code below.</strong> Make sure the output is as expected. You may need to go back to Q2 and make changes to your function!</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Don't change this code!</span></span>
-<span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">10</span>, <span class="cn">NA</span><span class="op">)</span></span>
-<span><span class="fu">divide_and_round</span><span class="op">(</span><span class="va">test</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="data-exploration" class="level2"><h2 class="anchored" data-anchor-id="data-exploration">Data Exploration</h2>
+<ol type="1">
+<li><p>Make a scatter plot of this data, with the <code>weight_before</code> measurements on the x-axis and the <code>weight_after</code> measurements on the y-axis.</p></li>
+<li><p>What appears to be the slope? Why does this make sense in the context of this data?</p></li>
+</ol>
+<div class="versions-solution">
+<p>Both smaller and bigger animals might gain some weight, but the overall weights don’t change much - we expect <code>weight_after</code> to be very similar to <code>weight_before</code>.</p>
 </div>
-<p><strong>4. Why is it important to test the functions that you write? Did the test in Q3 help you improve your function?</strong></p>
-</section><section id="function-2-no_fours_or_fourteens" class="level3"><h3 class="anchored" data-anchor-id="function-2-no_fours_or_fourteens">Function 2: <code>no_fours_or_fourteens()</code>
-</h3>
-<p><strong>5. Write code to manipulate the vector of numbers <code>nums</code>. Your code should return a vector of <code>TRUE</code> and <code>FALSE</code>. For each element, return <code>TRUE</code> if the number is NOT divisible by 4 or 14, and return <code>FALSE</code> otherwise.</strong> <em>This code should not be a function.</em></p>
-<p><strong>6. Turn your code from Q5 into a function called <code>no_fours_or_fourteens()</code>.</strong></p>
-<p><strong>7. Test your function by running the code below.</strong> Make sure the output is as expected. You may need to go back to Q6 and make changes to your function!</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Don't change this code!</span></span>
-<span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span><span class="op">:</span><span class="fl">14</span><span class="op">*</span><span class="fl">5</span>, <span class="cn">NA</span><span class="op">)</span></span>
-<span><span class="fu">no_fours_or_fourteens</span><span class="op">(</span><span class="va">test</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="3" type="1">
+<li>Why is it difficult to estimate the intercept from this data?</li>
+</ol>
+<div class="versions-solution">
+<p>The data starts at around 100, since the animals weigh between 100 and 400 pounds. So, we can’t see what value the y-axis would have at x = 0.</p>
 </div>
-</section><section id="function-3-every_other_num" class="level3"><h3 class="anchored" data-anchor-id="function-3-every_other_num">Function 3: <code>every_other_num()</code>
-</h3>
-<p><strong>8. Write a line of code that returns <code>TRUE</code> if <code>value</code> is odd and <code>FALSE</code> is <code>value</code> is even. Test your code on <code>value &lt;- 3</code> and <code>value &lt;- 6</code>.</strong></p>
-<p><strong>9. Write code to manipulate the vector of numbers <code>nums</code>. Your code should contain a <code>for()</code> loop that returns every other value in the vector, starting from the first element. That is, your code should return the 1st, 3rd, 5th, etc. values.</strong></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section><section id="model-calculation" class="level2"><h2 class="anchored" data-anchor-id="model-calculation">Model calculation</h2>
+<ol type="1">
+<li><p>Write a function called <code>linear_model</code> that takes an <code>x</code> and <code>y</code> vectors as input, and returns the calculated slope and intercept.</p></li>
+<li><p>Use your new function to <em>fit</em> a linear model to this data, predicting the <code>after</code> weights from the <code>before</code> weights.</p></li>
+<li><p>What is the <em>slope</em> of this model? Does that match what you predicted? Why do you think it’s not <em>exactly</em> equal to 1?</p></li>
+</ol>
+<div class="versions-solution">
+<p>1.19. Yes, this is close to 1. But there is always some variability in how much weight the animals gain, so the relationship is not exact for this particular dataset.</p>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
+<ol start="3" type="1">
+<li>What is the <em>intercept</em> of this model? What does that suggest to you about the Duck Diet? Did the animals gain weight, lose weight, or neither?</li>
+</ol>
+<div class="versions-solution">
+<p>2.85. This means they gained a little weight; about 3 pounds on average.</p>
 </div>
+</section><section id="predictions-and-residuals" class="level2"><h2 class="anchored" data-anchor-id="predictions-and-residuals">Predictions and residuals</h2>
+<ol start="4" type="1">
+<li>Add a column to the dataset named <code>pred_after</code>, which contains the <em>predicted</em> weight of the animals after a year of duck diet, based on this model.</li>
+</ol>
+<div class="cell" data-versions="solution">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="va">dat</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    pred_after <span class="op">=</span> <span class="fl">1.19</span><span class="op">*</span><span class="va">weight_before</span> <span class="op">+</span> <span class="fl">2.85</span></span>
+<span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout-body-container callout-body">
-<p>You need to loop through the positions of <code>nums</code> (i.e., 1 through <code>length(nums)</code>) and find the odd positions. Use your ideas from Q8.</p>
+<ol start="5" type="1">
+<li>Add a column to the dataset named <code>residual</code>, equal to the <em>predicted</em> value subtracted from each <em>actual observed</em> value.</li>
+</ol>
+<div class="cell" data-versions="solution">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="va">dat</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    resid <span class="op">=</span> <span class="va">weight_after</span> <span class="op">-</span> <span class="va">pred_after</span></span>
+<span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<ol start="6" type="1">
+<li>Make a scatterplot with the residuals on the y-axis and the predicted values on the x-axis.</li>
+</ol>
+<div class="cell" data-versions="solution">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dat</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">pred_after</span>, y <span class="op">=</span> <span class="va">resid</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>10. Copy and edit your code from Q9. Your code should now return every other value in the vector, starting from the <em>second</em> element. That is, your code should return the 2nd, 4th, 6th, etc. values.</strong></p>
-<p><strong>11. Write a function called <code>every_other_num()</code>. This function should combine your code from Q9 and Q10 to return every other value in a vector. Include an argument called <code>start</code> that lets you choose whether you start from the first element (<code>start = 1</code>) or the second element (<code>start = 2</code>).</strong> <em>Fill in the skeleton below.</em></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Complete the code below.</span></span>
-<span><span class="va">every_other_num</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span><span class="op">{</span></span>
-<span>  </span>
-<span>  <span class="kw">if</span><span class="op">(</span><span class="va">start</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">{</span></span>
-<span></span>
-<span>    </span>
-<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span><span class="op">(</span><span class="va">start</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span></span>
-<span></span>
-<span>    </span>
-<span>  <span class="op">}</span></span>
-<span>  </span>
-<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><strong>12. Test your function by running the code below.</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Don't change this code!</span></span>
-<span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">every_other_num</span><span class="op">(</span><span class="va">test</span>, start <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="fu">every_other_num</span><span class="op">(</span><span class="va">test</span>, start <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section><section id="function-4-shorten" class="level3"><h3 class="anchored" data-anchor-id="function-4-shorten">Function 4: <code>shorten()</code>
-</h3>
-<p><strong>13. Write code to manipulate the vector of numbers <code>nums</code>. Your code should use a <code>while()</code> loop to find the first cumulative sum GREATER THAN 10.</strong></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <span class="math inline">\(i^{th}\)</span> cumulative sum of a vector is the sum of element <span class="math inline">\(1\)</span> through element <span class="math inline">\(i\)</span>.</p>
-<p>Consider the vector <span class="math inline">\((2,4,6,8,10)\)</span>. The first cumulative sum is <span class="math inline">\(2\)</span>; the second cumulative sum is <span class="math inline">\(2 + 4 = 6\)</span>; the third cumulative sum is <span class="math inline">\(2 + 4 + 6 = 12\)</span>, etc.</p>
-</div>
-</div>
-<p><strong>14. Write a function called <code>shorten()</code>. This function should take in a vector, drop all values BEFORE the cumulative sum is greater than a provided number, and return the remaining values from the original vector. Adapt your <code>while()</code> loop from Q13 to do this.</strong></p>
-<p><strong>15. Write code to test your function.</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Write code to test the shorten() function here.</span></span>
-<span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
-<span><span class="fu">shorten</span><span class="op">(</span><span class="va">test</span>, <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="fu">shorten</span><span class="op">(</span><span class="va">test</span>, <span class="fl">20</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section></section><section id="part-2-find-the-best-breakfast-burrito" class="level2"><h2 class="anchored" data-anchor-id="part-2-find-the-best-breakfast-burrito">Part 2: Find the Best Breakfast Burrito</h2>
-<p><strong>16. Once you have written your four functions correctly, run the following code:</strong></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">39</span>, <span class="fl">1.87</span>, <span class="fl">48</span>, <span class="fl">11</span>, <span class="fl">8</span>, <span class="fl">45</span>, <span class="fl">21</span>, <span class="fl">5</span>, <span class="fl">12</span>, <span class="fl">33</span>, <span class="fl">9</span>, <span class="fl">11</span>, <span class="fl">108</span>,</span>
-<span>            <span class="fl">4</span>, <span class="fl">18</span>, <span class="fl">5</span>, <span class="fl">16</span>, <span class="fl">17</span>, <span class="fl">8</span>, <span class="fl">48</span>, <span class="fl">27</span>, <span class="fl">24</span>, <span class="fl">4</span>, <span class="fl">22</span>, <span class="fl">12</span>, <span class="fl">27</span>, <span class="fl">23</span>,</span>
-<span>            <span class="fl">46</span>, <span class="fl">42</span>, <span class="fl">35</span>, <span class="fl">15</span>, <span class="fl">34</span>, <span class="fl">36</span>, <span class="fl">26</span>, <span class="fl">18</span>, <span class="fl">10</span>, <span class="fl">18.21</span>, <span class="fl">72.04</span>,</span>
-<span>            <span class="fl">36.9</span>, <span class="fl">41.81</span>, <span class="fl">29</span>, <span class="fl">89.75</span>, <span class="fl">34.03</span>, <span class="fl">20.18</span>, <span class="fl">48.74</span>, <span class="fl">15.76</span>,</span>
-<span>            <span class="fl">31.86</span>, <span class="fl">83.6</span>, <span class="fl">43.55</span>, <span class="fl">39.99</span>, <span class="fl">23.55</span>, <span class="fl">8.54</span>, <span class="fl">24.71</span>, <span class="fl">22.02</span>,</span>
-<span>            <span class="fl">9.71</span>, <span class="fl">62.14</span>, <span class="fl">35.46</span>, <span class="fl">16.61</span>, <span class="fl">15.66</span>, <span class="fl">21.29</span>, <span class="fl">30.52</span>,</span>
-<span>            <span class="fl">201.07</span>, <span class="fl">45.81</span>, <span class="fl">7.85</span>, <span class="fl">30.13</span>, <span class="fl">21.02</span>, <span class="fl">22.62</span>, <span class="fl">10.2</span>, <span class="fl">6.02</span>,</span>
-<span>            <span class="fl">30.12</span>, <span class="fl">10.64</span>, <span class="fl">31.72</span>, <span class="fl">24.57</span>, <span class="fl">14.43</span>, <span class="fl">43.37</span>, <span class="fl">89.93</span>,</span>
-<span>            <span class="fl">44.72</span>, <span class="fl">34.14</span>, <span class="fl">13.62</span>, <span class="fl">45.56</span>, <span class="fl">22.96</span>, <span class="fl">7.05</span>, <span class="fl">29.99</span>, <span class="fl">41.38</span>,</span>
-<span>            <span class="fl">26.59</span>, <span class="fl">23.04</span>, <span class="fl">19.82</span>, <span class="fl">50.73</span>, <span class="fl">39.56</span>, <span class="fl">8.88</span>, <span class="fl">30.22</span>, <span class="fl">85.85</span>,</span>
-<span>            <span class="fl">5.78</span>, <span class="fl">78.85</span>, <span class="fl">29.52</span>, <span class="fl">66.27</span>, <span class="fl">44.06</span>, <span class="fl">39.57</span>, <span class="fl">24.43</span>, <span class="fl">64.32</span>,</span>
-<span>            <span class="fl">3.35</span>, <span class="fl">67.45</span>, <span class="fl">46.72</span>, <span class="fl">48.44</span>, <span class="fl">48.65</span>, <span class="fl">49.1</span>, <span class="fl">40.28</span>, <span class="fl">19.04</span>,</span>
-<span>            <span class="fl">13.6</span>, <span class="fl">74</span>, <span class="fl">29</span>, <span class="fl">42.4</span>, <span class="fl">6</span>, <span class="fl">4</span>, <span class="fl">49</span>, <span class="fl">16.17</span>, <span class="fl">22.62</span>, <span class="fl">9.31</span>,</span>
-<span>            <span class="fl">92.6</span>, <span class="fl">9</span>, <span class="fl">63.01</span>, <span class="fl">30.12</span>, <span class="fl">14</span>, <span class="fl">31.72</span>, <span class="fl">88.57</span>, <span class="fl">15.3</span>, <span class="fl">3.7</span>,</span>
-<span>            <span class="fl">89.93</span>, <span class="fl">72.4</span>, <span class="fl">33.1</span>, <span class="fl">29</span>, <span class="fl">44.39</span>, <span class="fl">56.29</span>, <span class="fl">23.04</span>, <span class="fl">1.99</span>,</span>
-<span>            <span class="fl">51.15</span>, <span class="fl">56.93</span>, <span class="fl">13</span><span class="op">)</span></span>
-<span> <span class="co"># Has 138 elements! </span></span>
-<span></span>
-<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu">every_other_num</span><span class="op">(</span><span class="va">my_vec</span>, start <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="co"># Should have 69 elements!</span></span>
-<span></span>
-<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu">divide_and_round</span><span class="op">(</span><span class="va">my_vec</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu">every_other_num</span><span class="op">(</span><span class="va">my_vec</span>, start <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="co"># Should have 35 elements!</span></span>
-<span></span>
-<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu">shorten</span><span class="op">(</span><span class="va">my_vec</span>, <span class="fl">350</span><span class="op">)</span></span>
-<span><span class="co"># Should have 20 elements!</span></span>
-<span></span>
-<span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="va">my_vec</span><span class="op">[</span><span class="fu">no_fours_or_fourteens</span><span class="op">(</span><span class="va">my_vec</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="co"># Should have 9 elements! </span></span>
-<span></span>
-<span><span class="va">my_vec</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>And the winner is…
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you have done everything correctly, your final vector will be nine numbers long. To find the name of a SLO establishment, turn these numbers into letters (where 1 = A, 2 = B, etc.).</p>
-</div>
+<ol start="7" type="1">
+<li>What is the mystery animal that was fed the roasted duck diet?</li>
+</ol>
+<div class="versions-solution">
+<p>A Shark!</p>
 </div>
 
+
+<!-- -->
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -617,6 +482,57 @@ Tip
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -946,7 +862,137 @@ Tip
       }
     }
   });
-  </script>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "PA 12: Find the mystery animal"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true      </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">  error: true</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="an">eval:</span><span class="co"> false</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>A group of scientists is studying the diet of a particular mystery animal. They</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>have performed an experiment: First, they recorded the weights of each individual</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>animal in their sample.  Then, they fed the animals only roasted duck for one</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>year, after which they recorded the new weights of the animals.</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>The dataset below contains the weights *before* and *after* a year </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>of the roasted duck diet.</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download starter .qmd file</span><span class="co">](../student/pa12-regression.qmd)</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download data -- `12-mystery_animal.csv`</span><span class="co">](../../data/12-mystery_animal.csv)</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#| versions: solution</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"12-mystery_animal.csv"</span>))</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Exploration</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Make a scatter plot of this data, with the <span class="in">`weight_before`</span> measurements on the x-axis </span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>and the <span class="in">`weight_after`</span> measurements on the y-axis.  </span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>What appears to be the slope? Why does this make sense in the context of this data?</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>::: {.versions-solution}</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>Both smaller and bigger animals might gain some weight, but the overall weights</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>don't change much - we expect <span class="in">`weight_after`</span> to be very similar to <span class="in">`weight_before`</span>.</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Why is it difficult to estimate the intercept from this data?</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>::: {.versions-solution}</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>The data starts at around 100, since the animals weigh between 100 and 400 pounds.</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>So, we can't see what value the y-axis would have at x = 0.</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model calculation</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Write a function called <span class="in">`linear_model`</span> that takes an <span class="in">`x`</span> and <span class="in">`y`</span> vectors as</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>input, and returns the calculated slope and intercept.</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Use your new function to *fit* a linear model to this data, predicting the</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="in">`after`</span> weights from the <span class="in">`before`</span> weights.</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>What is the *slope* of this model?  Does that match what you predicted? Why</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>do you think it's not *exactly* equal to 1?</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>::: {.versions-solution}</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>1.19.  Yes, this is close to 1.  But there is always some variability in how</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>much weight the animals gain, so the relationship is not exact for this particular</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>dataset.</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>What is the *intercept* of this model?  What does that suggest to you about</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>the Duck Diet?  Did the animals gain weight, lose weight, or neither?</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>::: {.versions-solution}</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>2.85.  This means they gained a little weight; about 3 pounds on average.</span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="fu">## Predictions and residuals</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Add a column to the dataset named <span class="in">`pred_after`</span>, which contains the *predicted*</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>weight of the animals after a year of duck diet, based on this model.</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="co">#| versions: solution</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>    <span class="at">pred_after =</span> <span class="fl">1.19</span><span class="sc">*</span>weight_before <span class="sc">+</span> <span class="fl">2.85</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Add a column to the dataset named <span class="in">`residual`</span>, equal to the *predicted* value</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>subtracted from each *actual observed* value.</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="co">#| versions: solution</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>    <span class="at">resid =</span> weight_after <span class="sc">-</span> pred_after</span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Make a scatterplot with the residuals on the y-axis and the predicted values</span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>on the x-axis.  </span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="co">#| versions: solution</span></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">|&gt;</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> pred_after, <span class="at">y =</span> resid) <span class="sc">+</span></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>What is the mystery animal that was fed the roasted duck diet?</span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>::: {.versions-solution}</span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>A Shark!</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">

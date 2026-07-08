@@ -1,0 +1,153 @@
+---
+title: "PA 13: Catch a Con Man"
+format: 
+  html:
+    code-tools: true
+    toc: true      
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+
+author: SOLUTIONS
+embed-resources: true
+---
+:::{.versions-instructions}
+For this assignment, for more consistency with your classmates and the solutions,
+set your seed to 1957.
+
+*Note that this does not guarantee you will get the same answer as those around
+you, since not all machines generate "random" numbers in the same way.*
+
+:::
+
+A man named Professor Harold Hill wanders into your small town.  He claims to be selling top-quality instruments for a marching band.  He begins selling his instruments to all the children in town.
+
+You are suspicious of Professor Hill, and think that perhaps he is selling instruments made of subpar materials, to scam the townsfolk.
+
+You do some research on the weights of properly crafted brass instruments, and you learn the following facts:
+
+* Trombones weights are Normally distributed (`norm`), with a mean weight of 4.6 pounds and a standard deviation of 0.8 pounds.
+
+* Coronet[^1] weights are Uniformly (`unif`) distributed between 1.5 and 3.5 pounds.
+
+[^1]: Coronet is an old-timey word for "trumpet"!
+
+* Reed instruments (like clarinets, bassoons, and saxophones) have weights are Exponentially (`exp`) distributed with a *rate parameter* of 0.25.
+
+## Warmup
+
+*Hint: Each of the following is answered with one `r`, `q`, `p`, or `d` function
+of a statistical distribution.*
+
+* About what percent of trombones do you expect to be more than 5 pounds?
+
+```{r}
+#| versions: solution
+
+pnorm(5, mean = 4.6, sd = 0.8, lower.tail = FALSE)
+```
+
+* About what percent of reed instruments do you expect to be more than 5 pounds?
+
+```{r}
+#| versions: solution
+
+pexp(5, rate = 0.25, lower.tail = FALSE)
+```
+
+* What is the 95th *percentile* for trumpet weight?  That is, what is the value
+that would weigh more than about 95% of trumpets?
+
+```{r}
+#| versions: solution
+
+qunif(0.95, min = 1.5, max = 4.5)
+```
+
+* What is the 10th percentile for trombone weight?
+
+```{r}
+#| versions: solution
+
+qnorm(0.1, mean = 4.6, sd = 0.8)
+```
+
+* Simulate 100 random trombone weights.  How many of them were above 5 pounds?
+
+```{r}
+#| versions: solution
+
+samples <- rnorm(100, mean = 4.6, sd = 0.8)
+sum(samples > 5)
+```
+
+## Catching the con
+
+You manage to intercept a shipping notice for delivery to Professor Hill.  It says the following:
+
+```
+Wells Fargo Shipment 1957
+
+To:  Harold Hill, Mason City, Iowa
+From:  Music Factory, Gary, Indiana
+
+Items included:
+    Trombones: 76
+    Cornets: 110
+    Saxophones: 542
+    Clarinets: 318
+    Bassoons: 175
+    
+Total Shipped Weight: 4532 lbs.
+
+```
+
+This is your chance to catch Professor Hill in his lie!
+
+First, write a function that samples the correct number of weights of trombones, cornets (trumpets), and reed instruments, and then returns the total weight.
+
+Then, use that function to create 1000 random samples of total weight.
+
+How many of these samples had a weight less than Prof. Hill's shipment?
+
+```{r}
+#| versions: solution
+
+music_man <- function(n_trom, n_coronets, n_reeds){
+  
+  trombone_weights <- rnorm(n_trom, mean = 4.6, sd = 0.8)
+  coronet_weights <- runif(n_coronets, 1.5, 3.5)
+  reed_weights <- rexp(n_reeds, 1/4)
+  
+  sum(trombone_weights, coronet_weights, reed_weights)
+  
+}
+
+my_weights <- replicate(1000, 
+                        music_man(trombone_weights = 76, 
+                                  coronet_weights = 110, 
+                                  reed_weights = 1035))
+sum(my_weights < 4532)
+```
+
+```{r}
+#| versions: 
+
+music_man <- function(n_trom, n_coronets, n_reeds){
+  
+  trombone_weights <- _________
+  coronet_weights <- ________
+  reed_weights <- __________
+  
+  
+}
+
+my_weights <- replicate(______, 
+                        music_man(n_trom = _____, 
+                                  n_coronets = _______, 
+                                  n_reeds = ______))
+
+sum(__________)
+```

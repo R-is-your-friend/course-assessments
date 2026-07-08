@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/slides/03b-functions.html</loc>
-    <lastmod>2026-07-07T14:44:03.916Z</lastmod>
+    <lastmod>2026-07-07T17:42:10.908Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/slides/02-indexing.html</loc>
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/practice-activities/main-version/pa9-strings-dates.html</loc>
-    <lastmod>2026-06-28T14:09:50.081Z</lastmod>
+    <lastmod>2026-07-08T22:49:41.046Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/practice-activities/main-version/pa7-pivot.html</loc>
@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/labs/instructions/lab3-functions-control-flow.html</loc>
-    <lastmod>2026-07-07T15:00:40.309Z</lastmod>
+    <lastmod>2026-07-08T21:47:37.135Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/labs/instructions/lab1-hello-code.html</loc>
@@ -114,7 +114,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/handouts/03b-handout.html</loc>
-    <lastmod>2026-07-07T14:45:09.403Z</lastmod>
+    <lastmod>2026-07-07T17:42:10.906Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/handouts/02-handout.html</loc>
@@ -186,7 +186,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/index.html</loc>
-    <lastmod>2026-06-22T00:54:56.825Z</lastmod>
+    <lastmod>2026-06-16T21:36:13.148Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/labs/instructions/lab2-r-is-friend.html</loc>
@@ -202,7 +202,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/labs/main-version/lab3-functions-control-flow.html</loc>
-    <lastmod>2026-07-06T22:05:32.837Z</lastmod>
+    <lastmod>2026-07-07T17:42:10.907Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/labs/main-version/lab9-murder.html</loc>
@@ -226,7 +226,7 @@
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/practice-activities/instructions/pa9-strings-dates.html</loc>
-    <lastmod>2026-07-07T15:01:23.195Z</lastmod>
+    <lastmod>2026-07-08T22:44:01.690Z</lastmod>
   </url>
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/practice-activities/main-version/pa10-communication.html</loc>
@@ -283,5 +283,41 @@
   <url>
     <loc>https://R-is-your-friend.github.io/course-assessments/slides/07.1-more-dplyr-pivot.html</loc>
     <lastmod>2026-06-28T14:09:50.082Z</lastmod>
+  </url>
+  <url>
+    <loc>https://R-is-your-friend.github.io/course-assessments/reading/week-13.html</loc>
+    <lastmod>2026-07-08T21:27:01.774Z</lastmod>
+  </url>
+  <url>
+    <loc>https://R-is-your-friend.github.io/course-assessments/practice-activities/main-version/pa13-simulation.html</loc>
+    <lastmod>2026-07-08T21:27:01.774Z</lastmod>
+  </url>
+  <url>
+    <loc>https://R-is-your-friend.github.io/course-assessments/practice-activities/main-version/pa11-functions.html</loc>
+    <lastmod>2026-07-08T21:27:01.773Z</lastmod>
+  </url>
+  <url>
+    <loc>https://R-is-your-friend.github.io/course-assessments/practice-activities/main-version/pa12-regression.html</loc>
+    <lastmod>2026-07-08T21:27:01.773Z</lastmod>
+  </url>
+  <url>
+    <loc>https://R-is-your-friend.github.io/course-assessments/reading/week-11.html</loc>
+    <lastmod>2026-07-08T21:27:01.774Z</lastmod>
+  </url>
+  <url>
+    <loc>https://R-is-your-friend.github.io/course-assessments/reading/week-14.html</loc>
+    <lastmod>2026-07-08T21:27:01.774Z</lastmod>
+  </url>
+  <url>
+    <loc>https://R-is-your-friend.github.io/course-assessments/practice-activities/instructions/pa12-regression.html</loc>
+    <lastmod>2026-07-08T21:47:42.641Z</lastmod>
+  </url>
+  <url>
+    <loc>https://R-is-your-friend.github.io/course-assessments/practice-activities/instructions/pa11-functions.html</loc>
+    <lastmod>2026-07-08T21:47:41.360Z</lastmod>
+  </url>
+  <url>
+    <loc>https://R-is-your-friend.github.io/course-assessments/practice-activities/instructions/pa13-simulation.html</loc>
+    <lastmod>2026-07-08T21:47:44.680Z</lastmod>
   </url>
 </urlset>
