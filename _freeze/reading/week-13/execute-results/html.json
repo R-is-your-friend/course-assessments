@@ -1,0 +1,15 @@
+{
+  "hash": "802d3e964279c82bd235ed95067f969b",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Week 12: Statistical Tests and Regression\"\nnumber-sections: true\nnumber-depth: 2\n---\n\n\n\n\n::: columns\n::: {.column width=\"48%\"}\n#### 📖 Readings: 60 min\n\n#### 🏋🏾‍♂️ Activities: 0 min\n\n:::\n\n::: {.column width=\"4%\"}\n:::\n\n::: {.column width=\"48%\"}\n#### 📽 Videos: 0 min \n\n#### 💻 Tutorials: 0 min\n:::\n:::\n\n------------------------------------------------------------------------\n\n## Linear Regression\n\n::: callout\n## Learning Objectives\n\n+ Review simple linear regression\n+ Use the `lm()` function to fit a linear model\n+ Visualize *predicted values* and *residuals* from a linear model\n\n:::\n\n\n### 📖 Required Reading: [OpenIntro Stat, 7.1.1 - 7.1.3](https://openintrostat.github.io/ims/model-slr.html#sec-fit-line-res-cor)\n\n#### 📽 Optional Video: [StatQuest - Intro to Linear Regression](https://www.youtube.com/watch?v=aFDOzpTeg0s)\n\nBy the end of the reading, you should be able to answer the following questions:\n\n::: {.callout-check-in}\n\n\n\n:::\n\n### 📖 Required Reading: [Fitting and Visualizing Linear Models in R]()\n\n#### 📽 Optional Video: [StatQuest - Linear Regression in R](https://www.youtube.com/watch?v=wsi0jg_gH28)\n\n## Statistical Tests in R\n\n::: callout\n## Learning Objectives\n+ Write functions with multiple inputs or outputs\n+ Debug functions with `print()`\n+ Practice defensive programming and input validation\n:::\n\n\n### 📖 Required Reading: \n\n\n\nBy the end of the reading, you should be able to answer the following questions:\n\n::: {.callout-check-in}\n\nTO-DO\n\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

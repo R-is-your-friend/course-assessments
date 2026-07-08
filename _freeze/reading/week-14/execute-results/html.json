@@ -1,0 +1,15 @@
+{
+  "hash": "c7bc9276b1d6c7ec4d62712725e9e863",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Week 14: Bootstrapping and Simulation\"\nnumber-sections: true\nnumber-depth: 2\n---\n\n\n\n\n::: columns\n::: {.column width=\"48%\"}\n#### 📖 Readings: 60 min\n\n#### 🏋🏾‍♂️ Activities: 0 min\n\n:::\n\n::: {.column width=\"4%\"}\n:::\n\n::: {.column width=\"48%\"}\n#### 📽 Videos: 0 min \n\n#### 💻 Tutorials: 0 min\n:::\n:::\n\n------------------------------------------------------------------------\n\n\n\n\n## Bootstrapping\n\n::: callout\n## Learning Objectives\n\n+ Write functions to repeat an analysis\n+ Use loops to repeat process over bootstrapped samples\n+ Visualize and interpret results of a bootstrapping procedure\n\n:::\n\n### 📖 Required Reading: \n\n### 📖 Required Reading: \n\n\nBy the end of the reading, you should be able to answer the following questions:\n\n::: {.callout-check-in}\n\nTO-DO\n\n:::\n\n## Simulation\n\n::: callout\n## Learning Objectives\n+ Simulate random processes with the `r,p,q` set of distribution functions.\n+ Write functions to simulate complex random processes.\n+ Use loops to repeat simulations.\n+ Visualize and interpret results of simulations.\n:::\n\n\n### 📖 Required Reading: \n\n#### 📽 Optional Video:\n\nBy the end of the reading, you should be able to answer the following questions:\n\n::: {.callout-check-in}\n\nTO-DO\n\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

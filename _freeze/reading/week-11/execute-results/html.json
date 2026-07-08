@@ -1,0 +1,15 @@
+{
+  "hash": "9dc184b48a0d5278a56659f74bace3ec",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Week 12: Leveling up functions and scripting\"\nnumber-sections: true\nnumber-depth: 2\n---\n\n\n\n\n::: columns\n::: {.column width=\"48%\"}\n#### 📖 Readings: 60 min\n\n#### 🏋🏾‍♂️ Activities: 0 min\n\n:::\n\n::: {.column width=\"4%\"}\n:::\n\n::: {.column width=\"48%\"}\n#### 📽 Videos: 0 min \n\n#### 💻 Tutorials: 0 min\n:::\n:::\n\n------------------------------------------------------------------------\n\n\n\n\n## Using .R Scripts\n\n::: callout\n## Learning Objectives\n\n+ Manage a folder of R scripts to keep qmd source files clean\n+ Use `source()` appropriately with file paths inside a notebook\n+ Separate data processing pipelines from specific analyses\n\n:::\n\n### 📖 Required Reading: \n\n### 📖 Required Reading: \n\n\nBy the end of the reading, you should be able to answer the following questions:\n\n::: {.callout-check-in}\n\nTO-DO\n\n:::\n\n## Writing more complicated functions\n\n::: callout\n## Learning Objectives\n+ Write functions with multiple inputs or outputs\n+ Debug functions with `print()`\n+ Practice defensive programming and input validation\n:::\n\n\n### 📖 Required Reading: \n\n#### 📽 Optional Video:\n\nBy the end of the reading, you should be able to answer the following questions:\n\n::: {.callout-check-in}\n\nTO-DO\n\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

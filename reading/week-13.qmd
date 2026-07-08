@@ -1,0 +1,84 @@
+---
+title: "Week 12: Statistical Tests and Regression"
+number-sections: true
+number-depth: 2
+---
+
+```{r}
+#| include: false
+#| label: packages-setup
+
+library(tidyverse)
+```
+
+
+::: columns
+::: {.column width="48%"}
+#### 📖 Readings: 60 min
+
+#### 🏋🏾‍♂️ Activities: 0 min
+
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+#### 📽 Videos: 0 min 
+
+#### 💻 Tutorials: 0 min
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Linear Regression
+
+::: callout
+## Learning Objectives
+
++ Review simple linear regression
++ Use the `lm()` function to fit a linear model
++ Visualize *predicted values* and *residuals* from a linear model
+
+:::
+
+
+### 📖 Required Reading: [OpenIntro Stat, 7.1.1 - 7.1.3](https://openintrostat.github.io/ims/model-slr.html#sec-fit-line-res-cor)
+
+#### 📽 Optional Video: [StatQuest - Intro to Linear Regression](https://www.youtube.com/watch?v=aFDOzpTeg0s)
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+
+
+
+:::
+
+### 📖 Required Reading: [Fitting and Visualizing Linear Models in R]()
+
+#### 📽 Optional Video: [StatQuest - Linear Regression in R](https://www.youtube.com/watch?v=wsi0jg_gH28)
+
+## Statistical Tests in R
+
+::: callout
+## Learning Objectives
++ Write functions with multiple inputs or outputs
++ Debug functions with `print()`
++ Practice defensive programming and input validation
+:::
+
+
+### 📖 Required Reading: 
+
+
+
+By the end of the reading, you should be able to answer the following questions:
+
+::: {.callout-check-in}
+
+TO-DO
+
+:::
+
