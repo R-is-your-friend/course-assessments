@@ -14,9 +14,9 @@ library(tidyverse)
 
 ::: columns
 ::: {.column width="48%"}
-#### 📖 Readings: 60 min
+#### 📖 Readings: 70 min
 
-#### 🏋🏾‍♂️ Activities: 5 min
+#### 🏋🏾‍♂️ Activities: 10 min
 
 :::
 
@@ -59,8 +59,55 @@ By the end of the reading, you should be able to answer the following questions:
 
 ::: {.callout-check-in}
 
-TO-DO
+A classic dataset used to introduce data science concepts is the `cereal` data. The `cereal` data is part of the **liver** package in R. Load the data using the same code we saw for the `penguins` dataset:
 
+```{r}
+# load liver package
+library(liver)
+
+# import cereal data
+data(cereal)
+```
+
+Look up the *data dictionary* for the `cereal` data. Running the code below, or going to the [documentation online](https://search.r-project.org/CRAN/refmans/liver/html/cereal.html).
+
+```{r}
+?cereal
+```
+
+1. What is one row in this dataset?
+
+
+2. If you follow the string of sources for the data, you will end up at [this description](https://lib.stat.cmu.edu/datasets/1993.expo/README), from the 1993 American Statistical Association (ASA) Statistical Graphics Exposition. 
+
+- getting at influences on the data... need to write this question
+- impacts of FDA on data -- nutrition labels mandated in 1990.
+
+
+
+3. What cultural context does this data pertain to?
+
+<!--Want to improve this-->
+
+a. United States groceries
+b. Worldwide groceries
+c. It is unclear
+d. California groceries
+
+4. Which of the following versions of the data would be considered **rectangular** data? Select all that apply.
+
+::: {layout-nrow=2}
+
+![1990 Cap'N Crunch Box with nutrition label](https://i.ebayimg.com/images/g/8HAAAOSwXBdiq45-/s-l1600.webp){width=50%}
+
+![in RStudio](images/04-cereal-rstudio.png)
+
+![in RStudio](images/04-cereal2-rstudio.png) 
+
+![in Excel](images/04-cereal-xlsx.png)
+
+
+:::
 :::
 
 ## Importing Data into R
@@ -74,14 +121,81 @@ By the end of the reading, you should be able to answer the following questions:
 
 ::: {.callout-check-in}
 
-TO-DO
+5. Match the function with the data file to read it into R.
 
-+ Show code for reading in the data -- read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)? 
-  + What if the data looks like xxxx.
-+ How many dimensions is the data? -- use dim()
-+ Screenshot of reflected file folder structure & Files tab in R.
-+ match the View(), str(), glimpse()
-  + what sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?
+:::columns
+:::{.column width=40%}
+
+A. `read_csv(__)`
+
+B. `read_xlsx(__)`
+
+C. `read_delim(__, delim = "|")`
+
+:::
+:::{.column width=60%}
+
+
+:::panel-tabset
+
+## Data 1
+
+![](images/04-tsv_file.png)
+
+## Data 2
+![](images/04-csv_file.png)
+
+## Data 3
+
+![](images/04-pipe_file.png)
+
+## Data 4
+
+![](images/04-xlsx-file.png)
+
+:::
+:::
+:::
+
+6. Match the exploratory data function with the output. 
+
+:::columns
+:::{.column width=20%}
+A. `View(cereal)`
+
+B. `str(cereal)`
+
+C. `head(cereal)`
+:::
+
+:::{.column width=80%}
+
+
+:::panel-tabset
+
+## Output 1
+
+```{r}
+#| echo: false
+
+str(cereal)
+```
+
+
+## Output 2
+```{r}
+#| echo: false
+
+head(cereal)
+```
+
+## Output 3
+![](images/04-view-cereal.png){width=80% fig-pos="center"}
+:::
+
+:::
+:::
+
 :::
 
 ## Project Management
@@ -94,7 +208,42 @@ TO-DO
 
 ::: {.callout-check-in}
 
-TO-DO
+7.  How does Quarto know that a section of text is R code -- i.e. what symbols is Quarto looking for? 
+
+:::columns
+
+:::column
+
+a.
+
+`#| r`
+
+
+b. 
+
+` ```{r} `
+
+` ``` `
+:::
+:::column
+c. 
+
+` '''{r} `
+
+` ''' `
+
+d. 
+
+` {r} `
+:::
+:::
+
+8. When written in *Markdown* in a Quarto document, a \# defines a...
+
+a. heading
+b. code chunk option
+c. comment
+d. plain text
 
 :::
 
@@ -102,7 +251,7 @@ TO-DO
 
 ::: {.callout-check-in}
 
-**Question XX** Follow the instructions to create your `stat-1810` RStudio project in `stat-1810` you have already been working with in class. 
+9. Follow the instructions to create your `stat-1810` RStudio project in `stat-1810` you have already been working with in class. 
 
 Submit a screenshot showing your `stat-1810` directory, making sure the `stat-1810.Rproj` file is visible like: ![](https://r-is-your-friend.github.io/course-pack/images/04-files-comp-1.png){width=40%}.
 
@@ -116,6 +265,29 @@ By the end of the reading, you should be able to answer the following questions:
 
 ::: {.callout-check-in}
 
-TO-DO
+10. For each of the following file paths, are they a relative or absolute file path?
+
+a. `"cereal.csv"`
+b. `"/Users/charlixcx/Documents/stat-1810/week4/cereal.csv"`
+c. `"../week4/cereal.csv"`
+c. `"week4/cereal.csv"`
+
+11. Which of the file paths from Q10 would give a correct *relative* file path to `"cereal.csv"` if you are working in `"explore_cereal.qmd"` with the following directory structure:
+
+```
+Documents
+   |
+   - stat-1810
+       |
+       - week1
+       - week2
+       - week3
+            |
+            - "lab3.R"
+       - week4
+            |
+            - "cereal.csv"
+            - "explore_cereal.qmd"
+```
 
 :::

@@ -2,10 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Week 4: Data is Friend – R is Your Friend</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -17,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -27,19 +65,18 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-7ce30178866831a6b21cbdaa9bd09259.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-e81cce3fd1325ecc9fc5772cafd9ac9c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-290d99a15e2b49b7c052d22b868d2b0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-35a7db35b2e3a435dfa5013d0bf90561.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -313,8 +350,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header><div class="columns">
 <div class="column" style="width:48%;">
-<section id="readings-60-min" class="level4"><h4 class="anchored" data-anchor-id="readings-60-min">📖 Readings: 60 min</h4>
-</section><section id="activities-5-min" class="level4"><h4 class="anchored" data-anchor-id="activities-5-min">🏋🏾‍♂️ Activities: 5 min</h4>
+<section id="readings-70-min" class="level4"><h4 class="anchored" data-anchor-id="readings-70-min">📖 Readings: 70 min</h4>
+</section><section id="activities-10-min" class="level4"><h4 class="anchored" data-anchor-id="activities-10-min">🏋🏾‍♂️ Activities: 10 min</h4>
 </section>
 </div><div class="column" style="width:4%;">
 
@@ -366,7 +403,68 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>TO-DO</p>
+<p>A classic dataset used to introduce data science concepts is the <code>cereal</code> data. The <code>cereal</code> data is part of the <strong>liver</strong> package in R. Load the data using the same code we saw for the <code>penguins</code> dataset:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load liver package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://book-data-science-r.netlify.app">liver</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># import cereal data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">cereal</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Look up the <em>data dictionary</em> for the <code>cereal</code> data. Running the code below, or going to the <a href="https://search.r-project.org/CRAN/refmans/liver/html/cereal.html">documentation online</a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">cereal</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol type="1">
+<li><p>What is one row in this dataset?</p></li>
+<li><p>If you follow the string of sources for the data, you will end up at <a href="https://lib.stat.cmu.edu/datasets/1993.expo/README">this description</a>, from the 1993 American Statistical Association (ASA) Statistical Graphics Exposition.</p></li>
+</ol>
+<ul>
+<li>getting at influences on the data… need to write this question</li>
+<li>impacts of FDA on data – nutrition labels mandated in 1990.</li>
+</ul>
+<ol start="3" type="1">
+<li>What cultural context does this data pertain to?</li>
+</ol>
+<!--Want to improve this--><ol type="a">
+<li>United States groceries</li>
+<li>Worldwide groceries</li>
+<li>It is unclear</li>
+<li>California groceries</li>
+</ol>
+<ol start="4" type="1">
+<li>Which of the following versions of the data would be considered <strong>rectangular</strong> data? Select all that apply.</li>
+</ol>
+<div class="quarto-layout-panel" data-layout-nrow="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="https://i.ebayimg.com/images/g/8HAAAOSwXBdiq45-/s-l1600.webp" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>1990 Cap’N Crunch Box with nutrition label</figcaption></figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/04-cereal-rstudio.png" class="img-fluid figure-img"></p>
+<figcaption>in RStudio</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/04-cereal2-rstudio.png" class="img-fluid figure-img"></p>
+<figcaption>in RStudio</figcaption></figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/04-cereal-xlsx.png" class="img-fluid figure-img"></p>
+<figcaption>in Excel</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section></section><section id="importing-data-into-r" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="importing-data-into-r">
@@ -385,21 +483,105 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>TO-DO</p>
-<ul>
-<li>Show code for reading in the data – read_table()? read_csv()? read_xlsx()? read_delim(delim = _____)?
-<ul>
-<li>What if the data looks like xxxx.</li>
+<ol start="5" type="1">
+<li>Match the function with the data file to read it into R.</li>
+</ol>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>A. <code>read_csv(__)</code></p>
+<p>B. <code>read_xlsx(__)</code></p>
+<p>C. <code>read_delim(__, delim = "|")</code></p>
+</div><div class="column" style="width:60%;">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Data 1</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Data 2</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Data 3</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Data 4</a></li>
 </ul>
-</li>
-<li>How many dimensions is the data? – use dim()</li>
-<li>Screenshot of reflected file folder structure &amp; Files tab in R.</li>
-<li>match the View(), str(), glimpse()
-<ul>
-<li>what sort of variable is each? ID = 1, 2, 3, 4, is read in as numeric. Does that make sense What is this 1L (integers). What in the world is a double?</li>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><img src="images/04-tsv_file.png" class="img-fluid"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><img src="images/04-csv_file.png" class="img-fluid"></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><img src="images/04-pipe_file.png" class="img-fluid"></p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p><img src="images/04-xlsx-file.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Match the exploratory data function with the output.</li>
+</ol>
+<div class="columns">
+<div class="column" style="width:20%;">
+<p>A. <code>View(cereal)</code></p>
+<p>B. <code>str(cereal)</code></p>
+<p>C. <code>head(cereal)</code></p>
+</div><div class="column" style="width:80%;">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Output 1</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Output 2</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Output 3</a></li>
 </ul>
-</li>
-</ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   77 obs. of  16 variables:
+ $ name    : Factor w/ 77 levels "100% Bran","100% Natural Bran",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ manuf   : Factor w/ 7 levels "A","G","K","N",..: 4 6 3 3 7 2 3 2 7 5 ...
+ $ type    : Factor w/ 2 levels "cold","hot": 1 1 1 1 1 1 1 1 1 1 ...
+ $ calories: int  70 120 70 50 110 110 110 130 90 90 ...
+ $ protein : int  4 3 4 4 2 2 2 3 2 3 ...
+ $ fat     : int  1 5 1 0 2 2 0 2 1 0 ...
+ $ sodium  : int  130 15 260 140 200 180 125 210 200 210 ...
+ $ fiber   : num  10 2 9 14 1 1.5 1 2 4 5 ...
+ $ carbo   : num  5 8 7 8 14 10.5 11 18 15 13 ...
+ $ sugars  : int  6 8 5 0 8 10 14 8 6 5 ...
+ $ potass  : int  280 135 320 330 -1 70 30 100 125 190 ...
+ $ vitamins: int  25 0 25 25 25 25 25 25 25 25 ...
+ $ shelf   : int  3 3 3 3 3 1 2 3 1 3 ...
+ $ weight  : num  1 1 1 1 1 1 1 1.33 1 1 ...
+ $ cups    : num  0.33 1 0.33 0.5 0.75 0.75 1 0.75 0.67 0.67 ...
+ $ rating  : num  68.4 34 59.4 93.7 34.4 ...</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                       name manuf type calories protein fat sodium fiber carbo
+1                 100% Bran     N cold       70       4   1    130  10.0   5.0
+2         100% Natural Bran     Q cold      120       3   5     15   2.0   8.0
+3                  All-Bran     K cold       70       4   1    260   9.0   7.0
+4 All-Bran with Extra Fiber     K cold       50       4   0    140  14.0   8.0
+5            Almond Delight     R cold      110       2   2    200   1.0  14.0
+6   Apple Cinnamon Cheerios     G cold      110       2   2    180   1.5  10.5
+  sugars potass vitamins shelf weight cups   rating
+1      6    280       25     3      1 0.33 68.40297
+2      8    135        0     3      1 1.00 33.98368
+3      5    320       25     3      1 0.33 59.42551
+4      0    330       25     3      1 0.50 93.70491
+5      8     -1       25     3      1 0.75 34.38484
+6     10     70       25     1      1 0.75 29.50954</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p><img src="images/04-view-cereal.png" class="img-fluid" style="width:80.0%" data-fig-pos="center"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section></section><section id="project-management" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="project-management">
@@ -418,7 +600,41 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>TO-DO</p>
+<ol start="7" type="1">
+<li>How does Quarto know that a section of text is R code – i.e.&nbsp;what symbols is Quarto looking for?</li>
+</ol>
+<div class="columns">
+<div class="column">
+<ol type="a">
+<li>
+</li></ol>
+<p><code>#| r</code></p>
+<ol start="2" type="a">
+<li>
+</li></ol>
+<p><code>```{r}</code></p>
+<p><code>```</code></p>
+</div><div class="column">
+<ol start="3" type="a">
+<li>
+</li></ol>
+<p><code>'''{r}</code></p>
+<p><code>'''</code></p>
+<ol start="4" type="a">
+<li>
+</li></ol>
+<p><code>{r}</code></p>
+</div>
+</div>
+<ol start="8" type="1">
+<li>When written in <em>Markdown</em> in a Quarto document, a # defines a…</li>
+</ol>
+<ol type="a">
+<li>heading</li>
+<li>code chunk option</li>
+<li>comment</li>
+<li>plain text</li>
+</ol>
 </div>
 </div>
 </section><section id="required-reading-rstudio-projects" class="level3"><h3 class="anchored" data-anchor-id="required-reading-rstudio-projects">📖 Required Reading: <a href="https://r-is-your-friend.github.io/course-pack/04-data-is-friend.html#rstudio-projects">RStudio Projects</a>
@@ -433,7 +649,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Question XX</strong> Follow the instructions to create your <code>stat-1810</code> RStudio project in <code>stat-1810</code> you have already been working with in class.</p>
+<ol start="9" type="1">
+<li>Follow the instructions to create your <code>stat-1810</code> RStudio project in <code>stat-1810</code> you have already been working with in class.</li>
+</ol>
 <p>Submit a screenshot showing your <code>stat-1810</code> directory, making sure the <code>stat-1810.Rproj</code> file is visible like: <img src="https://r-is-your-friend.github.io/course-pack/images/04-files-comp-1.png" class="img-fluid" style="width:40.0%">.</p>
 </div>
 </div>
@@ -450,7 +668,31 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>TO-DO</p>
+<ol start="10" type="1">
+<li>For each of the following file paths, are they a relative or absolute file path?</li>
+</ol>
+<ol type="a">
+<li><code>"cereal.csv"</code></li>
+<li><code>"/Users/charlixcx/Documents/stat-1810/week4/cereal.csv"</code></li>
+<li><code>"../week4/cereal.csv"</code></li>
+<li><code>"week4/cereal.csv"</code></li>
+</ol>
+<ol start="11" type="1">
+<li>Which of the file paths from Q10 would give a correct <em>relative</em> file path to <code>"cereal.csv"</code> if you are working in <code>"explore_cereal.qmd"</code> with the following directory structure:</li>
+</ol>
+<pre><code>Documents
+   |
+   - stat-1810
+       |
+       - week1
+       - week2
+       - week3
+            |
+            - "lab3.R"
+       - week4
+            |
+            - "cereal.csv"
+            - "explore_cereal.qmd"</code></pre>
 </div>
 </div>
 
