@@ -14,6 +14,13 @@ author: SOLUTIONS
 embed-resources: true
 ---
 ```{r}
+#| label: setup
+
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
 nsf_terminations <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-06/nsf_terminations.csv')
 ```
 
@@ -55,9 +62,69 @@ nsf_terminations |>
   nrow()
 ```
 
-## Strings - `str_replace()`
+## Strings
 
-6. 
+One of the variables in our data is `in_cruz_list`, which is a reference to a [report](https://democrats-science.house.gov/imo/media/doc/democratic_staff_report-defending_hidden_figures.pdf) by Ted Cruz, a US senator from Texas, which labeled 3,483 NSF grants as  "questionable projects that promoted diversity, equity, and inclusion (DEI) tenets or pushed onto science neo-Marxist perspectives about enduring class struggle." There is also a [rebuttal report](https://www.govinfo.gov/content/pkg/GOVPUB-Y4_C73_7-PURL-gpo234941/pdf/GOVPUB-Y4_C73_7-PURL-gpo234941.pdf). 
 
-- "clean up" the grant name by replacing words `str_replace_all()`
-- `str_extract()`
+The report lists a large number of key words that the Cruz report used to identify these grants. Let's see if we can find these terms in the cancelled grants. We compiled the terms into an excel sheet to make things easier.
+
+```{r}
+search_terms <- read_xlsx("../../data/09-cruz_terms.xlsx")
+```
+
+6. In order to figure out if any one of these terms is found in the grant title or abstract, we need to condense the `term` column in `search_terms` into a **single** string, call it, `term_string` where...
+
+a. each term is all lowercase
+b. each term is separated by a pipe "|"
+
+```{r}
+term_string <- search_terms |> 
+  mutate(term = str_to_lower(term)) |> 
+  pull() |> 
+  str_flatten(collapse = "|")
+```
+
+Now `term_string` is a SUPER long string:
+
+```{r}
+str_length(term_string)
+```
+
+7. Use `term_string` to create an indicator variable called `term_found` 
+in `nsf_terminations` that takes the value 1 if one of the Cruz terms is 
+found in the title or abstract and 0 otherwise.
+
+```{r}
+nsf_terminations <- nsf_terminations |> 
+  mutate(term_found = case_when(str_detect(str_to_lower(project_title), term_string) ~ 1,
+                                str_detect(str_to_lower(abstract), term_string) ~ 1,
+                                .default = 0))
+```
+
+8. Use `term_string` to create a variable called `first_term`, that gives
+the first of the Cruz terms that appeared in the grant's abstract. 
+
+```{r}
+nsf_terminations <- nsf_terminations |> 
+  mutate(first_term = str_extract(str_to_lower(abstract), term_string))
+```
+
+9. What are the top 10 terms that were found first?
+
+```{r}
+nsf_terminations |> 
+  count(first_term) |> 
+  slice_max(order_by = n, n = 10)
+```
+
+10. Help the researchers out by replacing the term "historically" with "previously" in their abstract so that they won't be flagged next time! Check that it worked!
+
+```{r}
+nsf_terminations <- nsf_terminations |> 
+  mutate(abstract = str_replace_all(abstract, "historically", "previously"),
+         abstract = str_replace_all(abstract, "Historically", "Previously"))
+
+nsf_terminations |> 
+  filter(str_detect(abstract, "historically|Historically")) |> 
+  nrow()
+```
